@@ -167,9 +167,10 @@
   },
   "active": "b77831b90dd9f87b",
   "lastOpenFiles": [
-    "category-folder/index.md",
-    "category-folder/Some note.md",
     "index.md",
+    "category-folder/Some note.md",
+    "category-folder/index.md",
+    "category-folder",
     "WhatsApp Image 2025-02-03 at 20.49.56_6487a55b.jpg",
     "Pasted image 20250204192528.png",
     "Linux.md",
@@ -194,7 +195,6 @@
     "C/Loops.md",
     "C/Basics.md",
     "C/Arrays.md",
-    "C",
-    "category-folder"
+    "C"
   ]
 }
