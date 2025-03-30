@@ -20,7 +20,7 @@
 	   
 	  `torch.arrange(1,11)`
 	  `tensor([1,2,3,4,5,6,7,8,9,10])`
-	10. torch.range
+	10. `torch.range`
 	11. `torch.linspace(start, end, steps, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False)` -  `requires_grad` - If `True`, gradients will be computed for the tensor during backpropagation.
 	12. `torch.empty` - Empty tensor
 	13. `torch.full(size, fill_value, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False)` - Creates a tensor filled with a specified scalar value. Shape is manually specified. Used when we know the desired shape and attributes.
