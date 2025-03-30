@@ -11,7 +11,6 @@ import Spacer from "./Spacer"
 import TableOfContents from "./TableOfContents"
 import Explorer from "./Explorer"
 import TagList from "./TagList"
-import Backlinks from "./Backlinks"
 import Search from "./Search"
 import Footer from "./Footer"
 import DesktopOnly from "./DesktopOnly"
@@ -33,7 +32,6 @@ export {
   TableOfContents,
   Explorer,
   TagList,
-  Backlinks,
   Search,
   Footer,
   DesktopOnly,
