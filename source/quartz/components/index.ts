@@ -33,7 +33,6 @@ export {
   TableOfContents,
   Explorer,
   TagList,
-  Graph,
   Backlinks,
   Search,
   Footer,
