@@ -18,8 +18,8 @@
 	8. `torch.randn()` - Creates a tensor with normal distribution
 	9. `torch.arange(start, end, step=1, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False)` - When the `step` argument is a **non-integer (floating point)**, `torch.arange()` generates numbers **by repeated addition** of `step` to `start` until reaching (but not exceeding) `end`. Since `torch.arange()` **performs repeated additions**, it can lead to **floating-point precision errors**. Use `torch.linspace()` if you need a precise number of points between two values.
 	   
-	  ` torch.arrange(1,11)'
-	   `tensor([1,2,3,4,5,6,7,8,9,10])
+	  `torch.arrange(1,11)`
+	  `tensor([1,2,3,4,5,6,7,8,9,10])`
 	10. torch.range
 	11. `torch.linspace(start, end, steps, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False)` -  `requires_grad` - If `True`, gradients will be computed for the tensor during backpropagation.
 	12. `torch.empty` - Empty tensor
