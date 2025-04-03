@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/Basics.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
+              "title": "index"
             }
           }
         ]
@@ -171,8 +171,14 @@
   },
   "active": "947a77600cde3d96",
   "lastOpenFiles": [
-    "C/Strings.md",
+    "Linux.md",
+    "WhatsApp Image 2025-02-03 at 20.49.56_6487a55b.jpg",
+    "Pasted image 20250204192528.png",
+    "SOFI/Untitled.md",
+    "SOFI/SOFI.md",
+    "SOFI/Lec 1.md",
     "C/Basics.md",
+    "C/Strings.md",
     "Pytorch/Basics of Neural Network.md",
     "Pytorch/Tensors.md",
     "C/Arrays.md",
@@ -181,13 +187,7 @@
     "category-folder/Some note.md",
     "index.md",
     "category-folder",
-    "WhatsApp Image 2025-02-03 at 20.49.56_6487a55b.jpg",
-    "Pasted image 20250204192528.png",
-    "Linux.md",
     "Tags",
-    "SOFI/Untitled.md",
-    "SOFI/Lec 1.md",
-    "SOFI/SOFI.md",
     "SOFI",
     "Pytorch/Data Types.md",
     "Pytorch",

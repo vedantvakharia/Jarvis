@@ -139,7 +139,7 @@ If we want to write 10< x <20, then we have to write in the following manner
 | string                                 | %s               |
 | Pointer (`void*`)                      | %p               |
 ## 4. Loops
-1. For loop - In a single for loop, we can initialize and use 2 variables.
+1. For loop - A pair of expressions separated by a comma is evaluated left to right, and the type and value of the result are the type and value of the right operand. Thus in a for statement, it is possible to place multiple expressions in the various parts, for example to process two indices in parallel. In a single for loop, we can initialize and use 2 variables.
 	Instead of - `for(int i = 0; i<n; i++)`
 				`for (int j = i+1; j<n; j++)`
 	We can use `for(int i = 0, j = i+1; i<n, j<n, i++, j++)`
