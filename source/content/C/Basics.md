@@ -125,7 +125,7 @@ If we want to write 10< x <20, then we have to write in the following manner
 | ll              | Long long integer                      |
 | L               | Long double for floating-point numbers |
  
-5. **Specifiers - **
+5. **Specifiers** - 
 
 | Data type                              | Format specifier |
 | -------------------------------------- | ---------------- |
