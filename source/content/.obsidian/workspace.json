@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pytorch/Basics of Neural Network.md",
+                "file": "C/Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basics of Neural Network"
+              "title": "Basics"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -172,11 +171,11 @@
   },
   "active": "947a77600cde3d96",
   "lastOpenFiles": [
-    "Pytorch/Tensors.md",
-    "Pytorch/Basics of Neural Network.md",
-    "C/Arrays.md",
     "C/Strings.md",
     "C/Basics.md",
+    "Pytorch/Basics of Neural Network.md",
+    "Pytorch/Tensors.md",
+    "C/Arrays.md",
     "C/Loops.md",
     "category-folder/index.md",
     "category-folder/Some note.md",
