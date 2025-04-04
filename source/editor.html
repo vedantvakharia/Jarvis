@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Note Editor</title>
+  <style>
+    textarea { width: 90%; height: 400px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Jarvis Note Editor</h2>
+  <select id="fileSelector" onchange="loadFile()"></select>
+  <textarea id="editor"></textarea><br>
+  <button onclick="saveFile()">💾 Save</button>
+
+  <script>
+    const REPO = "Stark10106/Jarvis";
+    const BRANCH = "main";
+    const TOKEN = "your_github_pat_here";  // 🔥 Use only in personal environments
+
+    if (sessionStorage.getItem("authenticated") !== "true") {
+      alert("You are not logged in!");
+      window.location.href = "login.html";
+    }
+
+    async function getFiles() {
+      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/`);
+      const files = await res.json();
+      const selector = document.getElementById("fileSelector");
+      files.filter(f => f.name.endsWith(".md")).forEach(file => {
+        const opt = document.createElement("option");
+        opt.value = file.name;
+        opt.innerText = file.name;
+        selector.appendChild(opt);
+      });
+    }
+
+    async function loadFile() {
+      const file = document.getElementById("fileSelector").value;
+      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${file}`);
+      const data = await res.json();
+      const content = atob(data.content);
+      document.getElementById("editor").value = content;
+      document.getElementById("editor").dataset.sha = data.sha;
+    }
+
+    async function saveFile() {
+      const file = document.getElementById("fileSelector").value;
+      const content = btoa(unescape(encodeURIComponent(document.getElementById("editor").value)));
+      const sha = document.getElementById("editor").dataset.sha;
+
+      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${file}`, {
+        method: "PUT",
+        headers: {
+          "Authorization": `token ${TOKEN}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: `Update ${file}`,
+          content: content,
+          sha: sha,
+          branch: BRANCH
+        })
+      });
+
+      if (res.ok) {
+        alert("✅ File saved!");
+      } else {
+        alert("❌ Save failed");
+      }
+    }
+
+    getFiles();
+  </script>
+</body>
+</html>
