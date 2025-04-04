@@ -9,7 +9,7 @@ exports.handler = async function(event) {
     const repoOwner = "Stark10106";  // Change to your GitHub username
     const repoName = "Jarvis";       // Change to your repo name
     const branch = "main";           // Change if you're using a different branch
-    const githubToken = "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN"; // Replace with your token
+    const githubToken = "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"; // Replace with your token
 
     const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/content/${filename}`;
 
