@@ -1,75 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Note Editor</title>
-  <style>
-    textarea { width: 90%; height: 400px; margin-top: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
 </head>
 <body>
-  <h2>Jarvis Note Editor</h2>
-  <select id="fileSelector" onchange="loadFile()"></select>
-  <textarea id="editor"></textarea><br>
-  <button onclick="saveFile()">💾 Save</button>
+    <h2>Markdown Editor</h2>
 
-  <script>
-    const REPO = "Stark10106/Jarvis";
-    const BRANCH = "main";
-    const TOKEN = "your_github_pat_here";  // 🔥 Use only in personal environments
+    <input type="text" id="filename" placeholder="Enter filename (e.g., my-note.md)">
+    <button onclick="loadNote()">Load Note</button>
 
-    if (sessionStorage.getItem("authenticated") !== "true") {
-      alert("You are not logged in!");
-      window.location.href = "login.html";
-    }
+    <textarea id="editor"></textarea>
+    <button onclick="saveNote()">Save Note</button>
 
-    async function getFiles() {
-      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/`);
-      const files = await res.json();
-      const selector = document.getElementById("fileSelector");
-      files.filter(f => f.name.endsWith(".md")).forEach(file => {
-        const opt = document.createElement("option");
-        opt.value = file.name;
-        opt.innerText = file.name;
-        selector.appendChild(opt);
-      });
-    }
+    <script>
+        const easyMDE = new EasyMDE({ element: document.getElementById("editor") });
 
-    async function loadFile() {
-      const file = document.getElementById("fileSelector").value;
-      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${file}`);
-      const data = await res.json();
-      const content = atob(data.content);
-      document.getElementById("editor").value = content;
-      document.getElementById("editor").dataset.sha = data.sha;
-    }
+        async function loadNote() {
+            const filename = document.getElementById("filename").value;
+            const response = await fetch(`/notes/${filename}`);
+            const text = await response.text();
+            easyMDE.value(text);
+        }
 
-    async function saveFile() {
-      const file = document.getElementById("fileSelector").value;
-      const content = btoa(unescape(encodeURIComponent(document.getElementById("editor").value)));
-      const sha = document.getElementById("editor").dataset.sha;
+        async function saveNote() {
+            const filename = document.getElementById("filename").value;
+            const content = easyMDE.value();
+            
+            const response = await fetch('/update-note', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filename, content })
+            });
 
-      const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${file}`, {
-        method: "PUT",
-        headers: {
-          "Authorization": `token ${TOKEN}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          message: `Update ${file}`,
-          content: content,
-          sha: sha,
-          branch: BRANCH
-        })
-      });
-
-      if (res.ok) {
-        alert("✅ File saved!");
-      } else {
-        alert("❌ Save failed");
-      }
-    }
-
-    getFiles();
-  </script>
+            if (response.ok) alert("Note saved!");
+            else alert("Failed to save note.");
+        }
+    </script>
 </body>
 </html>
