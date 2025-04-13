@@ -1,7 +1,7 @@
 1. **Dereferencing operator (*) -** used to declare pointer variable and access the value stored in the address.
 2. **Address operator (&)** - used to returns the address of a variable or to access the address of a variable to a pointer.
 3. **%p format specifier** is used to print the address stored in pointer variables.- Printing a pointer with %d format specifier may result in a warning or undefined behaviour because the size of a pointer (usually 4 or 8 bytes) may not match that of an integer.
-4. - The memory address format will always be in hexadecimal format (starting with 0x). In C and most programming languages, **`0x` is a prefix** that indicates a **hexadecimal (base 16) number**. 
+4. The memory address format will always be in hexadecimal format (starting with 0x). In C and most programming languages, **`0x` is a prefix** that indicates a **hexadecimal (base 16) number**. 
 	
 	Reasons for using hexadecimal and not decimal - 
 		1. Memory addresses are **large numbers**. Hexadecimal **compresses** them into a shorter format.

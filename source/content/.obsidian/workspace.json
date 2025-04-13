@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "C/Dynamic Memory Allocation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "Dynamic Memory Allocation"
             }
           }
         ]
@@ -171,21 +171,25 @@
   },
   "active": "947a77600cde3d96",
   "lastOpenFiles": [
+    "C/Basics.md",
+    "C/Dynamic Memory Allocation.md",
+    "Untitled.md",
+    "C/Pointers.md",
+    "C/Arrays.md",
+    "C/Loops.md",
+    "C/Recursion.md",
+    "index.md",
     "Linux.md",
     "WhatsApp Image 2025-02-03 at 20.49.56_6487a55b.jpg",
     "Pasted image 20250204192528.png",
     "SOFI/Untitled.md",
     "SOFI/SOFI.md",
     "SOFI/Lec 1.md",
-    "C/Basics.md",
     "C/Strings.md",
     "Pytorch/Basics of Neural Network.md",
     "Pytorch/Tensors.md",
-    "C/Arrays.md",
-    "C/Loops.md",
     "category-folder/index.md",
     "category-folder/Some note.md",
-    "index.md",
     "category-folder",
     "Tags",
     "SOFI",
@@ -198,8 +202,6 @@
     "Python/Matplotlib.md",
     "Python",
     "C/Structures.md",
-    "C/Recursion.md",
-    "C/Pointers.md",
     "C"
   ]
 }
