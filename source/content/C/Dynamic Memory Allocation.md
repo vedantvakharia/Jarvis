@@ -57,4 +57,71 @@ Size is **decided at runtime** (while your program is running). More flexible an
    [Why does calloc exist? — njs blog](https://vorpus.org/blog/why-does-calloc-exist/)
    [c - Difference between malloc and calloc? - Stack Overflow](https://stackoverflow.com/questions/1538420/difference-between-malloc-and-calloc)
    [c - calloc v/s malloc and time efficiency - Stack Overflow](https://stackoverflow.com/questions/2605476/calloc-v-s-malloc-and-time-efficiency)
+
+
+## Linked Lists
+
+A Linked List is a linear data structure where each element (node) contains the data (value) and a pointer to the next node. Unlike arrays, linked lists don’t store elements in contiguous memory — they’re dynamically allocated.
+
+The address of the first node a special name called HEAD. Also, the last node in the linked list can be identified because its next portion points to NULL.
+
+**General Syntax -** 
+`struct Node {`
+    `int data;`
+    `struct Node* next;`
+};
+
+**Single Linked Lists -** 
+1. **Traverse a Linked List -** We keep moving the temp node to the next one and display its contents. When temp is NULL, we know that we have reached the end of the linked list so we get out of the while loop.
    
+`struct node *temp = head;`
+`printf("\n\nList elements are - \n");`
+`while(temp != NULL) {`
+`printf("%d --->",temp->data);`
+ `temp = temp->next;`
+}
+
+2. **Insert Elements to a Linked List** - 
+	1. Insert after the i node - 
+	   
+	   // We create a temporary pointer `temp` to walk through the list starting from the head.
+	   `void insertAfterPosition(struct Node* head, int i, int new_data) {`
+	   `struct Node* temp = head;`
+	   
+	   // Traverse to the i-th node
+	   `for (int pos = 0; pos < i; pos++) {`
+		   `temp = temp->next;}`
+	  
+	   // Allocate new node
+	   `struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));`
+	   `new_node->data = new_data;`
+	   
+	   // Insert after the i-th node
+	   `new_node->next = temp->next;`
+	   `temp->next = new_node;`
+	   }
+	   
+	3. Insert at beginning - 
+	   Allocate memory for new node
+	   Store data
+	   Change next of new node to point to head
+	   Change head to point to recently created node
+	     `struct node *newNode;`
+	     `newNode = malloc(sizeof(struct node));`
+	     `newNode->data = 4;`
+	     `newNode->next = head;`
+	     `head = newNode;`
+	4. Insert at the end - 
+	   `struct node *newNode;
+	   `newNode = malloc(sizeof(struct node));`
+	   `newNode->data = 4;`
+	   `newNode->next = NULL;`
+	   
+	   `struct node *temp = head;`
+	   `while(temp->next != NULL){`
+	   `temp = temp->next;`
+	   }
+	   
+	   `temp->next = newNode;` 
+3. Delete nodes from a linked list  - 
+4. 

@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -171,13 +172,13 @@
   },
   "active": "947a77600cde3d96",
   "lastOpenFiles": [
+    "C/Arrays.md",
+    "C/Recursion.md",
+    "C/Pointers.md",
     "C/Basics.md",
     "C/Dynamic Memory Allocation.md",
     "Untitled.md",
-    "C/Pointers.md",
-    "C/Arrays.md",
     "C/Loops.md",
-    "C/Recursion.md",
     "index.md",
     "Linux.md",
     "WhatsApp Image 2025-02-03 at 20.49.56_6487a55b.jpg",
