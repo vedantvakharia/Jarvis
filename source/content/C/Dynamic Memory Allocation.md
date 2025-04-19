@@ -124,4 +124,5 @@ The address of the first node a special name called HEAD. Also, the last node i
 	   
 	   `temp->next = newNode;` 
 3. Delete nodes from a linked list  - 
+	1. Delete the ith node
 4. 
