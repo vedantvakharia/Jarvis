@@ -85,18 +85,15 @@ The address of the first node a special name called HEAD. Also, the last node i
 	1. Insert after the i node - 
 	   
 	   // We create a temporary pointer `temp` to walk through the list starting from the head.
-	   ```c
+```
 `void insertAfterPosition(struct Node* head, int i, int new_data) {`
 	   `struct Node* temp = head;`
 ```
-
-	   
 	   
 	   // Traverse to the i-th node
 	   ```c
 for (int pos = 0; pos < i; pos++) {`
 		   `temp = temp->next;}
-```
 
 	  
 	   // Allocate new node
