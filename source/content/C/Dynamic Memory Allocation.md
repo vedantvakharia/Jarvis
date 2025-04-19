@@ -85,7 +85,7 @@ The address of the first node a special name called HEAD. Also, the last node i
 	1. Insert after the i node - 
 	   
 	   // We create a temporary pointer `temp` to walk through the list starting from the head.
-	   ```cpp
+	   ```c
 void insertAfterPosition(struct Node* head, int i, int new_data) {
 	   struct Node* temp = head;
 ```
@@ -93,9 +93,9 @@ void insertAfterPosition(struct Node* head, int i, int new_data) {
 	   
 	   
 	   // Traverse to the i-th node
-	   ```ruby
-`for (int pos = 0; pos < i; pos++) {`
-		   `temp = temp->next;}`
+	   ```c
+for (int pos = 0; pos < i; pos++) {`
+		   `temp = temp->next;}
 ```
 
 	  
