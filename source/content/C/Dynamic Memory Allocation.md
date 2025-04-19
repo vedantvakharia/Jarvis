@@ -84,16 +84,18 @@ The address of the first node a special name called HEAD. Also, the last node i
 2. **Insert Elements to a Linked List** - 
 	1. Insert after the i node - 
 	   
-	   // We create a temporary pointer `temp` to walk through the list starting from the head.
-```
-`void insertAfterPosition(struct Node* head, int i, int new_data) {`
+```csharp
+	   //We create a temporary pointer `temp` to walk through the list starting from the head.
+	`void insertAfterPosition(struct Node* head, int i, int new_data) {`
 	   `struct Node* temp = head;`
 ```
+
 	   
-	   // Traverse to the i-th node
-	   ```c
-for (int pos = 0; pos < i; pos++) {`
-		   `temp = temp->next;}
+```
+	// Traverse to the i-th node
+	for (int pos = 0; pos < i; pos++) {
+		   emp = temp->next;}
+```
 
 	  
 	   // Allocate new node
@@ -105,7 +107,7 @@ for (int pos = 0; pos < i; pos++) {`
 	   `temp->next = new_node;`
 	   }
 	   
-	3. Insert at beginning - 
+	3.Insert at beginning - 
 	   Allocate memory for new node
 	   Store data
 	   Change next of new node to point to head
@@ -115,7 +117,7 @@ for (int pos = 0; pos < i; pos++) {`
 	     `newNode->data = 4;`
 	     `newNode->next = head;`
 	     `head = newNode;`
-	4. Insert at the end - 
+	2. Insert at the end - 
 	   `struct node *newNode;
 	   `newNode = malloc(sizeof(struct node));`
 	   `newNode->data = 4;`
