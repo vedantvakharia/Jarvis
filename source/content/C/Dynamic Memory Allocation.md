@@ -86,8 +86,8 @@ The address of the first node a special name called HEAD. Also, the last node i
 	   
 	   // We create a temporary pointer `temp` to walk through the list starting from the head.
 	   ```cpp
-`void insertAfterPosition(struct Node* head, int i, int new_data) {`
-	   `struct Node* temp = head;`
+void insertAfterPosition(struct Node* head, int i, int new_data) {
+	   struct Node* temp = head;
 ```
 
 	   
