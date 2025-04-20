@@ -25,7 +25,7 @@ ptr = (int *)realloc(ptr, 10 * sizeof(int));
 ```
 
 2. free() - The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
-3. memset() - Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in `string.h` 
+3. memset() - Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h` 
    
    ```c
 void *memset(void *ptr, int value, size_t num);
@@ -176,6 +176,20 @@ temp = temp->next;
 }
 ```
 
-	1. Delete the 1st node - 
-	2. Delete the last node - 
+	2.  Delete the 1st node - Point head to the second node
+	   ```c
+head = head->next;
+```
+
+	3. Delete the last node - 
+	   Traverse to second last element
+	   Change its next pointer to null
+```c
+	   struct node* temp = head;
+	   while(temp->next->next!=NULL){
+	   temp = temp->next;
+	   }
+	   temp->next = NULL;
+```
+
 4. 
