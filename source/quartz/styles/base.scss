@@ -178,54 +178,64 @@ a {
       margin: 0 auto;
     }
 
-    & .sidebar {
-      gap: 2rem;
-      top: 0;
-      box-sizing: border-box;
-      padding: $topSpacing 2rem 2rem 2rem;
-      display: flex;
-      height: 100vh;
-      position: sticky;
+    .sidebar {
+  display: flex;
+  gap: 2rem;
+  top: 0;
+  box-sizing: border-box;
+  padding: $topSpacing 2rem 2rem;
+  height: 100vh;
+  position: sticky;
+
+  &.left {
+    z-index: 1;
+    grid-area: grid-sidebar-left;
+    flex-direction: column;
+
+    @media all and ($mobile) {
+      gap: 0;
+      align-items: center;
+      flex-direction: row;
+      height: auto;
+      position: initial;
+      padding: 2rem 0 0 0;
+    }
+  }
+
+  &.right {
+    grid-area: grid-sidebar-right;
+    flex-direction: column;
+    margin-right: 0;
+
+    @media all and ($mobile) {
+      margin-left: auto;
+      margin-right: auto;
+
+      // Hide TOC only on mobile
+      .toc {
+        display: none;
+      }
     }
 
-    & .sidebar.left {
-      z-index: 1;
-      grid-area: grid-sidebar-left;
-      flex-direction: column;
-      @media all and ($mobile) {
-        gap: 0;
-        align-items: center;
-        position: initial;
-        display: flex;
-        height: unset;
-        flex-direction: row;
-        padding: 0;
-        padding-top: 2rem;
-      }
-    }
+    @media all and ($desktop) {
+      position: initial;
+      height: auto;
+      width: 100%;
+      flex-direction: row;
+      padding: 0;
 
-    & .sidebar.right {
-      grid-area: grid-sidebar-right;
-      margin-right: 0;
-      flex-direction: column;
-      @media all and ($mobile) {
-        margin-left: inherit;
-        margin-right: inherit;
-      }
-      @media all and ($desktop) {
-        position: initial;
-        height: unset;
-        width: 100%;
-        flex-direction: row;
-        padding: 0;
-        & > * {
-          flex: 1;
-        }
-        & > .toc {
-          display: none;
-        }
+      & > * {
+        flex: 1;
       }
     }
+  }
+}
+
+.page-header,
+.page-footer {
+  margin-top: 1rem;
+}
+
     & .page-header,
     & .page-footer {
       margin-top: 1rem;

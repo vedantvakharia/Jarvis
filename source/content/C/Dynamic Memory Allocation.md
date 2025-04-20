@@ -24,8 +24,8 @@ int *ptr = (int *)malloc(5 * sizeof(int));
 ptr = (int *)realloc(ptr, 10 * sizeof(int));
 ```
 
-2. free() - The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
-3. memset() - Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h` 
+2. **free() -** The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
+3. **memset() -** Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h` 
    
    ```c
 void *memset(void *ptr, int value, size_t num);
@@ -34,11 +34,11 @@ void *memset(void *ptr, int value, size_t num);
    ptr - Pointer to the starting memory block
    value - Value to set (in **bytes**, only the lower 8 bits are used)
    num - Number of **bytes** to set
-	1. **Uses of memset() -** 
+   	1. **Uses of memset() -** 
 		1. **Used with malloc** - malloc + memset gives the same effect of calloc when memset initializes each element to 0.
 		2. **Used with strings and arrays** - It can initialize the whole array or string to the character or integer. 
 	2. **Problems with memset() -** 
-		1. Initializing to int -  As `memset()` works bitwise and not element wise, it creates errors when we try to initialize it to numbers as OS works on hex.
+		1. Initializing to int -  As `memset()` works bitwise and not element wise, it creates errors when we try to initialize it to numbers as OS works 			on hex.
 		   - So for example if we try to this, 
 		    `memset(arr, 5, sizeof(arr));`
 		    memset fills **every byte** of the memory block with the value 5 i.e., `0x05` in hex. 
@@ -49,7 +49,7 @@ void *memset(void *ptr, int value, size_t num);
 		- Now, when the computer reads the first 4 bytes (as an `int`), it sees:
 		`[0x05, 0x05, 0x05, 0x05] = 0x05050505 = 84215045`
 
-		- Since an `int` in C is usually 4 bytes, each int in memory becomes 0x05050505 which equals 84215045. So instead of an array initialized to 5, we get 
+		- Since an `int` in C is usually 4 bytes, each int in memory becomes 0x05050505 which equals 84215045. So instead of an array initialized to 5, 			we get 
 		    `[84215045, 84215045, 84215045, 84215045, 84215045]`
 		
 		- So, for integers, we need to use a for loop and manually set each element to the integer. 
