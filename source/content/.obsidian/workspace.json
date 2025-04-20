@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/Dynamic Memory Allocation.md",
+                "file": "C/Sorting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dynamic Memory Allocation"
+              "title": "Sorting"
             }
           }
         ]
@@ -171,13 +171,14 @@
   },
   "active": "947a77600cde3d96",
   "lastOpenFiles": [
+    "C/Dynamic Memory Allocation.md",
+    "C/Sorting.md",
+    "Untitled.md",
     "C/Recursion.md",
     "C/Structures.md",
     "C/Arrays.md",
-    "C/Dynamic Memory Allocation.md",
     "C/Pointers.md",
     "C/Basics.md",
-    "Untitled.md",
     "C/Loops.md",
     "index.md",
     "Linux.md",
