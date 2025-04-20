@@ -15,17 +15,17 @@ Size is **decided at runtime** (while your program is running). More flexible an
 `ptr = (data_type *) calloc(num_elements, size_of_each);`
 ```
 
-2. `realloc()` - realloc() function is used to resize a previously allocated memory block. It allows you to change the size of an existing memory allocation without needing to free the old memory and allocate a new block.
+2. realloc() - realloc() function is used to resize a previously allocated memory block. It allows you to change the size of an existing memory allocation without needing to free the old memory and allocate a new block.
    
    ```c
 `ptr = (data_type *) realloc(ptr, new size);`
    
-   Eg - `int *ptr = (int *)malloc(5 * sizeof(int));` 
+   `Eg - int *ptr = (int *)malloc(5 * sizeof(int));` 
 	   `ptr = (int *)realloc(ptr, 10 * sizeof(int));`
 ```
 
-2. `free()` - The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
-3. `memset()` - Fills a block of memory with a specified byte value. `memset` works **byte-by-byte** and not element wise. It is included in `string.h` 
+2. free() - The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
+3. memset() - Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in `string.h` 
    
    ```c
 `void *memset(void *ptr, int value, size_t num);`
@@ -153,6 +153,21 @@ The address of the first node a special name called HEAD. Also, the last node i
 
 3. Delete nodes from a linked list  - 
 	1. Delete the ith node - 
-	2. Delete the 1st node - 
-	3. Delete the last node - 
+	   ```c
+	void deleteAtPosition(struct Node** head_ref, int i) {
+	
+	struct Node* temp = *head_ref;
+	
+	    // Traverse to the (i-1)th node
+    for (int pos = 0; pos < i - 1; pos++) {
+        if (temp == NULL || temp->next == NULL) {
+            printf("Position %d is out of bounds.\n", i);
+            return;
+        }
+        temp = temp->next;
+    }
+```
+
+	1. Delete the 1st node - 
+	2. Delete the last node - 
 4. 
