@@ -6,29 +6,29 @@ Size is **decided at runtime** (while your program is running). More flexible an
 1. **malloc(memory allocation)** - Allocates a block of memory of given size but doesn’t initialize it (contains garbage).
    
 ```c
-`ptr = (data_type *) malloc(size_in_bytes);`
+ptr = (data_type *) malloc(size_in_bytes);
 ```
 
 2. calloc(contiguous allocation) -  it initializes the allocated memory to zero 
    
 ```c
-`ptr = (data_type *) calloc(num_elements, size_of_each);`
+ptr = (data_type *) calloc(num_elements, size_of_each);
 ```
 
 2. realloc() - realloc() function is used to resize a previously allocated memory block. It allows you to change the size of an existing memory allocation without needing to free the old memory and allocate a new block.
    
-   ```c
+```c
 ptr = (data_type *) realloc(ptr, new size);
    
-Eg - int *ptr = (int *)malloc(5 * sizeof(int)); 
-	ptr = (int *)realloc(ptr, 10 * sizeof(int));
+int *ptr = (int *)malloc(5 * sizeof(int)); 
+ptr = (int *)realloc(ptr, 10 * sizeof(int));
 ```
 
 2. free() - The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
 3. memset() - Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in `string.h` 
    
    ```c
-`void *memset(void *ptr, int value, size_t num);`
+void *memset(void *ptr, int value, size_t num);
 ```
 
    ptr - Pointer to the starting memory block
@@ -77,9 +77,9 @@ The address of the first node a special name called HEAD. Also, the last node i
 
 **General Syntax -** 
 ```c
-`struct Node {`
-    `int data;`
-    `struct Node* next;`
+struct Node {
+    int data;
+    struct Node* next;
 };
 ```
 
@@ -88,12 +88,12 @@ The address of the first node a special name called HEAD. Also, the last node i
 1. **Traverse a Linked List -** We keep moving the temp node to the next one and display its contents. When temp is NULL, we know that we have reached the end of the linked list so we get out of the while loop.
    
 ```c
-`struct node *temp = head;`
-`printf("\n\nList elements are - \n");`
-`while(temp != NULL) {`
-`printf("%d --->",temp->data);`
- `temp = temp->next;`
-`}`
+struct node *temp = head;
+printf("\n\nList elements are - \n");
+while(temp != NULL) {
+printf("%d --->",temp->data);
+temp = temp->next;
+}
 ```
 
 
@@ -101,22 +101,23 @@ The address of the first node a special name called HEAD. Also, the last node i
 	1. **Insert after the i node -** 
 	   
 	```c
-	   //We create a temporary pointer `temp` to walk through the list starting from the head.
-	`void insertAfterPosition(struct Node* head, int i, int new_data) {`
-	   `struct Node* temp = head;`
+	//We create a temporary pointer `temp` to walk through the list starting from the head.
+	void insertAfterPosition(struct Node* head, int i, int new_data) {
+	
+	struct Node* temp = head;
 	   
 	// Traverse to the i-th node
 	for (int pos = 0; pos < i; pos++) {
 		   emp = temp->next;}
 
 	  
-	   // Allocate new node
-	   `struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));`
-	   `new_node->data = new_data;`
+	// Allocate new node
+	struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+	new_node->data = new_data;
 	   
-	   // Insert after the i-th node
-	   `new_node->next = temp->next;`
-	   `temp->next = new_node;`
+	 // Insert after the i-th node
+	 new_node->next = temp->next;
+	 temp->next = new_node;
 	   }
 ```
 
@@ -127,11 +128,11 @@ The address of the first node a special name called HEAD. Also, the last node i
 	   Change next of new node to point to head
 	   Change head to point to recently created node
 	```c
-	     `struct node *newNode;`
-	     `newNode = malloc(sizeof(struct node));`
-	     `newNode->data = 4;`
-	     `newNode->next = head;`
-	     `head = newNode;`
+	struct node *newNode;
+	newNode = malloc(sizeof(struct node));
+	newNode->data = 4;
+	newNode->next = head;
+	head = newNode;
 	```
 
 
