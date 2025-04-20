@@ -18,10 +18,10 @@ Size is **decided at runtime** (while your program is running). More flexible an
 2. realloc() - realloc() function is used to resize a previously allocated memory block. It allows you to change the size of an existing memory allocation without needing to free the old memory and allocate a new block.
    
    ```c
-`ptr = (data_type *) realloc(ptr, new size);`
+ptr = (data_type *) realloc(ptr, new size);
    
-   `Eg - int *ptr = (int *)malloc(5 * sizeof(int));` 
-	   `ptr = (int *)realloc(ptr, 10 * sizeof(int));`
+Eg - int *ptr = (int *)malloc(5 * sizeof(int)); 
+	ptr = (int *)realloc(ptr, 10 * sizeof(int));
 ```
 
 2. free() - The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
