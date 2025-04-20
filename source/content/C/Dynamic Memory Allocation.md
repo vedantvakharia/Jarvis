@@ -34,10 +34,10 @@ void *memset(void *ptr, int value, size_t num);
    ptr - Pointer to the starting memory block
    value - Value to set (in **bytes**, only the lower 8 bits are used)
    num - Number of **bytes** to set
-	1. **Uses of `memset()` -** 
+	1. **Uses of memset() -** 
 		1. **Used with malloc** - malloc + memset gives the same effect of calloc when memset initializes each element to 0.
 		2. **Used with strings and arrays** - It can initialize the whole array or string to the character or integer. 
-	2. **Problems with `memset()` -** 
+	2. **Problems with memset() -** 
 		1. Initializing to int -  As `memset()` works bitwise and not element wise, it creates errors when we try to initialize it to numbers as OS works on hex.
 		   - So for example if we try to this, 
 		    `memset(arr, 5, sizeof(arr));`
