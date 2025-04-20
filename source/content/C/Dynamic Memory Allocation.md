@@ -27,7 +27,7 @@ ptr = (int *)realloc(ptr, 10 * sizeof(int));
 2. free() - The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
 3. memset() - Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h` 
    
-```c
+   ```c
 void *memset(void *ptr, int value, size_t num);
 ```
 
@@ -43,7 +43,7 @@ void *memset(void *ptr, int value, size_t num);
 		    `memset(arr, 5, sizeof(arr));`
 		    memset fills **every byte** of the memory block with the value 5 i.e., `0x05` in hex. 
 
-		- Byte-wise memory becomes:
+		- Byte-wise memory becomes - 
 		    `[0x05, 0x05, 0x05, 0x05,  |  0x05, 0x05, 0x05, 0x05,  | ... 20 times total]`
 
 		- Now, when the computer reads the first 4 bytes (as an `int`), it sees:
@@ -120,7 +120,6 @@ temp = temp->next;
 	 temp->next = new_node;
 	   }
 ```
-
 	   
 	2. **Insert at beginning -** 
 	   Allocate memory for new node
@@ -136,7 +135,7 @@ temp = temp->next;
 	```
 
 
-    3. Insert at end - 
+    3. **Insert at end -** 
 
 	```c
 	   struct node *newNode;
@@ -152,9 +151,9 @@ temp = temp->next;
 	   temp->next = newNode; 
 ```
 
-3. Delete nodes from a linked list  - 
-	1. Delete the ith node - 
-	   ```c
+3. **Delete nodes from a linked list  -** 
+	1. **Delete the ith node -** 
+	```c
 	void deleteAtPosition(struct Node** head_ref, int i) {
 	
 	struct Node* temp = *head_ref;
@@ -176,12 +175,12 @@ temp = temp->next;
 }
 ```
 
-	2.  Delete the 1st node - Point head to the second node
+	2.  **Delete the 1st node -** Point head to the second node
 	   ```c
 head = head->next;
 ```
 
-	3. Delete the last node - 
+	3. **Delete the last node -** 
 	   Traverse to second last element
 	   Change its next pointer to null
 ```c
