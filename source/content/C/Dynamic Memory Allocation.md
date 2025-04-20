@@ -5,13 +5,13 @@ Static Memory stores temporary variables created by a function. In stack, vari
 Size is **decided at runtime** (while your program is running). More flexible and efficient.
 1. **malloc(memory allocation)** - Allocates a block of memory of given size but doesn’t initialize it (contains garbage).
    
-   ```c
+```c
 `ptr = (data_type *) malloc(size_in_bytes);`
 ```
 
 2. calloc(contiguous allocation) -  it initializes the allocated memory to zero 
    
-   ```c
+```c
 `ptr = (data_type *) calloc(num_elements, size_of_each);`
 ```
 
@@ -98,7 +98,7 @@ The address of the first node a special name called HEAD. Also, the last node i
 
 
 2. **Insert Elements to a Linked List** - 
-	1. Insert after the i node - 
+	1. **Insert after the i node -** 
 	   
 	```c
 	   //We create a temporary pointer `temp` to walk through the list starting from the head.
@@ -121,21 +121,23 @@ The address of the first node a special name called HEAD. Also, the last node i
 ```
 
 	   
-	3.Insert at beginning - 
+	2. **Insert at beginning -** 
 	   Allocate memory for new node
 	   Store data
 	   Change next of new node to point to head
 	   Change head to point to recently created node
-```c
+	```c
 	     `struct node *newNode;`
 	     `newNode = malloc(sizeof(struct node));`
 	     `newNode->data = 4;`
 	     `newNode->next = head;`
 	     `head = newNode;`
-```
+	```
 
-	2. Insert at the end - 
-```c
+
+    3. Insert at end - 
+
+	```c
 	   `struct node *newNode;
 	   `newNode = malloc(sizeof(struct node));`
 	   `newNode->data = 4;`
@@ -150,5 +152,7 @@ The address of the first node a special name called HEAD. Also, the last node i
 ```
 
 3. Delete nodes from a linked list  - 
-	1. Delete the ith node
+	1. Delete the ith node - 
+	2. Delete the 1st node - 
+	3. Delete the last node - 
 4. 
