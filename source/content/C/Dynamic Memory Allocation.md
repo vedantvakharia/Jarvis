@@ -172,18 +172,18 @@ temp = temp->next;
 
     temp->next = nodeToDelete->next;  // Skip the i-th node
     free(nodeToDelete);               // Free memory
-}
+	}
 ```
 
 	2.  **Delete the 1st node -** Point head to the second node
-	   ```c
+	```c
 head = head->next;
 ```
 
 	3. **Delete the last node -** 
 	   Traverse to second last element
 	   Change its next pointer to null
-```c
+	```c
 	   struct node* temp = head;
 	   while(temp->next->next!=NULL){
 	   temp = temp->next;
