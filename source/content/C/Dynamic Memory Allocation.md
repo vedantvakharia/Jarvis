@@ -138,17 +138,17 @@ The address of the first node a special name called HEAD. Also, the last node i
     3. Insert at end - 
 
 	```c
-	   `struct node *newNode;
-	   `newNode = malloc(sizeof(struct node));`
-	   `newNode->data = 4;`
-	   `newNode->next = NULL;`
+	   struct node *newNode;
+	   newNode = malloc(sizeof(struct node));
+	   newNode->data = 4;
+	   newNode->next = NULL;
 	   
-	   `struct node *temp = head;`
-	   `while(temp->next != NULL){`
-	   `temp = temp->next;`
+	   struct node *temp = head;
+	   while(temp->next != NULL){
+	   temp = temp->next;
 	   }
 	   
-	   `temp->next = newNode;` 
+	   temp->next = newNode; 
 ```
 
 3. Delete nodes from a linked list  - 
