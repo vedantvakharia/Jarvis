@@ -25,8 +25,7 @@ ptr = (int *)realloc(ptr, 10 * sizeof(int));
 ```
 
 4.  **free() -** The memory allocated using functions malloc() and calloc() is not de-allocated on their own. The free() function is used to release dynamically allocated memory back to the operating system. It is essential to free memory that is no longer needed to avoid memory leaks.
-5. memset() - Fills a block of memory with a specified byte value. memset() works byte-by-byte and not element wise. 
-6. **memset() -** Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h`.
+5. **memset() -** Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h`.
    
 	```c
 void *memset(void *ptr, int value, size_t num);
@@ -65,7 +64,7 @@ void *memset(void *ptr, int value, size_t num);
 	3. 
 
 
-6. Malloc vs Calloc - 
+6. **Malloc vs Calloc -** 
    [c - Why malloc+memset is slower than calloc? - Stack Overflow](https://stackoverflow.com/questions/2688466/why-mallocmemset-is-slower-than-calloc)
    [Why does calloc exist? — njs blog](https://vorpus.org/blog/why-does-calloc-exist/)
    [c - Difference between malloc and calloc? - Stack Overflow](https://stackoverflow.com/questions/1538420/difference-between-malloc-and-calloc)

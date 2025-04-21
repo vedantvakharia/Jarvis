@@ -16,6 +16,17 @@ mode → How you want to open it (read, write, append, etc.).
 | `"r+"` | Read + Write  | Fails                 | Opens for R/W                |
 | `"w+"` | Read + Write  | Creates new file      | Erases contents              |
 | `"a+"` | Read + Append | Creates new file      | Can read/append              |
-
+	1. **Reading a file -** Reading a file means **accessing data stored on disk** (or another storage device) and loading that data into **memory (RAM)** so your program can process it.
+		1. **File Opening (System Call) -** Your program asks the OS to open a file using fopen()
+		2. **File Descriptor or File Handle -** The OS sets up a pointer that points to 1st character in buffer. 
+		3. Reading data -
+			1. Using fgetc() - Reads a **single character** from a file.
+			   ```c
+			   int fgetc(FILE *stream);
+			```
+			
+			2. a
+		4. 
+	2. 
 2. 
 
