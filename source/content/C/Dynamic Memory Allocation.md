@@ -122,7 +122,7 @@ temp = temp->next;
 	 new_node->next = temp->next;
 	 temp->next = new_node;
 	   }
-```
+	```
 	   
 	2. **Insert at beginning -** 
 	   Allocate memory for new node
@@ -152,7 +152,7 @@ temp = temp->next;
 	   }
 	   
 	   temp->next = newNode; 
-```
+	```
 
 3. **Delete nodes from a linked list  -** 
 	1. **Delete the ith node -** 
@@ -162,26 +162,26 @@ temp = temp->next;
 	struct Node* temp = *head_ref;
 	
 	// Traverse to the (i-1)th node
-    for (int pos = 0; pos < i - 1; pos++) {
+	for (int pos = 0; pos < i - 1; pos++) {
         if (temp == NULL || temp->next == NULL) {
             printf("Position %d is out of bounds.\n", i);
             return;
         }
         temp = temp->next;
-    }
+    	}
     
-    // temp points to (i-1)th node now
-    struct Node* nodeToDelete = temp->next;
+    	// temp points to (i-1)th node now
+    	struct Node* nodeToDelete = temp->next;
 
-    temp->next = nodeToDelete->next;  // Skip the i-th node
-    free(nodeToDelete);               // Free memory
+    	temp->next = nodeToDelete->next;  // Skip the i-th node
+    	free(nodeToDelete);               // Free memory
 	}
-```
+	```
 
 	2.  **Delete the 1st node -** Point head to the second node
 	```c
-head = head->next;
-```
+	head = head->next;
+	```
 
 	3. **Delete the last node -** 
 	   Traverse to second last element
