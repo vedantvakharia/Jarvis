@@ -28,18 +28,18 @@ ptr = (int *)realloc(ptr, 10 * sizeof(int));
 5. **memset() -** Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h`.
    
 	```c
-void *memset(void *ptr, int value, size_t num);
-\\ ptr - Pointer to the starting memory block
-\\ value - Value to set (in bytes, only the lower 8 bits are used)
-\\ num - Number of **bytes** to set
-```
+	void *memset(void *ptr, int value, size_t num);
+	\\ ptr - Pointer to the starting memory block
+	\\ value - Value to set (in bytes, only the lower 8 bits are used)
+	\\ num - Number of **bytes** to set
+	```
 
 	1. **Uses of memset() -** 
 		1. **Used with malloc** - malloc + memset gives the same effect of calloc when memset initializes each element to 0.
 		2. **Used with strings and arrays** - It can initialize the whole array or string to the character or integer. 
 	2. **Problems with memset() -** 
 		1. Initializing to int -  As `memset()` works bitwise and not element wise, it creates errors when we try to initialize it to numbers as OS works 			on hex.
-		   - So for example if we try to this, 
+		- So for example if we try to this, 
 		    `memset(arr, 5, sizeof(arr));`
 		    memset fills **every byte** of the memory block with the value 5 i.e., `0x05` in hex. 
 
@@ -121,7 +121,7 @@ temp = temp->next;
 	 new_node->next = temp->next;
 	 temp->next = new_node;
 	   }
-```
+	```
 	   
 	2. **Insert at beginning -** 
 	   Allocate memory for new node
@@ -151,7 +151,7 @@ temp = temp->next;
 	   }
 	   
 	   temp->next = newNode; 
-```
+	```
 
 3. **Delete nodes from a linked list  -** 
 	1. **Delete the ith node -** 
@@ -161,26 +161,26 @@ temp = temp->next;
 	struct Node* temp = *head_ref;
 	
 	// Traverse to the (i-1)th node
-    for (int pos = 0; pos < i - 1; pos++) {
+	for (int pos = 0; pos < i - 1; pos++) {
         if (temp == NULL || temp->next == NULL) {
             printf("Position %d is out of bounds.\n", i);
             return;
         }
         temp = temp->next;
-    }
+    	}
     
-    // temp points to (i-1)th node now
-    struct Node* nodeToDelete = temp->next;
+    	// temp points to (i-1)th node now
+    	struct Node* nodeToDelete = temp->next;
 
-    temp->next = nodeToDelete->next;  // Skip the i-th node
-    free(nodeToDelete);               // Free memory
+    	temp->next = nodeToDelete->next;  // Skip the i-th node
+    	free(nodeToDelete);               // Free memory
 	}
-```
+	```
 
 	2.  **Delete the 1st node -** Point head to the second node
 	```c
-head = head->next;
-```
+	head = head->next;
+	```
 
 	3. **Delete the last node -** 
 	   Traverse to second last element
@@ -191,6 +191,6 @@ head = head->next;
 	   temp = temp->next;
 	   }
 	   temp->next = NULL;
-```
+	```
 
 4. 
