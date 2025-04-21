@@ -40,7 +40,7 @@ ptr = (int *)realloc(ptr, 10 * sizeof(int));
 		2. **Used with strings and arrays** - It can initialize the whole array or string to the character or integer. 
 	2. **Problems with memset() -** 
 		1. Initializing to int -  As `memset()` works bitwise and not element wise, it creates errors when we try to initialize it to numbers as OS works 			on hex.
-		   - So for example if we try to this, 
+		- So for example if we try to this, 
 		    `memset(arr, 5, sizeof(arr));`
 		    memset fills **every byte** of the memory block with the value 5 i.e., `0x05` in hex. 
 
@@ -192,6 +192,6 @@ temp = temp->next;
 	   temp = temp->next;
 	   }
 	   temp->next = NULL;
-```
+	```
 
 4. 
