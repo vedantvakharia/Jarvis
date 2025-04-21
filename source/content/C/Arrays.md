@@ -5,6 +5,13 @@
 	2. `*(array_name+i)`
 	3. `*(i+array_name)`
 	4. `i[array_name]`
+	5. Negative indexing - `a[] = *a`. So when we do a[-1], it may give error as memory before pointer a may not exist. But the below works as memory before a[2] exists. 
+	```c
+int *ptr = &arr[2];     // Points to value 30
+printf("%d\n", ptr[-2]); // OK! Same as arr[0] → 10
+```
+
+	1. 
 3. **Updating array elements - 
 	1. **Updating a single element -** `array_name[i] = new_value`
 	2. **Updating Elements in a Loop -** 

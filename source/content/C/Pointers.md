@@ -10,3 +10,5 @@
 	1. ****Integer Pointers****
 6. 
 7. **Call by value -** In **Call by Value**, a **copy of the actual arguments** is passed to the function. The **original variables remain unchanged** because the function operates on a separate copy. It is inefficient for large data as passing large structs or arrays **copies all elements**, using extra memory.
+8. `char a[] = char *a`
+9. 
