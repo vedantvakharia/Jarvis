@@ -29,11 +29,11 @@ ptr = (int *)realloc(ptr, 10 * sizeof(int));
 6. **memset() -** Fills a block of memory with a specified byte value. memset works **byte-by-byte** and not element wise. It is included in`string.h`.
    
 	```c
-void *memset(void *ptr, int value, size_t num);
-\\ ptr - Pointer to the starting memory block
-\\ value - Value to set (in bytes, only the lower 8 bits are used)
-\\ num - Number of **bytes** to set
-```
+	void *memset(void *ptr, int value, size_t num);
+	\\ ptr - Pointer to the starting memory block
+	\\ value - Value to set (in bytes, only the lower 8 bits are used)
+	\\ num - Number of **bytes** to set
+	```
 
 	1. **Uses of memset() -** 
 		1. **Used with malloc** - malloc + memset gives the same effect of calloc when memset initializes each element to 0.
