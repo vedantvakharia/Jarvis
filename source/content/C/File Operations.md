@@ -64,12 +64,20 @@ int fprintf(FILE *stream, const char *format, text_write);
 int fputs(const char *str, FILE *stream);
 ```
 ``
-		3. `fputc() -` Write one character at a time to a file. Best for writing characters or building strings manually.
+		3. `fputc()` - Write one character at a time to a file. Best for writing characters or building strings manually.
 ```c
-
+int fputc(int char, FILE *stream);
 ```
 ``
-		3. 
+		4. `fwrite()` - Write raw binary data (arrays and structs) to a file. Does not format or convert, just dumps memory blocks.
+```c
+size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);
+
+int arr[] = {1, 2, 3, 4};
+FILE *fp = fopen("data.bin", "wb");
+fwrite(arr, sizeof(int), 4, fp);
+```
+`
 	5. Appending a file - 
 2. 
 
