@@ -20,20 +20,6 @@
               "icon": "lucide-file",
               "title": "File Operations"
             }
-          },
-          {
-            "id": "1e0e331af7a555d7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled"
-            }
           }
         ]
       }
@@ -92,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -186,12 +171,12 @@
   },
   "active": "720785f47dd9e862",
   "lastOpenFiles": [
-    "Untitled.md",
+    "C/Dynamic Memory Allocation.md",
     "C/File Operations.md",
+    "Untitled.md",
     "conflict-files-obsidian-git.md",
     "C/Strings.md",
     "C/Arrays.md",
-    "C/Dynamic Memory Allocation.md",
     "C/Recursion.md",
     "C/Structures.md",
     "C/Pointers.md",
