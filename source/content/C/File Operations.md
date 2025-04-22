@@ -21,24 +21,30 @@ mode → How you want to open it (read, write, append, etc.).
 		1. **File Opening (System Call) -** Your program asks the OS to open a file using fopen()
 		2. **File Descriptor or File Handle -** The OS sets up a pointer that points to 1st character in buffer. After the file is opened, we no longer refer to the file by its name, but through the file pointer. 
 		3. **Reading data -**
-			1. **Using fgetc() -** Reads a single character from a file.
-```c
-int fgetc(FILE *stream);
+			1. **Using fgetc() -** Reads a single character from a file. fegtc() reads the characyer from the current pointer position, advances the pointer position so that it points to the next character, and returns the character that is read, which is collected in the variable ch. Useful for text parsing, where you want full control over every character.
+			```c
+			int fgetc(FILE *stream);
 
-// Syntax for reading file usinf fegtc
-while ((ch = fgetc(fp)) != EOF) {
-putchar(ch);  // prints each character
-```
+			// Syntax for reading file usinf fegtc
+			while ((ch = fgetc(fp)) != EOF) {
+			putchar(ch);  // prints each character
+			```
+			2.  **Using fgets() -** fgets() reads a line of text from a file or standard input, safely, and stores it in a character array (a string). 
+   			3. **Using fread() -** Reads a chunk of data (like arrays or structs) from a file. fread() is not null-terminated like a string unless you manually add \0. fread() is used for reading a binary file or struct and reading large chunks of text fast and 
+			```c
+			size_t fread(void *ptr, size_t size, size_t count, FILE *stream);
 
-   			fegtc() reads the characyer from the current pointer position, advances the pointer position so that it points to the next character, and returns the character that is read, which is collected in the variable ch. Useful for text parsing, where you want full control over every character.
-			2. **Using fread() -** Reads a chunk of data (like arrays or structs) from a file. 
-```c
-size_t fread(void *ptr, size_t size, size_t count, FILE *stream);
+			\\ ptr: Pointer to memory buffer (where to store the read data)
+			\\ size: Size of each element
+			\\ count: Number of elements to read
+			\\ stream: File pointer
+			
+			size_t readBytes = fread(buffer, sizeof(char), 100, fp);
+			buffer[readBytes] = '\0'; // Null-terminate for text display
+			```
 
-\\ ptr: Pointer to memory buffer (where to store the read data)
-\\ size: Size of each element
-\\ count: Number of elements to read
-\\ stream: File pointer
+
+			
 	2. 
 2. 
 
