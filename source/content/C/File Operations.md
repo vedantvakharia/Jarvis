@@ -5,6 +5,14 @@
 FILE *fopen(const char *filename, const char *mode);
 ```
 
+| Mode   | Meaning       | If file doesn’t exist | If file exists           |
+| ------ | ------------- | --------------------- | ------------------------ |
+| `"r"`  | Read          | Fails                 | Opens for reading        |
+| `"w"`  | Write         | Creates new file      | Erases existing contents |
+| `"a"`  | Append        | Creates new file      | Appends to end of file   |
+| `"r+"` | Read + Write  | Fails                 | Opens for R/W            |
+| `"w+"` | Read + Write  | Creates new file      | Erases contents          |
+| `"a+"` | Read + Append | Creates new file      | Can read/append          |
 filename → Name/path of the file to open.
 mode → How you want to open it (read, write, append, etc.).
 	1. Reading a file - Reading a file means accessing data stored on disk and loading that data into **memory (RAM)** so your program can process it.
