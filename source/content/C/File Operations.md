@@ -78,5 +78,86 @@ fwrite(arr, sizeof(int), 4, fp);
 ```
 `
 	5. Appending a file - Appending a file means adding new data to the end of an existing file without deleting or overwriting its current contents. Even if we use `fseek(fp, 0, SEEK_SET);`, it **will still write at the end** (unless you use `"r+"`, `"w+"`, etc.).  Any write operation (`fprintf`, `fputs`, etc.) starts from the end. You **can’t overwrite previous content** using `"a"` — use `"r+"` if you want to update data at a specific position. 
-2. fseek()
+
+2. `fseek()`- Used to **move the file pointer** to a specific position in a file. It's used to **skip**, **rewind**, or **jump** to any location inside a file before reading or writing. 
+```c
+int fseek(FILE *stream, long offset, int origin);
+
+// stream - File pointer
+// offset - Number of bytes to move (can be positive or negative)
+// origin - Starting point for the move
+// Returns - 0 → Success
+
+//Origin Options - 
+SEEK_SET (0) - Start of file        // We ccan write the number instead of name
+SEEK_CUR (1) - Current position
+SEEK_END (2) - End of file
+```
+
+3. `rewind()` - Resets the file pointer to the beginning of a file. It’s basically a shortcut for `fseek(fp, 0, SEEK_SET)`. Clears the error and EOF flags associated with the file (unlike `fseek()`). So after we hit EOF (end-of-file) while reading, we can call `rewind()` to reset and read the file again.
+   
+   When you're working with files in C (`FILE *fp`), the system maintains certain status flags to keep track of what's happening with that file. When we have reached the end of the file, the `EOF` flag is set internally. If you try to read again, it will fail because that flag is now blocking further reads. 
+   
+```c
+void rewind(FILE *stream);
+
+
+#include <stdio.h>
+
+int main() {
+    FILE *fp = fopen("data.txt", "r");
+    char buffer[100];
+
+    if (!fp) {
+        perror("Failed to open file");
+        return 1;
+    }
+
+    // First read: read until EOF
+    printf("Reading file...\n");
+    while (fgets(buffer, sizeof(buffer), fp)) {
+        printf("%s", buffer);
+    }
+
+    // Check if EOF flag is set
+    if (feof(fp)) {
+        printf("\n[EOF flag is set]\n");
+    }
+
+    // Rewind the file (reset pointer + clear flags)
+    rewind(fp);
+
+    // Check if EOF flag is cleared
+    if (!feof(fp)) {
+        printf("[EOF flag is cleared after rewind()]\n\n");
+    }
+
+    // Read again from beginning
+    printf("Reading file again after rewind...\n");
+    while (fgets(buffer, sizeof(buffer), fp)) {
+        printf("%s", buffer);
+    }
+
+    fclose(fp);
+    return 0;
+}
+
+
+Output - 
+Reading file...
+Line 1
+Line 2
+Line 3
+
+[EOF flag is set]
+[EOF flag is cleared after rewind()]
+
+Reading file again after rewind...
+Line 1
+Line 2
+Line 3
+```
+
+3. 
+
 
