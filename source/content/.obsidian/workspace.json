@@ -186,8 +186,12 @@
   },
   "active": "81e5e3b970fc557f",
   "lastOpenFiles": [
-    "C/Basics.md",
+    "Pytorch/Untitled.md",
+    "Pytorch/Untitled",
+    "Pytorch/Untitled.canvas",
+    "Pytorch/Basics of Neural Network.md",
     "C/Libraries.md",
+    "C/Basics.md",
     "C/Strings.md",
     "C/C preprocessor.md",
     "C/File Operations.md",
@@ -207,7 +211,6 @@
     "SOFI/Untitled.md",
     "SOFI/SOFI.md",
     "SOFI/Lec 1.md",
-    "Pytorch/Basics of Neural Network.md",
     "Pytorch/Tensors.md",
     "category-folder/index.md",
     "category-folder/Some note.md",
@@ -216,8 +219,6 @@
     "SOFI",
     "Pytorch/Data Types.md",
     "Pytorch",
-    "Python/Pyqtgraph.md",
-    "Python/Slicing.md",
     "Python",
     "C"
   ]
