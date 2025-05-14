@@ -4,3 +4,19 @@ body {
   background-color: white !important;
 }
 
+/* Customize inline code appearance */
+code {
+  background-color: transparent; /* Remove gray background */
+  color: #007acc; /* Set text color to blue */
+  font-family: monospace; /* Optional: ensure monospace font */
+  padding: 0; /* Optional: remove padding */
+  border-radius: 0; /* Optional: remove border radius */
+}
+
+/* Preserve styling for code blocks */
+pre code {
+  background-color: #f5f5f5; /* Optional: set background for code blocks */
+  color: inherit; /* Optional: inherit text color */
+  padding: 1em; /* Optional: add padding */
+  border-radius: 5px; /* Optional: add border radius */
+}
