@@ -15,6 +15,10 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
+    resources: {
+    css: ["./styles/custom.scss"], // Path to your custom CSS file
+    js: [],
+  },
     locale: "en-US",
     baseUrl: "quartz.jzhao.xyz",
     ignorePatterns: ["private", "templates", ".obsidian", "category/*"],
@@ -53,6 +57,7 @@ const config: QuartzConfig = {
       },
     },
   },
+  
   plugins: {
     transformers: [
       Plugin.FrontMatter(),
