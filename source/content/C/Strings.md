@@ -19,4 +19,4 @@ double val = atof(str);  // Returns 0.0
 ```
 
 
-5. 
+5. strtof

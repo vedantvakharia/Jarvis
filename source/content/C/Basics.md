@@ -138,7 +138,27 @@ If we want to write 10< x <20, then we have to write in the following manner
 | char                                   | %c               |
 | string                                 | %s               |
 | Pointer (`void*`)                      | %p               |
-## 4. Loops
+
+## 4. Control Characters 
+In C, **control characters** are special **non-printable characters** in the ASCII range `0–31` and `127`. These characters were originally used to **control hardware devices** like terminals and printers, and some are still useful for formatting output or parsing input. Found in `<ctype.h>` and checked using functions like `iscntrl()`. Affect **cursor movement**, **screen display**, or **communication protocols**. 
+
+Commonly used Control Characters
+
+| Escape | ASCII | Name                | Description                                                                                   |
+| ------ | ----- | ------------------- | --------------------------------------------------------------------------------------------- |
+| \0     | 0     | Null terminator     | Marks the end of a string                                                                     |
+| \b     | 8     | Backspace           | Moves cursor back, often erases a character on screen                                         |
+| \t     | 9     | Horizontal Tab      | Aligns to next tab stop                                                                       |
+| \n     | 10    | Line Feed / Newline | Moves to next line (new line in Unix/Linux)                                                   |
+| \v     | 11    | Vertical Tab        | Skips vertically (rare)                                                                       |
+| \f     | 12    | Form Feed           | Page break / clear screen in some terminals                                                   |
+| \r     | 13    | Carriage Return     | Returns cursor to start of line (overwrites text)<br><br>`printf("123\rABC");` → prints `ABC` |
+| \\\    | -     | Backslash           | Prints a literal backslash                                                                    |
+| \\'    | -     | Single quote        | For printing a single quote                                                                   |
+| \\"    | -     | Double quote        | For printing inside string                                                                    |
+
+
+## 5. Loops
 1. For loop - A pair of expressions separated by a comma is evaluated left to right, and the type and value of the result are the type and value of the right operand. Thus in a for statement, it is possible to place multiple expressions in the various parts, for example to process two indices in parallel. In a single for loop, we can initialize and use 2 variables.
 	Instead of - `for(int i = 0; i<n; i++)`
 				`for (int j = i+1; j<n; j++)`

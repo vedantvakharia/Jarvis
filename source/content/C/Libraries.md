@@ -1,5 +1,5 @@
 
-## cs50.h
+## cs50.h (-lcs50)
 
 1. `get_char` - prompt a user for a `char`. If the user inputs more or less than one `char`, the function prompts the user again.
 ```c
@@ -176,3 +176,45 @@ char *get_string(const char *prompt)
 }
 
 ```
+
+
+## ctype.h
+
+**Character Classification Functions -** These return a nonzero (true) value if the condition is met, otherwise 0 (false).
+1. `int isalnum(int c)`- If character is **alphanumeric** (`a–z`, `A–Z`, `0–9`).
+2. `int isalpha(int c)` - If character is **alphabetic** (`a–z`, `A–Z`).
+3. `int isblank(int c)` - If character is **space or tab** (`' '` or `'\t'`).
+4. `int iscntrl(int c)` -If character is a **control character** (e.g. `'\n'`, `'\t'`, ASCII 0–31, 127).
+5. `int isdigit(int c)` - If character is a **decimal digit** (`0–9`).
+6. `int isgraph(int c)` - If character has **visible representation** (non-space printable chars).
+7. `int islower(int c)` - If character is **lowercase letter** (`a–z`).
+8. `int isprint(int c)` - If character is **printable**, including space (`' '` to `'~'`).
+9. `int ispunct(int c)` - If character is a **punctuation mark** (not `alnum` or space).
+10. `int isspace(int c)` - If character is a **whitespace** (`' '`, `'\t'`, `'\n'`, `'\r'`, `'\f'`, `'\v'`).
+11. `int isupper(int c)` - If character is **uppercase** (`A–Z`).
+12. `int isxdigit(int c)` - If character is a **hexadecimal digit** (`0–9`, `a–f`, `A–F`).
+
+## string.h
+
+##### String Manipulation
+
+1. `char *strcpy(char *dest, const char *src)` - Copies one string to another
+2. `char *strncpy(char *dest, const char *src, size_t n)` - Writes exactly n bytes, copying from source or adding nulls
+3. `char *strcat(char *dest, const char *src)` - Appends `src` to the end of `dest`.
+4. `char *strncat(char *dest, const char *src, size_t n)` - 
+5. `size_t strxfrm(char *dest, const char *src, size_t n)` (Not needed)
+6. `char *strdup(const char *s)` - Allocates memory and copies string `s` into it. You must `free()` the returned pointer. 
+
+| Feature     | `strdup`                                                         | `strcpy`                            |
+| ----------- | ---------------------------------------------------------------- | ----------------------------------- |
+| **Header**  | POSIX: `<string.h>` or `<string.h>` (non-standard in strict C89) | Standard: `<string.h>`              |
+| **Memory**  | Allocates memory automatically using `malloc`                    | You must allocate memory yourself   |
+| **Return**  | Pointer to new string on heap                                    | Pointer to `dest` buffer            |
+| **Usage**   | When you need a new heap copy of string                          | When you already have a buffer      |
+| **Freeing** | You must call `free()` manually                                  | No `free()` needed (unless dynamic) |
+
+7. `char *strndup( const char *src, size )`
+   
+##### String Examination
+
+1. 
