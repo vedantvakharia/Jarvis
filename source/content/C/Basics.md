@@ -7,6 +7,7 @@
 - **`double`**: Used to declare double-precision floating-point variables(64 bits)
 - **`char`**: Used to declare character variables.
 - **`void`**: Represents no type; used for functions that do not return a value or have no arguments.
+- `size_t` : An **unsigned integer type** used to **represent the size of objects in bytes**.
 
 2. **Type Modifiers** - 
 - **`short`**: Used to declare short integers (less memory than `int`).

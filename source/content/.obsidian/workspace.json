@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -190,16 +189,16 @@
     "C/Basics.md",
     "C/Libraries.md",
     "C/Strings.md",
+    "C/C preprocessor.md",
     "C/File Operations.md",
+    "C/Pointers.md",
+    "C/Recursion.md",
+    "C/Sorting.md",
     "C/Dynamic Memory Allocation.md",
     "C/Structures.md",
     "C/Arrays.md",
-    "C/C preprocessor.md",
     "Untitled.md",
     "conflict-files-obsidian-git.md",
-    "C/Recursion.md",
-    "C/Pointers.md",
-    "C/Sorting.md",
     "C/Loops.md",
     "index.md",
     "Linux.md",
