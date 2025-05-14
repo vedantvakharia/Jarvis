@@ -215,6 +215,7 @@ char *get_string(const char *prompt)
 
 7. `char *strndup( const char *src, size_t size )`
    
+`s`s
 ##### String Examination
 
 1. 
