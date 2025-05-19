@@ -39,7 +39,7 @@ void selectionSort(int arr[], int n) {
 
 ## Insertion Sort
 
-Picks elements and inserts them in their correct position.
+Picks elements and inserts them in their correct position. O(n2)
 
 ```c
 void insertionSort(int arr[], int n) {

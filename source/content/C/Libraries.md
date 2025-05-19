@@ -236,3 +236,90 @@ char *strdup(const char *s) {
 4. `int strcoll(const char *s1, const char *s2)`(Not important)
 5. **`char *strchr(const char *str, int c)` -** Returns pointer to first occurrence of `c` in `s`, or `NULL` if not found. If `c == '\0'`, returns pointer to null terminator.
 6. **`char *strrchr(const char *str, int c)` -** Returns pointer to last occurrence of c. 
+7. **`size_t strspn(const char *s, const char *accept)`-** returns length of prefix of `s` consisting only of chars in `accept`.
+8. **`size_t strcspn(const char *s, const char *reject)` -** returns length of prefix of `s` with none of the chars in `reject`. 
+9. **`char *strpbrk(const char *str1, const char *str2)` -** Finds the **first occurrence** in `str1` of **any character** from the string `str2`. `strpbrk` scans `str1` from left to right. For each character in `str1`, it checks whether it **matches any character** in `str2`. Returns a pointer to the first such occurrence in `str1`. If no characters match, it returns `NULL`.
+   
+   It is used for scanning a string for delimiters, tokenizing data (e.g., to find punctuation) and searching for user-defined “special” characters.
+```c
+char *strpbrk(const char *s, const char *accept) {
+    while (*s) {
+        const char *a = accept;
+        while (*a) {
+            if (*s == *a)
+                return (char *)s;
+            a++;
+        }
+        s++;
+    }
+    return NULL;
+}
+
+// Example of use
+
+#include <stdio.h>
+#include <string.h>
+ 
+int main(void)
+{
+    const char* str = "hello world, friend of mine!";
+    const char* sep = " ,!";
+ 
+    unsigned int cnt = 0;
+    do
+    {
+       str = strpbrk(str, sep); // find separator
+       if(str) str += [strspn]
+       ++cnt; // increment word count
+    }
+    while(str && *str);
+ 
+    printf("There are %u words\n", cnt);
+}
+
+Output:
+There are 5 words
+```
+
+10. **`char *strstr(const char *haystack, const char *needle)` -** Finds the **first occurrence** of the string `needle` in `haystack`. Returns pointer to match or `NULL`. If `needle` is empty, returns `haystack`. 
+```c
+char *strstr(const char *haystack, const char *needle) {
+    if (!*needle) return (char *)haystack;
+    for (; *haystack; haystack++) {
+        const char *h = haystack;
+        const char *n = needle;
+        while (*h && *n && *h == *n) {
+            h++;
+            n++;
+        }
+        if (!*n) return (char *)haystack;
+    }
+    return NULL;
+}
+```
+
+11.  **`char* strtok( char* str, const char* delim )` -**  A sequence of calls to `strtok` breaks the string pointed to by str into a sequence of tokens, each of which is delimited by a character from the string pointed to by delim. 
+```c
+char *strtok(char *str, const char *delim) {
+    static char *last;
+    if (str) last = str;
+    if (!last) return NULL;
+
+    // Skip leading delimiters
+    str = last + strspn(last, delim);
+    if (*str == '\0') return last = NULL;
+
+    char *end = str + strcspn(str, delim);
+    if (*end) {
+        *end = '\0';
+        last = end + 1;
+    } else {
+        last = NULL;
+    }
+    return str;
+}
+```
+
+11. 
+
+

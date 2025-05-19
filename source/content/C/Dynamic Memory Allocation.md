@@ -2,7 +2,8 @@
 ## Static memory 
 Static Memory stores temporary variables created by a function. In stack, variables are declared, stored, and initialized during runtime. It follows the First in last out method, that means whatever element is going to store last is going to delete first when it’s not in use. Size is fixed at compile-time.
 ## Heap/Dynamic Memory
-Size is **decided at runtime** (while your program is running). More flexible and efficient.
+Size is **decided at runtime** (while your program is running). More flexible and efficient. These functions are included in stdlib.h. 
+
 1. **malloc(memory allocation)** - Allocates a block of memory of given size but doesn’t initialize it (contains garbage).
    
 ```c
