@@ -5,6 +5,11 @@ import darkmodeScript from "./scripts/darkmode.inline"
 import styles from "./styles/darkmode.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
+// Add this import on top (adjust path accordingly)
+import { i18n } from "../util/i18n"
+
+// rest of your code unchanged
+
 
 const Darkmode: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
   return (
