@@ -3,6 +3,7 @@ import style from "./styles/search.scss"
 // @ts-ignore
 import script from "./scripts/search.inline"
 import { classNames } from "../util/lang"
+
 export interface SearchOptions {
   enablePreview: boolean
 }
@@ -12,13 +13,17 @@ const defaultOptions: SearchOptions = {
 }
 
 export default ((userOpts?: Partial<SearchOptions>) => {
-  const Search: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
+  const Search: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
     const opts = { ...defaultOptions, ...userOpts }
-    const searchPlaceholder = i18n(cfg.locale).components.search.searchBarPlaceholder
+
+    // Replace localized placeholders with fixed strings
+    const searchPlaceholder = "Search notes..."  // or any text you prefer
+    const searchTitle = "Search"
+
     return (
       <div class={classNames(displayClass, "search")}>
         <button class="search-button" id="search-button">
-          <p>{i18n(cfg.locale).components.search.title}</p>
+          <p>{searchTitle}</p>
           <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7">
             <title>Search</title>
             <g class="search-path" fill="none">
