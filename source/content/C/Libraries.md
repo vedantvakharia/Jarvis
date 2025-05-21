@@ -237,6 +237,18 @@ char *strdup(const char *s) {
 5. **`char *strchr(const char *str, int c)` -** Returns pointer to first occurrence of `c` in `s`, or `NULL` if not found. If `c == '\0'`, returns pointer to null terminator.
 6. **`char *strrchr(const char *str, int c)` -** Returns pointer to last occurrence of c. 
 7. **`size_t strspn(const char *s, const char *accept)`-** returns length of prefix of `s` consisting only of chars in `accept`.
+```c
+   size_t strspn(const char *s, const char *accept) {
+    const char *p = s;
+    while (*p) {
+        const char *a = accept;
+        while (*a && *a != *p) a++;
+        if (!*a) break;
+        p++;
+    }
+    return p - s;
+}
+```
 8. **`size_t strcspn(const char *s, const char *reject)` -** returns length of prefix of `s` with none of the chars in `reject`. 
 9. **`char *strpbrk(const char *str1, const char *str2)` -** Finds the **first occurrence** in `str1` of **any character** from the string `str2`. `strpbrk` scans `str1` from left to right. For each character in `str1`, it checks whether it **matches any character** in `str2`. Returns a pointer to the first such occurrence in `str1`. If no characters match, it returns `NULL`.
    
@@ -301,12 +313,17 @@ char *strstr(const char *haystack, const char *needle) {
 11.  **`char* strtok( char* str, const char* delim )` -**  A sequence of calls to `strtok` breaks the string pointed to by str into a sequence of tokens, each of which is delimited by a character from the string pointed to by delim. 
 ```c
 char *strtok(char *str, const char *delim) {
-    static char *last;
+    
+    // A static pointer `last` to remember where it left off after the previous token.
+    static char *last; 
+    
+    //If the user passes a new string (str != NULL), set `last` to point to it.
     if (str) last = str;
     if (!last) return NULL;
 
     // Skip leading delimiters
     str = last + strspn(last, delim);
+    
     if (*str == '\0') return last = NULL;
 
     char *end = str + strcspn(str, delim);
@@ -320,6 +337,21 @@ char *strtok(char *str, const char *delim) {
 }
 ```
 
-11. 
 
+##### Character array manipulation
 
+1. **`void *memchr(const void *str, int c, size_t n)` -** Searches the **first `n` bytes** of memory for a byte matching `c`. Stops at first occurrence or after `n` bytes. `strchr` stops when `/0` is encountered but `memchr` doesn't. 
+```c
+   void *memchr(const void *s, int c, size_t n) {
+    const unsigned char *p = s;
+    while (n--) {
+        if (*p == (unsigned char)c) {
+            return (void *)p;
+        }
+        p++;
+    }
+    return NULL;
+}
+```
+
+2. 
