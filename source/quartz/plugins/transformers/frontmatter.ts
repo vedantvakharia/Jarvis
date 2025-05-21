@@ -5,8 +5,6 @@ import yaml from "js-yaml"
 import toml from "toml"
 import { slugTag } from "../../util/path"
 import { QuartzPluginData } from "../vfile"
-import { i18n } from "../../i18n"
-
 export interface Options {
   delimiters: string | [string, string]
   language: "yaml" | "toml"

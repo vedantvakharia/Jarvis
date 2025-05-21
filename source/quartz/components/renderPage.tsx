@@ -7,8 +7,6 @@ import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
-import { i18n } from "../i18n"
-
 interface RenderComponents {
   head: QuartzComponent
   header: QuartzComponent[]

@@ -18,7 +18,6 @@ import {
 import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { FolderContent } from "../../components"
 import { write } from "./helpers"
-import { i18n } from "../../i18n"
 import DepGraph from "../../depgraph"
 
 interface FolderPageOptions extends FullPageLayout {

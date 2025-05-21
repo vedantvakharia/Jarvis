@@ -6,8 +6,6 @@ import { PageList, SortFn } from "../PageList"
 import { stripSlashes, simplifySlug } from "../../util/path"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
-import { i18n } from "../../i18n"
-
 interface FolderContentOptions {
   /**
    * Whether to display number of folders
