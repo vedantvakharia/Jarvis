@@ -53,9 +53,6 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       ]
     },
     async getDependencyGraph(_ctx, content, _resources) {
-      // Example graph:
-      // nested/file.md --> nested/index.html
-      // nested/file2.md ------^
       const graph = new DepGraph<FilePath>()
 
       content.map(([_tree, vfile]) => {
@@ -90,7 +87,7 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
           defaultProcessedContent({
             slug: joinSegments(folder, "index") as FullSlug,
             frontmatter: {
-              title: `${i18n(cfg.locale).pages.folderContent.folder}: ${folder}`,
+              title: `Folder: ${folder}`,  // <-- static string here
               tags: [],
             },
           }),
