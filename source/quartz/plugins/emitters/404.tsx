@@ -1,15 +1,3 @@
-import { QuartzEmitterPlugin } from "../types"
-import { QuartzComponentProps } from "../../components/types"
-import BodyConstructor from "../../components/Body"
-import { pageResources, renderPage } from "../../components/renderPage"
-import { FullPageLayout } from "../../cfg"
-import { FilePath, FullSlug } from "../../util/path"
-import { sharedPageComponents } from "../../../quartz.layout"
-import { NotFound } from "../../components"
-import { defaultProcessedContent } from "../vfile"
-import { write } from "./helpers"
-import DepGraph from "../../depgraph"
-
 export const NotFoundPage: QuartzEmitterPlugin = () => {
   const opts: FullPageLayout = {
     ...sharedPageComponents,
@@ -37,7 +25,8 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
       const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
       const path = url.pathname as FullSlug
       const externalResources = pageResources(path, resources)
-      const notFound = i18n(cfg.locale).pages.error.title
+      // Replaced i18n with a simple string fallback
+      const notFound = "Page Not Found"
       const [tree, vfile] = defaultProcessedContent({
         slug,
         text: notFound,
