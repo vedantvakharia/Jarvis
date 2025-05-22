@@ -1,3 +1,8 @@
+import { QuartzEmitterPlugin } from "../types"
+import { FullPageLayout } from "../../layouts"
+import { sharedPageComponents } from "../../shared"  // ✅ THIS IS WHAT WAS MISSING
+import { NotFound } from "../../components/pages/404"
+
 export const NotFoundPage: QuartzEmitterPlugin = () => {
   const opts: FullPageLayout = {
     ...sharedPageComponents,
