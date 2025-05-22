@@ -38,5 +38,7 @@ return `<?xml version="1.0" encoding="UTF-8" ?>
       ${items}
     </channel>
   </rss>`
+  export type ContentIndex = Map<string, ContentDetails>
+
 
 }
