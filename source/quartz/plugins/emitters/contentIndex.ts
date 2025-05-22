@@ -1,3 +1,7 @@
+// Export types at top-level
+export type ContentIndex = Map<string, ContentDetails>
+
+// Your function stays here, without any export inside it
 function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: number): string {
   const base = cfg.baseUrl ?? ""
 
@@ -28,7 +32,7 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: nu
     ? `Showing the last ${limit} notes on ${escapeHTML(cfg.pageTitle)}`
     : `Recent notes on ${escapeHTML(cfg.pageTitle)}`
 
-return `<?xml version="1.0" encoding="UTF-8" ?>
+  return `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
       <title>${escapeHTML(cfg.pageTitle)}</title>
@@ -38,7 +42,4 @@ return `<?xml version="1.0" encoding="UTF-8" ?>
       ${items}
     </channel>
   </rss>`
-  export type ContentIndex = Map<string, ContentDetails>
-
-
 }
