@@ -5,6 +5,7 @@ import { FullSlug, getAllSegmentPrefixes, simplifySlug } from "../../util/path"
 import { QuartzPluginData } from "../../plugins/vfile"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
+
 interface TagContentOptions {
   sort?: SortFn
   numPages: number
@@ -37,6 +38,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
         : htmlToJsx(fileData.filePath!, tree)
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = ["popover-hint", ...cssClasses].join(" ")
+
     if (tag === "/") {
       const tags = [
         ...new Set(
@@ -52,7 +54,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
           <article>
             <p>{content}</p>
           </article>
-          <p>{i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}</p>
+          <p>{`Total tags: ${tags.length}`}</p>
           <div>
             {tags.map((tag) => {
               const pages = tagItemMap.get(tag)!
@@ -79,15 +81,11 @@ export default ((opts?: Partial<TagContentOptions>) => {
                   {content && <p>{content}</p>}
                   <div class="page-listing">
                     <p>
-                      {i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}
+                      {`Items under tag: ${pages.length}`}
                       {pages.length > options.numPages && (
                         <>
                           {" "}
-                          <span>
-                            {i18n(cfg.locale).pages.tagContent.showingFirst({
-                              count: options.numPages,
-                            })}
-                          </span>
+                          <span>{`Showing first ${options.numPages} items`}</span>
                         </>
                       )}
                     </p>
@@ -110,7 +108,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
         <div class={classes}>
           <article>{content}</article>
           <div class="page-listing">
-            <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>
+            <p>{`Items under tag: ${pages.length}`}</p>
             <div>
               <PageList {...listProps} />
             </div>
