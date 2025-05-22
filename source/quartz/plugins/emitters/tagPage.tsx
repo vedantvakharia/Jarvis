@@ -55,7 +55,6 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
       for (const [_tree, file] of content) {
         const sourcePath = file.data.filePath!
         const tags = (file.data.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes)
-        // if the file has at least one tag, it is used in the tag index page
         if (tags.length > 0) {
           tags.push("index")
         }
@@ -79,15 +78,14 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
         allFiles.flatMap((data) => data.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes),
       )
 
-      // add base tag
       tags.add("index")
 
       const tagDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
         [...tags].map((tag) => {
           const title =
             tag === "index"
-              ? i18n(cfg.locale).pages.tagContent.tagIndex
-              : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
+              ? "Tags Index"
+              : `Tag: ${tag}`
           return [
             tag,
             defaultProcessedContent({
