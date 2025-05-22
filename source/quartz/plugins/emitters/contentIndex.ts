@@ -2,7 +2,7 @@
 export type ContentIndex = Map<string, ContentDetails>
 
 // Your function stays here, without any export inside it
-function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: number): string {
+export function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: number): string {
   const base = cfg.baseUrl ?? ""
 
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<item>
