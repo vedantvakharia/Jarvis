@@ -1,7 +1,7 @@
 // contentIndex.ts
 
 // Export only types here - no runtime code with the same name
-export type ContentIndex = Map<string, ContentDetails>
+export ContentIndex = Map<string, ContentDetails>
 
 // Export any runtime functions related to ContentIndex here
 
