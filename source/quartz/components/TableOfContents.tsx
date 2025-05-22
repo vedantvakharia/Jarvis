@@ -5,6 +5,7 @@ import { classNames } from "../util/lang"
 
 // @ts-ignore
 import script from "./scripts/toc.inline"
+
 interface Options {
   layout: "modern" | "legacy"
 }
@@ -31,7 +32,8 @@ const TableOfContents: QuartzComponent = ({
         aria-controls="toc-content"
         aria-expanded={!fileData.collapseToc}
       >
-        <h3>{i18n(cfg.locale).components.tableOfContents.title}</h3>
+        {/* Static English title instead of i18n */}
+        <h3>Table of Contents</h3>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -71,7 +73,8 @@ const LegacyTableOfContents: QuartzComponent = ({ fileData, cfg }: QuartzCompone
   return (
     <details id="toc" open={!fileData.collapseToc}>
       <summary>
-        <h3>{i18n(cfg.locale).components.tableOfContents.title}</h3>
+        {/* Static English title instead of i18n */}
+        <h3>Table of Contents</h3>
       </summary>
       <ul>
         {fileData.toc.map((tocEntry) => (
@@ -88,6 +91,4 @@ const LegacyTableOfContents: QuartzComponent = ({ fileData, cfg }: QuartzCompone
 LegacyTableOfContents.css = legacyStyle
 
 export default ((opts?: Partial<Options>) => {
-  const layout = opts?.layout ?? defaultOptions.layout
-  return layout === "modern" ? TableOfContents : LegacyTableOfContents
-}) satisfies QuartzComponentConstructor
+  const layout = opts?.layo
