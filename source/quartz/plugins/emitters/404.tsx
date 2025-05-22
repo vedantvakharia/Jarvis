@@ -1,26 +1,34 @@
 import { QuartzEmitterPlugin } from "../types"
-import { FullPageLayout } from "../../layouts"
-import { sharedPageComponents } from "../../shared"  // ✅ THIS IS WHAT WAS MISSING
+import { defaultHead } from "../../components/Head"
+import { Footer } from "../../components/Footer"
+import { BodyConstructor } from "../../layouts"
 import { NotFound } from "../../components/pages/404"
+import { renderPage } from "../renderPage"
+import { write } from "../write"
+import { defaultProcessedContent } from "../../util/defaultProcessedContent"
+import { pageResources } from "../pageResources"
+import { DepGraph } from "graphlib"
+import { FullSlug, FilePath } from "../types"
 
 export const NotFoundPage: QuartzEmitterPlugin = () => {
-  const opts: FullPageLayout = {
-    ...sharedPageComponents,
+  const opts = {
+    head: defaultHead,
     pageBody: NotFound(),
+    footer: Footer,
     beforeBody: [],
     left: [],
     right: [],
   }
 
-  const { head: Head, pageBody, footer: Footer } = opts
+  const { head: Head, pageBody, footer: FooterComp } = opts
   const Body = BodyConstructor()
 
   return {
     name: "404Page",
     getQuartzComponents() {
-      return [Head, Body, pageBody, Footer]
+      return [Head, Body, pageBody, FooterComp]
     },
-    async getDependencyGraph(_ctx, _content, _resources) {
+    async getDependencyGraph() {
       return new DepGraph<FilePath>()
     },
     async emit(ctx, _content, resources): Promise<FilePath[]> {
@@ -30,7 +38,7 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
       const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
       const path = url.pathname as FullSlug
       const externalResources = pageResources(path, resources)
-      // Replaced i18n with a simple string fallback
+
       const notFound = "Page Not Found"
       const [tree, vfile] = defaultProcessedContent({
         slug,
@@ -38,7 +46,8 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         description: notFound,
         frontmatter: { title: notFound, tags: [] },
       })
-      const componentData: QuartzComponentProps = {
+
+      const componentData = {
         ctx,
         fileData: vfile.data,
         externalResources,
