@@ -1,8 +1,15 @@
-// Export types at top-level
+// contentIndex.ts
+
+// Export only types here - no runtime code with the same name
 export type ContentIndex = Map<string, ContentDetails>
 
-// Your function stays here, without any export inside it
-export function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: number): string {
+// Export any runtime functions related to ContentIndex here
+
+export function generateRSSFeed(
+  cfg: GlobalConfiguration,
+  idx: ContentIndex,
+  limit?: number
+): string {
   const base = cfg.baseUrl ?? ""
 
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<item>
@@ -34,12 +41,12 @@ export function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, lim
 
   return `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
-    <channel>
-      <title>${escapeHTML(cfg.pageTitle)}</title>
-      <link>https://${base}</link>
-      <description>${!!limit ? `Last ${limit} notes` : "Recent notes"} on ${escapeHTML(cfg.pageTitle)}</description>
-      <generator>Quartz -- quartz.jzhao.xyz</generator>
-      ${items}
-    </channel>
-  </rss>`
+  <channel>
+    <title>${escapeHTML(cfg.pageTitle)}</title>
+    <link>https://${base}</link>
+    <description>${!!limit ? `Last ${limit} notes` : "Recent notes"} on ${escapeHTML(cfg.pageTitle)}</description>
+    <generator>Quartz -- quartz.jzhao.xyz</generator>
+    ${items}
+  </channel>
+</rss>`
 }
