@@ -91,4 +91,6 @@ const LegacyTableOfContents: QuartzComponent = ({ fileData, cfg }: QuartzCompone
 LegacyTableOfContents.css = legacyStyle
 
 export default ((opts?: Partial<Options>) => {
-  const layout = opts?.layo
+  const layout = opts?.layout ?? defaultOptions.layout
+  return layout === "modern" ? TableOfContents : LegacyTableOfContents
+}) satisfies QuartzComponentConstructor
