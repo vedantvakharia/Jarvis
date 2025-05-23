@@ -41,8 +41,5 @@ class Car:
 
 ##### String Magic Methods
 1. **`__str__` -** The str() takes an object as input and returns its string representation. It can be used to convert various data types into strings, which can then be used for printing, concatenation, and formatting. 
-   ```python
-str(object, encoding='utf-8', errors='strict')
-```
-
-1. 2
+   
+2. 2
