@@ -6,10 +6,14 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 export default (() => {
   const Head: QuartzComponent = ({ cfg, fileData, externalResources }: QuartzComponentProps) => {
     const titleSuffix = cfg.pageTitleSuffix ?? ""
-    const title =
-      (fileData.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title) + titleSuffix
-    const description =
-      fileData.description?.trim() ?? i18n(cfg.locale).propertyDefaults.description
+
+    // Replace i18n with static strings
+    const defaultTitle = "My Notes" // <-- change to your desired default title
+    const defaultDescription = "Personal self-hosted notes" // <-- change as needed
+
+    const title = (fileData.frontmatter?.title ?? defaultTitle) + titleSuffix
+    const description = fileData.description?.trim() ?? defaultDescription
+
     const { css, js } = externalResources
 
     const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)

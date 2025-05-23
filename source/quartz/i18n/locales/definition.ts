@@ -29,7 +29,6 @@ export interface Translation {
     }
     themeToggle: {
       lightMode: string
-      darkMode: string
     }
     explorer: {
       title: string

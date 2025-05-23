@@ -6,6 +6,7 @@ import { PageList, SortFn } from "../PageList"
 import { stripSlashes, simplifySlug } from "../../util/path"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
+
 interface FolderContentOptions {
   /**
    * Whether to display number of folders
@@ -51,9 +52,8 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         <div class="page-listing">
           {options.showFolderCount && (
             <p>
-              {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
-                count: allPagesInFolder.length,
-              })}
+              {/* Static fallback text for item count */}
+              {`Items under this folder: ${allPagesInFolder.length}`}
             </p>
           )}
           <div>
