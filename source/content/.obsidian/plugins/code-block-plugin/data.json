@@ -1,22 +1,12 @@
 {
   "languages": [
     "c",
-    "css",
-    "diff",
     "ruby",
-    "ini",
-    "java",
-    "json",
     "less",
     "makefile",
-    "objectivec",
     "php",
-    "php-template",
     "plaintext",
-    "python",
     "python-repl",
-    "r",
-    "cpp",
     "cpp"
   ]
 }

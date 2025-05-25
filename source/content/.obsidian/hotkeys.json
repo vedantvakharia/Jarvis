@@ -5,16 +5,16 @@
       "key": "F3"
     }
   ],
-  "code-block-plugin:Add code block": [
-    {
-      "modifiers": [],
-      "key": "F4"
-    }
-  ],
   "editor:insert-codeblock": [
     {
       "modifiers": [],
       "key": "F5"
+    }
+  ],
+  "code-block-plugin:Add code block": [
+    {
+      "modifiers": [],
+      "key": "F4"
     }
   ]
 }
