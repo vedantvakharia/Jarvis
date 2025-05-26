@@ -1,4 +1,4 @@
-decorators, 
+
 ## Python Assertions
 
  Assertions are mainly assumptions that a programmer knows or always wants to be true and hence puts them in code so that failure of these doesn't allow the code to execute further. 
@@ -82,7 +82,23 @@ This is useful for:
 - Logging and debugging attribute access
 
 ## Method
-### Instance Method
+### Class Method
+
+Class methods are associated with the class rather than instances. They are defined using the `@classmethod` decorator and take the class itself as the first parameter, usually named `cls`. Class methods are useful for tasks that involve the class rather than the instance, such as creating class-specific behaviors or modifying class-level attributes.
+```python
+class C(object):  
+    @classmethod  
+    def fun(cls, arg1, arg2, ...):  
+       ....  
+# fun: function that needs to be converted into a class method  
+# returns: a class method for function.
+```
+
+
+### Static Method
+
+Static method can be called without creating an object or instance. Simply create the method and call it directly.
+
 ### Dunder Methods / Python Magic methods
 
 **Dunder methods** are special methods in Python that start and end with double underscores. Python automatically **calls these methods in special situations** (like printing an object, adding two objects, or comparing them).
@@ -174,8 +190,13 @@ print(odyssey)
    
 ## Functions related to OOPS
 
-1. **`vars()` -** Displays the attribute of an instance in the form of an dictionary, i.e., returns the `__dict__` attribute of an object. If used without an argument, `vars()` returns the local symbol table (like `locals()`). Use `vars()` when you want **values**. 
-2. **`dir()` -** Displays more attributes than vars function, as it is not limited to instance. Returns a list of all attributes and methods of an object (including inherited and special ones). Use `dir()` when you want to **explore structure**
+##### Object Inspection & Introspection
+1. **`type(obj)` -** Returns the type (class) of the object
+2. **`isinstance(obj, cls)` -** Checks if `obj` is an instance of `cls` or its subclass
+3. **`issubclass(cls, parent) `-** Checks if a class is derived from another class
+4. **`id(obj)` -** Returns the memory address (unique ID) of an object
+5. **`vars(obj)` -** Displays the attribute of an instance in the form of an dictionary, i.e., returns the `__dict__` attribute of an object. If used without an argument, `vars()` returns the local symbol table (like `locals()`). Use `vars()` when you want to get or modify an object’s attributes.
+6. **`dir(obj)` -** Displays more attributes than vars function, as it is not limited to instance. Returns a list of all attributes and methods of an object (including inherited and special ones). Use `dir()` when you want to **explore structure**
 ```python
 class Suit:
     def __init__(self):
@@ -187,4 +208,71 @@ print(vars(tony))  # {'version': 'Mark 50'}
 print(dir(tony))   # ['__class__', '__dict__', '__dir__', ..., 'version']
 
 ```
-3. 
+
+7. **`locals()` -** Returns a dictionary of local variables (within a function). Unlike `vars()`,  inside a function, modifying the dictionary returned by `locals()`does not affect the actual variables as in function scopes, `locals()` returns a **copy** of the local symbol table, not a live reference. Use `locals()` when you want to get current **local variables** inside a function. 
+8. **`globals()` -** Returns global symbol table (global variables and functions)
+9. **`hasattr(obj, name)` -** Returns `True` if object has the named attribute
+10. **`getattr(obj, name[, default])` -** Gets the attribute, optionally returns default if not found
+11. **`setattr(obj, name, value)` -** Sets or creates an attribute dynamically
+12. **`delattr(obj, name)` -** Deletes the named attribute from object
+13. **`callable(obj)` -** Returns `True` if `obj` can be called like a function
+14. **`repr(obj)` -** Returns a developer-readable string of the object (`__repr__`)
+15. **`str(obj)` -** Returns a user-friendly string of the object (`__str__`)
+16. **`help(obj)` -** Opens the help page/documentation for the object
+
+##### Decorators
+Decorators are a powerful and flexible way to modify or extend the behavior of functions or methods, without changing their actual code. A decorator is a function that takes another function (or method) as input and returns a new function with added or modified behavior. 
+
+```python
+# Syntax
+def decorator_name(func):  
+	def wrapper(*args, **kwargs):  
+		# Add functionality before the original function call  
+		result = func(*args, **kwargs)  
+		# Add functionality after the original function call  
+		return result  
+	return wrapper
+
+@decorator_name  
+def function_to_decorate():  
+	# Original function code  
+	pass
+```
+
+##### Types of Decorators
+1. Basic Decorator (No Arguments) - This is the **simplest** form. It doesn't accept any arguments itself — it only wraps a function. 
+```python
+# This is the **simplest** form. It doesn't accept any arguments itself — it only wraps a function.
+def simple_decorator(func):
+    def wrapper():
+        print("Before")
+        func()
+        print("After")
+    return wrapper
+
+@simple_decorator
+def greet():
+    print("Hello")
+
+greet()
+
+# Because we want our decorator to work with **any function**, even if it takes parameters:
+def flexible_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Before")
+        result = func(*args, **kwargs)
+        print("After")
+        return result
+    return wrapper
+
+@flexible_decorator
+def add(a, b):
+    return a + b
+
+print(add(5, 7))  # ✅ Works with arguments
+# args collects **positional arguments
+# kwargs collects **keyword arguments
+# This makes the decorator flexible for **any signature
+```
+
+2. 

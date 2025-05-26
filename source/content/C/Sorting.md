@@ -94,29 +94,6 @@ void quickSort(int arr[], int low, int high) {
         quickSort(arr, pi + 1, high);
     }
 }
-
-// Utility function to print an array
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
-
-// Driver code
-int main() {
-    int arr[] = {8, 4, 7, 3, 10, 2};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original array: ");
-    printArray(arr, n);
-
-    quickSort(arr, 0, n - 1);
-
-    printf("Sorted array:   ");
-    printArray(arr, n);
-
-    return 0;
-}
 ```
 
 ## Merge sort
@@ -177,28 +154,4 @@ void mergeSort(int arr[], int left, int right) {
         merge(arr, left, mid, right);
     }
 }
-
-// Utility function to print an array
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
-
-// Driver code
-int main() {
-    int arr[] = {8, 4, 7, 3, 10, 2};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original array: ");
-    printArray(arr, n);
-
-    mergeSort(arr, 0, n - 1);
-
-    printf("Sorted array:   ");
-    printArray(arr, n);
-
-    return 0;
-}
-
 ```

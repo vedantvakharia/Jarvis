@@ -301,8 +301,8 @@
       "codeblock": {
         "lineNumbers": true,
         "unwrapLines": true,
-        "wrapLinesActive": false,
-        "curvature": 4
+        "wrapLinesActive": true,
+        "curvature": 15
       },
       "gutter": {
         "highlight": true,
@@ -361,7 +361,7 @@
           "textColour": "#00D8FF"
         },
         "gutter": {
-          "backgroundColour": "#eee8d5",
+          "backgroundColour": "#EEE8D5",
           "textColour": "#6c6c6c",
           "activeTextColour": "#8c8c8c"
         },
