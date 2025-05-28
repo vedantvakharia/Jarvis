@@ -99,6 +99,8 @@ class C(object):
 
 Static method can be called without creating an object or instance. Simply create the method and call it directly.
 
+### Factory Method
+Factory methods are methods that return an instance of the class, often using different input parameters.
 ### Dunder Methods / Python Magic methods
 
 **Dunder methods** are special methods in Python that start and end with double underscores. Python automatically **calls these methods in special situations** (like printing an object, adding two objects, or comparing them).
@@ -190,7 +192,7 @@ print(odyssey)
    
 ## Functions related to OOPS
 
-##### Object Inspection & Introspection
+#### Object Inspection & Introspection
 1. **`type(obj)` -** Returns the type (class) of the object
 2. **`isinstance(obj, cls)` -** Checks if `obj` is an instance of `cls` or its subclass
 3. **`issubclass(cls, parent) `-** Checks if a class is derived from another class
@@ -220,7 +222,7 @@ print(dir(tony))   # ['__class__', '__dict__', '__dir__', ..., 'version']
 15. **`str(obj)` -** Returns a user-friendly string of the object (`__str__`)
 16. **`help(obj)` -** Opens the help page/documentation for the object
 
-##### Decorators
+#### Decorators
 Decorators are a powerful and flexible way to modify or extend the behavior of functions or methods, without changing their actual code. A decorator is a function that takes another function (or method) as input and returns a new function with added or modified behavior. 
 
 ```python
@@ -240,7 +242,7 @@ def function_to_decorate():
 ```
 
 ##### Types of Decorators
-1. Basic Decorator (No Arguments) - This is the **simplest** form. It doesn't accept any arguments itself — it only wraps a function. 
+1. **Basic Decorator / Function Decorators -** This is the simplest form. It doesn't accept any arguments itself — it only wraps a function. Takes a function as input and returns a new function.
 ```python
 # This is the **simplest** form. It doesn't accept any arguments itself — it only wraps a function.
 def simple_decorator(func):
@@ -255,24 +257,198 @@ def greet():
     print("Hello")
 
 greet()
-
-# Because we want our decorator to work with **any function**, even if it takes parameters:
-def flexible_decorator(func):
-    def wrapper(*args, **kwargs):
-        print("Before")
-        result = func(*args, **kwargs)
-        print("After")
-        return result
-    return wrapper
-
-@flexible_decorator
-def add(a, b):
-    return a + b
-
-print(add(5, 7))  # ✅ Works with arguments
-# args collects **positional arguments
-# kwargs collects **keyword arguments
-# This makes the decorator flexible for **any signature
 ```
 
-2. 
+2. **Decorator with arguments -** 
+   **Parameters -** 
+   - **func -** This parameter represents the function being decorated. When you use a decorator, the decorated function is passed to this parameter.
+   - **wrapper -** This is a nested function inside the decorator. It wraps the original function, adding additional functionality. The wrapper function allows the decorator to handle functions with any number and types of arguments.
+   - **args:** This collects any positional arguments passed to the decorated function into a tuple.
+   - **kwargs:** This collects any keyword arguments passed to the decorated function into a dictionary.
+   - **@decorator_name -** This syntax applies the decorator to the `function_to_decorate` function. It is equivalent to writing `function_to_decorate = decorator_name(function_to_decorate)`.
+```python
+def decorator_name(func):
+	def wrapper(*args, **kwargs):  
+		# Add functionality before the original function call  
+		result = func(*args, **kwargs)  
+		# Add functionality after the original function call  
+		return result  
+	return wrapper
+
+@decorator_name  
+def function_to_decorate():  
+	# Original function code  
+	pass
+```
+
+3. **Method Decorator -** Used to decorate methods within a class. They often handle special cases, such as the `self` argument for instance methods.
+```python
+def method_decorator(func):
+    def wrapper(self, *args, **kwargs):
+        print("Before method execution")
+        res = func(self, *args, **kwargs)
+        print("After method execution")
+        return res
+    return wrapper
+
+class MyClass:
+    @method_decorator
+    def say_hello(self):
+        print("Hello!")
+
+obj = MyClass()
+obj.say_hello()
+```
+
+4. **Class Decorators -** Class decorators are used to modify or enhance the behavior of a class. Like function decorators, class decorators are applied to the class definition. They work by taking the class as an argument and returning a modified version of the class.
+```python
+def fun(cls):
+    cls.class_name = cls.__name__
+    return cls
+
+@fun
+class Person:
+    pass
+
+print(Person.class_name) # Person
+
+# Explanation 
+add_class_name(cls): This decorator adds a new attribute, class_name, to the class cls. The value of class_name is set to the name of the class (cls.__name__).
+@add_class_name: This applies the add_class_name decorator to the Person class.
+Result: When the Person class is defined, the decorator automatically adds the class_name attribute to it.
+print(Person.class_name): Accessing the class_name attribute that was added by the decorator prints the name of the class, Person.
+```
+
+   5. **Decorator factory(More research needed) -** Decorator That Takes Arguments
+```python
+def decorator_with_args(arg1):
+    def real_decorator(func):
+        def wrapper(*args, **kwargs):
+            print(f"Decorator argument: {arg1}")
+            return func(*args, **kwargs)
+        return wrapper
+    return real_decorator
+
+```
+
+   
+##### Defining decorators
+You can define decorators either inside or outside a class, but where you define them depends on your use case.
+1. **Defining decorator outside a Class -** By defining decorators outside a class, the decorator can be reused across multiple classes or modules.
+```python
+def logger(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__}")
+        return func(*args, **kwargs)
+    return wrapper
+
+class IronMan:
+    @logger
+    def suit_up(self):
+        print("Mark 85 online.")
+
+```
+
+2. Defining decorator inside a Class - This is **less common**, but can be useful if the decorator needs access to class variables or is only used within that class.
+```python
+class Jarvis:
+    def decorator_inside(self, func):
+        def wrapper(*args, **kwargs):
+            print("Jarvis is assisting...")
+            return func(*args, **kwargs)
+        return wrapper
+
+    @property
+    def greet(self):
+        @self.decorator_inside
+        def inner():
+            print("Hello, sir.")
+        return inner()
+# Note: You can't use `@self.decorator_inside` at the time of method declaration directly because `self` doesn’t exist yet. That’s why it's used **within a method** or as a `staticmethod`.
+Research on this 
+```
+
+
+##### Common Built-in Decorators in Python
+
+1. **@classmethod -** Class methods are methods that are bound to a particular class. These methods are not tied to any instances of the class. The @classmethod is a built-in decorator that is used to create a class method. It receives the class (`cls`) as the first argument instead of the instance (`self`).  A class method can access or modify the class state.
+```python
+# Syntax
+class MyClass:
+    @classmethod
+    def class_method(cls, *args, **kwargs):
+        ...
+
+
+# Convert a normal function into a class method without using @classmethod, using classmethod()
+
+class Student:
+    # Class variable
+    name = "Geeksforgeeks"
+
+    # A function that expects an object (but we'll turn it into a class method)
+    def print_name(obj):
+        print("The name is :", obj.name)
+
+Student.print_name = classmethod(Student.print_name)
+# classmethod() is a built-in function that converts print_name into a class method.
+# Now obj inside print_name actually becomes a reference to the class itself (by convention, cls is used instead of obj).   
+# So now you can call Student.print_name() without creating an instance.
+Student.print_name() # The name is :  Geeksforgeeks
+
+
+# Factory method using a Class Method
+class Date:
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+
+    @classmethod
+# from_string is a factory method that creates an instance of the Date class from a string
+    def from_string(cls, date_string):
+        year, month, day = map(int, date_string.split('-'))
+        return cls(year, month, day)
+
+date = Date.from_string('2023-07-16')
+print(date.year, date.month, date.day) # 2023 7 16
+
+
+# Inheritance and @classmethod
+from datetime import date
+
+# random Person
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @staticmethod
+    def from_FathersAge(name, fatherAge, fatherPersonAgeDiff):
+        return Person(name, date.today().year - fatherAge + fatherPersonAgeDiff)
+
+    @classmethod
+    def from_BirthYear(cls, name, birthYear):
+        return cls(name, date.today().year - birthYear)
+
+    def display(self):
+        print(self.name + "'s age is: " + str(self.age))
+
+class Man(Person):
+    sex = 'Female'
+
+man = Man.from_BirthYear('John', 1985)
+print(isinstance(man, Man)) # True
+
+man1 = Man.from_FathersAge('John', 1965, 20)
+print(isinstance(man1, Man)) # False
+```
+
+2. **@staticmethod -** In general, static methods know nothing about the class state. They are utility-type methods that take some parameters and work upon those parameters. Static method can’t access or modify class state. 
+```python
+
+```
+
+   
+##### Decopatch (Decorators library)
+[decopatch](https://smarie.github.io/python-decopatch/)

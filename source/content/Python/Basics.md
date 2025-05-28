@@ -26,4 +26,5 @@
 'today = 2023-02-18 18:40:02.160890'
 ```
 
-2. 
+2. [First Class functions in Python | GeeksforGeeks](https://www.geeksforgeeks.org/first-class-functions-python/)
+3. [Python map() function | GeeksforGeeks](https://www.geeksforgeeks.org/python-map-function/)

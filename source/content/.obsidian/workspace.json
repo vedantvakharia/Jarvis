@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -172,13 +171,13 @@
   },
   "active": "f24253696e126eee",
   "lastOpenFiles": [
+    "Python/Basics.md",
+    "Python/OOPS.md",
     "Python/Slicing.md",
     "Python/Pyqtgraph.md",
     "Python/Panda.md",
-    "Python/OOPS.md",
     "Python/Numpy.md",
     "Python/Matplotlib.md",
-    "Python/Basics.md",
     "C/Leetcode.md",
     "C/Libraries.md",
     "C/Dynamic Memory Allocation.md",
