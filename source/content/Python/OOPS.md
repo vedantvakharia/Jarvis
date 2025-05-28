@@ -82,22 +82,12 @@ This is useful for:
 - Logging and debugging attribute access
 
 ## Method
-### Class Method
 
-Class methods are associated with the class rather than instances. They are defined using the `@classmethod` decorator and take the class itself as the first parameter, usually named `cls`. Class methods are useful for tasks that involve the class rather than the instance, such as creating class-specific behaviors or modifying class-level attributes.
-```python
-class C(object):  
-    @classmethod  
-    def fun(cls, arg1, arg2, ...):  
-       ....  
-# fun: function that needs to be converted into a class method  
-# returns: a class method for function.
-```
-
-
-### Static Method
-
-Static method can be called without creating an object or instance. Simply create the method and call it directly.
+1. Class Method
+2. Static Method
+3. Factory Method
+4. Dunder Method
+5. Getter and setter
 
 ### Factory Method
 Factory methods are methods that return an instance of the class, often using different input parameters.
@@ -190,6 +180,9 @@ print(odyssey)
 2. 
    
    
+### Getter and Setter
+
+Getter and setter methods allow you to access and mutate non-public attributes while maintaining encapsulation. In Python, you’ll typically expose attributes as part of your public API and use properties when you need attributes with functional behavior. Getter and setter methods allow you to access and modify data attributes while maintaining encapsulation. By default, attributes in Python can be accessed directly. However, this can pose problems when attributes need validation or transformation before being assigned or retrieved.
 ## Functions related to OOPS
 
 #### Object Inspection & Introspection
@@ -444,11 +437,89 @@ man1 = Man.from_FathersAge('John', 1965, 20)
 print(isinstance(man1, Man)) # False
 ```
 
-2. **@staticmethod -** In general, static methods know nothing about the class state. They are utility-type methods that take some parameters and work upon those parameters. Static method can’t access or modify class state. 
+2. **@staticmethod -** In general, static methods know nothing about the class state. They are utility-type methods that take some parameters and work upon those parameters. They are used when there is some functionality that relates to the class, but does not require any instance to do some work. Static method can’t access or modify class state. 
+   
+   We only need to use @staticmethod when we want to call a function not taking self as a parameter from an instance. See example. 
 ```python
+# Syntax
 
+class ClassName(object):
+
+    @staticmethod
+    def static_method(kwarg1=None):
+        '''return a value that is a function of kwarg1'''
+# This is equvalent to below
+
+class ClassName(object):
+
+    def static_method(kwarg1=None):
+        '''return a value that is a function of kwarg1'''
+
+    static_method = staticmethod(static_method)
+
+# Example of not needing @staticmethod
+class Dog:
+    count = 0 # this is a class variable
+    dogs = [] # this is a class variable
+
+    def __init__(self, name):
+        self.name = name #self.name is an instance variable
+        Dog.count += 1
+        Dog.dogs.append(name)
+
+    def bark(self, n): # this is an instance method
+        print("{} says: {}".format(self.name, "woof! " * n))
+
+    def rollCall(n): #this is implicitly a class method (see comments below)
+        print("There are {} dogs.".format(Dog.count))
+        if n >= len(Dog.dogs) or n < 0:
+            print("They are:")
+            for dog in Dog.dogs:
+                print("  {}".format(dog))
+        else:
+            print("The dog indexed at {} is {}.".format(n, Dog.dogs[n]))
+
+fido = Dog("Fido")
+fido.bark(3)
+Dog.rollCall(-1)
+rex = Dog("Rex")
+Dog.rollCall(0)
+
+#This code works even though we have not used @staticmethod. But if we try to do rex.rollCall(-1), then it will cause an error as it will take to arguments, self and -1 while it can take only 1 input. rex.rollCall() will work as it can pass now 2 arguments but will cause an error as n be accepting self and not a numerical value. So, if want to do instance.function instead of class.function, we need to use @staticmethod
+
+class Dog:
+    count = 0 # this is a class variable
+    dogs = [] # this is a class variable
+
+    def __init__(self, name):
+        self.name = name #self.name is an instance variable
+        Dog.count += 1
+        Dog.dogs.append(name)
+
+    def bark(self, n): # this is an instance method
+        print("{} says: {}".format(self.name, "woof! " * n))
+
+    @staticmethod
+    def rollCall(n):
+        print("There are {} dogs.".format(Dog.count))
+        if n >= len(Dog.dogs) or n < 0:
+            print("They are:")
+            for dog in Dog.dogs:
+                print("  {}".format(dog))
+        else:
+            print("The dog indexed at {} is {}.".format(n, Dog.dogs[n]))
+
+
+fido = Dog("Fido")
+fido.bark(3)
+Dog.rollCall(-1)
+rex = Dog("Rex")
+Dog.rollCall(0)
+rex.rollCall(-1)
 ```
 
-   
+   3. @property - @property decorator is a built-in decorator in Python which is helpful in defining the properties which is used to return the property attributes of a class from the stated getter, setter and deleter as parameters.
+
+ [Decorators in Python | GeeksforGeeks](https://www.geeksforgeeks.org/decorators-in-python/)
 ##### Decopatch (Decorators library)
 [decopatch](https://smarie.github.io/python-decopatch/)

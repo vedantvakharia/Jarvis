@@ -296,7 +296,9 @@ There are 5 words
 10. **`char *strstr(const char *haystack, const char *needle)` -** Finds the **first occurrence** of the string `needle` in `haystack`. Returns pointer to match or `NULL`. If `needle` is empty, returns `haystack`. 
 ```c
 char *strstr(const char *haystack, const char *needle) {
-    if (!*needle) return (char *)haystack;
+    if (!*needle) 
+	    return (char *)haystack;
+
     for (; *haystack; haystack++) {
         const char *h = haystack;
         const char *n = needle;

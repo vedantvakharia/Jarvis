@@ -133,7 +133,7 @@
 	1. 
 	
 
-8. Matrix multiplication - We can use `matmul(tensor A, tensor B)`, `A@B`, `mm(tensor A, tensor B)`. - **If both arguments are at least 1-dimensional and at least one argument is N-dimensional (where N > 2), then a batched matrix multiply is returned. If the first argument is 1-dimensional, a 1 is prepended to its dimension for the purpose of the batched matrix multiply and removed after. If the second argument is 1-dimensional, a 1 is appended to its dimension for the purpose of the batched matrix multiple and removed after. The non-matrix (i.e. batch) dimensions are [broadcasted](https://pytorch.org/docs/stable/notes/broadcasting.html#broadcasting-semantics) (and thus must be broadcastable). For example, if `input` is a (j×1×n×n)(j×1×n×n) tensor and `other` is a (k×n×n)(k×n×n) tensor, `out` will be a (j×k×n×n)(j×k×n×n) tensor.
+8. **Matrix multiplication -** We can use `matmul(tensor A, tensor B)`, `A@B`, `mm(tensor A, tensor B)`. - If both arguments are at least 1-dimensional and at least one argument is N-dimensional (where N > 2), then a batched matrix multiply is returned. If the first argument is 1-dimensional, a 1 is prepended to its dimension for the purpose of the batched matrix multiply and removed after. If the second argument is 1-dimensional, a 1 is appended to its dimension for the purpose of the batched matrix multiple and removed after. The non-matrix (i.e. batch) dimensions are broadcasted (and thus must be broadcastable). For example, if `input` is a (j×1×n×n)(j×1×n×n) tensor and `other` is a (k×n×n)(k×n×n) tensor, `out` will be a (j×k×n×n)(j×k×n×n) tensor.
     
     Note that the broadcasting logic only looks at the batch dimensions when determining if the inputs are broadcastable, and not the matrix dimensions. For example, if `input` is a (j×1×n×m)(j×1×n×m) tensor and `other` is a (k×m×p)(k×m×p) tensor, these inputs are valid for broadcasting even though the final two dimensions (i.e. the matrix dimensions) are different. `out` will be a (j×k×n×p)(j×k×n×p) tensor.**
 
@@ -143,9 +143,9 @@
 A stride specifies the number of memory locations (steps) to skip in each dimension to move to the next element along that dimension. It determines how the tensor's elements are laid out in memory and how the tensor is accessed.
 
 1. **Contiguity -** A tensor is contiguous if its memory layout matches the default (row-major order). Non-contiguous tensors arise after certain operations (e.g., slicing, transposing) but can be made contiguous with `.contiguous()`.
-2. `tensor.strides()` - To find strides of a tensor
-3. `tensor_name.contiguous()` - makes non contiguous tensors contiguous
-4. `print(tensor.is_contiguous())` - to check if tensor is contiguous. Output = true means it is
+2. **`tensor.strides()` -** To find strides of a tensor
+3. **`tensor_name.contiguous()` -** makes non contiguous tensors contiguous
+4. **`print(tensor.is_contiguous())` -** to check if tensor is contiguous. Output = true means it is
 5. **How does slicing makes tensors non contiguous -** When slicing, PyTorch doesn't create a new copy of the data; it references the same memory as the original tensor. This allows efficient slicing without duplicating large data. However, it does not preserve its default row-major order. Instead of copying data, slicing uses strides to reference only the relevant elements of the original memory, which can result in non-contiguous memory layouts. 
    E.g. - If there is a 3x3 tensor and we remove, the 2nd column. The stride of the sliced tensor will be `(3, 2)` which means that
     - To move to the next row, jump 3 memory locations (same as the original tensor).
@@ -164,33 +164,34 @@ A stride specifies the number of memory locations (steps) to skip in each dimens
 2. **Indices -** The **`indices`** tensor specifies the positions (coordinates) of the non-zero elements in the sparse tensor. It is a 2D tensor of size `(n, nnz)`, where `n` is the number of dimensions of the sparse tensor and`nnz` is the number of non-zero elements. Each column in the `indices` tensor represents the indices (coordinates) of a single non-zero element in the sparse tensor. Typically an integer tensor. 
 3. **Values -** The **`values`** tensor contains the actual values of the non-zero elements in the sparse tensor. It is a 1D tensor of size `(nnz)`, where `nnz` is the number of non-zero elements. Each element in the `values` tensor corresponds to the value at the position specified by the respective column in the `indices` tensor. Typically a float tensor.
 4. **Sparse tensor to dense tensor -** `dense_tensor = sparse_tensor.to_dense()`
+```python
+import torch
 
-`import torch`
-
-**Input -** 
-	`indices = torch.tensor([[0, 1, 1], [2, 0, 2]])  # Indices of non-zero elements`
-	`values = torch.tensor([3.0, 4.0, 5.0])          # Non-zero values`
-	`size = (2, 3)                                   # Shape of the dense tensor`
+# Input -
+	indices = torch.tensor([[0, 1, 1], [2, 0, 2]])  # Indices of non-zero elements
+	values = torch.tensor([3.0, 4.0, 5.0])        # Non-zero values
+	size = (2, 3)                                 # Shape of the dense tensor
 	
-	`sparse_tensor = torch.sparse_coo_tensor(indices, values, size)`
-	`print("Sparse Tensor:")`
-	`print(sparse_tensor)`
+	sparse_tensor = torch.sparse_coo_tensor(indices, values, size)
+	print("Sparse Tensor:")
+	print(sparse_tensor)
 	
-	`dense_tensor = sparse_tensor.to_dense()`
-	`print("\nDense Tensor:")`
-	`print(dense_tensor)`
+	dense_tensor = sparse_tensor.to_dense()`
+	print("\nDense Tensor:")`
+	print(dense_tensor)`
 
-**Output -** 
-	`Sparse Tensor:`
-	`tensor(indices=tensor([[0, 1, 1],`
-	                       `[2, 0, 2]]),`
-	       `values=tensor([3., 4., 5.]),`
-	       `size=(2, 3), nnz=3, layout=torch.sparse_coo)`
+# Output - 
+	Sparse Tensor:
+	tensor(indices=tensor([[0, 1, 1],
+	                       `[2, 0, 2]]),
+	       values=tensor([3., 4., 5.]),
+	       size=(2, 3), nnz=3, layout=torch.sparse_coo)
 	
-	`Dense Tensor:`
-	`tensor([[0., 0., 3.],`
-	        `[4., 0., 5.]])`
+	Dense Tensor:`
+	tensor([[0., 0., 3.],
+	        [4., 0., 5.]])
 
+```
 
 5. **Dense tensor to sparse tensor -** `sparse_tensor = dense_tensor.to_sparse()`
 

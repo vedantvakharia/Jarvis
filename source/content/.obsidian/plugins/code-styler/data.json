@@ -305,7 +305,7 @@
         "curvature": 15
       },
       "gutter": {
-        "highlight": true,
+        "highlight": false,
         "activeLine": false
       },
       "header": {
@@ -357,12 +357,12 @@
     "colours": {
       "light": {
         "codeblock": {
-          "backgroundColour": "#FFFFFF",
-          "textColour": "#00D8FF"
+          "backgroundColour": "#FCFCFC",
+          "textColour": "#000000"
         },
         "gutter": {
-          "backgroundColour": "#EEE8D5",
-          "textColour": "#6c6c6c",
+          "backgroundColour": "#D9F8FF",
+          "textColour": "#008FFF",
           "activeTextColour": "#8c8c8c"
         },
         "header": {
@@ -389,7 +389,7 @@
         },
         "inline": {
           "backgroundColour": "#FFFFFF",
-          "textColour": "#00A4FF",
+          "textColour": "#00C3FF",
           "activeTextColour": "#FF0000",
           "titleTextColour": "#C25F30"
         },
