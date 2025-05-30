@@ -235,12 +235,3 @@ int binarySearchCeil(int arr[], int n, int target) {
 }
 
 ```
-```
-```
-```
-
-```
-
-```
-
-```

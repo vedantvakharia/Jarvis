@@ -21,7 +21,7 @@ Instance attributes are those attributes that are not shared by objects. Every o
 
 ##### 2. Class / Static attributes
 
-A class attribute is a variable that is shared across all instances of a class. It belongs to the class itself, not to any one object (instance). Can be accessed using `object.attribute` or `class_name.attribute`. Static variables are defined inside the class definition, but outside of any method definitions. They are typically initialized with a value, just like an instance variable, but they can be accessed and modified through the class itself, rather than through an instance. 
+A class attribute is a variable that is shared across all instances of a class. It belongs to the class itself, not to any one object (instance). Class attributes are shared among all instances of a class and are typically used for static data that should not be changed on an instance level.Can be accessed using `object.attribute` or `class_name.attribute`. Static variables are defined inside the class definition, but outside of any method definitions. They are typically initialized with a value, just like an instance variable, but they can be accessed and modified through the class itself, rather than through an instance. 
 
 If you modify a class variable through an instance, a new instance variable is created. This separates the modified value from the original class variable, which remains unchanged for other instances.
 
@@ -182,8 +182,8 @@ print(odyssey)
    
 ### Getter and Setter
 
-Getter and setter methods allow you to access and mutate non-public attributes while maintaining encapsulation. In Python, you’ll typically expose attributes as part of your public API and use properties when you need attributes with functional behavior. Getter and setter methods allow you to access and modify data attributes while maintaining encapsulation. By default, attributes in Python can be accessed directly. However, this can pose problems when attributes need validation or transformation before being assigned or retrieved.
-- **Getter:** A method that allows you to _access_ an attribute in a given class
+Getter and setter methods allow you to access and mutate non-public attributes while maintaining encapsulation.  Getter and setter methods allow you to access and modify data attributes while maintaining encapsulation. By default, attributes in Python can be accessed directly. However, this can pose problems when attributes need validation or transformation before being assigned or retrieved.
+- **Getter:** A method that allows you to access an attribute in a given class
 - **Setter:** A method that allows you to _set_ or _mutate_ the value of an attribute in a class
   
   [Getters and Setters: Manage Attributes in Python – Real Python](https://realpython.com/python-getter-setter/#replacing-getters-and-setters-with-more-advanced-tools)
@@ -328,8 +328,20 @@ def decorator_with_args(arg1):
 
 ```
 
-6. **Property decorator -** The @property lets a method to be accessed as an attribute instead of as a method with a `'()'`.3
-   
+6. **Property decorator -** The @property lets a method to be accessed as an attribute instead of as a method with a `'()'`. `@property` is a **built-in decorator** in Python that allows you to define a method that **acts like an attribute**. It lets you **get**, **set**, or **delete** values using method logic — while looking like regular attribute access from the outside.
+
+It allows:
+- **Encapsulation** – Hide internal variables and control access. In Python, you’ll typically expose attributes as part of your public API and use properties when you need attributes with functional behavior.
+- **Validation** – Add checks when setting values.
+- **Computed properties** – Return calculated values on access. 
+- **Immutable attributes** – Make some values read-only.
+  
+If you change the value of an attribute inside a class, the other attributes that are derived from the attribute you just changed don’t automatically update. So, if we try to use method instead of attribute, this problem gets resolved but it will break whatever code used `self.attribute_name` attribute. @property takes care of this problem. 
+
+   1. **Getter and Setter -** Getter allows you to access an attribute in a given class. Setter allows you to set or mutate the value of an attribute in a class. To do this, add a `@methodname.setter` decorator just before the method definition. Once you add the `@methodname.setter` decorator to it, this method will be called everytime the property is set or changed.
+      
+      In OOP, the getter and setter pattern suggests that public attributes should be used only when you’re sure that no one will ever need to attach behavior to them. If an attribute is likely to change its internal implementation, then you should use getter and setter methods. Implementing the getter and setter pattern requires making your attributes non-public and writing getter and setter methods for each attribute.
+   2. Deleter -  
 ##### Defining decorators
 You can define decorators either inside or outside a class, but where you define them depends on your use case.
 1. **Defining decorator outside a Class -** By defining decorators outside a class, the decorator can be reused across multiple classes or modules.
