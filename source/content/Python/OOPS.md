@@ -183,6 +183,10 @@ print(odyssey)
 ### Getter and Setter
 
 Getter and setter methods allow you to access and mutate non-public attributes while maintaining encapsulation. In Python, you’ll typically expose attributes as part of your public API and use properties when you need attributes with functional behavior. Getter and setter methods allow you to access and modify data attributes while maintaining encapsulation. By default, attributes in Python can be accessed directly. However, this can pose problems when attributes need validation or transformation before being assigned or retrieved.
+- **Getter:** A method that allows you to _access_ an attribute in a given class
+- **Setter:** A method that allows you to _set_ or _mutate_ the value of an attribute in a class
+  
+  [Getters and Setters: Manage Attributes in Python – Real Python](https://realpython.com/python-getter-setter/#replacing-getters-and-setters-with-more-advanced-tools)
 ## Functions related to OOPS
 
 #### Object Inspection & Introspection
@@ -324,6 +328,7 @@ def decorator_with_args(arg1):
 
 ```
 
+6. **Property decorator -** The @property lets a method to be accessed as an attribute instead of as a method with a `'()'`.3
    
 ##### Defining decorators
 You can define decorators either inside or outside a class, but where you define them depends on your use case.
@@ -523,3 +528,17 @@ rex.rollCall(-1)
  [Decorators in Python | GeeksforGeeks](https://www.geeksforgeeks.org/decorators-in-python/)
 ##### Decopatch (Decorators library)
 [decopatch](https://smarie.github.io/python-decopatch/)
+
+Topics to research on -
+overiding getter setter in inheritance
+deleter
+property decorator
+decorator factor
+other decorator types
+[Python Metaprogramming - Properties on Steroids](https://mnesarco.github.io/blog/2020/07/23/python-metaprogramming-properties-on-steroids)
+[python - What's the pythonic way to use getters and setters? - Stack Overflow](https://stackoverflow.com/questions/2627002/whats-the-pythonic-way-to-use-getters-and-setters)
+[Primer on Python Decorators – Real Python](https://realpython.com/primer-on-python-decorators/)
+discriptors
+
+
+

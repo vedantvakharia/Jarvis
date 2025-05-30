@@ -99,7 +99,6 @@ void quickSort(int arr[], int low, int high) {
 ## Merge sort
 
 ```c
-#include <stdio.h>
 #include <stdlib.h>
 
 // Merge two sorted subarrays into a single sorted array
@@ -154,4 +153,94 @@ void mergeSort(int arr[], int left, int right) {
         merge(arr, left, mid, right);
     }
 }
+```
+
+
+## Binary Search
+
+##### Procedure
+
+1. **First procedure -**  Given an array A of n elements with values or records ![{\displaystyle A_{0},A_{1},A_{2},\ldots ,A_{n-1}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/6d8d813e3e6d50ef13e04948e72fcacaf43b7d5c)sorted such that ![{\displaystyle A_{0}\leq A_{1}\leq A_{2}\leq \cdots \leq A_{n-1}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/13c473f721041f872e852b4ad816f5ee77b1681d), and target value T.
+```c
+// Pseudo code
+function binary_search(A, n, T) is
+    L := 0
+    R := n − 1
+    while L ≤ R do
+        m := L + floor((R - L) / 2)
+        if A[m] < T then
+            L := m + 1
+        else if A[m] > T then
+            R := m − 1
+        else:
+            return m
+    return unsuccessful
+
+// Code in c
+int binarySearch(int arr[], int n, int target) {
+    int low = 0, high = n - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2; // prevents integer overflow
+
+        if (arr[mid] == target)
+            return mid; // Target found
+        else if (arr[mid] < target)
+            low = mid + 1; // Search right half
+        else
+            high = mid - 1; // Search left half
+    }
+
+    return -1; // Target not found
+}
+
+```
+
+2. Alternative procedure (Hermann Bottenbruch) - 
+```c
+// Pseudo code
+function binary_search_alternative(A, n, T) is
+    L := 0
+    R := n − 1
+    while L != R do
+        m := L + ceil((R - L) / 2)
+        if A[m] > T then
+            R := m − 1
+        else:
+            L := m
+    if A[L] = T then
+        return L
+    return unsuccessful
+
+// Code in C
+#include <stdio.h>
+
+int binarySearchCeil(int arr[], int n, int target) {
+    int L = 0;
+    int R = n - 1;
+
+    while (L != R) {
+        int m = L + (R - L + 1) / 2;
+
+        if (arr[m] > target)
+            R = m - 1;
+        else
+            L = m;
+    }
+
+    if (arr[L] == target)
+        return L;
+    
+    return -1;
+}
+
+```
+```
+```
+```
+
+```
+
+```
+
 ```

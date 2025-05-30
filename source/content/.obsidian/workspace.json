@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/OOPS.md",
+                "file": "C/Sorting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OOPS"
+              "title": "Sorting"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/Libraries.md",
+                "file": "C/Sorting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Libraries"
+              "title": "Sorting"
             }
           }
         ]
@@ -185,12 +185,12 @@
   },
   "active": "f24253696e126eee",
   "lastOpenFiles": [
-    "C/Libraries.md",
-    "C/Sorting.md",
-    "C/Dynamic Memory Allocation.md",
     "Python/OOPS.md",
-    "Pytorch/Tensors.md",
     "Python/Basics.md",
+    "C/Sorting.md",
+    "C/Libraries.md",
+    "C/Dynamic Memory Allocation.md",
+    "Pytorch/Tensors.md",
     "Python/Slicing.md",
     "Python/Pyqtgraph.md",
     "Python/Panda.md",

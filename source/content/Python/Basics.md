@@ -28,3 +28,5 @@
 
 2. [First Class functions in Python | GeeksforGeeks](https://www.geeksforgeeks.org/first-class-functions-python/)
 3. [Python map() function | GeeksforGeeks](https://www.geeksforgeeks.org/python-map-function/)
+4. [refactor](https://realpython.com/python-refactoring/)
+5. 
