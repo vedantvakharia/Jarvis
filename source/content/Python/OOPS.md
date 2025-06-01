@@ -11,6 +11,10 @@
 
 **Returns:** Returns AssertionError, in case the condition evaluates to false along with the error message which when provided.
 
+
+## Classes
+
+##### Abstract Classes
 ## Attributes
 
 Attributes are variables that belong to an object or class. They store data or state about an object. 
@@ -342,6 +346,7 @@ If you change the value of an attribute inside a class, the other attributes tha
       
       In OOP, the getter and setter pattern suggests that public attributes should be used only when you’re sure that no one will ever need to attach behavior to them. If an attribute is likely to change its internal implementation, then you should use getter and setter methods. Implementing the getter and setter pattern requires making your attributes non-public and writing getter and setter methods for each attribute.
    2. Deleter -  
+[Python's property(): Add Managed Attributes to Your Classes – Real Python](https://realpython.com/python-property/)
 ##### Defining decorators
 You can define decorators either inside or outside a class, but where you define them depends on your use case.
 1. **Defining decorator outside a Class -** By defining decorators outside a class, the decorator can be reused across multiple classes or modules.
@@ -538,6 +543,71 @@ rex.rollCall(-1)
    3. @property - @property decorator is a built-in decorator in Python which is helpful in defining the properties which is used to return the property attributes of a class from the stated getter, setter and deleter as parameters.
 
  [Decorators in Python | GeeksforGeeks](https://www.geeksforgeeks.org/decorators-in-python/)
+
+## Inheritance
+
+**Inheritance** models what’s called an is a relationship. This means that when you have a `Derived` class that inherits from a `Base` class, you’ve created a relationship where `Derived` **is a** specialized version of `Base`.
+
+**Liskov substitution principle -** The principle states that if `S` is a subtype of `T`, then replacing objects of type `T` with objects of type `S` doesn’t change the program’s behavior.
+
+##### super() function
+`super()` is a built-in Python function used to **call methods from a parent (superclass)** in a child (subclass) **without explicitly naming the parent class**.
+`super()` can take two parameters: the first is the subclass, and the second parameter is an object that is an instance of that subclass.
+
+```python
+# The super(Square, self) call is equivalent tp the parameterless super() call. The first parameter refers to the subclass Square, while the second parameter refers to a Square object which, in this case, is self.
+
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * self.length + 2 * self.width
+
+class Square(Rectangle):
+    def __init__(self, length):
+        super(Square, self).__init__(length, length)
+
+# Class Cube inherits from Square and extends the functionality of .area() (inherited from the Rectangle class through Square) to calculate the surface area and volume of a Cube instance. Cube class definition does not have an .__init__() because Cube inherits from Square and .__init__ doesn’t really do anything differently for Cube than it already does for Square, you can skip defining it, and the .__init__() of the superclass (Square) will be called automatically. Not only does this save us from having to rewrite the area calculations, but it also allows us to change the internal .area() logic in a single location. This is especially in handy when you have a number of subclasses inheriting from one superclass. super() returns a delegate object to a parent class, so you call the method you want directly on it: super().area().
+
+class Square(Rectangle):
+    def __init__(self, length):
+        super().__init__(length, length)
+
+class Cube(Square):
+    def surface_area(self):
+        face_area = super().area()
+        return face_area * 6
+
+    def volume(self):
+        face_area = super().area()
+        return face_area * self.length
+
+# You can call super() with other classes as well. In the below example, you are setting Square as the subclass argument to super(), instead of Cube. This causes super() to start searching for a matching method (in this case .area()) at one level above Square in the instance hierarchy, in this case Rectangle. In this specific example, the behavior doesn’t change. But imagine that Square also implemented an .area() function that you wanted to make sure Cube did not use. Calling super() in this way allows you to do that.
+
+class Cube(Square):
+    def surface_area(self):
+        face_area = super(Square, self).area()
+        return face_area * 6
+
+    def volume(self):
+        face_area = super(Square, self).area()
+        return face_area * self.length
+
+# The second parameter - Remember, this is an object that is an instance of the class used as the first parameter. For an example, isinstance(Cube, Square) must return True. By including an instantiated object, super returns a bound method: a method that is bound to the object, which gives the method the object’s context such as any instance attributes. If this parameter is not included, the method returned is just a function, unassociated with an object’s context.
+```
+
+##### Multiple Inheritance 
+Multiple Inheritance is in which a subclass can inherit from multiple superclasses that don’t necessarily inherit from each other (also known as **sibling classes**).
+
+
+
+[Mastering Python’s MRO: A Comprehensive Guide to Method Resolution Order Unveiled! | by Rohan Rokade | Medium](https://medium.com/@officialyrohanrokade/mastering-pythons-mro-a-comprehensive-guide-to-method-resolution-order-unveiled-e28fa81e370e)
+
 ##### Decopatch (Decorators library)
 [decopatch](https://smarie.github.io/python-decopatch/)
 
@@ -550,7 +620,9 @@ other decorator types
 [Python Metaprogramming - Properties on Steroids](https://mnesarco.github.io/blog/2020/07/23/python-metaprogramming-properties-on-steroids)
 [python - What's the pythonic way to use getters and setters? - Stack Overflow](https://stackoverflow.com/questions/2627002/whats-the-pythonic-way-to-use-getters-and-setters)
 [Primer on Python Decorators – Real Python](https://realpython.com/primer-on-python-decorators/)
-discriptors
+descriptors
+[Python Descriptors: An Introduction – Real Python](https://realpython.com/python-descriptors/)
+bound method
 
 
 

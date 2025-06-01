@@ -122,3 +122,7 @@ temp = temp->next;
 
 4. 
 
+## Trees
+
+## Hash Tables
+
