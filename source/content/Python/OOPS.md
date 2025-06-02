@@ -61,7 +61,6 @@ def move(self):
 return "Fly"
 ```
 
-
 ## Attributes
 
 Attributes are variables that belong to an object or class. They store data or state about an object. 
@@ -593,11 +592,9 @@ rex.rollCall(-1)
 
 ## Inheritance
 
-**Inheritance** models what’s called an is a relationship. This means that when you have a `Derived` class that inherits from a `Base` class, you’ve created a relationship where `Derived` **is a** specialized version of `Base`.
+**Inheritance** models what’s called an is a relationship. This means that when you have a `Derived` class that inherits from a `Base` class, you’ve created a relationship where `Derived` **is a** specialized version of `Base`. This follows from the Liskov Substitution principle. Liskov substitution principle states that if `S` is a subtype of `T`, then replacing objects of type `T` with objects of type `S` doesn’t change the program’s behavior.
 
-**Liskov substitution principle -** The principle states that if `S` is a subtype of `T`, then replacing objects of type `T` with objects of type `S` doesn’t change the program’s behavior.
-
-##### super() function
+#### super() function
 `super()` is a built-in Python function used to **call methods from a parent (superclass)** in a child (subclass) **without explicitly naming the parent class**.
 `super()` can take two parameters: the first is the subclass, and the second parameter is an object that is an instance of that subclass.
 
@@ -648,8 +645,93 @@ class Cube(Square):
 # The second parameter - Remember, this is an object that is an instance of the class used as the first parameter. For an example, isinstance(Cube, Square) must return True. By including an instantiated object, super returns a bound method: a method that is bound to the object, which gives the method the object’s context such as any instance attributes. If this parameter is not included, the method returned is just a function, unassociated with an object’s context.
 ```
 
-##### Multiple Inheritance 
-Multiple Inheritance is in which a subclass can inherit from multiple superclasses that don’t necessarily inherit from each other (also known as **sibling classes**).
+##### Method of Resolution
+MRO tells Python how to search for inherited methods. Every class has an `.__mro__` attribute that allows us to inspect the order. MRO is computed from left to right in the class definition. Python first searches in the class itself, then in the **first parent**, then recursively in its parents before moving to the next parent.
+
+``` python
+# This example declares a Triangle class and a RightPyramid class that inherits from both Square and Triangle. The problem, though, is that both superclasses (Triangle and Square) define a .area(). So, to determine which area will be called, MRO is used. 
+
+class Triangle:
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+
+class RightPyramid(Triangle, Square):
+    def __init__(self, base, slant_height):
+        self.base = base
+        self.slant_height = slant_height
+
+    def area(self):
+        base_area = super().area()
+        perimeter = super().perimeter()
+        return 0.5 * perimeter * self.slant_height + base_area
+
+>>> RightPyramid.__mro__
+(<class '__main__.RightPyramid'>, <class '__main__.Triangle'>, 
+ <class '__main__.Square'>, <class '__main__.Rectangle'>, 
+ <class 'object'>)
+
+# This tells us that methods will be searched first in Rightpyramid, then in Triangle, then in Square, then Rectangle, and then, if nothing is found, in object, from which all classes originate. The problem here is that the interpreter is that the interpreter is searching for .area() in Triangle before Square and Rectangle, and upon finding .area() in Triangle, Python calls it instead of the one you want. Because Triangle.area() expects there to be a .height and a .base attribute, Python throws an AttributeError.
+
+class RightPyramid(Square, Triangle):
+    def __init__(self, base, slant_height):
+        self.base = base
+        self.slant_height = slant_height
+        super().__init__(self.base) # This initialises length and width. 
+
+    def area(self):
+        base_area = super().area()
+        perimeter = super().perimeter()
+        return 0.5 * perimeter * self.slant_height + base_area
+
+    def area_2(self):
+        base_area = super().area()
+        triangle_area = super().tri_area()
+        return triangle_area * 4 + base_area
+
+# This has MRO = RightPyramid → Square → Rectangle → Triangle → object. The order has changes because MRO is computed from left to right in the class definition. Previously, it was RightPyramid(Triangle, Square). So, it first accessed Triangle class and then Square class. Now, it is RightPyramid(Square, Traingle). So, it first access area from Square class, then Rectangle class(as Square inherits from Rectangle class) and then Traingle class.  
+```
+
+
+To manually check the MRO, we use C3 linearization. C3 linearization is an algorithm used to compute the **Method Resolution Order (MRO)** in a consistent, predictable way for classes in Python that use **multiple inheritance**.
+
+The rule is:
+> The MRO of a class `C` is `[C] + merge(MRO(P1), MRO(P2), ..., [P1, P2, ..., Pn])`,  
+> where `P1, P2, ..., Pn` are the parents of `C`.
+
+It ensures:
+- **Preservation of local precedence order** (i.e., subclasses override parents).
+- **Monotonicity** (i.e., consistent and predictable MRO).
+- **No diamond problem conflicts** (i.e., method duplication or inconsistency).
+  
+```python
+class A: pass
+class B(A): pass
+class C(A): pass
+class D(B, C): pass
+
+# Here, we have Diamond inheritance structure. 
+     A
+    / \
+   B   C
+    \ /
+     D
+
+```
+
+
+#### Multiple Inheritance 
+Multiple inheritance is the ability to derive a class from multiple base classes at the same time.
+
+##### Class Explosion - The need for Multiple Inheritance
+
+Class Explosion happens when you create too many specific classes to handle different combinations of behaviors, attributes, or configurations. 
+
+Imagine designing shirts in a clothing store. If you create a separate class for each possible combination of size (S, M, L, XL), color (Red, Blue, Black), sleeve (Full, Half), fit (Slim, Regular). This will create 48 combinations, thus 48 classes which is difficult to manage and maintain. This is class explosion. 
+
 
 
 
