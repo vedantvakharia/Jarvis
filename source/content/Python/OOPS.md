@@ -14,7 +14,54 @@
 
 ## Classes
 
-##### Abstract Classes
+#### Abstract Classes
+ABCs are created using the `abc` module, which stands for "Abstract Base Classes." The `ABC` class from this module is the base class for defining custom abstract base classes. Additionally, the `abstractmethod` decorator is used to declare methods as abstract. 
+
+An **abstract class** is a blueprint for other classes. It:
+- **Cannot be instantiated**
+- **May contain abstract methods** (methods without implementation)
+- Enforces that **subclasses must implement** certain methods
+
+##### Why use Abstract Class
+
+The primary purpose of ABCs is to enforce a contract for subclasses. By defining a set of methods that must be implemented, ABCs make sure that the derived classes adhere to a specific interface.
+
+1. **Enforcement of Method Implementation:** ABCs compel subclasses to implement specific methods. This makes sure that all subclasses behave in a predictable manner, which is crucial for maintaining consistency and reliability in the code.
+2. **Polymorphism:** ABCs enable polymorphism, a key concept in object-oriented programming that allows objects of different classes to be treated as objects of a common super class. This facilitates writing more flexible and reusable code
+3. **Code Documentation and Design:** ABCs serve as a form of documentation for the code. They clearly outline the expected behavior and interface of the subclasses, making it easier for developers to understand the code structure and design.
+   
+##### Abstract Methods
+
+Abstract methods are methods declared in an abstract base class without an implementation. These methods act as a contract, making sure that any subclass provides its own specific implementation. Abstract methods are created using the `abstractmethod` decorator from the `abc` module. These methods are placeholders and must be implemented by any subclass of the abstract base class. When a subclass inherits from an abstract base class, it must provide concrete implementations for all abstract methods. If a subclass fails to implement any abstract method, it will also be considered abstract and cannot be instantiated(raises an error).
+
+``` python
+from abc import ABC, abstractmethod  
+  
+class Animal(ABC):  
+@abstractmethod  
+def make_sound(self):  
+pass  
+  
+@abstractmethod  
+def move(self):  
+pass
+
+class Dog(Animal):  
+def make_sound(self):  
+return "Bark"  
+  
+def move(self):  # If move wasn't implemented here, it would raise an error
+return "Run"  
+  
+class Bird(Animal):  
+def make_sound(self):  
+return "Chirp"  
+  
+def move(self):  
+return "Fly"
+```
+
+
 ## Attributes
 
 Attributes are variables that belong to an object or class. They store data or state about an object. 
