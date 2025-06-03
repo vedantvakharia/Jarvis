@@ -66,10 +66,10 @@ return "Fly"
 Attributes are variables that belong to an object or class. They store data or state about an object. 
 Attributes can be accessed by using dot notation ,i.e., object.attribute. 
 
-##### 1. Instance attributes
+### 1. Instance attributes
 Instance attributes are those attributes that are not shared by objects. Every object has its own copy of the instance attribute. An instance attribute refers to the properties of that particular object. They are created inside methods (typically `__init__()`).
 
-##### 2. Class / Static attributes
+### 2. Class / Static attributes
 
 A class attribute is a variable that is shared across all instances of a class. It belongs to the class itself, not to any one object (instance). Class attributes are shared among all instances of a class and are typically used for static data that should not be changed on an instance level.Can be accessed using `object.attribute` or `class_name.attribute`. Static variables are defined inside the class definition, but outside of any method definitions. They are typically initialized with a value, just like an instance variable, but they can be accessed and modified through the class itself, rather than through an instance. 
 
@@ -84,7 +84,7 @@ class Car:
 
 ```
 
-##### 3. `__dict__` attribute
+### 3. `__dict__` attribute
 
 This attribute holds a dictionary containing the writable members of the underlying class or instance. 
 - For **instances**, `obj.__dict__` contains the attributes specific to that object.
@@ -123,7 +123,7 @@ print(ironman.suit_version)  # Mark 85
 ```
 
 
-##### 4. Managed Attribute (Don't need)
+### 4. Managed Attribute (Don't need)
 A **managed attribute** is a class attribute whose access (get, set, delete) is **controlled by special methods** instead of being accessed or modified directly. 
 This is useful for:
 - Adding validation logic
@@ -255,7 +255,6 @@ tony = Suit()
 
 print(vars(tony))  # {'version': 'Mark 50'}
 print(dir(tony))   # ['__class__', '__dict__', '__dir__', ..., 'version']
-
 ```
 
 7. **`locals()` -** Returns a dictionary of local variables (within a function). Unlike `vars()`,  inside a function, modifying the dictionary returned by `locals()`does not affect the actual variables as in function scopes, `locals()` returns a **copy** of the local symbol table, not a live reference. Use `locals()` when you want to get current **local variables** inside a function. 
@@ -592,7 +591,7 @@ rex.rollCall(-1)
 
 ## Inheritance
 
-**Inheritance** models what’s called an is a relationship. This means that when you have a `Derived` class that inherits from a `Base` class, you’ve created a relationship where `Derived` **is a** specialized version of `Base`. This follows from the Liskov Substitution principle. Liskov substitution principle states that if `S` is a subtype of `T`, then replacing objects of type `T` with objects of type `S` doesn’t change the program’s behavior.
+**Inheritance** models what’s called an is a relationship. This means that when you have a `Derived`class that inherits from a `Base` class, you’ve created a relationship where `Derived` **is a** specialized version of `Base`. This follows from the Liskov Substitution principle. Liskov substitution principle states that if `S` is a subtype of `T`, then replacing objects of type `T` with objects of type `S` doesn’t change the program’s behavior.
 
 #### super() function
 `super()` is a built-in Python function used to **call methods from a parent (superclass)** in a child (subclass) **without explicitly naming the parent class**.
@@ -680,7 +679,7 @@ class RightPyramid(Square, Triangle):
     def __init__(self, base, slant_height):
         self.base = base
         self.slant_height = slant_height
-        super().__init__(self.base) # This initialises length and width. 
+        super().__init__(self.base) # This calls Square.__init__() and  initialises length and width. 
 
     def area(self):
         base_area = super().area()
@@ -692,7 +691,90 @@ class RightPyramid(Square, Triangle):
         triangle_area = super().tri_area()
         return triangle_area * 4 + base_area
 
-# This has MRO = RightPyramid → Square → Rectangle → Triangle → object. The order has changes because MRO is computed from left to right in the class definition. Previously, it was RightPyramid(Triangle, Square). So, it first accessed Triangle class and then Square class. Now, it is RightPyramid(Square, Traingle). So, it first access area from Square class, then Rectangle class(as Square inherits from Rectangle class) and then Traingle class.  
+# This has MRO = RightPyramid → Square → Rectangle → Triangle → object. The order has changes because MRO is computed from left to right in the class definition. Previously, it was RightPyramid(Triangle, Square). So, it first accessed Triangle class and then Square class. Now, it is RightPyramid(Square, Traingle). So, it first access area from Square class, then Rectangle class(as Square inherits from Rectangle class) and then Traingle class. When you’re using super() with multiple inheritance, it’s imperative to design your classes to cooperate. Part of this is ensuring that your methods are unique so that they get resolved in the MRO, by making sure method signatures are unique—whether by using method names or method parameters. In this case, as we have used the area keyword in both square and triangle, to avoid a complete overhaul of code, we will rename the Triangle class's .area() method to .tri_area(). This way, the area methods can continue using class properties rather than taking external parameters.  So, the new code becomes
+
+class Triangle:
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+        super().__init__()
+
+    def tri_area(self):
+        return 0.5 * self.base * self.height
+
+class RightPyramid(Square, Triangle):
+    def __init__(self, base, slant_height):
+        self.base = base
+        self.slant_height = slant_height
+        super().__init__(self.base)
+
+    def area(self):
+        base_area = super().area()
+        perimeter = super().perimeter()
+        return 0.5 * perimeter * self.slant_height + base_area
+
+    def area_2(self):
+        base_area = super().area()
+        triangle_area = super().tri_area()
+        return triangle_area * 4 + base_area
+
+# The next issue here is that the code doesn’t have a delegated Triangle object like it does for a Square object, so calling .area_2() will give us an Error since .base and height don’t have any values. You need to do two things to fix this:
+# 1. All methods that are called with super() need to have a call to their superclass’s version of that method. This means that you will need to add super().__init__() to the .__init__() methods of Triangle and Rectangle.  
+# 2. Redesign all the `.__init__()` calls to take a keyword dictionary.
+
+class Rectangle:
+    def __init__(self, length, width, **kwargs):
+        self.length = length
+        self.width = width
+        super().__init__(**kwargs)
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * self.length + 2 * self.width
+
+# Here we declare that the Square class inherits from 
+# the Rectangle class
+class Square(Rectangle):
+    def __init__(self, length, **kwargs):
+        super().__init__(length=length, width=length, **kwargs)
+
+class Cube(Square):
+    def surface_area(self):
+        face_area = super().area()
+        return face_area * 6
+
+    def volume(self):
+        face_area = super().area()
+        return face_area * self.length
+
+class Triangle:
+    def __init__(self, base, height, **kwargs):
+        self.base = base
+        self.height = height
+        super().__init__(**kwargs)
+
+    def tri_area(self):
+        return 0.5 * self.base * self.height
+
+class RightPyramid(Square, Triangle):
+    def __init__(self, base, slant_height, **kwargs):
+        self.base = base
+        self.slant_height = slant_height
+        kwargs["height"] = slant_height
+        kwargs["length"] = base
+        super().__init__(base=base, **kwargs)
+
+    def area(self):
+        base_area = super().area()
+        perimeter = super().perimeter()
+        return 0.5 * perimeter * self.slant_height + base_area
+
+    def area_2(self):
+        base_area = super().area()
+        triangle_area = super().tri_area()
+        return triangle_area * 4 + base_area
 ```
 
 
@@ -707,19 +789,49 @@ It ensures:
 - **Monotonicity** (i.e., consistent and predictable MRO).
 - **No diamond problem conflicts** (i.e., method duplication or inconsistency).
   
-```python
+``` css
 class A: pass
 class B(A): pass
 class C(A): pass
 class D(B, C): pass
 
-# Here, we have Diamond inheritance structure. 
+Here, we have Diamond inheritance structure. 
      A
     / \
    B   C
     \ /
      D
 
+MRO of D = D + merge(MRO(B), MRO(C), [B,C])
+MRO(B) = [B, A, object]
+MRO(C) = [C, A, object]
+merge([B, A, object], [C, A, object], [B, C])
+
+Pick the first head of the lists if it's not in the tail of any other list.
+
+B is the head of the 1st list and in [B, C] ⇒ Not in any tail ⇒ Pick B 
+Remove B -
+[B, A, object]  → [A, object] 
+[C, A, object] 
+[B, C] → [C]
+
+C is the head of list 2 and 3 ⇒ Not in any tail ⇒ Pick C
+Remove C -
+[A, object] 
+[C, A, object] → [A, object] 
+[C]  → []
+
+A is head of both lists and not in any tail ⇒ Pick A
+Remove A:
+[object] 
+[object] 
+[]
+
+object is head of both lists and not in any tail ⇒ Pick object
+
+Remove object ⇒ All lists empty
+
+MRO of D = [D, B, C, A, object]
 ```
 
 
