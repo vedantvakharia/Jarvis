@@ -311,7 +311,7 @@
       "header": {
         "title": {
           "textFont": "",
-          "textBold": false,
+          "textBold": true,
           "textItalic": true
         },
         "languageTag": {
@@ -366,9 +366,9 @@
           "activeTextColour": "#8c8c8c"
         },
         "header": {
-          "backgroundColour": "#D5CCB4",
+          "backgroundColour": "#57CAFF",
           "title": {
-            "textColour": "#866704"
+            "textColour": "#006FFF"
           },
           "languageTag": {
             "backgroundColour": "#B8B5AA",
@@ -379,7 +379,7 @@
             "displayVersionColour": "#ff9300",
             "displayTimestampColour": "#808080"
           },
-          "lineColour": "#EDD489"
+          "lineColour": "#0065FF"
         },
         "highlights": {
           "activeCodeblockLineColour": "#eee8d5",

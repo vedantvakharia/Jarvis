@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/Data Structures.md",
+                "file": "Python/OOPS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Data Structures"
+              "title": "OOPS"
             }
           },
           {
@@ -92,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -186,11 +185,11 @@
   },
   "active": "f24253696e126eee",
   "lastOpenFiles": [
+    "C/Data Structures.md",
     "Java/Basics.md",
     "Python/OOPS.md",
     "Java",
     "C/Dynamic Memory Allocation.md",
-    "C/Data Structures.md",
     "C/Sorting.md",
     "C/Leetcode.md",
     "C/Libraries.md",
