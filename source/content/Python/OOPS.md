@@ -29,38 +29,6 @@ The primary purpose of ABCs is to enforce a contract for subclasses. By defining
 1. **Enforcement of Method Implementation:** ABCs compel subclasses to implement specific methods. This makes sure that all subclasses behave in a predictable manner, which is crucial for maintaining consistency and reliability in the code.
 2. **Polymorphism:** ABCs enable polymorphism, a key concept in object-oriented programming that allows objects of different classes to be treated as objects of a common super class. This facilitates writing more flexible and reusable code
 3. **Code Documentation and Design:** ABCs serve as a form of documentation for the code. They clearly outline the expected behavior and interface of the subclasses, making it easier for developers to understand the code structure and design.
-   
-##### Abstract Methods
-
-Abstract methods are methods declared in an abstract base class without an implementation. These methods act as a contract, making sure that any subclass provides its own specific implementation. Abstract methods are created using the `abstractmethod` decorator from the `abc` module. These methods are placeholders and must be implemented by any subclass of the abstract base class. When a subclass inherits from an abstract base class, it must provide concrete implementations for all abstract methods. If a subclass fails to implement any abstract method, it will also be considered abstract and cannot be instantiated(raises an error).
-
-``` python
-from abc import ABC, abstractmethod  
-  
-class Animal(ABC):  
-@abstractmethod  
-def make_sound(self):  
-pass  
-  
-@abstractmethod  
-def move(self):  
-pass
-
-class Dog(Animal):  
-def make_sound(self):  
-return "Bark"  
-  
-def move(self):  # If move wasn't implemented here, it would raise an error
-return "Run"  
-  
-class Bird(Animal):  
-def make_sound(self):  
-return "Chirp"  
-  
-def move(self):  
-return "Fly"
-```
-
 ## Attributes
 
 Attributes are variables that belong to an object or class. They store data or state about an object. 
@@ -141,6 +109,41 @@ This is useful for:
 
 ### Factory Method
 Factory methods are methods that return an instance of the class, often using different input parameters.
+
+### Abstract Methods
+Abstract methods are methods declared in an abstract base class without an implementation. These methods act as a contract, making sure that any subclass provides its own specific implementation. Abstract methods are created using the `abstractmethod` decorator from the `abc` module. These methods are placeholders and must be implemented by any subclass of the abstract base class. When a subclass inherits from an abstract base class, it must provide concrete implementations for all abstract methods. If a subclass fails to implement any abstract method, it will also be considered abstract and cannot be instantiated(raises an error).
+
+``` python
+from abc import ABC, abstractmethod  
+  
+class Animal(ABC):  
+@abstractmethod  
+def make_sound(self):  
+pass  
+  
+@abstractmethod  
+def move(self):  
+pass
+
+class Dog(Animal):  
+def make_sound(self):  
+return "Bark"  
+  
+def move(self):  # If move wasn't implemented here, it would raise an error
+return "Run"  
+  
+class Bird(Animal):  
+def make_sound(self):  
+return "Chirp"  
+  
+def move(self):  
+return "Fly"
+```
+
+
+### Concrete Method
+Concrete methods are the methods defined in an abstract base class with their complete implementation. Concrete methods are required to avoid replication of code in subclasses. For example, in abstract base class there may be a method that implementation is to be same in all its subclasses, so we write the implementation of that method in abstract base class after which we do not need to write implementation of the concrete method again and again in every subclass.
+
 ### Dunder Methods / Python Magic methods
 
 **Dunder methods** are special methods in Python that start and end with double underscores. Python automatically **calls these methods in special situations** (like printing an object, adding two objects, or comparing them).
@@ -592,8 +595,14 @@ rex.rollCall(-1)
 ## Inheritance
 
 **Inheritance** models what’s called an is a relationship. This means that when you have a `Derived`class that inherits from a `Base` class, you’ve created a relationship where `Derived` **is a** specialized version of `Base`. This follows from the Liskov Substitution principle. Liskov substitution principle states that if `S` is a subtype of `T`, then replacing objects of type `T` with objects of type `S` doesn’t change the program’s behavior.
+#### Multiple Inheritance 
+Multiple inheritance is the ability to derive a class from multiple base classes at the same time.
+##### Class Explosion - The need for Multiple Inheritance
 
-#### super() function
+Class Explosion happens when you create too many specific classes to handle different combinations of behaviors, attributes, or configurations. 
+
+Imagine designing shirts in a clothing store. If you create a separate class for each possible combination of size (S, M, L, XL), color (Red, Blue, Black), sleeve (Full, Half), fit (Slim, Regular). This will create 48 combinations, thus 48 classes which is difficult to manage and maintain. This is class explosion. 
+##### super() function
 `super()` is a built-in Python function used to **call methods from a parent (superclass)** in a child (subclass) **without explicitly naming the parent class**.
 `super()` can take two parameters: the first is the subclass, and the second parameter is an object that is an instance of that subclass.
 
@@ -643,6 +652,7 @@ class Cube(Square):
 
 # The second parameter - Remember, this is an object that is an instance of the class used as the first parameter. For an example, isinstance(Cube, Square) must return True. By including an instantiated object, super returns a bound method: a method that is bound to the object, which gives the method the object’s context such as any instance attributes. If this parameter is not included, the method returned is just a function, unassociated with an object’s context.
 ```
+
 
 ##### Method of Resolution
 MRO tells Python how to search for inherited methods. Every class has an `.__mro__` attribute that allows us to inspect the order. MRO is computed from left to right in the class definition. Python first searches in the class itself, then in the **first parent**, then recursively in its parents before moving to the next parent.
@@ -834,20 +844,85 @@ Remove object ⇒ All lists empty
 MRO of D = [D, B, C, A, object]
 ```
 
+##### Diamond Problem
+Diamond Problem arises when a child class inherits from multiple parent classes that have a common base. This creates ambiguity in which order the overridden methods should execute. MRO tackles the Diamond Problem by defining a clear path for Python to follow when inheriting from multiple classes, ensuring a structured order for method resolution. But sometimes, there are problems even MRO cannot solve. For example, a certain method might require 4 arguments but due to MRO, it is passing 5 arguments. While this can be solved by forcing the initialization by writing the initialization, but this can cause writing the same code again and again. 
 
-#### Multiple Inheritance 
-Multiple inheritance is the ability to derive a class from multiple base classes at the same time.
+## Composition
+**Composition** is a design principle in which a class is composed of one or more objects of other classes, rather than inheriting from them. You build complex behavior by combining simpler, reusable components. Composition is a “has-a” relationship. The composition relation between two classes is considered loosely coupled. That means that changes to the component class rarely affect the composite class, and changes to the composite class never affect the component class.
 
-##### Class Explosion - The need for Multiple Inheritance
+In Composition, one class acts like a Container and other acts like a content. Composition represents "part-of" relationship. When there is a composition between two Python classes, the content object cannot exist without the container object. The cl 
 
-Class Explosion happens when you create too many specific classes to handle different combinations of behaviors, attributes, or configurations. 
+```python
+class Salary:
+	def __init__(self, pay, bonus) :
+		self.pay = pay
+		self.bonus = bonus
+	
+	def annual_salary(self) :
+		return (self.pay*12) + self.bonus
 
-Imagine designing shirts in a clothing store. If you create a separate class for each possible combination of size (S, M, L, XL), color (Red, Blue, Black), sleeve (Full, Half), fit (Slim, Regular). This will create 48 combinations, thus 48 classes which is difficult to manage and maintain. This is class explosion. 
+class Employee :
+	def __init__(self, name, age, pay, bonus):
+		self.name = name
+		self.age = age
+		self.obj_salary = Salary(pay,bonus)
+	
+	def total_Salary(self):
+		return self.obj_salary.annual_salary()
+
+emp = Employee('Tony', 28, 12000, 15000)
+
+# Here, the object created related to the salary class is deleted once the emp object is deleted, i.e., the object of 1 class cannot exist without the other during composition. Salary is a 'part of' Employee class. 
+```
+
+[Inheritance and Composition: A Python OOP Guide – Real Python](https://realpython.com/inheritance-composition-python/) Read from Customizing Behavior With Composition
+## Aggregation
+
+Aggregation is a "has-a" relationship between two classes — where one class contains a reference to another, but the contained object can exist independently of the container. Aggregation is when one object contains another object, but the contained object is not owned or controlled by the container — it has an independent lifecycle. Aggregation is unidirectional, i.e., only 1 class knows about the other, i.e., the container knows and holds a reference to the part but the part does not know about the container. 
+
+```python
+class Salary:
+	def __init__(self, pay, bonus) :
+		self.pay = pay
+		self.bonus = bonus
+	
+	def annual_salary(self) :
+		return (self.pay*12) + self.bonus
+
+class Employee :
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+		self.obj_salary = salary;
+	
+	def total_Salary(self):
+		return self.obj_salary.annual_salary()
+
+salary = Salary(120000, 150000)
+emp = Employee('Tony', 28, salary)
+
+# Here, the salary object created related to the salary class is not deleted once the emp object is deleted, i.e., the object of 1 class can exist without the other during composition. Salary is not a 'part of' Employee class, we are just passing.
+
+# Here, Salary class does not know about Employee class(the uniderectional point). 
+```
 
 
+| Feature         | Association       | Aggregation            | Composition  |
+| --------------- | ----------------- | ---------------------- | ------------ |
+| Relationship    | Loosely connected | Has-a                  | Part of      |
+| Ownerhip        | No                | Partial(Shared)        | Full         |
+| Object Lifespan | Independent       | Independent            | Dependent    |
+| Example         | Student ↔ Library | University → Professor | Car → Engine |
 
+## Data Abstraction
+Data abstraction means hiding complex implementation details while exposing only essential information and functionalities to users. It can be done using abstract classes and abstract classes can be created using abc (abstract base class) module and abstract method of abc module.
 
-[Mastering Python’s MRO: A Comprehensive Guide to Method Resolution Order Unveiled! | by Rohan Rokade | Medium](https://medium.com/@officialyrohanrokade/mastering-pythons-mro-a-comprehensive-guide-to-method-resolution-order-unveiled-e28fa81e370e)
+[Data Abstraction in Python | GeeksforGeeks](https://www.geeksforgeeks.org/data-abstraction-in-python/)
+[Understanding Abstraction in Python - AskPython](https://www.askpython.com/python/oops/abstraction-in-python)
+More research needed
+## Polymorphism 
+Polymorphism is a foundational concept in programming that allows entities like functions, methods or operators to behave differently based on the type of data they are handling.
+
 
 ##### Decopatch (Decorators library)
 [decopatch](https://smarie.github.io/python-decopatch/)
@@ -864,6 +939,7 @@ other decorator types
 descriptors
 [Python Descriptors: An Introduction – Real Python](https://realpython.com/python-descriptors/)
 bound method
+Abstraction
 
 
 
