@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/OOPS.md",
+                "file": "C/Data Structures.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OOPS"
+              "title": "Data Structures"
             }
           },
           {
@@ -92,7 +92,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -185,11 +186,12 @@
   },
   "active": "f24253696e126eee",
   "lastOpenFiles": [
+    "C/File Operations.md",
+    "C/Dynamic Memory Allocation.md",
+    "Python/OOPS.md",
     "C/Data Structures.md",
     "Java/Basics.md",
-    "Python/OOPS.md",
     "Java",
-    "C/Dynamic Memory Allocation.md",
     "C/Sorting.md",
     "C/Leetcode.md",
     "C/Libraries.md",
@@ -210,7 +212,6 @@
     "Pytorch/Untitled",
     "Pytorch/Untitled.canvas",
     "Pytorch/Basics of Neural Network.md",
-    "C/File Operations.md",
     "C/Pointers.md",
     "C/Recursion.md",
     "C/Structures.md",

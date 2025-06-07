@@ -162,8 +162,53 @@ hashtable* ht_create(int size) {
     return ht;
 }
 
-// Write a Hash Function
+// Write a Hash Function (djb2 used here)
+unsigned int hash(const char* key, int size) {
+    unsigned long hash = 5381;
+    int c;
+    while ((c = *key++)) {
+        hash = ((hash << 5) + hash) + c;  // hash * 33 + c
+    }
+    return hash % size;
+}
 
+// Handle Collisions (Separate Chaining) - If multiple keys map to the same index, store them as a linked list.
+bucket[index] -> [key1,value1] -> [key2,value2] -> NULL
+
+// Insert operation
+void ht_insert(hashtable* ht, const char* key, const char* value) {
+    unsigned int index = hash(key, ht->size);
+    ht_item* new_item = malloc(sizeof(ht_item));
+    new_item->key = strdup(key);
+    new_item->value = strdup(value);
+    new_item->next = NULL;
+
+    ht_item* current = ht->buckets[index];
+
+    // If slot empty, directly insert
+    if (!current) {
+        ht->buckets[index] = new_item;
+        return;
+    }
+
+    // Else traverse and check for duplicate key
+    ht_item* prev = NULL;
+    while (current) {
+        if (strcmp(current->key, key) == 0) {
+            free(current->value);
+            current->value = strdup(value);  // Replace
+            free(new_item->key);
+            free(new_item->value);
+            free(new_item);
+            return;
+        }
+        prev = current;
+        current = current->next;
+    }
+
+    // If not found, append at end
+    prev->next = new_item;
+}
 
 ```
 
@@ -273,9 +318,33 @@ int folding_hash(const char *key, int group_size, int table_size) {
 }
 ```
 
-5. Universal hashing - Universal hashing means choosing a hash function at random from a carefully designed family of hash functions, such that for any two distinct keys `x ≠ y`, the probability that they collide is **low** when the hash function is randomly chosen from the family.
+5. **Universal hashing -** Universal hashing means choosing a hash function at random from a carefully designed family of hash functions, such that for any two distinct keys `x ≠ y`, the probability that they collide is **low** when the hash function is randomly chosen from the family. 
+   
+   Universal Hashing Formula - `h(x) = ((a * x + b) % p) % m` where:
+- `x` is the key (must be an integer)
+- `a` and `b` are random integers
+    - `1 ≤ a < p`, `0 ≤ b < p`
+- `p` is a large **prime** number larger than any key
+- `m` is the size of your hash table
+  
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Choose a large prime (must be > max key)
+#define PRIME 7919
+
+// Random values a and b in [1, p-1] and [0, p-1]
+int universal_hash(int key, int a, int b, int m) {
+    return ((a * key + b) % PRIME) % m;
+}
+```
+
+
 6. Perfect Hashing - 
-7. **djb2 -** this algorithm (k=33) was first reported by dan bernstein many years ago in comp.lang.c. another version of this algorithm (now favored by bernstein) uses xor:` hash(i) = hash(i - 1) * 33 ^ str[i];` the magic of number 33 (why it works better than many other constants, prime or not) has never been adequately explained.
+7. **djb2 -** this algorithm (k=33) was first reported by dan bernstein many years ago in comp.lang.c. The magic of number 33 (why it works better than many other constants, prime or not) has never been adequately explained.
+   
 ```c
 unsigned long
 hash(unsigned char *str)
@@ -288,13 +357,30 @@ hash(unsigned char *str)
 
     return hash;
 }
+
+// If you want better entropy in short strings (e.g., 2-3 chars), use this variation where you XOR instead of adding
+hash(i) = hash(i - 1) * 33 ^ str[i];`
 ```
 
-   
-#### Collision resolution
+   8. **SDBM -** SDBM stands for Stanford Database Manager, where this hash function was used. It's used for hashing strings into integers, especially for hash tables.
+
+```c
+unsigned long sdbm(const unsigned char *str)
+{
+    unsigned long hash = 0;
+    int c;
+
+    while ((c = *str++))
+        hash = c + (hash << 6) + (hash << 16) - hash; // = c + hash × 65599
+
+    return hash;
+}
+```
+
+### Collision resolution
 A search algorithm that uses hashing consists of two parts. The first part is computing a hash function which transforms the search key into an array index. The ideal case is such that no two search keys hash to the same array index. However, this is not always the case and impossible to guarantee for unseen given data. Hence the second part of the algorithm is collision resolution. The two common methods for collision resolution are separate chaining and open addressing.
 
-##### Separate Chaining
+#### Separate Chaining
 In separate chaining, the process involves building a linked list with key-value pair for each search array index. The collided items are chained together through a single linked list, which can be traversed to access the item with a unique search key. Collision resolution through chaining with linked list is a common method of implementation of hash tables. If the element is comparable either numerically or lexically, and inserted into the list by maintaining the total order, it results in faster termination of the unsuccessful searches.
 
 Let T and x be the hash table and the node respectively, the operation involves as follows:
@@ -308,3 +394,18 @@ Chained-Hash-Search(_T_, _k_)
 Chained-Hash-Delete(_T_, _k_)
   _delete_ _x_ _from the linked list_ _T_[_h_(_k_)]
 ```
+
+#### Open Addressing (Probing)
+With this method a hash collision is resolved by probing, or searching through alternative locations in the array (the _probe sequence_) until either the target record is found, or an unused array slot is found, which indicates that there is no such key in the table. 
+
+The performance of open addressing may be slower compared to separate chaining since the probe sequence increases when the load factor α approaches 1.  The probing results in an infinite loop if the load factor reaches 1, in the case of a completely filled table. The average cost of linear probing depends on the hash function's ability to distribute the elements uniformly throughout the table to avoid clusterin, since formation of clusters would result in increased search time.
+##### Linear Probing
+In Linear Probing, the data structure is an array T (the hash table) whose cells T[i] (when nonempty) each store a single key–value pair. A hash function is used to map each key into the cell of T where that key should be stored, typically scrambling the keys so that keys with similar values are not placed near each other in the table. Linear probing is a strategy for resolving collisions, by placing the new key into the closest following empty cell.
+
+###### Searching
+To search for a given key x, the cells of T are examined, beginning with the cell at index h(x) (where h is the hash function) and continuing to the adjacent cells h(x) + 1, h(x) + 2, ..., until finding either an empty cell or a cell whose stored key is x. If a cell containing the key is found, the search returns the value from that cell. Otherwise, if an empty cell is found, the key cannot be in the table, because it would have been placed in that cell in preference to any later cell that has not yet been searched. In this case, the search returns as its result that the key is not present in the dictionary.
+
+######  Insertion
+To insert a key–value pair (_x_,_v_) into the table (possibly replacing any existing pair with the same key), the insertion algorithm follows the same sequence of cells that would be followed for a search, until finding either an empty cell or a cell whose stored key is x. The new key–value pair is then placed into that cell.
+
+https://en.wikipedia.org/wiki/Linear_probing
