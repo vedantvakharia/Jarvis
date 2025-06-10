@@ -145,18 +145,18 @@ In C, **control characters** are special **non-printable characters** in the ASC
 
 Commonly used Control Characters
 
-| Escape | ASCII | Name                | Description                                                                                   |
-| ------ | ----- | ------------------- | --------------------------------------------------------------------------------------------- |
-| \0     | 0     | Null terminator     | Marks the end of a string                                                                     |
-| \b     | 8     | Backspace           | Moves cursor back, often erases a character on screen                                         |
-| \t     | 9     | Horizontal Tab      | Aligns to next tab stop                                                                       |
-| \n     | 10    | Line Feed / Newline | Moves to next line (new line in Unix/Linux)                                                   |
-| \v     | 11    | Vertical Tab        | Skips vertically (rare)                                                                       |
-| \f     | 12    | Form Feed           | Page break / clear screen in some terminals                                                   |
-| \r     | 13    | Carriage Return     | Returns cursor to start of line (overwrites text)<br><br>`printf("123\rABC");` → prints `ABC` |
-| \\\    | -     | Backslash           | Prints a literal backslash                                                                    |
-| \\'    | -     | Single quote        | For printing a single quote                                                                   |
-| \\"    | -     | Double quote        | For printing inside string                                                                    |
+| Escape Sequence | ASCII | Name                | Description                                                                                   |
+| --------------- | ----- | ------------------- | --------------------------------------------------------------------------------------------- |
+| \0              | 0     | Null terminator     | Marks the end of a string                                                                     |
+| \b              | 8     | Backspace           | Moves cursor back, often erases a character on screen                                         |
+| \t              | 9     | Horizontal Tab      | Aligns to next tab stop                                                                       |
+| \n              | 10    | Line Feed / Newline | Moves to next line (new line in Unix/Linux)                                                   |
+| \v              | 11    | Vertical Tab        | Skips vertically (rare)                                                                       |
+| \f              | 12    | Form Feed           | Page break / clear screen in some terminals                                                   |
+| \r              | 13    | Carriage Return     | Returns cursor to start of line (overwrites text)<br><br>`printf("123\rABC");` → prints `ABC` |
+| \\\             | -     | Backslash           | Prints a literal backslash                                                                    |
+| \\'             | -     | Single quote        | For printing a single quote                                                                   |
+| \\"             | -     | Double quote        | For printing inside string                                                                    |
 
 
 ## 5. Loops

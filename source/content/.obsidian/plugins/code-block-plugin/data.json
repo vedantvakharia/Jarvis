@@ -8,6 +8,8 @@
     "plaintext",
     "python-repl",
     "cpp",
-    "css"
+    "css",
+    "java",
+    "javascript"
   ]
 }

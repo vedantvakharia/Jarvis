@@ -16,7 +16,7 @@
 	6. `torch.rand()` - Creates a tensor with random values from 0 to 1
 	7. `torch.randint(a,b,(c,d))` - Creates a tensor with random values from a to b of shape cxd
 	8. `torch.randn()` - Creates a tensor with normal distribution
-	9. `torch.arange(start, end, step=1, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False)` - When the `step` argument is a **non-integer (floating point)**, `torch.arange()` generates numbers **by repeated addition** of `step` to `start` until reaching (but not exceeding) `end`. Since `torch.arange()` **performs repeated additions**, it can lead to **floating-point precision errors**. Use `torch.linspace()` if you need a precise number of points between two values.
+	9. `torch.arange(start, end, step=1, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False)`- When the `step` argument is a non-integer (floating point),`torch.arange()`generates numbers by repeated addition of`step` to `start` until reaching (but not exceeding)`end`. Since `torch.arange()` performs repeated additions, it can lead to floating-point precision errors. Use `torch.linspace()` if you need a precise number of points between two values.
 	   
 	  `torch.arrange(1,11)`
 	  `tensor([1,2,3,4,5,6,7,8,9,10])`
@@ -194,40 +194,37 @@ import torch
 ```
 
 5. **Dense tensor to sparse tensor -** `sparse_tensor = dense_tensor.to_sparse()`
+```python
+import torch
 
-**Input - **
-	`import torch`
+dense_tensor = torch.tensor([[1, 0, 0],
+	                        [0, 0, 2],
+	                        [0, 3, 0]], dtype=torch.float32)
 	
-	`dense_tensor = torch.tensor([[1, 0, 0],`
-	                             `[0, 0, 2],`
-	                             `[0, 3, 0]], dtype=torch.float32)`
-	
-	`sparse_tensor = dense_tensor.to_sparse()`
-	
-	`print("Sparse Tensor:")`
-	`print(sparse_tensor)`
-	
-	`print("\nIndices:")`
-	`print(sparse_tensor.indices())  # Non-zero positions`
-	
-	`print("\nValues:")`
-	`print(sparse_tensor.values())  # Non-zero values`
-	
-	`print("\nShape of Sparse Tensor:")`
-	`print(sparse_tensor.size())`
+sparse_tensor = dense_tensor.to_sparse()
 
-**Output - **
+print("Sparse Tensor:")
+print(sparse_tensor)
 
-`Dense tensor - [[1. 0. 0.]`
-			 `[0. 0. 2.]`
-			 `[0. 3. 0.]]`
+print("\nIndices:")
+print(sparse_tensor.indices())  # Non-zero positions
 
-`Sparse Tensor` - `tensor(indices=tensor([[0, 1, 2],`
-                       `[0, 2, 1]]),`
-				       `values=tensor([1., 2., 3.]),`
-				       `size=(3, 3), nnz=3, layout=torch.sparse_coo)`
+print("\nValues:")
+print(sparse_tensor.values())  # Non-zero values
 
+print("\nShape of Sparse Tensor:")
+print(sparse_tensor.size())
 
+# Output -
+Dense tensor - [[1. 0. 0.]
+				[0. 0. 2.]
+				[0. 3. 0.]]
+
+Sparse Tensor - tensor(indices=tensor([[0, 1, 2],
+										[0, 2, 1]]),
+						values=tensor([1., 2., 3.]),
+						size=(3, 3), nnz=3, layout=torch.sparse_coo)
+```
 
 # Torch functions
 
