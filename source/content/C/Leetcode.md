@@ -43,26 +43,5 @@ int divide(int dividend, int divisor) {
 1. 2 pointer method - make 1 pointer move from start and other from end, for a certain condition, increment the left pointer or the right pointer
 2. For searching an element in a sorted array, use binary search. 
 
-## Dynamic Programming
 
-**Dynamic Programming** is a method for solving complex problems by breaking them down into simpler overlapping subproblems and storing the results to avoid redundant computations. Basically, it is recursion but storing the values so we don't need to calculate again. 
-
-If brute-force is exponential and you see overlapping subproblems, it's probably a DP problem.
-
-1. Bottom up 
-```c
-int dp[MAX];
-
-// Base cases
-dp[0] = BASE_0;
-dp[1] = BASE_1;
-
-// Loop from small subproblems to bigger ones
-for (int i = 2; i <= N; i++) {
-    dp[i] = dp[i - 1] + dp[i - 2];  // Change this based on recurrence
-}
-
-printf("%d\n", dp[N]);
-
-```
 [A median problem - solution - Codeforces](https://codeforces.com/blog/entry/635)

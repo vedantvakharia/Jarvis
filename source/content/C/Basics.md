@@ -49,7 +49,6 @@
 - **`sizeof`**: Returns the size of a variable or data type in bytes.
 ## 2. Operator hierarchy - 
 
-
 | ****Precedence**** | ****Operator**** | ****Description****                               | ****Associativity**** |
 | ------------------ | ---------------- | ------------------------------------------------- | --------------------- |
 | 1                  | ()               | function call                                     | Left-to-Right         |
@@ -84,15 +83,17 @@
 |                    | <<=, >>=         | Bitwise shift left, right assignment              |                       |
 |                    | ,                | comma (expression separator)                      |                       |
 
-
 ***PUMA’S REBL TAC*** - where, P = Postfix, U = Unary, M = Multiplicative, A = Additive, S = Shift, R = Relational, E = Equality, B = Bitwise, L = Logical, T = Ternary, A = Assignment and C = Comma
 
 C does not support chaining of comparison operators directly because C treats comparison results as integers (`1` for true, `0` for false). Instead, each comparison must be written explicitly using logical operators like `&&` (logical AND) or `||` (logical OR) to combine multiple conditions. 
 
 If we want to write 10< x <20, then we have to write in the following manner
-`if (10 < x && x < 20) {`
-    `printf("x is between 10 and 20");`
+```c
+if (10 < x && x < 20) {
+    printf("x is between 10 and 20");
 }
+```
+
 ## 3. Printf
 
 `printf(%[flags][width][.precision][length]specifier)` -
@@ -125,7 +126,6 @@ If we want to write 10< x <20, then we have to write in the following manner
 | l               | Long integer                           |
 | ll              | Long long integer                      |
 | L               | Long double for floating-point numbers |
- 
 5. **Specifiers** - 
 
 | Data type                              | Format specifier |
@@ -139,7 +139,6 @@ If we want to write 10< x <20, then we have to write in the following manner
 | char                                   | %c               |
 | string                                 | %s               |
 | Pointer (`void*`)                      | %p               |
-
 ## 4. Control Characters 
 In C, **control characters** are special **non-printable characters** in the ASCII range `0–31` and `127`. These characters were originally used to **control hardware devices** like terminals and printers, and some are still useful for formatting output or parsing input. Found in `<ctype.h>` and checked using functions like `iscntrl()`. Affect **cursor movement**, **screen display**, or **communication protocols**. 
 
@@ -157,7 +156,6 @@ Commonly used Control Characters
 | \\\             | -     | Backslash           | Prints a literal backslash                                                                    |
 | \\'             | -     | Single quote        | For printing a single quote                                                                   |
 | \\"             | -     | Double quote        | For printing inside string                                                                    |
-
 
 ## 5. Loops
 1. For loop - A pair of expressions separated by a comma is evaluated left to right, and the type and value of the result are the type and value of the right operand. Thus in a for statement, it is possible to place multiple expressions in the various parts, for example to process two indices in parallel. In a single for loop, we can initialize and use 2 variables.

@@ -148,11 +148,11 @@ Concrete methods are the methods defined in an abstract base class with their co
 
 **Dunder methods** are special methods in Python that start and end with double underscores. Python automatically **calls these methods in special situations** (like printing an object, adding two objects, or comparing them).
 
-##### Initialization and Construction 
+#### Initialization and Construction 
 1. **`__init__`  -** `__init__` method in Python is used to initialize objects of a class. Whenever you call a class, Python will construct a new instance of that class, and then call that class' `__init__` method, passing in the newly constructed instance as the first argument (`self`).
 2. 
 
-##### String Magic Methods
+#### String Magic Methods
 1. **`__str__` -** The str() takes an object as input and returns its string representation. It can be used to convert various data types into strings, which can then be used for printing, concatenation, and formatting. 
    
    **Syntax - **`str(object, encoding='utf-8', errors='strict')`
@@ -177,7 +177,7 @@ Hello, Geeks.
    You define the return value for `.__repr__()` to include the name of the class followed by parentheses (`()`) and the two arguments required to initialize the class. This format is ideal for the official string representation since it represents a valid Python expression that can re-create an object equal to the original one. Whenever possible, you should use this format for the official string representation.
    
    **Syntax -** `repr(object)`
-```python
+```python 
 s = 'Hello, Geeks.'
 print (repr(s))
 print (repr(2.0/11.0))
@@ -232,7 +232,21 @@ print(odyssey)
 
 2. 
    
-   
+#### `__call__`
+
+##### Callable objects
+In Python, a callable is any object that you can call using a pair of parentheses and, optionally, a series of arguments. Examples of callables are
+- Built-in functions and classes
+- User-defined functions that you create with the def keyword
+- Anonymous functions that you write using the lambda keyword
+- The constructors of your custom classes
+- Instance, class, and static methods
+- Instances of classes that implement the`.__call__`method
+- Closures that you return from your functions
+- Generator functions that you define using the yield keyword
+- Asynchronous functions and methods that you create with the async keyword
+
+All these callables implement the `.__call__()` which can be confirmed using the`dir()`function. When you run something like `callable_object(*args, **kwargs)`, Python internally translates the operation into `callable_object.__call__(*args, **kwargs)`.
 ### Getter and Setter
 
 Getter and setter methods allow you to access and mutate non-public attributes while maintaining encapsulation.  Getter and setter methods allow you to access and modify data attributes while maintaining encapsulation. By default, attributes in Python can be accessed directly. However, this can pose problems when attributes need validation or transformation before being assigned or retrieved.
