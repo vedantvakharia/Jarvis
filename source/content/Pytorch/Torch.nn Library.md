@@ -45,13 +45,21 @@ Loss functions measure the difference between the network's predictions and the 
 
 ### Regression Losses
 Used when the model is predicting continuous values.
-#### torch.nn.L1Loss(reduction)
-Creates a criterion that measures the mean absolute error (MAE) between each element in the input x and target y. More robust to outliers than MSE because it doesn’t square the error. The reduction parameter specifies how the loss is reduced over the batch. Reduction parameter has 3 options 
+#### L1 Loss Function
+Creates a criterion that measures the mean absolute error (MAE) between each element in the input x and target y. More robust to outliers than MSE because it doesn’t square the error. The reduction parameter specifies how the loss is reduced over the batch. $$MAE = \frac{1}{N} \sum_{i=1}^{N} | y_i - \hat{y}_i |$$
+![[pytorch-loss1.png]]
+
+**Syntax -** `torch.nn.L1Loss(reduction)`
+Reduction parameter has 3 options 
 - `mean`- (default): Returns the average loss.
 - `sum`- Returns the total sum of errors.
-- `none`- Returns loss per element without reduction.   $$MAE = \frac{1}{N} \sum_{i=1}^{N} | y_i - \hat{y}_i |$$
+- `none`- Returns loss per element without reduction.
+  
 #### MSE Loss Function
-Creates a criterion that measures the mean squared error (squared L2 norm) between each element in the input x and target y. One property is that the mean squared error favors a large number of small errors over a small number of large errors, which leads to models with fewer outliers or at least outliers that are less severe than models trained with a MAE. This is because a large error would have a significantly larger impact on the error and, consequently, the gradient of the error when compared to a small error. Works best when the data has normally distributed errors.
+Creates a criterion that measures the mean squared error (squared L2 norm) between each element in the input x and target y. One property is that the mean squared error favors a large number of small errors over a small number of large errors, which leads to models with fewer outliers or at least outliers that are less severe than models trained with a MAE. This is because a large error would have a significantly larger impact on the error and, consequently, the gradient of the error when compared to a small error. Works best when the data has normally distributed errors. $$MSE = \frac{1}{N} \sum_{i=1}^{N} | y_i - \hat{y}_i |^2$$
+![[pytorch-loss2.png]]
+
+**Syntax -** `torch.nn.MSELoss(size_average=None,reduce=None,reduction='mean')`
 
 ## Optimizer functions
 
