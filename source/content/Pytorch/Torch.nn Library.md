@@ -59,7 +59,13 @@ Reduction parameter has 3 options
 Creates a criterion that measures the mean squared error (squared L2 norm) between each element in the input x and target y. One property is that the mean squared error favors a large number of small errors over a small number of large errors, which leads to models with fewer outliers or at least outliers that are less severe than models trained with a MAE. This is because a large error would have a significantly larger impact on the error and, consequently, the gradient of the error when compared to a small error. Works best when the data has normally distributed errors. $$MSE = \frac{1}{N} \sum_{i=1}^{N} | y_i - \hat{y}_i |^2$$
 ![[pytorch-loss2.png]]
 
-**Syntax -** `torch.nn.MSELoss(size_average=None,reduce=None,reduction='mean')`
+```python
+# Syntax - 
+torch.nn.MSELoss(size_average=None,reduce=None,reduction='mean')
 
-## Optimizer functions
+loss = nn.MSELoss()
+output = loss(input, target)
+```
+
+
 

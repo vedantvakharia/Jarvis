@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pytorch/Basics of Neural Network.md",
+                "file": "Pytorch/Torch.nn Library.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basics of Neural Network"
+              "title": "Torch.nn Library"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pytorch/Torch.nn Library.md",
+                "file": "Pytorch/torch.optim.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Torch.nn Library"
+              "title": "torch.optim"
             }
           }
         ],
@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -186,9 +187,11 @@
   },
   "active": "f3e133a8eada827a",
   "lastOpenFiles": [
-    "pytorch-loss2.png",
-    "Pytorch/Basics of Neural Network.md",
+    "stochastic.webp",
     "Pytorch/Torch.nn Library.md",
+    "Pytorch/Basics of Neural Network.md",
+    "Pytorch/torch.optim.md",
+    "pytorch-loss2.png",
     "pytorch-loss1.png",
     "C/Algorithms.md",
     "C/Leetcode.md",
@@ -214,7 +217,6 @@
     "Python/Matplotlib.md",
     "C/C preprocessor.md",
     "C/Arrays.md",
-    "conflict-files-obsidian-git.md",
     "Pytorch/Untitled",
     "Pytorch/Untitled.canvas",
     "WhatsApp Image 2025-02-03 at 20.49.56_6487a55b.jpg",
