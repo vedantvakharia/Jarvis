@@ -13,20 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pytorch/Torch.nn Library.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Torch.nn Library"
-            }
-          },
-          {
-            "id": "f3e133a8eada827a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "Pytorch/torch.optim.md",
                 "mode": "source",
                 "source": false
@@ -35,8 +21,7 @@
               "title": "torch.optim"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -185,12 +170,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f3e133a8eada827a",
+  "active": "0c35f816787fb424",
   "lastOpenFiles": [
-    "stochastic.webp",
+    "Figure_1 3.png",
+    "Figure_1 2.png",
+    "Figure_1 1.png",
+    "Figure_1.png",
     "Pytorch/Torch.nn Library.md",
-    "Pytorch/Basics of Neural Network.md",
+    "Python/Numpy.md",
+    "Python/Matplotlib.md",
     "Pytorch/torch.optim.md",
+    "Pytorch/Data Types.md",
+    "Pytorch/Untitled.md",
+    "stochastic.webp",
+    "Pytorch/Basics of Neural Network.md",
     "pytorch-loss2.png",
     "pytorch-loss1.png",
     "C/Algorithms.md",
@@ -202,7 +195,6 @@
     "C/Basics.md",
     "Java/Basics.md",
     "Pytorch/Tensors.md",
-    "Pytorch/Untitled.md",
     "Java/Packages.md",
     "C/Libraries.md",
     "C/Dynamic Memory Allocation.md",
@@ -213,10 +205,7 @@
     "Python/Slicing.md",
     "Python/Pyqtgraph.md",
     "Python/Panda.md",
-    "Python/Numpy.md",
-    "Python/Matplotlib.md",
     "C/C preprocessor.md",
-    "C/Arrays.md",
     "Pytorch/Untitled",
     "Pytorch/Untitled.canvas",
     "WhatsApp Image 2025-02-03 at 20.49.56_6487a55b.jpg",
