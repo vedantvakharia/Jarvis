@@ -432,7 +432,7 @@ In PyTorch, tensor views allow you to reshape or manipulate tensors without copy
         `[3, 3, 3, 3]])`
 6. 
    
-# Broadcasting - 
+##  Broadcasting - 
 Broadcasting is a **mechanism** that allows **tensors with different shapes** to be **operated together** (e.g., addition, multiplication) **without explicitly replicating data**. This makes computations more **memory-efficient** and **faster**.
 1. **Broadcasting rules -** 
 	1. **Padding with Ones (Left-Side Padding) -** If the two tensors have different ranks (number of dimensions), PyTorch automatically expands the smaller-rank tensor by adding dimensions of size `1` on the left.
