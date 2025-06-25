@@ -15,7 +15,13 @@
 	5. `torch.eye(n)` - Creates a nxn identity tensor
 	6. `torch.rand()` - Creates a tensor with random values from 0 to 1
 	7. `torch.randint(a,b,(c,d))` - Creates a tensor with random values from a to b of shape cxd
-	8. `torch.randn()` - Creates a tensor with normal distribution
+	8. `torch.randn(size, generator=None, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False, pinmemory=False)` - Creates a tensor with normal distribution
+	   Parameters
+		   **size** - a sequence of integers defining the shape of the output tensor. Can be a variable number of arguments or a collection like a list or tuple.
+		Keyword Arguments
+		- **generator** ([`torch.Generator`](https://docs.pytorch.org/docs/stable/generated/torch.Generator.html#torch.Generator "torch.Generator"), optional) – a pseudorandom number generator for sampling
+		  - **out** ([_Tensor_](https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor "torch.Tensor")_,_ _optional_) – the output tensor.
+		- **dtype** ([`torch.dtype`](https://docs.pytorch.org/docs/stable/tensor_attributes.html#torch.dtype "torch.dtype"), optional) – the desired data type of returned tensor. Default: if `None`, uses a global default
 	9. `torch.arange(start, end, step=1, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False)`- When the `step` argument is a non-integer (floating point),`torch.arange()`generates numbers by repeated addition of`step` to `start` until reaching (but not exceeding)`end`. Since `torch.arange()` performs repeated additions, it can lead to floating-point precision errors. Use `torch.linspace()` if you need a precise number of points between two values.
 	   
 	  `torch.arrange(1,11)`

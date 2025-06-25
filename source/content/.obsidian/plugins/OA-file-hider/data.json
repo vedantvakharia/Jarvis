@@ -1,0 +1,23 @@
+{
+  "hidden": true,
+  "hiddenList": [
+    "Figure_1.png",
+    "Figure_1 1.png",
+    "Figure_1 3.png",
+    "Figure_1 2.png",
+    "output_minibatch-sgd_f4d60f_111_1.svg",
+    "output_minibatch-sgd_f4d60f_111_1 1.svg",
+    "output_minibatch-sgd_f4d60f_135_1.svg",
+    "output_minibatch-sgd_f4d60f_147_1.svg",
+    "output_minibatch-sgd_f4d60f_123_1.svg",
+    "output_minibatch-sgd_f4d60f_159_0.svg",
+    "output_momentum_e3683f_3_1.svg",
+    "output_momentum_e3683f_15_1.svg",
+    "output_momentum_e3683f_27_1.svg",
+    "output_momentum_e3683f_39_1.svg",
+    "output_sgd_baca77_15_1.svg",
+    "pytorch-loss1.png",
+    "pytorch-loss2.png",
+    "stochastic.webp"
+  ]
+}

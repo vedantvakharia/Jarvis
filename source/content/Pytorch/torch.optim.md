@@ -166,14 +166,57 @@ def gd_2d(x1, x2, s1, s2):
     return (x1 - eta * 0.2 * x1, x2 - eta * 4 * x2, 0, 0)
 
 d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
-
 # epoch 20, x1: -0.943467, x2: -0.000073
+
+eta = 0.6
+d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
+# epoch 20, x1: -0.387814, x2: -1673.365109
 ```
 
 ![[output_momentum_e3683f_3_1.svg]]
-By construction, the gradient in the direction $x_2$ is _much_ higher and changes much more rapidly than in the horizontal $x_1$ direction. Thus we are stuck between two undesirable choices: if we pick a small learning rate we ensure that the solution does not diverge in the direction but we are saddled with slow convergence in the direction. Conversely, with a large learning rate we progress rapidly in the direction but diverge in . The example below illustrates what happens even after a slight increase in learning rate from to . Convergence in the direction improves but the overall solution quality is much worse.
+By construction, the gradient in the direction $x_2$ is _much_ higher and changes much more rapidly than in the horizontal $x_1$ direction. Thus we are stuck between two undesirable choices: if we pick a small learning rate we ensure that the solution does not diverge in the $x_2$ direction but we are saddled with slow convergence in the $x_1$ direction. Conversely, with a large learning rate we progress rapidly in the $x_1$ direction but diverge in $x_2$. The example below illustrates what happens even after a slight increase in learning rate from 0.4 to 0.6. Convergence in the $x_1$ direction improves but the overall solution quality is much worse.
 
+![[output_momentum_e3683f_15_1.svg]]
+#### Leaky Averages
+Minibatch SGD had the nice side-effect that averaging gradients reduced the amount of variance. The minibatch stochastic gradient descent can be calculated by $\mathbf{g}_{t, t-1} = \partial_{\mathbf{w}} \frac{1}{|\mathcal{B}_t|} \sum_{i \in \mathcal{B}_t} f(\mathbf{x}_{i}, \mathbf{w}_{t-1}).$ It would be nice if we could benefit from the effect of variance reduction even beyond averaging gradients on a minibatch. One option to accomplish this task is to replace the gradient computation by a “leaky average”: $$\mathbf{v}_t = \beta \mathbf{v}_{t-1} + \mathbf{g}_{t, t-1}$$for some $\beta \in (0, 1)$. This effectively replaces the instantaneous gradient by one that is been averaged over multiple _past_ gradients. v is called _velocity_. It accumulates past gradients similar to how a heavy ball rolling down the objective function landscape integrates over past forces. To see what is happening in more detail let’s expand $v_t$ recursively into $$\begin{aligned}
+\mathbf{v}_t = \beta^2 \mathbf{v}_{t-2} + \beta \mathbf{g}_{t-1, t-2} + \mathbf{g}_{t, t-1}
+= \ldots, = \sum_{\tau = 0}^{t-1} \beta^{\tau} \mathbf{g}_{t-\tau, t-\tau-1}.
+\end{aligned}$$
+Large amounts to a long-range average, whereas small amounts to only a slight correction relative to a gradient method. The new gradient replacement no longer points into the direction of steepest descent on a particular instance any longer but rather in the direction of a weighted average of past gradients. This allows us to realize most of the benefits of averaging over a batch without the cost of actually computing the gradients on it. We will revisit this averaging procedure in more detail later.
 
+https://distill.pub/2017/momentum/
+See this for more understanding of how momentum helps in convergence. 
+
+#### The Momentum Method
+Lets see how momentum solves the problem shown in the section of "The need of Momentum". 
+
+Using $v_t$ instead of the gradient $g_t$ yields the following update equations $$\begin{split}\begin{aligned}
+\mathbf{v}_t &\leftarrow \beta \mathbf{v}_{t-1} + \mathbf{g}_{t, t-1}, \\
+\mathbf{x}_t &\leftarrow \mathbf{x}_{t-1} - \eta_t \mathbf{v}_t.
+\end{aligned}\end{split}$$ 
+```python
+def momentum_2d(x1, x2, v1, v2):
+    v1 = beta * v1 + 0.2 * x1
+    v2 = beta * v2 + 4 * x2
+    return x1 - eta * v1, x2 - eta * v2, v1, v2
+
+eta, beta = 0.6, 0.5
+d2l.show_trace_2d(f_2d, d2l.train_2d(momentum_2d))
+# epoch 20, x1: 0.007188, x2: 0.002553
+```
+
+![[output_momentum_e3683f_27_1.svg]]
+As we can see, even with the same learning rate that we used before, momentum still converges well. Let’s see what happens when we decrease the momentum parameter. Halving it to leads to a trajectory that barely converges at all. Nonetheless, it is a lot better than without momentum (when the solution diverges).
+
+```python
+eta, beta = 0.6, 0.25
+d2l.show_trace_2d(f_2d, d2l.train_2d(momentum_2d))
+# epoch 20, x1: -0.126340, x2: -0.186632
+```
+
+![[output_momentum_e3683f_39_1.svg]]
+
+#### Quadratic Functions
 ## Optimization Functions
 
 ### Stochastic Gradient Descent (SGD)

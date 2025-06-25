@@ -69,3 +69,143 @@ output = loss(input, target)
 
 
 
+## Linear Layers
+
+### What is a Linear Layer?
+A linear layer (also called a fully connected layer or dense layer) performs a linear affine transformation on its input. It's the fundamental building block of neural networks, implementing the mathematical operation: $$y = xW^T + b$$
+where 
+- `x` is the input tensor of shape `(batch_size, in_features)`
+- `W` is the weight matrix of shape `(out_features, in_features)`
+- `b` is the bias vector of shape `(out_features,)`
+- `y` is the output tensor of shape `(batch_size, out_features)`
+### Implementation in Pytorch
+
+```python title:"Without nn.linear"
+class LinearRegressionModel(nn.Module):
+	def __init__(self)
+		super().__init__()
+		# Initialize Model Parameters
+		self.weights = nn.Parameter(torch.randn(1, requires_grad = True, dtype = torch.float))
+		self.weights = nn.Parameter(torch.randn(1, requires_grad = True, dtype = torch.float))
+
+	def forward(self, x:torch.Tensor) ->torch.Tensor
+		return self.weights*x + self.bias
+```
+
+```python title:"With nn.linear" 
+class LinearRegressionModel(nn.Module):
+	def __init__(self)
+		super().__init__()
+		self.linear_layer = nn.linear(in_features = 1, out_features = 1)
+
+	def forward(self, x:torch.Tensor) ->torch.Tensor
+		return self.weights*x + self.bias
+
+torch.manual_seed(42)
+model_1 = LinearRegressionModel()
+
+# Set model to GPU if it's available, otherwise it'll default to CPU
+model_1.to(device) # the device variable was set above to be "cuda" if available or "cpu" if not
+next(model_1.parameters()).device
+
+# Create loss function
+loss_fn = nn.L1Loss()
+
+# Create optimizer
+optimizer = torch.optim.SGD(params=model_1.parameters(), # optimize newly created model's parameters
+                            lr=0.01)
+
+# Training loop
+torch.manual_seed(42)
+
+# Set the number of epochs 
+epochs = 1000 
+
+# Put data on the available device
+# Without this, error will happen (not all model/data on device)
+X_train = X_train.to(device)
+X_test = X_test.to(device)
+y_train = y_train.to(device)
+y_test = y_test.to(device)
+
+for epoch in range(epochs):
+    ### Training
+    model_1.train() # train mode is on by default after construction
+
+    # 1. Forward pass
+    y_pred = model_1(X_train)
+
+    # 2. Calculate loss
+    loss = loss_fn(y_pred, y_train)
+
+    # 3. Zero grad optimizer
+    optimizer.zero_grad()
+
+    # 4. Loss backward
+    loss.backward()
+
+    # 5. Step the optimizer
+    optimizer.step()
+
+    ### Testing
+    model_1.eval() # put the model in evaluation mode for testing (inference)
+    # 1. Forward pass
+    with torch.inference_mode():
+        test_pred = model_1(X_test)
+    
+        # 2. Calculate the loss
+        test_loss = loss_fn(test_pred, y_test)
+
+    if epoch % 100 == 0:
+        print(f"Epoch: {epoch} | Train loss: {loss} | Test loss: {test_loss}")
+```
+
+### nn.Linear
+`Class torch.nn.Linear(_in_features_, _out_features_, _bias=True_, _device=None_, _dtype=None_)`. This applies the affine linear transformation. 
+
+```python title:"Code behind nn.Linear"
+class Linear(Module)	
+	__constants__ = ["in_features", "out_features"]
+    in_features: int
+    out_features: int
+    weight: Tensor
+
+    def __init__(self, in_features: int, out_features: int, bias: bool = True, device=None,
+        dtype=None,
+    ) -> None:
+        factory_kwargs = {"device": device, "dtype": dtype}
+        super().__init__()
+        self.in_features = in_features
+        self.out_features = out_features
+        self.weight = Parameter(
+            torch.empty((out_features, in_features), **factory_kwargs)
+        )
+        if bias:
+            self.bias = Parameter(torch.empty(out_features, **factory_kwargs))
+        else:
+            self.register_parameter("bias", None)
+        self.reset_parameters()
+
+    def reset_parameters(self) -> None:
+        # Setting a=sqrt(5) in kaiming_uniform is the same as initializing with
+        # uniform(-1/sqrt(in_features), 1/sqrt(in_features)). For details, see
+        # https://github.com/pytorch/pytorch/issues/57109
+        init.kaiming_uniform_(self.weight, a=math.sqrt(5))
+        if self.bias is not None:
+            fan_in, _ = init._calculate_fan_in_and_fan_out(self.weight)
+            bound = 1 / math.sqrt(fan_in) if fan_in > 0 else 0
+            init.uniform_(self.bias, -bound, bound)
+
+    def forward(self, input: Tensor) -> Tensor:
+        return F.linear(input, self.weight, self.bias)
+
+    def extra_repr(self) -> str:
+        return f"in_features={self.in_features}, out_features={self.out_features}, bias={self.bias is not None}"
+
+
+# This class exists solely to avoid triggering an obscure error when scripting
+# an improperly quantized attention layer. See this issue for details:
+# https://github.com/pytorch/pytorch/issues/58969
+# TODO: fail fast on quantization API usage error, then remove this class
+# and replace uses of it with plain Linear
+```
