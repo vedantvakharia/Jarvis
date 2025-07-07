@@ -157,11 +157,23 @@ Commonly used Control Characters
 | \\'             | -     | Single quote        | For printing a single quote                                                                   |
 | \\"             | -     | Double quote        | For printing inside string                                                                    |
 
-## 5. Loops
-1. For loop - A pair of expressions separated by a comma is evaluated left to right, and the type and value of the result are the type and value of the right operand. Thus in a for statement, it is possible to place multiple expressions in the various parts, for example to process two indices in parallel. In a single for loop, we can initialize and use 2 variables.
+## 5. Bitwise Operations
+
+| Operator | Name           | Description                                     |
+| -------- | -------------- | ----------------------------------------------- |
+| `&`      | AND            | Sets each bit to 1 if both bits are 1           |
+| \|       | OR             | Sets each bit to 1 id any one is 1              |
+| `^`      | XOR            | Sets each bit to 1 if only one of the bits is 1 |
+| `~`      | NOT (1’s comp) | Inverts all the bits                            |
+| `<<`     | Left shift     | Shifts bits to the left (multiplies by 2)       |
+| `>>`     | Right shift    | Shifts bits to the right (divides by 2)         |
+Because of the zero in the middle, the numbers are asymmetrically divided, and hence
+|INT_MIN| is one more than |INT_MAX|
+## 6. Loops
+5. For loop - A pair of expressions separated by a comma is evaluated left to right, and the type and value of the result are the type and value of the right operand. Thus in a for statement, it is possible to place multiple expressions in the various parts, for example to process two indices in parallel. In a single for loop, we can initialize and use 2 variables.
 	Instead of - `for(int i = 0; i<n; i++)`
 				`for (int j = i+1; j<n; j++)`
 	We can use `for(int i = 0, j = i+1; i<n, j<n, i++, j++)`
 	
 	For reversing a string, we can use `for(int i = 0, j = strlen(s) - 1; i<j, i++, j--)`
-2. 
+6. 

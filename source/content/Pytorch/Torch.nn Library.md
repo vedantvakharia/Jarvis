@@ -164,16 +164,26 @@ for epoch in range(epochs):
 `Class torch.nn.Linear(_in_features_, _out_features_, _bias=True_, _device=None_, _dtype=None_)`. This applies the affine linear transformation. 
 
 ```python title:"Code behind nn.Linear"
+from torch.nn import init
+
+
 class Linear(Module)	
 	__constants__ = ["in_features", "out_features"]
     in_features: int
     out_features: int
     weight: Tensor
 
-    def __init__(self, in_features: int, out_features: int, bias: bool = True, device=None,
+    def __init__(
+        self,
+        in_features: int,
+        out_features: int,
+        bias: bool = True,
+        device=None,
         dtype=None,
     ) -> None:
+        
         factory_kwargs = {"device": device, "dtype": dtype}
+        
         super().__init__()
         self.in_features = in_features
         self.out_features = out_features
@@ -187,9 +197,7 @@ class Linear(Module)
         self.reset_parameters()
 
     def reset_parameters(self) -> None:
-        # Setting a=sqrt(5) in kaiming_uniform is the same as initializing with
-        # uniform(-1/sqrt(in_features), 1/sqrt(in_features)). For details, see
-        # https://github.com/pytorch/pytorch/issues/57109
+# Setting a=sqrt(5) in kaiming_uniform is the same as initializing with uniform(-1/sqrt(in_features), 1/sqrt(in_features)).
         init.kaiming_uniform_(self.weight, a=math.sqrt(5))
         if self.bias is not None:
             fan_in, _ = init._calculate_fan_in_and_fan_out(self.weight)
@@ -201,11 +209,98 @@ class Linear(Module)
 
     def extra_repr(self) -> str:
         return f"in_features={self.in_features}, out_features={self.out_features}, bias={self.bias is not None}"
-
-
-# This class exists solely to avoid triggering an obscure error when scripting
-# an improperly quantized attention layer. See this issue for details:
-# https://github.com/pytorch/pytorch/issues/58969
-# TODO: fail fast on quantization API usage error, then remove this class
-# and replace uses of it with plain Linear
 ```
+
+**Parameters**
+- **in_features** - size of each input sample
+- **out_features** - size of each output sample
+- **bias** - If set to `False`, the layer will not learn an additive bias. Default: `True`
+
+**Shape**
+- Input: (∗,$H_{in}$)where ∗ means any number of dimensions including none and $H_{in}$=in_features.
+- Output: (∗,$H_{out}$) where all but the last dimension are the same shape as the input and $H_{out}=out_features.
+
+**Variables**
+- **weight** (`torch.Tensor`) - the learnable weights of the module of shape (out_features, in_features). The values are initialized from $\mathcal{U}(-\sqrt{k},\sqrt{k})$ where k = $\frac{1}{\text{in\_features}}$
+- **bias** – the learnable bias of the module of shape (out_features)(out_features). If `bias` is `True`, the values are initialized from $\mathcal{U}(-\sqrt{k},\sqrt{k})$ where k = $\frac{1}{\text{in\_features}}$
+  
+## Activation Functions
+Activation functions are mathematical functions applied to the output of neurons in neural networks. They introduce non-linearity into the network, enabling it to learn complex patterns and relationships in data. Activation functions decide whether a neuron should be activated or not by calculating the weighted sum and further adding bias to it.
+
+**The need for Activation Functions**
+- **Non-linearity**: Without activation functions, neural networks would be linear transformations, severely limiting their expressiveness
+- **Gradient Flow**: They affect how gradients flow during backpropagation
+- **Output Range**: They control the range of neuron outputs
+- **Computational Efficiency**: Different functions have varying computational costs
+  
+### Logits
+In machine learning, logits are the raw, unnormalized scores output by a neural network's final layer before any activation function is applied. They are essentially the model's raw predictions, before being transformed into probabilities. These scores are typically used as input to activation functions like sigmoid or softmax, which then produce meaningful outputs like probabilities
+#### Why Use Logits Instead of Probabilities Directly?
+While it’s tempting to work directly with probabilities, training neural networks using logits offers numerical stability and avoids problems like:
+- Vanishing gradients from small probability values
+- Rounding errors in floating-point calculations
+- Computational inefficiency when calculating logarithms of probabilities in loss functions
+
+For this reason, popular loss functions like CrossEntropyLoss (for multi-class classification) and BCEWithLogitsLoss (for binary classification) expect logits, not probabilities.
+
+#### Benefits of Using Logits
+- **Training Stability -** Loss functions compute gradients more accurately with logits.
+- **Efficiency -** Avoids redundant calculations—most loss functions include SoftMax/sigmoid internally.
+- **Flexibility -** Allows developers to control when and how to convert to probabilities.
+
+### Sigmoid
+The sigmoid function transforms those inputs whose values lie in the domain , to outputs that lie on the interval (0, 1). For that reason, the sigmoid is often called a _squashing function_: it squashes any input in the range (-inf, inf) to some value in the range (0, 1).$$ Sigmoid(x) = σ(x)=\frac{1}{1+e^{-x}}​$$![[torch-activation-1.png]]
+**Advantages:**
+- Smooth gradient
+- Output bounded between 0 and 1
+- Historically significant
+
+**Disadvantages:**
+- Vanishing gradient problem (gradients approach 0 for large |x|)
+- Not zero-centered (outputs always positive)
+- Computationally expensive (exponential function)
+
+**When to Use:**
+- Binary classification output layer
+- When you need probabilistic interpretation
+- Gate mechanisms in LSTM/GRU
+
+### Tanh
+Tanh activation function outputs values between and, with a mean output of 0. This can help ensure that the output of a neural network layer remains centered around 0, making it useful for normalization purposes. Tanh is a smooth and continuous activation function, which makes it easier to optimize during the process of gradient descent.
+
+Like the logistic activation function, the tanh function can be susceptible to the vanishing gradient problem, especially for deep neural networks with many layers. This is because the slope of the function becomes very small for large or small input values, making it difficult for gradients to propagate through the network.
+
+Also, due to the use of exponential functions, tanh can be computationally expensive, especially for large tensors or when used in deep neural networks with many layers.$$Tanh = \frac{2}{1+e^{-x}} - 1​$$![[torch-activation-2.png]]
+**Advantages:**
+- Zero-centered (better than sigmoid)
+- Stronger gradients than sigmoid
+- Symmetric around origin
+
+**Disadvantages:**
+- Still suffers from vanishing gradient problem
+- Computationally expensive
+
+**When to Use:**
+- Hidden layers in small to medium networks
+- When you need zero-centered outputs
+- RNN hidden states
+  
+### Vanishing Gradient Problem
+One of the major roadblocks in training DNNs is the vanishing gradient problem, which occurs when the gradients of the loss function with respect to the weights of the early layers become vanishingly small encountered when training with backpropagation. In such methods, neural network weights are updated proportional to their partial derivatives of the loss function. As the number of forward propagation steps in a network increases, for instance due to greater network depth, the gradients of earlier weights are calculated with increasingly many multiplications. These multiplications shrink the gradient magnitude. Consequently, the gradients of earlier weights will be exponentially smaller than the gradients of later weights. This difference in gradient magnitude might introduce instability in the training process, slow it, or halt it entirely. For instance, consider the hyperbolic tangent. The gradients of this function are in range [−1,1]. The product of repeated multiplication with such gradients decreases exponentially. The inverse problem, when weight gradients at earlier layers get exponentially larger, is called the exploding gradient problem. The vanishing gradient problem is mostly attributed to the choice of activation functions and optimization methods in DNNs.
+
+Activation functions, such as sigmoid and hyperbolic tangent, are responsible for introducing non-linearity into the DNN model. However, these functions suffer from the saturation problem, where the gradients become close to zero for large or small inputs, contributing to the vanishing gradient problem. 
+
+https://en.wikipedia.org/wiki/Vanishing_gradient_problem
+
+
+#### Mathematical Intuition behind the Vanishing Gradient Problem
+The vanishing gradient problem arises from the product of the Jacobian matrices of the activation functions and the weights of the DNN layers. Each layer contributes a Jacobian matrix to the product, and the product becomes rapidly small as the number of layers increases. The problem is more severe when the Jacobian matrices have small eigenvalues, which happens when the activation functions are near-saturated or the weights are poorly initialized.
+![[1_4ZxTuwqViJ87txqMZsz0dA.webp]]
+
+### Rectified Linear Unit (ReLU)
+ReLU (Rectified Linear Unit) is another commonly used activation function in neural networks. Unlike the sigmoid and tanh functions, ReLU is a non-saturating function, which means that it does not become flat at the extremes of the input range. Instead, ReLU simply outputs the input value if it is positive, or 0 if it is negative.
+
+This simple, piecewise linear function has several advantages over sigmoid and tanh activation functions. First, it is computationally more efficient, making it well-suited for large-scale neural networks. Second, ReLU has been shown to be less susceptible to the vanishing gradient problem, as it does not have a flattened slope. Plus, ReLU can help sparsify the activation of neurons in a network, which can lead to better generalization.
+
+ReLU(x) = max(0, x) = { x, if x > 0 
+					0, if x ≤ 0 } 
