@@ -11,7 +11,7 @@
 
 **Returns:** Returns AssertionError, in case the condition evaluates to false along with the error message which when provided.
 
-
+---
 ## Classes
 
 #### Abstract Classes

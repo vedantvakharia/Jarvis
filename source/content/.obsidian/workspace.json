@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
+                "file": "Python/OOPS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning"
+              "title": "OOPS"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -171,6 +172,12 @@
   },
   "active": "6d8b7a7db897e110",
   "lastOpenFiles": [
+    "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
+    "Python/OOPS.md",
+    "1_4ZxTuwqViJ87txqMZsz0dA.webp",
+    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
+    "index.md",
+    "Untitled 1.md",
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Torch Library.md",
     "Pytorch/Tensors.md",
@@ -179,14 +186,9 @@
     "output_minibatch-sgd_f4d60f_111_1.svg",
     "output_momentum_e3683f_3_1.svg",
     "Figure_1.png",
-    "1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "C/Basics.md",
     "C/C preprocessor.md",
-    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
-    "Untitled.md",
-    "Untitled 1.md",
     "Linux.md",
-    "index.md",
     "stochastic.webp",
     "torch-activation-2.png",
     "torch-activation-1.png",
@@ -194,7 +196,6 @@
     "Pytorch/Basics of Neural Network.md",
     "Pytorch/Data Types.md",
     "Pytorch/torch.optim.md",
-    "Python/OOPS.md",
     "pytorch-loss1.png",
     "output_minibatch-sgd_f4d60f_123_1.svg",
     "Python/Numpy.md",
