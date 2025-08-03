@@ -162,7 +162,7 @@ Commonly used Control Characters
 | Operator | Name           | Description                                     |
 | -------- | -------------- | ----------------------------------------------- |
 | `&`      | AND            | Sets each bit to 1 if both bits are 1           |
-| \|       | OR             | Sets each bit to 1 id any one is 1              |
+| \|       | OR             | Sets each bit to 1 if any one is 1              |
 | `^`      | XOR            | Sets each bit to 1 if only one of the bits is 1 |
 | `~`      | NOT (1’s comp) | Inverts all the bits                            |
 | `<<`     | Left shift     | Shifts bits to the left (multiplies by 2)       |
