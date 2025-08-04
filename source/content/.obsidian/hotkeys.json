@@ -10,5 +10,11 @@
       "modifiers": [],
       "key": "F4"
     }
+  ],
+  "theme-picker:open-theme-picker": [
+    {
+      "modifiers": [],
+      "key": "F8"
+    }
   ]
 }

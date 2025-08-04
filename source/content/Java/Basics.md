@@ -153,6 +153,28 @@ Access modifiers (or access specifiers) set the accessibility of classes, method
 ---
 ## Conditional Statements
 
+### Shadowing of variables
+
+Java **does not allow** shadowing a local variable in the **same method scope** using the same name — even in a nested block.
+
+```java
+// Input
+public class Example {
+    public static void main(String[] args) {
+        int x = 10;
+        System.out.println(x);
+
+        {
+            int x = 20; // ❌ Compile-time error: variable x is already defined
+            System.out.println(x);
+        }
+    }
+}
+
+// Output
+Error: variable x is already defined in method main(String[])
+```
+
 ### Switch statements
 
 #### 1. Traditional `switch` statement
@@ -263,6 +285,111 @@ public static void main(String[] args) {
 - Inside a block, use `yield` to produce the value.
 - Supports **multi-line case logic**.
 - Combines **conciseness** and **power**.
+
+---
+## Text Blocks
+
+Text blocks are a modern Java feature that makes it much easier to create multi-line strings. They get rid of the clunky concatenation and excessive escape characters that were needed in the past, especially for formatted text like JSON, SQL, or HTML.
+
+### The Problem: Multi-line Strings the Old Way
+
+Before text blocks (which became standard in Java 15), creating a multi-line string was messy. You had to manually add newline characters (`\n`) and use the `+` operator to join lines, making the code hard to read and maintain.
+
+For example, creating a simple JSON string looked like this:
+```java
+String jsonOld = "{\n" +
+                 "  \"name\": \"Alex\",\n" +
+                 "  \"age\": 30,\n" +
+                 "  \"isStudent\": false\n" +
+                 "}";
+```
+
+This is ugly, error-prone, and doesn't look like the final output.
+
+### The Solution: Text Block Syntax
+
+Text blocks let you write the string exactly as you want it to appear. A text block starts with three double-quotes (`"""`) followed by a newline, and ends with three double-quotes.
+
+Here is the same JSON created with a text block:
+```java
+String jsonNew = """
+                 {
+                   "name": "Alex",
+                   "age": 30,
+                   "isStudent": false
+                 }
+                 """;
+```
+
+The result is clean, readable, and you can copy-paste formatted text directly into your code.
+
+If you don’t want a newline after the last line, put the closing """ immediately after the last character.
+
+### Rules and features
+
+#### Indentation
+
+A key feature of text blocks is how they intelligently handle indentation. The compiler automatically removes the unnecessary leading whitespace that you add just to align the text block with your code.
+
+It follows a simple algorithm:
+- **Find the Margin -** It looks at all the lines inside the block and finds the line with the least amount of leading whitespace. This line (or the position of the closing `"""`) determines the left margin.
+- **Strip the Margin -** It then removes that same amount of "incidental" whitespace from every line.
+- **Keep the Rest -** Any indentation to the right of this margin is considered "essential" and is preserved in the final string.
+
+```java title:Indentation
+// Input
+public void printHtml() {
+    String html = """
+                  <html>           // This line sets the margin
+                    <body>
+                      <p>Hello</p>
+                    </body>
+                  </html>
+                  """;
+    System.out.println(html);
+}
+
+// Output
+<html>
+  <body>
+    <p>Hello</p>
+  </body>
+</html>
+```
+
+The compiler recognized that the indentation before `<html>` was just for aligning the block in the source code and removed it from every line, while keeping the essential indentation of the nested tags
+
+#### Line Joining with Backslash (`\`)
+
+```java title:"Line joining using \"
+// Input
+String s = """
+    Line 1 \
+    Line 2 \
+    Line 3
+    """;
+System.out.println(s);  
+
+// Output
+Line 1 Line 2 Line 3
+```
+
+- The `\` at end **joins this line with the next**, removing the newline.
+- It lets you format your code nicely **without affecting the actual string**.
+
+#### Trailing Whitespace and `\s`
+
+Java **removes trailing spaces** at the end of each line in a text block.
+
+If you really need a space at the end, use `\s`:
+```java title:"Trailing Whitespace and \s"
+// This keeps the space where you'd normally lose it.
+String x = """
+    Keep this space ->\s
+    """;
+```
+
+
 
 ---
 ## Static

@@ -110,4 +110,32 @@ in practice.)
 
 ###### Instance Methods
 
-1. `char charAt(int index)`- Returns the `char` value at the specified index. Negative index do not work
+1. **`char charAt(int index)`-** Returns the `char` value at the specified index. Negative index do not work
+2.  **`int codePointAt(int index)`-** Returns the character (Unicode code point) at the specified index.
+3. **`int codePointBefore(int index)`-** Returns the character (Unicode code point) before the specified index. 
+4. **`int codePointCount(int beginIndex, int endIndex)`-** Returns the number of Unicode code points in the specified text range of this `String`.
+   Java's `String.length()` method doesn't count the number of characters you _see_. It counts the number of 16-bit `char` units in the string's internal storage.
+- A simple character like `'A'` is stored as one `char`.
+- A supplementary character like `'😂'` is stored as a **surrogate pair** (two `char`s).
+  
+A **code point** is simply the numerical value assigned to a single character in the Unicode standard. 'H' has a code point, and the emoji '😂' also has a single code point (`U+1F602`). The `codePointCount(int beginIndex, int endIndex)` method is designed for this exact purpose. It iterates through a string and counts the code points, not the `char`s.
+
+**How it works:**
+- It looks at each `char` in the specified range.
+- If a `char` is a regular character, it adds 1 to the count.
+- If it finds a high surrogate, it checks if it's followed by a low surrogate. If so, it counts the entire pair as just one code point and skips the low surrogate.
+
+5. **`int compareTo(String anotherString)`-** Compares two strings lexicographically. The comparison is based on the Unicode value of each character in the strings. The character sequence represented by this `String` object is compared lexicographically to the character sequence represented by the argument string. The result is a negative integer if this `String` object lexicographically precedes the argument string. The result is a positive integer if this `String` object lexicographically follows the argument string. The result is zero if the strings are equal; `compareTo` returns `0` exactly when the`equals(Object)`method would return `true`.
+
+This is the definition of lexicographic ordering. If two strings are different, then either they have different characters at some index that is a valid index for both strings, or their lengths are different, or both. If they have different characters at one or more index positions, let _k_ be the smallest such index; then the string whose character at position _k_ has the smaller value, as determined by using the < operator, lexicographically precedes the other string. In this case, `compareTo` returns the difference of the two character values at position `k` in the two string -- that is, the value:
+
+>  `this.charAt(k)-anotherString.charAt(k)`
+>  
+
+If there is no index position at which they differ, then the shorter string lexicographically precedes the longer string. In this case, `compareTo` returns the difference of the lengths of the strings -- that is, the value:
+
+>  `this.length()-anotherString.length()`
+
+6. **`int compareToIgnoreCase(String str)`-** Compares two strings lexicographically, ignoring case differences.
+7. `String concat(String str)`- Concatenates the specified string to the end of this string.
+8. **`boolean contains(CharSequence s)`-** Returns true if and only if this string contains the specified sequence of char values.`s` - the sequence to search for. Checks whether a given sequence of characters (substring) exists **anywhere** within the target string.
