@@ -1098,6 +1098,8 @@ bugs
 belongs
 belong
 base
+braces
+boolean
 ZBO
 ZD
 ZIw
@@ -1273,6 +1275,7 @@ normally
 names
 normalize
 numerical
+null
 Do
 DW
 Dm
@@ -1386,6 +1389,8 @@ Declares
 Deletes
 Double
 Default
+Declaring
+Declare
 YmU
 Yz
 You
@@ -1669,6 +1674,7 @@ keeping
 keywords
 kinds
 knows
+keep
 NR
 NU
 NS
@@ -1920,6 +1926,8 @@ developers
 divisors
 difference
 differ
+declares
+define
 UU
 UzH
 Um
@@ -2197,6 +2205,12 @@ imported
 inconvenient
 internal
 iterates
+initializes
+int
+initialized
+implements
+iterable
+interface
 mJN
 mM
 mL
@@ -2558,6 +2572,8 @@ lang
 leave
 lexicographically
 lexicographic
+legal
+looping
 ebh
 eL
 ev
@@ -2773,6 +2789,8 @@ experts
 emoji
 exact
 equal
+empty
+elements
 gee
 go
 gko
@@ -3104,6 +3122,8 @@ hundred
 hour
 hand
 hassle
+happens
+having
 Oo
 Oc
 OBt
@@ -3421,6 +3441,7 @@ unnecessary
 user
 unreadable
 unmaintainable
+useful
 Wn
 Ws
 Wc
@@ -3990,6 +4011,7 @@ Strip
 So
 SUN
 String
+Such
 Bw
 BO
 Building
@@ -4292,6 +4314,7 @@ fully
 fields
 floorMod
 few
+fuss
 rt
 ru
 root
@@ -4501,6 +4524,7 @@ remainders
 remainder
 regular
 represented
+reinitialize
 sRR
 sFL
 shows
@@ -4787,6 +4811,11 @@ so
 skips
 smallest
 substring
+shortcut
+supplying
+specify
+sets
+special
 TA
 Te
 TXp
@@ -5141,6 +5170,10 @@ annotation
 according
 actually
 assigned
+anonymous
+allocates
+accordingly
+arrays
 qiW
 qG
 quantitative
@@ -5466,6 +5499,9 @@ came
 compute
 clock
 count
+comma
+convenient
+computes
 whatever
 write
 will
@@ -5693,3 +5729,5 @@ Any
 Avoid
 According
 Also
+Arrays
+ArrayList
