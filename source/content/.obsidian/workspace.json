@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "964a69b4b2c65931",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Java/Arrays.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Arrays"
-            }
-          },
-          {
             "id": "20634bd84818d5ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Basics.md",
+                "file": "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
+              "title": "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +75,7 @@
             }
           },
           {
-            "id": "a43e27badedaa5c5",
+            "id": "b51b311dc283ba14",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -198,9 +183,14 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "Java/Arrays.md",
+    "Java/File Operations.md",
     "Java/Basics.md",
+    "SEM3/Logic.md",
+    "Java/OOPS.md",
+    "SEM3",
+    "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
     "Java/Packages.md",
+    "Java/Arrays.md",
     "Pytorch/Pytorch.md",
     "Python/Python.md",
     "Java/Java.md",
@@ -220,8 +210,6 @@
     "index.md",
     "Linux.md",
     "Tags",
-    "Java/File Operations.md",
-    "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
     "Pytorch/torch.optim.md",
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Torch Library.md",
@@ -233,9 +221,6 @@
     "C/C preprocessor.md",
     "C/File Operations.md",
     "C/Libraries.md",
-    "C/Sorting.md",
-    "C/Recursion.md",
-    "Untitled",
     "Java",
     "Pytorch/Untitled",
     "Pytorch/Untitled.canvas",

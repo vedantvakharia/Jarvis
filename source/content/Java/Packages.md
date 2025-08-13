@@ -127,15 +127,41 @@ A **code point** is simply the numerical value assigned to a single character in
 
 5. **`int compareTo(String anotherString)`-** Compares two strings lexicographically. The comparison is based on the Unicode value of each character in the strings. The character sequence represented by this `String` object is compared lexicographically to the character sequence represented by the argument string. The result is a negative integer if this `String` object lexicographically precedes the argument string. The result is a positive integer if this `String` object lexicographically follows the argument string. The result is zero if the strings are equal; `compareTo` returns `0` exactly when the`equals(Object)`method would return `true`.
 
-This is the definition of lexicographic ordering. If two strings are different, then either they have different characters at some index that is a valid index for both strings, or their lengths are different, or both. If they have different characters at one or more index positions, let _k_ be the smallest such index; then the string whose character at position _k_ has the smaller value, as determined by using the < operator, lexicographically precedes the other string. In this case, `compareTo` returns the difference of the two character values at position `k` in the two string -- that is, the value:
+This is the definition of lexicographic ordering. If two strings are different, then either they have different characters at some index that is a valid index for both strings, or their lengths are different, or both. If they have different characters at one or more index positions, let _k_ be the smallest such index; then the string whose character at position _k_ has the smaller value, as determined by using the < operator, lexicographically precedes the other string. In this case, `compareTo` returns the difference of the two character values at position `k` in the two string - that is, the value:
 
 >  `this.charAt(k)-anotherString.charAt(k)`
->  
 
-If there is no index position at which they differ, then the shorter string lexicographically precedes the longer string. In this case, `compareTo` returns the difference of the lengths of the strings -- that is, the value:
+If there is no index position at which they differ, then the shorter string lexicographically precedes the longer string. In this case, `compareTo` returns the difference of the lengths of the strings - that is, the value:
 
 >  `this.length()-anotherString.length()`
 
 6. **`int compareToIgnoreCase(String str)`-** Compares two strings lexicographically, ignoring case differences.
 7. `String concat(String str)`- Concatenates the specified string to the end of this string.
 8. **`boolean contains(CharSequence s)`-** Returns true if and only if this string contains the specified sequence of char values.`s` - the sequence to search for. Checks whether a given sequence of characters (substring) exists **anywhere** within the target string.
+9. **`boolean contentEquals(CharSequence cs)`-** Compares this string to the specified `CharSequence`. The result is `true` if and only if this `String` represents the same sequence of char values as the specified sequence. Note that if the `CharSequence` is a `StringBuffer` then the method synchronizes on it.
+10. **`boolean endsWith(String suffix)`-** Tests if this string ends with the specified suffix. Returns:`true` if the character sequence represented by the argument is a suffix of the character sequence represented by this object.
+```java
+public boolean endsWith(String suffix) {
+    int suffixLength = suffix.length();
+    int thisLength = this.length();
+
+    if (suffixLength > thisLength) {
+        return false;
+    }
+
+    return this.regionMatches(
+        thisLength - suffixLength, // starting point
+        suffix,
+        0,
+        suffixLength
+    );
+}
+
+// Example
+String name = "TonyStark";
+
+System.out.println(name.endsWith("Stark"));   // true
+System.out.println(name.endsWith("Tony"));    // false
+System.out.println(name.endsWith("k"));       // true
+System.out.println(name.endsWith(""));        // true (empty suffix is always valid)
+```
