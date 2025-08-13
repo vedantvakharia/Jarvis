@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
+                "file": "Java/Packages.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning"
+              "title": "Packages"
             }
           }
         ]
@@ -184,12 +184,13 @@
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
     "Java/File Operations.md",
+    "Java/Packages.md",
     "Java/Basics.md",
-    "SEM3/Logic.md",
     "Java/OOPS.md",
+    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
+    "SEM3/Logic.md",
     "SEM3",
     "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
-    "Java/Packages.md",
     "Java/Arrays.md",
     "Pytorch/Pytorch.md",
     "Python/Python.md",
@@ -206,7 +207,6 @@
     "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
     "Designing a Simple Raman Spectrometer.md",
     "1_4ZxTuwqViJ87txqMZsz0dA.webp",
-    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
     "index.md",
     "Linux.md",
     "Tags",
