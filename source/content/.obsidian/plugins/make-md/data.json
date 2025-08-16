@@ -39,7 +39,9 @@
   "deleteFileOption": "trash",
   "expandedSpaces": [
     "/",
-    "//Java"
+    "//Java",
+    "//SEM3",
+    "//Logic"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",

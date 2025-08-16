@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Packages.md",
+                "file": "Logic/Proportional logic.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Packages"
+              "title": "Proportional logic"
             }
           }
         ]
@@ -75,7 +75,7 @@
             }
           },
           {
-            "id": "b51b311dc283ba14",
+            "id": "210cb125b9252ab7",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -89,7 +89,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -183,13 +184,21 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "Java/File Operations.md",
+    "index.md",
+    "Pytorch/torch.optim.md",
+    "Pytorch/Torch.nn Library.md",
+    "Pytorch/Tensors.md",
+    "Pytorch/Basics of Neural Network.md",
+    "Logic/Proportional logic.md",
+    "Pasted image 20250815000350.png",
+    "Logic/Logic.md",
+    "Tags",
     "Java/Packages.md",
+    "Java/File Operations.md",
     "Java/Basics.md",
     "Java/OOPS.md",
     "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
-    "SEM3/Logic.md",
-    "SEM3",
+    "Logic",
     "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
     "Java/Arrays.md",
     "Pytorch/Pytorch.md",
@@ -206,21 +215,13 @@
     "output_minibatch-sgd_f4d60f_111_1 1.svg",
     "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
     "Designing a Simple Raman Spectrometer.md",
-    "1_4ZxTuwqViJ87txqMZsz0dA.webp",
-    "index.md",
     "Linux.md",
-    "Tags",
-    "Pytorch/torch.optim.md",
-    "Pytorch/Torch.nn Library.md",
     "Pytorch/Torch Library.md",
     "Anthem_Biosciences_Report.md",
     "Anthem Biosciences - A Comprehensive Analysis.md",
     "C/Algorithms.md",
     "C/Arrays.md",
     "C/Basics.md",
-    "C/C preprocessor.md",
-    "C/File Operations.md",
-    "C/Libraries.md",
     "Java",
     "Pytorch/Untitled",
     "Pytorch/Untitled.canvas",
