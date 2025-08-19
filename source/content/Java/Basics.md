@@ -145,10 +145,16 @@ In C/C++, there is no guarantee as to whether >> performs an arithmetic shift (e
 | `\\`            | Backslash         | \u005c        | Inserts a literal backslash                                                   |
 | `\s`            | Space             | \u0020        |                                                                               |
 | `\uXXXX`        | Unicode Character |               | Inserts a Unicode character using 4-digit hex code                            |
+
+---
 ## Access Modifiers
 Access modifiers (or access specifiers) set the accessibility of classes, methods, variables, and constructors from different parts of a program. Java has 4 access modifiers - Public, Protected, Private and Default. 
 
 ### Public
+
+Accessible **from anywhere** (same class, same package, subclasses, different packages). It’s the most **open** access modifier.
+
+You could use the public keyword with your instance fields, but it would be a very bad idea. Having public instance fields would allow any part of the program to read and modify the instance fields, completely ruining encapsulation.
 
 ---
 ## Conditional Statements
