@@ -112,7 +112,218 @@ final class Vehicle {
 class Car extends Vehicle {}
 ```
 
+## Explicit Parameters
+
+Inside the method, you cannot reassign the explicit parameters.
+
+```java
+void display(final int x) {
+    x = 20; // Error
+    System.out.println(x);
+}
+```
+
 
 ### Instance Fields
 
-When u make an instance field final, it doesn't change after that. That is why, such a field must be initialized when the object is constructed ,i.e., you must guarantee that the field value has been set after the end of every constructor. Afterwards, the field may not be modified again. The final modifier is particularly useful for fields whose type is primitive or an immutable class.
+When u make an instance field final, it doesn't change after that. That is why, such a field must be initialized when the object is constructed ,i.e., you must guarantee that the field value has been set after the end of every constructor. Afterward, the field may not be modified again. The final modifier is particularly useful for fields whose type is primitive or an immutable class.
+
+## Static keyword
+
+### Static Fields/ Class Variables
+
+If you define a field as static, then the field is not present in the objects of the class. There is only a single copy of each static field. You can think of static fields as belonging to the class, not to the individual objects. Read from python oops notes. 
+
+### Static Constants
+
+```java
+public class Math
+{
+. . .
+public static final double PI = 3.14159265358979323846;
+. . .
+}
+```
+
+You can access this constant in your programs as Math.PI. If the keyword static had been omitted, then PI would have been an instance field of the Math class. That is, you would need an object of this class to access PI, and every Math object would have its own copy of PI.
+
+### Static Methods
+
+Static methods are methods that do not operate on objects. For example, the pow method of the Math class is a static method. The expression Math.pow(x, a) computes the power $x^a$. It does not use any Math object to carry out its task. In other words, it has no implicit parameter.
+
+Static methods are methods that don’t have a this parameter. Static methods cannot directly access instance fields or instance methods. We can call static methods using objects too.
+
+Use static methods in two situations:
+• When a method doesn’t need to access the object state because all needed parameters are supplied as explicit parameters (example: Math.pow).
+• When a method only needs to access static fields of the class 
+
+## Method Parameters 
+
+The Java programming language always uses call by value. That means that the method gets a copy of all parameter values. In particular, the method cannot modify the contents of any parameter variables passed to it.
+
+What changes is what the value itself represents -
+- For **primitives** → the value is the actual number/boolean/char.
+- For **objects** → the value is a _reference_ (a pointer-like thing) to the object’s memory location.
+
+Primitives (`int`, `double`, `boolean`, etc.) are simple, small, fixed-size data. It’s very fast to just copy them. Each variable holds its own independent copy. So, the actual values are copied in the case of primitives. 
+
+```java title:"Passing primitives"
+public static void tripleValue(double x) // doesn't work
+{
+x = 3 * x;
+System.out.println(x) // 30
+}
+
+double percent = 10;
+tripleValue(percent);
+
+System.out.println(x) // 10
+// x is initialized with a copy of the value of percent (that is, 10). x is tripled—it is now 30. But percent is still 10. The method ends, and the parameter variable x is no longer in use.
+```
+
+Objects can be large and complex (imagine copying a giant `ArrayList` with millions of elements every time you call a method). That would be very slow (huge memory operations) and very wasteful (multiple copies of the same object). So instead of copying the whole object, Java copies just the reference (pointer). Both caller and method parameter end up referring to the same object in the heap. 
+
+```java title:"Passing objects"
+public static void swap(Employee x, Employee y) // doesn't work
+{
+Employee temp = x;
+x = y;
+y = temp;
+}
+
+// The above method does not work, i.e., after the method is run, the values contained in the object are not swapped. Example if x was alice and y was bob, after the function is run, x does not become bob and alice y. This is because the references to the objects are not passed by call by reference, the reference to the objects are called by value. So, we can change the value contained by the object as we are passing the object reference. but we cannot change the reference to point to another object as the references are passed by value.
+
+public static void tripleSalary(Employee x) {
+    x.raiseSalary(200);
+    System.out.println("End of method: salary=" + x.getSalary());
+}
+
+var harry = new Employee("Harry", 50000);
+System.out.println("Before: salary=" + harry.getSalary());
+tripleSalary(harry);
+System.out.println("After: salary=" + harry.getSalary());
+
+// Output
+// 50000
+// 15000
+
+// Objects internal state can be changes as said before.
+
+```
+
+
+## Object Construction
+
+### Overloading
+
+Overloading means having multiple methods in the same class with the same name but different parameter lists. The compiler decides which method to call based on the number, types, and order of arguments at compile time. For overloading, the name should be the same and number or order or type of parameters should be different. Different return types does not result into overloading. Access modifiers can be different, but that does not result into overloading. 
+
+```java
+class MathUtils {
+    // Method 1: add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method 2: add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method 3: add two doubles
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class TestOverloading {
+    public static void main(String[] args) {
+        MathUtils m = new MathUtils();
+        System.out.println(m.add(2, 3));       // calls method 1 → 5
+        System.out.println(m.add(2, 3, 4));    // calls method 2 → 9
+        System.out.println(m.add(2.5, 3.5));   // calls method 3 → 6.0
+    }
+}
+```
+
+#### Overloading Constructors
+
+Just like methods, we can even overload constructors. 
+
+```java title:"Overloading Constructors"
+class Employee {
+    private String name;
+    private double salary;
+
+    // Constructor 1
+    public Employee(String n) {
+        name = n;
+        salary = 0; // default
+    }
+
+    // Constructor 2
+    public Employee(String n, double s) {
+        name = n;
+        salary = s;
+    }
+}
+```
+
+
+### Overloading across Inheritance
+
+```java title:"Overloading across Inheritance"
+class A {
+    void show(String s) {}
+}
+class B extends A {
+    void show(int x) {}  // overload, not override
+}
+// Now B has two show methods: one from A, one new.
+// If you overload with different types, both are available in the subclass.
+```
+
+### Type casting
+
+#### Exact Match (No typecasting)
+
+```java
+class Example {  
+    void print(int a) {  
+        System.out.println("print(int) called");  
+    }  
+    void print(double a) {  
+        System.out.println("print(double) called");  
+    }  
+  
+    public static void main(String[] args) {  
+        Example ex = new Example();  
+        ex.print(10);    // Calls print(int)  
+        ex.print(10.5);  // Calls print(double)  
+    }  
+}
+```
+
+
+#### Widening
+
+When there’s no exact match, Java tries to promote the type to the next wider type in its type hierarchy, following this order:  
+— byte → short → int → long → float → double  
+— char → int
+
+```java title:Widening
+class Example {  
+    void display(long a) {  
+        System.out.println("display(long) called");  
+    }  
+    void display(double a) {  
+        System.out.println("display(double) called");  
+    }  
+  
+    public static void main(String[] args) {  
+        Example ex = new Example();  
+        ex.display(10);    // Promotes int to long and calls display(long)  
+        ex.display(10.5f); // Promotes float to double and calls display(double)  
+    }  
+}
+```

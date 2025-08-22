@@ -99,6 +99,7 @@ This is useful for:
 - Automatically updating related attributes
 - Logging and debugging attribute access
 
+---
 ## Method
 
 1. Class Method
@@ -139,7 +140,6 @@ return "Chirp"
 def move(self):  
 return "Fly"
 ```
-
 
 ### Concrete Method
 Concrete methods are the methods defined in an abstract base class with their complete implementation. Concrete methods are required to avoid replication of code in subclasses. For example, in abstract base class there may be a method that implementation is to be same in all its subclasses, so we write the implementation of that method in abstract base class after which we do not need to write implementation of the concrete method again and again in every subclass.
