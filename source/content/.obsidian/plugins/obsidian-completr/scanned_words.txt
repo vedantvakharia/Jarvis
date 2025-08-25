@@ -540,6 +540,7 @@ tackles
 typecasting
 tries
 themselves
+translated
 Matplotlib
 Mj
 MR
@@ -1136,6 +1137,7 @@ parents
 primitives
 pointer
 promote
+proper
 xTU
 xK
 xzc
@@ -1716,6 +1718,7 @@ negatives
 naming
 never
 notes
+narrowed
 Do
 DW
 Dm
@@ -2288,6 +2291,7 @@ Noise
 Naively
 Null
 Newline
+Narrowing
 dK
 dm
 dF
@@ -3844,6 +3848,7 @@ getters
 grid
 getter
 giant
+going
 Hv
 HV
 Hbb
@@ -4162,6 +4167,7 @@ hence
 helpful
 hides
 hide
+happen
 Oo
 Oc
 OBt
@@ -5052,6 +5058,7 @@ omitted
 operate
 overloading
 overload
+overloaded
 Js
 JS
 JN
@@ -5346,6 +5353,9 @@ Substitution
 Slim
 Shared
 Student
+Same
+Similar
+StringBuilder
 Bw
 BO
 Building
@@ -6055,6 +6065,7 @@ relates
 replacing
 relation
 referring
+reallocation
 sRR
 sFL
 shows
@@ -6515,6 +6526,8 @@ superclass
 solved
 supplied
 say
+showed
+starting
 TA
 Te
 TXp
@@ -7010,6 +7023,9 @@ attach
 ambiguity
 abstraction
 abc
+appending
+allocate
+almost
 qiW
 qG
 quantitative
@@ -7624,6 +7640,7 @@ wasteful
 whole
 wider
 wrap
+widening
 Adaptive
 Aware
 Architecture

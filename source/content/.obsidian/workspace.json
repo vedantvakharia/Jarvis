@@ -130,8 +130,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -226,9 +225,13 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
+    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
+    "Java/Basics.md",
+    "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
+    "Designing a Simple Raman Spectrometer.md",
+    "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
     "Java/OOPS.md",
     "Python/OOPS.md",
-    "Java/Basics.md",
     "Java/Packages.md",
     "Tags",
     "Python/Pyqtgraph.md",
@@ -245,9 +248,7 @@
     "Pytorch/Basics of Neural Network.md",
     "Pasted image 20250815000350.png",
     "Java/File Operations.md",
-    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
     "Logic",
-    "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
     "Java/Arrays.md",
     "Pytorch/Pytorch.md",
     "Java/Java.md",
@@ -260,8 +261,6 @@
     "Pasted image 20250728213555.png",
     "output_sgd_baca77_15_1.svg",
     "output_minibatch-sgd_f4d60f_111_1 1.svg",
-    "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
-    "Designing a Simple Raman Spectrometer.md",
     "Linux.md",
     "Pytorch/Torch Library.md",
     "Java",
