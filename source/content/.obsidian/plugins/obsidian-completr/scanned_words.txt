@@ -162,6 +162,7 @@ Property
 Part
 Professor
 Primitives
+Primitive
 IHDR
 IDATx
 IU
@@ -312,6 +313,7 @@ Implementing
 Inheritance
 Imagine
 Independent
+Int
 tEXtSoftware
 ta
 tE
@@ -535,6 +537,9 @@ translates
 table
 taking
 tackles
+typecasting
+tries
+themselves
 Matplotlib
 Mj
 MR
@@ -678,6 +683,7 @@ Magic
 Make
 MRO
 Monotonicity
+Match
 version
 vyj
 vE
@@ -1129,6 +1135,7 @@ principle
 parents
 primitives
 pointer
+promote
 xTU
 xK
 xzc
@@ -1314,6 +1321,7 @@ Examples
 Encapsulation
 Explosion
 Engine
+Exact
 bY
 bEq
 bmO
@@ -1494,6 +1502,7 @@ brush
 buttons
 blueprint
 bound
+byte
 ZBO
 ZD
 ZIw
@@ -2940,6 +2949,7 @@ inspect
 inconsistency
 inheriting
 imagine
+inherit
 mJN
 mM
 mL
@@ -3180,6 +3190,7 @@ message
 module
 mutate
 modules
+match
 KB
 KC
 Krauss
@@ -3715,6 +3726,7 @@ explosion
 exist
 exposing
 entities
+eight
 gee
 go
 gko
@@ -4030,6 +4042,7 @@ Found
 Fields
 Formats
 Factory
+Float
 hz
 hT
 hm
@@ -4147,6 +4160,8 @@ harder
 hierarchy
 hence
 helpful
+hides
+hide
 Oo
 Oc
 OBt
@@ -4614,6 +4629,9 @@ Width
 Widget
 Widgets
 Whenever
+Widening
+Wrapper
+Whereas
 CE
 Cy
 CSKnn
@@ -5454,6 +5472,7 @@ Batches
 Broadcasting
 Black
 Both
+Byte
 Gy
 Gbb
 GitHub
@@ -6495,6 +6514,7 @@ sleeve
 superclass
 solved
 supplied
+say
 TA
 Te
 TXp
@@ -6616,6 +6636,7 @@ Tells
 TAC
 Takes
 Topics
+Though
 XM
 Xiong
 XX
@@ -7473,6 +7494,11 @@ cause
 carry
 copied
 caller
+casting
+corresponding
+cached
+caches
+cache
 whatever
 write
 will
@@ -7596,6 +7622,8 @@ wraps
 wrapper
 wasteful
 whole
+wider
+wrap
 Adaptive
 Aware
 Architecture

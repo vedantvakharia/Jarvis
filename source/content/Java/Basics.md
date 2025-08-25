@@ -293,6 +293,74 @@ public static void main(String[] args) {
 - Combines **conciseness** and **power**.
 
 ---
+## Type casting
+
+### String to Int
+
+#### By using `Intger.parseInt()` method
+
+The **most common** and efficient way. Works only with valid integer strings (like `"123"`, `"-45"`).`Integer.parseInt()` method will throw`NumberFormatException` if String provided is not a proper number. Same technique can be used to convert other data type like float and Double to String in Java. Java API provides static methods like `Float.parseFloat()` and `Double.parseDouble()` to perform data type conversion. 
+
+```java title:
+String s = "123";
+int num = Integer.parseInt(s);
+System.out.println(num);  // 123
+
+int binary = Integer.parseInt("1010", 2); // 10
+```
+
+#### `Integer.valueOf()` Method
+
+Similar to `parseInt`, but returns an `Integer` object instead of primitive `int`. Same exceptions as `parseInt`. It is a static method. 
+
+```java title:Integer.valueOf()
+Integer i = Integer.valueOf("123");
+System.out.println(i); // 123
+
+// Integer.valueOf does not always create a new object. Java caches integers in the range -128 to 127. That’s why comparing Integer with == can be dangerous. Always use .equals().
+
+Integer a = Integer.valueOf("100");
+Integer b = Integer.valueOf("100");
+System.out.println(a == b); // true (same cached object)
+
+Integer x = Integer.valueOf("200");
+Integer y = Integer.valueOf("200");
+System.out.println(x == y); // false (new objects)
+
+// Empty String
+Integer.valueOf(""); // NumberFormatException: For input string: ""
+
+// Null String
+Integer.valueOf(null); // NumberFormatException: null
+
+// Non-numeric Input
+Integer.valueOf("abc"); // NumberFormatException: For input string: "abc"
+
+// Whitespace
+Integer.valueOf(" 123 "); // NumberFormatException (must trim manually)
+
+// Signs
+Integer.valueOf("+123"); // 123
+Integer.valueOf("-123"); // -123
+
+// Leading Zeros
+Integer.valueOf("007"); // 7
+
+// Integer Overflow
+Integer.valueOf("2147483648"); // > Integer.MAX_VALUE
+Integer.valueOf("-2147483649"); // < Integer.MIN_VALUE
+// NumberFormatException: For input string: "2147483648"
+// NumberFormatException
+
+// Radix version - Radix must be between 2 and 36
+public static Integer valueOf(String s, int radix)
+Integer.valueOf("1010", 2); // 10
+Integer.valueOf("7B", 16);  // 123
+```
+
+
+
+---
 ## Text Blocks
 
 Text blocks are a modern Java feature that makes it much easier to create multi-line strings. They get rid of the clunky concatenation and excessive escape characters that were needed in the past, especially for formatted text like JSON, SQL, or HTML.
@@ -485,3 +553,34 @@ in Java all functions are methods of some class. Thus, in Java you must have a s
 return an “exit code” to the operating system. If the main method exits normally, the Java program has the exit code 0, indicating successful completion. To terminate the program with a different exit code, use the System.exit method
 
 Java uses the general syntax object.method(parameters) as its equivalent of a function call.
+
+## Wrapper Class
+
+Wrapper class is a class that encapsulates types, so that those types can be used to create object instances and methods in another class that needs those types. So a primitive wrapper class is a wrapper class that encapsulates, hides or wraps data types from the eight primitive data types so that these can be used to create instantiated objects with methods in another class or in other classes. Each primitive has a corresponding wrapper in the `java.lang` package. 
+
+### The difference between wrapper classes and primitive types
+
+Primitive wrapper classes are not the same thing as primitive types. Whereas variables, for example, can be declared in Java as data types double, short, int, etc., the primitive wrapper classes create instantiated objects and methods that inherit but hide the primitive data types, not like variables that are assigned the data type values.
+
+Therefore, the term Primitive wrapper class does not mean that wrapper classes are primitive types. It should be understood to be a class that wraps primitive types. Wrapper classes can be used to store the same value as of a primitive type variable but the instances/objects of wrapper classes themselves are Non-Primitive. We cannot say that Wrapper classes themselves are Primitive types. They just wrap the primitive types.
+
+The `Byte`, `Short`, `Integer`, `Long`, `Float`, and `Double` wrapper classes are all subclasses of the Number class.
+
+The wrapper classes `BigDecimal` and `BigInteger` are not one of the primitive wrapper classes but are immutable.
+
+### Primitive to Wrapper Class Conversion
+
+```java
+// Primitve to Wrapper
+Integer object = new Integer(1);
+Integer anotherObject = Integer.valueOf(1);
+
+// Wrapper to Primitive
+int val = object.intValue();
+```
+
+The `valueOf()` method returns an instance representing the specified _int_ value. It returns cached values which makes it efficient. It always caches values between -128 to 127 but can also cache other values outside this range. Similarly, we can also convert _boolean_ to _Boolean, byte_ to _Byte, char_ to _Character, long_ to _Long, float_ to _Float,_ and _double_ to _Double._ Though if we have to convert string to integer then we need to use `parseInt()` method because _String_ isn’t a wrapper class.
+
+On the other hand, to convert from a wrapper object to a primitive value, we can use the corresponding method such as `intValue()`, `doubleValue()`, etc.
+
+

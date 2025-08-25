@@ -304,7 +304,6 @@ class Example {
 }
 ```
 
-
 #### Widening
 
 When there’s no exact match, Java tries to promote the type to the next wider type in its type hierarchy, following this order:  
