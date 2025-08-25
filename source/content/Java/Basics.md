@@ -295,13 +295,53 @@ public static void main(String[] args) {
 ---
 ## Type casting
 
+### Widening and Narrowing Primitive Conversion
+
+This situation happens in a **very specific case when we want to convert from a _byte_ to a _char_**. The first conversion is the widening of the _byte_ to _int_ and then from the _int_ it is narrowed down to _char_.
+
+An example will clarify this point:
+
+```java
+byte myLargeValueByte = (byte) 130;   //0b10000010 -126
+```
+
+The binary representation of 130 is the same for -126, the difference is the interpretation of the signal bit. Let’s now convert from _byte_ to _char_:
+
+```java
+char myLargeValueChar = (char) myLargeValueByte;
+  //0b11111111 10000010 unsigned value
+int myLargeValueInt = myLargeValueChar; //0b11111111 10000010 65410
+```
+
+The _char_ representation is a Unicode value, but converting to an _int_ showed us a very large value which has the lower 8 bits exactly the same as -126.
+
+If we convert it again to _byte_ we get:
+
+```java
+byte myOtherByte = (byte) myLargeValueInt; //0b10000010 -126
+```
+
+The original value that we used. If the whole code was starting with a _char_ the values will be different:
+
+```java
+char myLargeValueChar2 = 130; //This is an int not a byte! 
+  //0b 00000000 10000010 unsigned value
+        
+int myLargeValueInt2 = myLargeValueChar2; //0b00000000 10000010  130
+        
+byte myOtherByte2 = (byte) myLargeValueInt2; //0b10000010 -126
+```
+
+Although the _byte_ representation is the same, which is -126, the _char_ representation gives us two different characters.
+
+
 ### String to Int
 
-#### By using `Intger.parseInt()` method
+#### `Intger.parseInt()` method
 
 The **most common** and efficient way. Works only with valid integer strings (like `"123"`, `"-45"`).`Integer.parseInt()` method will throw`NumberFormatException` if String provided is not a proper number. Same technique can be used to convert other data type like float and Double to String in Java. Java API provides static methods like `Float.parseFloat()` and `Double.parseDouble()` to perform data type conversion. 
 
-```java title:
+```java title:Intger.parseInt()
 String s = "123";
 int num = Integer.parseInt(s);
 System.out.println(num);  // 123
@@ -346,18 +386,34 @@ Integer.valueOf("-123"); // -123
 // Leading Zeros
 Integer.valueOf("007"); // 7
 
-// Integer Overflow
-Integer.valueOf("2147483648"); // > Integer.MAX_VALUE
-Integer.valueOf("-2147483649"); // < Integer.MIN_VALUE
-// NumberFormatException: For input string: "2147483648"
-// NumberFormatException
-
 // Radix version - Radix must be between 2 and 36
 public static Integer valueOf(String s, int radix)
 Integer.valueOf("1010", 2); // 10
 Integer.valueOf("7B", 16);  // 123
 ```
 
+
+## Int to String
+
+#### + Operator
+
+Use "+" concatenation operator with String to convert int variable into String object. Example - `String price = "" + 123;`. This code is translated into following `new StringBuilder().append("").append(10).toString();`
+
+`StringBuilder(String)` constructor allocates a buffer containing 16 characters. So, appending up to 16 characters to that `StringBuilder` will not require buffer reallocation, but appending more than 16 characters will expand `StringBuider` buffer. Though it's not going to happen because `Integer.MAX_VALUE` is 2147483647, which is less than 16 characters.   
+  
+At the end, `StringBuilder.toString()` will create a new String object with a copy of the StringBuilder buffer. This means for converting a single integer value to String you will need to allocate: one StringBuilder, one char array char[16], one String and one char[] of appropriate size to fit your input value.   
+  
+If you use `String.vauleOf()` will not only benefit from a cached set of values but also you will at least avoid creating a StringBuilder.
+
+#### `String.valueOf()`
+
+`String.valueOf()` method is overloaded to accept almost all primitive type so you can use it convert char, double, float or any other data type into String. Example - `String price = String.valueOf(123);`
+
+#### `String.format()`
+
+```java
+String price = String.format ("%d", **123**);
+```
 
 
 ---
