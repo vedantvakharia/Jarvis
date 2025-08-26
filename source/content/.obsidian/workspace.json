@@ -62,8 +62,23 @@
               "icon": "lucide-file",
               "title": "Packages"
             }
+          },
+          {
+            "id": "85894d8bc2d838fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Java/OOPS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OOPS"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -117,7 +132,7 @@
             }
           },
           {
-            "id": "eaa819b2fdeb1075",
+            "id": "71e24c5c540703b7",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -130,7 +145,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -146,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/OOPS.md",
+                "file": "Java/OOPS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -194,13 +210,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "category-folder/Some note.md",
+                "file": "Java/OOPS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Some note"
+              "title": "Outline of OOPS"
             }
           }
         ]
@@ -223,25 +239,28 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "20634bd84818d5ea",
+  "active": "85894d8bc2d838fa",
   "lastOpenFiles": [
-    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
-    "Java/Basics.md",
-    "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
-    "Designing a Simple Raman Spectrometer.md",
-    "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
+    "DD/CHP 1.md",
     "Java/OOPS.md",
     "Python/OOPS.md",
     "Java/Packages.md",
+    "Java/Basics.md",
+    "index.md",
+    "Figure_1 3.png",
+    "Figure_1 2.png",
+    "Figure_1.png",
+    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
+    "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
+    "Designing a Simple Raman Spectrometer.md",
+    "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
     "Tags",
     "Python/Pyqtgraph.md",
     "Python/Python.md",
-    "DD/CHP 1.md",
     "C/Basics.md",
     "Logic/Proportional logic.md",
     "Logic/Logic.md",
     "DD",
-    "index.md",
     "Pytorch/torch.optim.md",
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Tensors.md",
@@ -258,9 +277,6 @@
     "stochastic.webp",
     "pytorch-loss1.png",
     "Pasted image 20250704024926.png",
-    "Pasted image 20250728213555.png",
-    "output_sgd_baca77_15_1.svg",
-    "output_minibatch-sgd_f4d60f_111_1 1.svg",
     "Linux.md",
     "Pytorch/Torch Library.md",
     "Java",

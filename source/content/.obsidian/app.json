@@ -11,6 +11,7 @@
   "readableLineLength": true,
   "spellcheckDictionary": [
     "Mutators",
-    "Mutator"
+    "Mutator",
+    "vtable"
   ]
 }

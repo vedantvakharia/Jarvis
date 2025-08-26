@@ -1,11 +1,11 @@
 
 Packages in Java are a mechanism that encapsulates a group of classes, sub-packages, and interfaces. Classes in the same package can access each other's package-private and protected members. In general, a package can contain the following kinds of types - classes, interfaces, enumerations, records and annotation types.
-### Why use Packages?
+## Why use Packages?
 - **Avoid Class Name Conflicts** - Two classes with the same name can coexist if they’re in different packages.
 - **Modular Organization** - Group related classes (e.g., `java.util`, `java.io`) for better code structure. These classes will all be related in some way – they might all have to do with a specific application or perform a specific set of tasks.
 - **Access Protection** - Packages work with access modifiers (`public`, `protected`, default, `private`) to control visibility.
 - **Reusability** - Code can be reused easily if properly organized in packages.
-### Using Packages
+## Using Packages
 In a Java source file, the package that this file's class or classes belong to is specified with the `package`keyword. The package statement must be the first line in the source file (excluding comments). At most one package declaration can appear in a source file.
 
 `package java.awt.event;`- this creates the package
@@ -14,12 +14,12 @@ In a Java source file, the package that this file's class or classes belong to i
 
 Classes can also be used directly without an import declaration by using the fully qualified name of the class. `java.awt.event.ActionEvent myEvent = new java.awt.event.ActionEvent();`does not require a preceding import declaration.
 
-### Package Naming Conventions
+## Package Naming Conventions
 1. Reverse Domain Name: Use your domain name in reverse as the base of your package names. For example, if your domain is `example.com`, start your package with `com.example`.
 2. Lowercase Names: Use lowercase letters to avoid conflicts with class names.
 3. Meaningful Names: Use descriptive and meaningful names to reflect the content of the package.
    
-### Static Import
+## Static Import
 Static import  allows members (fields and methods) which have been scoped within their container class as`public static`, to be used in Java code without specifying the class in which the field has been defined.
 
 According to SUN microSystem, it will improve the code readability and enhance coding. But according to the programming experts, it will lead to confusion and not good for programming. If there is no specific requirement then we should not go for static import.
@@ -28,7 +28,7 @@ By using static import, if user wants to access any static member of class then 
 
 With the help of import, we are able to access classes and interfaces which are present in any package. But using static import, we can access all the static members (variables and methods) of a class directly without explicitly calling class name.
 
-```java
+```java title:"Static Import"
 // Calling of predefined methods without static import
 class Geeks {
     public static void main(String[] args)
@@ -77,9 +77,9 @@ public class Geeks {
 ```
 
 
-### Built-in Packages
+## Built-in Packages
 
-#### java.lang
+### java.lang
 Provides classes fundamental to the Java language and is automatically imported.
 
 #### java.lang.Math
@@ -106,9 +106,7 @@ in practice.)
 
 #### java.lang.String
 
-##### Methods
-
-###### Instance Methods
+##### Instance Methods
 
 1. **`char charAt(int index)`-** Returns the `char` value at the specified index. Negative index do not work
 2.  **`int codePointAt(int index)`-** Returns the character (Unicode code point) at the specified index.
@@ -165,3 +163,86 @@ System.out.println(name.endsWith("Tony"));    // false
 System.out.println(name.endsWith("k"));       // true
 System.out.println(name.endsWith(""));        // true (empty suffix is always valid)
 ```
+
+##### Static method
+
+1. `public static String format(String format, Object... args)` - 
+   
+   Format Specifiers - `%[argument_index$][flags][width][.precision]conversion`
+
+
+**Conversion Characters**
+
+1. **General**
+
+| Conversion   | Meaning                      | Example                                 |
+| ------------ | ---------------------------- | --------------------------------------- |
+| `%b` or `%B` | Boolean                      | `String.format("%b", null)` → `"false"` |
+| `%h` or `%H` | Hash code                    | `"7d4991a"`, etc.                       |
+| `%s` or `%S` | String (calls `.toString()`) | `"hello"`                               |
+
+2. **Character**
+
+| Conversion   | Meaning           | Example                           |
+| ------------ | ----------------- | --------------------------------- |
+| `%c` or `%C` | Unicode character | `String.format("%c", 65)` → `"A"` |
+
+3.  **Integral**
+
+| Conversion | Meaning                 | Example |
+| ---------- | ----------------------- | ------- |
+| `%d`       | Decimal integer         | `123`   |
+| `%o`       | Octal integer           | `"173"` |
+| `%x`       | Hex integer (lowercase) | `"7b"`  |
+| `%X`       | Hex integer (uppercase) | `"7B"`  |
+
+4. **Floating-point**
+
+| Conversion | Meaning                                         | Example          |
+| ---------- | ----------------------------------------------- | ---------------- |
+| `%e`       | Scientific notation (lowercase)                 | `"1.234568e+02"` |
+| `%E`       | Scientific notation (uppercase)                 | `"1.234568E+02"` |
+| `%f`       | Decimal (fixed-point)                           | `"123.456000"`   |
+| `%g`       | General (uses `%e` or `%f`, depending on value) | `"123.456"`      |
+| `%G`       | General (uppercase)                             | `"123.456"`      |
+| `%a`       | Hexadecimal floating-point (lowercase)          | `"0x1.edd2f2p7"` |
+| `%A`       | Hexadecimal floating-point (uppercase)          | `"0X1.EDD2F2P7"` |
+
+5. **Date/Time**
+- You must supply a date/time argument (`java.util.Date`, `Calendar`, or `long` epoch).
+- Format is `%tX` or `%TX`.
+
+| Conversion | Meaning                              | Example         |
+| ---------- | ------------------------------------ | --------------- |
+| `%tH`      | Hour (00–23)                         | `"09"`          |
+| `%tI`      | Hour (01–12)                         | `"09"`          |
+| `%tk`      | Hour (0–23, no leading zero)         | `"9"`           |
+| `%tl`      | Hour (1–12, no leading zero)         | `"9"`           |
+| `%tM`      | Minute (00–59)                       | `"05"`          |
+| `%tS`      | Seconds (00–59)                      | `"30"`          |
+| `%tL`      | Milliseconds (000–999)               | `"123"`         |
+| `%tp`      | am/pm (lowercase)                    | `"pm"`          |
+| `%Tp`      | AM/PM (uppercase)                    | `"PM"`          |
+| `%tB`      | Full month name                      | `"August"`      |
+| `%tb`      | Abbreviated month name               | `"Aug"`         |
+| `%th`      | Same as `%tb`                        | `"Aug"`         |
+| `%tA`      | Full weekday name                    | `"Friday"`      |
+| `%ta`      | Abbreviated weekday name             | `"Fri"`         |
+| `%tY`      | Year (4-digit)                       | `"2025"`        |
+| `%ty`      | Year (last 2 digits)                 | `"25"`          |
+| `%tj`      | Day of year (001–366)                | `"234"`         |
+| `%tm`      | Month (01–12)                        | `"08"`          |
+| `%td`      | Day of month (01–31)                 | `"22"`          |
+| `%te`      | Day of month (1–31, no leading zero) | `"22"`          |
+| `%tR`      | 24-hour hh:mm                        | `"09:30"`       |
+| `%tT`      | 24-hour hh:mm:ss                     | `"09:30:45"`    |
+| `%tr`      | 12-hour hh:mm:ss am/pm               | `"09:30:45 PM"` |
+| `%tD`      | Date mm/dd/yy                        | `"08/22/25"`    |
+| `%tF`      | ISO 8601 yyyy-mm-dd                  | `"2025-08-22"`  |
+
+6. **Percent & Literals**
+
+|Conversion|Meaning|Example|
+|---|---|---|
+|`%%`|Literal percent sign|`"%"`|
+|`%n`|Platform-specific newline|Windows → `"\r\n"`, Linux → `"\n"`|

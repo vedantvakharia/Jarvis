@@ -60,6 +60,53 @@ public void raiseSalary(double byPercent) {
 
 ## Final Keyword 
 
+Final is a keyword or reserved word in Java and can be applied to member variables, methods, class and local variables in Java. Once you make a reference final you are not allowed to change that reference and compiler will verify this and raise a compilation error if you try to re-initialized final variables in Java.
+
+Final and abstract are two opposite keywords and a final class can not be abstract.
+
+Final methods are bonded during compile time also called static binding.
+
+Final variables which are not initialized during declaration are called a blank final variable and must be initialized in all constructors either explicitly or by calling this(). Failure to do so compiler will complain as "final variable (name) might not be initialized".
+### Benefits of final keyword
+
+Here are a few benefits or advantages of using the final keyword in Java:
+1. Final keyword improves performance. Not just JVM can cache the final variables but also applications can cache frequently use final variables.
+2. Final variables are safe to share in a multi-threading  environment without additional synchronization overhead.
+3. Final keyword allows JVM to an optimized method, variable or class because JVM gets an opportunity to make assumptions and optimization.
+   
+```java
+class A {
+    void greet() { System.out.println("Hi from A"); }
+}
+
+class B extends A {
+    void greet() { System.out.println("Hi from B"); }
+}
+
+A obj = new B();
+obj.greet();   // Which one? Depends at runtime!
+```
+
+The JVM must use **dynamic dispatch** (runtime lookup in the vtable) to figure out whether `A.greet` or `B.greet` should be called. i.e., the JVM doesn’t have to check at runtime which implementation to call. It can devirtualize the call (turn it into a direct jump instead of a vtable lookup).
+
+### JVM Optimizations Possible
+
+1. **Devirtualization**
+   - Instead of runtime lookup → call becomes _static binding_.
+   - Similar to how `private` and `static` methods are always bound directly.
+2. **Inlining**
+- If a method is `final`, the JIT compiler may decide to **inline** it (copy its bytecode directly into the caller).
+- This avoids method call overhead entirely.
+```java
+final int square(int x) {
+    return x * x;
+}
+// When you call square(5), the JIT may just replace the call with 5*5.
+```
+
+3. **Escape Analysis + Constant Folding**  
+If the method body is small and predictable, the JIT can aggressively optimize because it knows the behavior won’t change later due to overriding.
+
 ### Variables
 
 When a variable is declared as `final`, its value cannot be reassigned once initialized. A `final` variable must be initialized once (either at declaration or inside the constructor).
@@ -81,7 +128,7 @@ sb = new StringBuilder("Hi"); // Error (cannot reassign reference)
 
 ### Methods
 
-When you declare a method as `final`, it cannot be overridden in a subclass.
+When you declare a method as `final`, it cannot be overridden in a subclass. You should make a method final in Java if you think it’s complete and its behavior should remain constant in sub-classes. In general, final methods are faster than non-final methods because they are not required to be resolved during run-time and they are bonded at compile-time
 
 ```java
 class Parent {
