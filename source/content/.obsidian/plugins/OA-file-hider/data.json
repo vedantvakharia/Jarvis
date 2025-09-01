@@ -1,11 +1,10 @@
 {
-  "hidden": true,
+  "hidden": false,
   "hiddenList": [
     "Figure_1 1.png",
     "Figure_1 3.png",
     "Figure_1 2.png",
     "output_minibatch-sgd_f4d60f_111_1.svg",
-    "output_minibatch-sgd_f4d60f_111_1 1.svg",
     "output_minibatch-sgd_f4d60f_135_1.svg",
     "output_minibatch-sgd_f4d60f_147_1.svg",
     "output_minibatch-sgd_f4d60f_123_1.svg",
@@ -22,6 +21,7 @@
     "1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "torch-activation-1.png",
     "torch-activation-2.png",
-    "Pasted image 20250704024926.png"
+    "Pasted image 20250704024926.png",
+    "output_minibatch-sgd_f4d60f_111_1 1.svg"
   ]
 }

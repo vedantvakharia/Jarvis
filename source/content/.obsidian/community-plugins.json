@@ -3,9 +3,7 @@
   "obsidian-minimal-settings",
   "code-styler",
   "code-block-plugin",
-  "OA-file-hider",
   "table-editor-obsidian",
-  "obsidian-icon-folder",
   "editing-toolbar",
   "make-md",
   "url-into-selection",
@@ -14,5 +12,6 @@
   "obsidian-charts",
   "obsidian-plugin-toc",
   "obsidian-completr",
-  "beautitab"
+  "beautitab",
+  "OA-file-hider"
 ]
