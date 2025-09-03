@@ -177,6 +177,8 @@ Possible
 POB
 Published
 Padma
+Performs
+Pauses
 IHDR
 IDATx
 IU
@@ -335,6 +337,7 @@ IT
 Integral
 ISO
 Inlining
+Inspects
 tEXtSoftware
 ta
 tE
@@ -568,6 +571,9 @@ tiAW
 threading
 turn
 telling
+template
+thrown
+translation
 Matplotlib
 Mj
 MR
@@ -720,6 +726,8 @@ Milliseconds
 Month
 Midsem
 Midnight
+Modern
+Methwold
 version
 vyj
 vE
@@ -833,6 +841,7 @@ vq
 vkhw
 verify
 vtable
+virtual
 pHYs
 pHa
 pi
@@ -1181,6 +1190,7 @@ pm
 pB
 protagnist
 passive
+pointing
 xTU
 xK
 xzc
@@ -1371,6 +1381,8 @@ Engine
 Exact
 Ej
 EVS
+Executes
+Embeds
 bY
 bEq
 bmO
@@ -1559,6 +1571,8 @@ blank
 bytecode
 biography
 begins
+british
+births
 ZBO
 ZD
 ZIw
@@ -1951,6 +1965,8 @@ Date
 Day
 Devirtualization
 DISCO
+Deduces
+Deallocates
 YmU
 Yz
 You
@@ -2181,6 +2197,7 @@ Regular
 Resolution
 RY
 Rtt
+Refers
 yN
 yyyG
 yD
@@ -2692,6 +2709,7 @@ date
 dispatch
 devirtualize
 decide
+displayed
 UU
 UzH
 Um
@@ -2771,6 +2789,7 @@ UW
 UEi
 UE
 UmEG
+Unconditionally
 zQ
 zFs
 zc
@@ -3080,6 +3099,8 @@ iU
 ioJ
 inline
 india
+initializer
+insertion
 mJN
 mM
 mL
@@ -3325,6 +3346,7 @@ meo
 mw
 mJ
 month
+meant
 KB
 KC
 Krauss
@@ -3579,6 +3601,7 @@ lSo
 lwe
 lookup
 listener
+lives
 ebh
 eL
 ev
@@ -3877,6 +3900,7 @@ ewE
 emuiTCY
 em
 ex
+enumeration
 gee
 go
 gko
@@ -4001,6 +4025,7 @@ gt
 gJ
 gP
 grandfather
+generic
 Hv
 HV
 Hbb
@@ -4338,6 +4363,9 @@ hRSyn
 hwI
 hthPM
 hh
+hint
+handled
+header
 Oo
 Oc
 OBt
@@ -4447,6 +4475,7 @@ OuG
 OSu
 Optimizations
 OB
+Overloads
 LRZ
 Long
 LSTM
@@ -5107,6 +5136,7 @@ Course
 Compre
 CB
 CIEF
+Completes
 ot
 oV
 oz
@@ -5596,6 +5626,10 @@ Sz
 Slu
 SGo
 Seconds
+Selects
+Structuring
+Starts
+Suspends
 Bw
 BO
 Building
@@ -5725,6 +5759,7 @@ Both
 Byte
 BCu
 Bm
+Beyond
 Gy
 Gbb
 GitHub
@@ -5809,6 +5844,7 @@ Gets
 Gt
 Gg
 General
+Grants
 fvy
 fNW
 fgg
@@ -6322,6 +6358,7 @@ rss
 reserved
 raise
 ripples
+request
 sRR
 sFL
 shows
@@ -6791,6 +6828,8 @@ synchronization
 ss
 sotry
 she
+storing
+sending
 TA
 Te
 TXp
@@ -6916,6 +6955,8 @@ Though
 TY
 Tc
 Tp
+Typical
+Throws
 XM
 Xiong
 XX
@@ -7300,6 +7341,10 @@ abh
 avv
 aNN
 aggressively
+allocated
+assertion
+awaits
+arrow
 qiW
 qG
 quantitative
@@ -7801,6 +7846,11 @@ compilation
 complain
 compre
 colonial
+caution
+conversions
+concepts
+coroutines
+coroutine
 whatever
 write
 will
@@ -8130,3 +8180,4 @@ Abstraction
 Afterward
 Azz
 Abbreviated
+Allocates

@@ -69,16 +69,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exams.md",
+                "file": "CIEF/Midnight's Children.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Exams"
+              "title": "Midnight's Children"
+            }
+          },
+          {
+            "id": "17b0287a094859e9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C/Basics.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Basics"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -132,7 +146,7 @@
             }
           },
           {
-            "id": "60f67f38c096de69",
+            "id": "1725f5ac357d1135",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -239,10 +253,18 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "c4b6fb75f41456ab",
+  "active": "06a00ff52ba4649a",
   "lastOpenFiles": [
-    "CIEF/Midnight's Children.md",
+    "CV/Camera Calibration.md",
+    "Exams.md",
+    "CV",
+    "C++/CV/CV.md",
+    "C++/CV",
+    "Untitled.md",
     "C++/Basics.md",
+    "C/Basics.md",
+    "Java/Basics.md",
+    "CIEF/Midnight's Children.md",
     "C++",
     "DISCO/Logic and Proofs .md",
     "CIEF",
@@ -250,15 +272,12 @@
     "DISCO/.md",
     "output_minibatch-sgd_f4d60f_123_1.svg",
     "output_minibatch-sgd_f4d60f_111_1.svg",
-    "Untitled.md",
     "DISCO",
     "Java/Packages.md",
     "Logic/Proportional logic.md",
     "Java/OOPS.md",
-    "Exams.md",
     "DD/CHP 1.md",
     "Python/OOPS.md",
-    "Java/Basics.md",
     "index.md",
     "Figure_1 3.png",
     "Figure_1 2.png",
@@ -270,23 +289,18 @@
     "Tags",
     "Python/Pyqtgraph.md",
     "Python/Python.md",
-    "C/Basics.md",
     "Logic/Logic.md",
     "DD",
     "Pytorch/torch.optim.md",
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Tensors.md",
-    "Pytorch/Basics of Neural Network.md",
     "Pasted image 20250815000350.png",
-    "Java/File Operations.md",
     "Logic",
     "torch-activation-2.png",
     "torch-activation-1.png",
     "pytorch-loss2.png",
     "Java",
     "Pytorch/Untitled",
-    "Pytorch/Untitled.canvas",
-    "category-folder",
-    "SOFI"
+    "Pytorch/Untitled.canvas"
   ]
 }
