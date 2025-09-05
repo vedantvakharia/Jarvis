@@ -146,7 +146,7 @@
             }
           },
           {
-            "id": "76880c60997cef94",
+            "id": "248e7254d8c88891",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -155,8 +155,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -256,8 +255,12 @@
   },
   "active": "17b0287a094859e9",
   "lastOpenFiles": [
-    "CIEF/Untitled.md",
+    "Pytorch/Untitled.md",
+    "Pytorch/Torch.nn Library.md",
+    "Pytorch/Pytorch.md",
+    "Pytorch/torch.optim.md",
     "CIEF/CIEF Overview.md",
+    "CIEF/Untitled.md",
     "C/Basics.md",
     "C++/Basics.md",
     "Java/Basics.md",
@@ -290,11 +293,7 @@
     "Designing a Simple Raman Spectrometer.md",
     "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
     "Tags",
-    "Python/Pyqtgraph.md",
-    "Python/Python.md",
-    "Logic/Logic.md",
     "DD",
-    "Pytorch/torch.optim.md",
     "Pasted image 20250815000350.png",
     "Logic",
     "torch-activation-2.png",
