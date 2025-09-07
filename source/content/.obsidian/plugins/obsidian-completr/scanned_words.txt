@@ -198,6 +198,7 @@ Press
 Princes
 Prison
 Pigeons
+Politics
 IHDR
 IDATx
 IU
@@ -369,6 +370,9 @@ Illusions
 IEF
 Influence
 Is
+ISRO
+IITs
+Imposition
 tEXtSoftware
 ta
 tE
@@ -636,6 +640,10 @@ tribal
 transcript
 turbulent
 titled
+tension
+trader
+tumultuous
+translations
 Matplotlib
 Mj
 MR
@@ -816,6 +824,12 @@ Mano
 Majra
 Mutiny
 Mountain
+Mizoram
+Madras
+MTV
+Michael
+Madhusudan
+Maiden
 version
 vyj
 vE
@@ -941,6 +955,10 @@ voice
 vast
 village
 violence
+visions
+visa
+vacation
+vehicle
 pHYs
 pHa
 pi
@@ -1364,6 +1382,15 @@ princely
 poignantly
 poverty
 piece
+pot
+precursors
+plains
+promise
+powerfully
+promotion
+prefer
+poets
+professionals
 xTU
 xK
 xzc
@@ -1790,6 +1817,7 @@ ban
 backdrop
 biographical
 boy
+bombed
 ZBO
 ZD
 ZIw
@@ -2044,6 +2072,7 @@ neurotic
 novelist
 niece
 nostalgia
+nationality
 Do
 DW
 Dm
@@ -2221,6 +2250,9 @@ Delhi
 Devil
 Depicts
 Describes
+Defense
+Derozio
+Dutt
 YmU
 Yz
 You
@@ -2269,6 +2301,7 @@ YF
 YZ
 YYNv
 Yeats
+Young
 ja
 jG
 jV
@@ -2472,6 +2505,8 @@ Room
 Roof
 Rusty
 Rhys
+Religion
+Russia
 yN
 yyyG
 yD
@@ -2709,6 +2744,8 @@ Novelists
 Nightingale
 Novel
 Nana
+Never
+Naidu
 dK
 dm
 dF
@@ -3050,6 +3087,8 @@ document
 divorced
 defending
 delve
+dams
+die
 UU
 UzH
 Um
@@ -3136,6 +3175,7 @@ Upamanyu
 Untouchable
 Unique
 Urdu
+Until
 zQ
 zFs
 zc
@@ -3487,6 +3527,11 @@ involved
 intensely
 interwoven
 insider
+ideology
+identities
+ideologies
+imprisonment
+invader
 mJN
 mM
 mL
@@ -3773,6 +3818,7 @@ marriage
 mothers
 middleclass
 moral
+migrants
 KB
 KC
 Krauss
@@ -3830,6 +3876,8 @@ Kesavan
 Kiran
 Kenya
 Kamala
+Kashmir
+Kick
 lq
 li
 ls
@@ -4053,6 +4101,8 @@ likening
 leaping
 loneliness
 lonely
+lacking
+liberated
 ebh
 eL
 ev
@@ -4404,6 +4454,8 @@ exploits
 emergency
 explains
 encounter
+encouraged
+exploiting
 gee
 go
 gko
@@ -4562,6 +4614,7 @@ got
 government
 generational
 grace
+goal
 Hv
 HV
 Hbb
@@ -4672,6 +4725,7 @@ Happy
 Hear
 Handful
 Honeycomb
+Henry
 Fi
 Financial
 Fischer
@@ -4806,6 +4860,9 @@ Freedom
 Fire
 Focuses
 Flight
+Fragmentation
+Force
+From
 hz
 hT
 hm
@@ -4954,6 +5011,8 @@ hid
 happiness
 horrors
 honour
+hydro
+hills
 Oo
 Oc
 OBt
@@ -5206,6 +5265,7 @@ Lively
 Leaves
 Linguistic
 Llewellyn
+Louis
 Vn
 VIUj
 VU
@@ -5283,6 +5343,9 @@ Vikram
 Vasu
 Vedanta
 Verses
+Visions
+Vision
+Vivian
 uZ
 uN
 uG
@@ -5420,6 +5483,8 @@ urban
 unraveling
 unhappy
 universal
+upliftment
+unfinished
 Wn
 Ws
 Wc
@@ -5508,6 +5573,9 @@ World
 Women
 Writers
 Wind
+Wrote
+Wins
+Winner
 CE
 Cy
 CSKnn
@@ -5795,6 +5863,10 @@ Chronicles
 Chandigarh
 Chocolate
 Cake
+Critique
+Coca
+Colonisation
+Calcutta
 ot
 oV
 oz
@@ -5986,6 +6058,8 @@ orphan
 overdoing
 overview
 orphaned
+opened
+oppressive
 Js
 JS
 JN
@@ -6339,6 +6413,11 @@ Satanic
 Sahib
 She
 Storm
+Soviet
+Spanish
+Sarojini
+Sri
+Studied
 Bw
 BO
 Building
@@ -6491,6 +6570,11 @@ Billy
 Biswas
 Bend
 Bond
+Bombay
+Bankim
+Books
+Bianca
+Began
 Gy
 Gbb
 GitHub
@@ -6592,6 +6676,7 @@ Greene
 Grove
 Ganges
 Golden
+Gave
 fvy
 fNW
 fgg
@@ -6832,6 +6917,9 @@ fluently
 family
 female
 famous
+floodgates
+fractured
+finally
 rt
 ru
 root
@@ -7175,6 +7263,10 @@ refined
 romance
 remote
 received
+response
+rooted
+reject
+region
 sRR
 sFL
 shows
@@ -7700,6 +7792,11 @@ sketched
 stunning
 sweeping
 sexual
+stark
+spy
+symptoms
+soul
+switched
 TA
 Te
 TXp
@@ -7842,6 +7939,10 @@ Themes
 Texts
 Teacher
 Train
+Tension
+Tradition
+Toru
+Travelled
 XM
 Xiong
 XX
@@ -8287,6 +8388,13 @@ authoritarianism
 autobiography
 ascendancy
 adults
+attitudes
+advocated
+attempting
+amid
+administration
+assassination
+army
 qiW
 qG
 quantitative
@@ -8870,6 +8978,11 @@ cousin
 corruption
 conscience
 complications
+comparative
+contrasting
+concluding
+centre
+career
 whatever
 write
 will
@@ -9018,6 +9131,7 @@ worlds
 worldview
 woman
 writes
+widespread
 Adaptive
 Aware
 Architecture
@@ -9240,3 +9354,7 @@ Alienation
 Arun
 Addresses
 Apprentice
+Assam
+Air
+Aryan
+Aurobindo

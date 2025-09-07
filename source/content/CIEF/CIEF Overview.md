@@ -2,16 +2,87 @@
 
 - Salman Rushdie's Midnight's Children (1981) opened the floodgates of literary activity in English.
 - Many Indian English Fiction writers achieved critical acclaim & commercial success at home and abroad.
+- According to conservative Indian critics, IEL authors suffer from a condition called “Rushdie-itis”. The symptoms are as follows
+	- Imposition of Western cultural standards (of writers, critics, and publishers) on India
+	- Many new IEL writers living outside India
+	- Their work lacking the spiritual dimension essential for understanding of the soul of India
+	- Their insufficient grounding in the ancient Indian literary traditions
+	- IEL as the literary equivalent of MTV culture
+	- IEL authors’ promotion of Coca-Colonisation
+
+### Pre-Rushdie Indian English Fiction
+- Rushdie is hailed as a real innovator in Indian English Fiction
+- IEF does not have a long continuous tradition
+- Why is literary tradition important to writers? They would prefer to belong to a tradition even if they finally choose to reject it
+- In the case of pre-Independence Indian English authors, there was no concrete
+- tradition in terms of language, nation, region, nationality, or even literary genre &
+- style that they could belong to or call their own
+- The absence of tradition makes the IEF author feel like an orphan/foster child
+- But the lack of an oppressive tradition makes the IEF author feel liberated (alternative perspective)
+
+---
+## Miscellaneous
+
+- Henry Louis Vivian Derozio, Michael Madhusudan Dutt, and Toru Dutt are important literary figures who wrote poetry in the English language in the 19th century. 
+- Bianca, or The Young Spanish Maiden (1878), an unfinished tale by Toru Dutt (1856-1877) was the first novel written by an Indian woman. 
+- Sarojini Naidu and Sri Aurobindo are important Indian English poets of the early 20th century.
 - 
 
+### Sake Dean Mahomed (1759 – 1851)
 
-## 1930s - 1940
+- Began career in the army of the British East India Company.
+- Travelled to Britain and became the first Indian person to write and publish a book in English: The Travels of Dean Mahomet (1794).
+- One of the first South Asian migrants & successful professionals in Britain.
+
+### Bankimchandra Chatterjee (1838-1894)
+
+- Studied at the University of Calcutta, of which he was one of the first graduates.
+- Wrote his debut novel Rajmohan's Wife (1864) in English — it is the first Indian novel written in English.
+- Gave up literary writing in English and switched to writing in his mother-tongue Bengali.
+- Wrote 13 influential novels in Bengali.
+- His novels firmly established prose as a literary vehicle for the Bengali language and helped create in India a school of fiction on the European model
+
+### Rabindranath Tagore (1861-1941)
+- Wins the Nobel Prize for Literature in 1913.
+- Until then Indian Literature did not have much global recognition or standing.
+- First Asian and non-white person to win the award.
+- Nobel Prize awarded for the book Gitanjali, “a collection of prose translations made by the author from the original Bengali.”
+
+### V.S. Naipaul (1932-2018)
+- Trinidadian-British writer of Indian descent.
+- Winner of the Booker Prize (1971) and the Nobel Prize for Literature (2001).
+- Not just celebrated as the greatest novelist of his time, but often described as “the greatest living writer of English prose.”
+
+---
+## 1930s - 1940 (Midnight's Parents)
 
 The Indian English Fiction (IEF) authors of the 1930s and 1940s are often referred to as "**Midnight's Parents**". This era marked a significant period for the genre, which gained visibility with the emergence of a "triumvirate" of major writers: Mulk Raj Anand, R.K. Narayan, and Raja Rao. Their work was pivotal in the evolution of Indian novels in English, coinciding with the rise of Indian nationalism, heavily influenced by figures like Gandhi. Many of these writers, including Anand and Rao, spent time in Europe, contributing to a cultural hybridity in their work.
+
+- Tradition of IEF starts with Bankim Chatterjee’s Rajmohan’s Wife (1864)
+- Few Indian writers wrote in English after Bankim without success or impact
+- In the 1930s Indian English Fiction gained visibility with the emergence of the triumvirate:
+- Mulk Raj Anand (Untouchable, p. 1935), R.K. Narayan (Swami & Friends, p. 1935), and Raja Rao (Kanthapura, p. 1938)
+- Books endorsed by big British novelists: E.M. Forster and Graham Greene
+- Their writings were situated between two widely different cultural worlds: India & England; Indian languages & English (m/other tongue)
+- Complex negotiation between the cultures of metropolitan centre and colonial periphery
 
 Unlike earlier Indian English writers of the 19th century, their work was not considered derivative. Instead, they drew inspiration from India's narrative traditions while being shaped by modern literary and political thought from abroad. Their writings were situated between the distinct cultural worlds of India and England, as well as Indian languages and English. These authors undertook a complex negotiation between the cultures of the metropolitan center and the colonial periphery. They are recognized for laying the foundation for contemporary Indian writing in English through their experimentation with social realism, cultural hybridity, and linguistic innovation.
 
 A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao was that their books were endorsed by prominent British novelists like E.M. Forster and Graham Greene.
+
+### Historical Context
+- **Indian Nationalism -** Influenced by Gandhi's leadership, events like the Civil Disobedience Movement, the Dandi March, and later the Quit India Movement shaped cultural and literary expressions.
+- **Cosmopolitan Influence -** Many writers, including Mulk Raj Anand, Raja Rao, and Bhabani Bhattacharya, spent time in Europe, leading to cultural hybridity in their work.
+  
+### Themes
+- Anti-colonial nationalism
+- Gandhian philosophy (non-violence, self-reliance, village upliftment) — Gandhi as a motif
+- Gandhi vs. Nehru:
+	- Rural simplicity, traditional Indian values, and anti-modernist attitudes
+	- Marxist-inspired modernity and socialism.
+	- Writers often depicted a tension or synthesis between these ideologies.
+- Partition and Its Aftermath - A counter-narrative to Independence’s optimism.
+- Gender and Social Reform - Women’s emancipation became a narrative focus.
 
 ### 1. Mulk Raj Anand (1905-2004)
 
@@ -19,7 +90,7 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 - Anand's work primarily focused on **social realism**, **caste oppression**, and **class struggles**.
 - His novels revolved around themes of **exploitation and repression of the marginal classes of Indian society**. He was known for movingly depicting the lives of oppressed people.
 #### Key Texts
-- _**Untouchable**_ (1935): Explored the harsh realities of untouchability and proposed modernist solutions such as flush toilets.
+- _**Untouchable**_ (1935): Explored untouchability & modernist solutions like flush toilets.
 - _**Coolie**_ (1936): Chronicled the exploitation faced by working classes.
 - _**Two Leaves and a Bud**_ (1937): Depicted the tensions between the privileged and the underprivileged.
 - _**The Big Heart**_ (1945): Addressed the conflict between industrialization and Gandhian ideals.
@@ -81,7 +152,7 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 
 ### 4. G.V. Desani (1909-2000)
 
-### Key Texts
+#### Key Texts
 - **_All About H. Hatterr_** (1948).
 #### Primary Themes
 - Desani's work is characterized by a **satirical tone**, **linguistic experimentation**, and a **parody of Indian and British hypocrisies**.
@@ -119,6 +190,8 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
   
 #### Miscellaneous
 - He is identified as Marxist author. 
+
+---
 
 ---
 ## Post-Independence Fiction (1950s-70s)
