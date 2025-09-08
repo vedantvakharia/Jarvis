@@ -373,6 +373,7 @@ Is
 ISRO
 IITs
 Imposition
+Influenced
 tEXtSoftware
 ta
 tE
@@ -830,6 +831,7 @@ MTV
 Michael
 Madhusudan
 Maiden
+March
 version
 vyj
 vE
@@ -2253,6 +2255,8 @@ Describes
 Defense
 Derozio
 Dutt
+Disobedience
+Dandi
 YmU
 Yz
 You
@@ -2507,6 +2511,8 @@ Rusty
 Rhys
 Religion
 Russia
+Rural
+Reform
 yN
 yyyG
 yD
@@ -3532,6 +3538,7 @@ identities
 ideologies
 imprisonment
 invader
+institution
 mJN
 mM
 mL
@@ -3819,6 +3826,7 @@ mothers
 middleclass
 moral
 migrants
+motif
 KB
 KC
 Krauss
@@ -4456,6 +4464,7 @@ explains
 encounter
 encouraged
 exploiting
+emancipation
 gee
 go
 gko
@@ -5485,6 +5494,7 @@ unhappy
 universal
 upliftment
 unfinished
+undertakes
 Wn
 Ws
 Wc
@@ -5867,6 +5877,7 @@ Critique
 Coca
 Colonisation
 Calcutta
+Constitution
 ot
 oV
 oz
@@ -6060,6 +6071,7 @@ overview
 orphaned
 opened
 oppressive
+outstanding
 Js
 JS
 JN
@@ -6128,6 +6140,7 @@ Jhumpa
 Jnanpith
 Joshi
 John
+Jnapith
 Sv
 Sp
 STV
@@ -6677,6 +6690,7 @@ Grove
 Ganges
 Golden
 Gave
+Gender
 fvy
 fNW
 fgg
@@ -7267,6 +7281,7 @@ response
 rooted
 reject
 region
+recognised
 sRR
 sFL
 shows
@@ -7797,6 +7812,7 @@ spy
 symptoms
 soul
 switched
+scheduled
 TA
 Te
 TXp
@@ -8395,6 +8411,8 @@ amid
 administration
 assassination
 army
+annually
+annual
 qiW
 qG
 quantitative
@@ -9358,3 +9376,6 @@ Assam
 Air
 Aryan
 Aurobindo
+Anti
+Aftermath
+Awarded

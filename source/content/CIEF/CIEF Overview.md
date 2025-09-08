@@ -355,3 +355,14 @@ The poem **"Desperately Seeking India" by G.J.V. Prasad**, originally composed i
 - "Kashmir’s no vacation / They tell me it’s a nation / And Punjab wants to die".
 - "In Bombay I’m an invader / In Assam An exploiting trader".
 - The concluding lines, "They would throw me / From the hills / Kick me / From the plains / I promise / Never to mention / India again," powerfully convey a sense of a fractured identity and widespread alienation during this tumultuous period.
+  
+## Jnapith Award
+
+- The highest Indian literary award presented annually to an Indian author for their "outstanding contribution towards literature".
+- Awarded to writers in any of the 22 “scheduled languages” recognized in the Indian Constitution and, from 2013, in the English language.
+- In 2018, Amitav Ghosh became the first writer in English to receive the Jnanpith Award.
+  
+## Sahitya Akademi Award
+- Sahitya Akademi, India's National Academy of Letters, is “the only institution that undertakes literary activities in 24 Indian languages, including English.”
+- The annual Sahitya Akademi Award is given to “the most outstanding books of literary merit published in any of the major Indian languages recognised by the Akademi.”
+- In 1960, R.K. Narayan became the first writer in English to receive the Sahitya Akademi Award.
