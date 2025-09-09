@@ -647,6 +647,8 @@ trader
 tumultuous
 translations
 texts
+tedium
+truthfulness
 Matplotlib
 Mj
 MR
@@ -963,6 +965,8 @@ visions
 visa
 vacation
 vehicle
+varieties
+verve
 pHYs
 pHa
 pi
@@ -1395,6 +1399,9 @@ promotion
 prefer
 poets
 professionals
+prize
+parables
+pettiness
 xTU
 xK
 xzc
@@ -1602,6 +1609,7 @@ Examines
 Explores
 East
 Eurasian
+Egypt
 bY
 bEq
 bmO
@@ -1822,6 +1830,8 @@ backdrop
 biographical
 boy
 bombed
+bengali
+bureaucratic
 ZBO
 ZD
 ZIw
@@ -1915,6 +1925,7 @@ QUtU
 QU
 Quiz
 Quit
+Quixote
 nD
 ny
 nP
@@ -2077,6 +2088,7 @@ novelist
 niece
 nostalgia
 nationality
+nandini
 Do
 DW
 Dm
@@ -2259,6 +2271,8 @@ Derozio
 Dutt
 Disobedience
 Dandi
+Described
+Detective
 YmU
 Yz
 You
@@ -2515,6 +2529,8 @@ Religion
 Russia
 Rural
 Reform
+Rated
+Reason
 yN
 yyyG
 yD
@@ -2754,6 +2770,7 @@ Novel
 Nana
 Never
 Naidu
+Nations
 dK
 dm
 dF
@@ -3097,6 +3114,8 @@ defending
 delve
 dams
 die
+durgesh
+draws
 UU
 UzH
 Um
@@ -3541,6 +3560,8 @@ ideologies
 imprisonment
 invader
 institution
+identifying
+irreverent
 mJN
 mM
 mL
@@ -3829,6 +3850,8 @@ middleclass
 moral
 migrants
 motif
+magazine
+monolingual
 KB
 KC
 Krauss
@@ -3888,6 +3911,7 @@ Kenya
 Kamala
 Kashmir
 Kick
+Kolkata
 lq
 li
 ls
@@ -4468,6 +4492,8 @@ encouraged
 exploiting
 emancipation
 endl
+evocative
+excitedly
 gee
 go
 gko
@@ -4875,6 +4901,7 @@ Flight
 Fragmentation
 Force
 From
+Field
 hz
 hT
 hm
@@ -5025,6 +5052,7 @@ horrors
 honour
 hydro
 hills
+honest
 Oo
 Oc
 OBt
@@ -5358,6 +5386,7 @@ Verses
 Visions
 Vision
 Vivian
+Village
 uZ
 uN
 uG
@@ -5589,6 +5618,7 @@ Wind
 Wrote
 Wins
 Winner
+Writing
 CE
 Cy
 CSKnn
@@ -5881,6 +5911,11 @@ Coca
 Colonisation
 Calcutta
 Constitution
+Circle
+Chromosome
+Critics
+Commonwealth
+Cult
 ot
 oV
 oz
@@ -6075,6 +6110,7 @@ orphaned
 opened
 oppressive
 outstanding
+older
 Js
 JS
 JN
@@ -6144,6 +6180,8 @@ Jnanpith
 Joshi
 John
 Jnapith
+Jones
+Jataka
 Sv
 Sp
 STV
@@ -6434,6 +6472,7 @@ Spanish
 Sarojini
 Sri
 Studied
+Sci
 Bw
 BO
 Building
@@ -6591,6 +6630,7 @@ Bankim
 Books
 Bianca
 Began
+Beauty
 Gy
 Gbb
 GitHub
@@ -6937,6 +6977,7 @@ famous
 floodgates
 fractured
 finally
+fiercely
 rt
 ru
 root
@@ -7285,6 +7326,9 @@ rooted
 reject
 region
 recognised
+repute
+resists
+readers
 sRR
 sFL
 shows
@@ -7816,6 +7860,12 @@ symptoms
 soul
 switched
 scheduled
+serialized
+speculates
+shadow
+switches
+slanted
+searingly
 TA
 Te
 TXp
@@ -7962,6 +8012,7 @@ Tension
 Tradition
 Toru
 Travelled
+Tom
 XM
 Xiong
 XX
@@ -8416,6 +8467,7 @@ assassination
 army
 annually
 annual
+apart
 qiW
 qG
 quantitative
@@ -9006,6 +9058,10 @@ centre
 career
 cpp
 cout
+counterparts
+classics
+cemented
+cynical
 whatever
 write
 will
@@ -9384,3 +9440,4 @@ Aurobindo
 Anti
 Aftermath
 Awarded
+Antique

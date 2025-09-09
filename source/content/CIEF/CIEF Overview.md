@@ -84,7 +84,9 @@
 ### Upamanyu Chatterjee
 
 #### Key Texts
-- English, August - 
+- **English, August -** 
+	- "Cult book" upon its release, with many readers identifying it as "my experience".
+	- His work is considered an "urban book," reflecting a shift from the older belief that "the real India was Village India".
 	- Chatterjee takes a searingly honest and irreverent look at the pettiness and tedium of Indian bureaucratic life and the unbridgeable gap between the elite English educated urbanite and the rest of the country.
 	- Writing with verve, humor and a cynical truthfulness, Upamanyu Chatterjee captured the voice of a generation in _English August_.
 - 
@@ -135,6 +137,7 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 - Anand, along with Narayan and Rao, embraced Western genres of the novel to articulate their unique perceptions of culture, space, and experience.
 - They **indigenized English**, infusing it with Indian rhythms and idioms.
 - While they used English excellently, they approached it with the understanding that it was a borrowed tongue, often choosing to focus on Indian themes.
+- He was "incidentally was part of the Bloomsbury Circle.
 #### Influence of Modernism and Marxism
 - A significant anecdote is that Mahatma Gandhi advised him to write in English.
 - Anand was significantly influenced by both European modernism and Marxism.
@@ -152,9 +155,14 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 - _**Swami and Friends**_ (1935): A coming-of-age narrative about a mischievous schoolboy.
 - _**The Bachelor of Arts**_ (1937): Explored the aspirations and dilemmas of youth.
 - _**The English Teacher**_ (1945): An autobiographical novel that delves into themes of love, loss, and spiritual reconciliation.
+- **The Dark Room**
+- **Waiting for the Mahatma**
+- **Gods, Demons and Others**
+- 
   
 #### Cultural and Linguistic Negotiations
 - Narayan, like Anand and Rao, adopted Western novel genres to express their cultural, spatial, and experiential perspectives.
+- He was "first championed by Graham green".
 - He notably **employed the English language and English literary conventions to map the social life of the imaginary Malgudi**.
 - He, Anand, Rao, and Desani collectively **indigenized English**, imbuing it with Indian rhythms and idioms.
 - Narayan's writing brought the "small town chatter, the rituals and superstitions" of India vividly to life, which had previously been confined to colonial caricatures.
@@ -338,7 +346,7 @@ Her autobiography is titled _Prison and Chocolate Cake_. Sahgal's works are uniq
 	- _The Room on the Roof_ (1956): Depicts the life of an orphaned and lonely Eurasian boy called Rusty, winning the John Llewellyn Rhys Prize in 1957.
 	- _A Flight of Pigeons_ (1978): Tells the story of a British family caught in the complications of the Mutiny of 1857.Post-Independence Fiction (1950s-70s).
   
-
+---
 ## Visions of India (Gandhi vs. Nehru)
 
 Here is a detailed comparative analysis of the visions for post-Independence India held by Mahatma Gandhi and Jawaharlal Nehru, along with the subsequent fragmentation of national politics:
@@ -392,6 +400,24 @@ The poem **"Desperately Seeking India" by G.J.V. Prasad**, originally composed i
 - "In Bombay I’m an invader / In Assam An exploiting trader".
 - The concluding lines, "They would throw me / From the hills / Kick me / From the plains / I promise / Never to mention / India again," powerfully convey a sense of a fractured identity and widespread alienation during this tumultuous period.
   
+
+
+## Post Rushdie
+
+### Arundhati Roy (b. 1961)
+- Won The Booker Prize in 1997 for _The God of Small Things_, becoming the "first resident Indian to win Britain's most coveted literary award".  Before her, V.S. Naipaul won in 1971 and Salman Rushdie won in 1981, both were Indian descent but not Indian resident. So, this was a huge win for Indian literature and marked a turning point for Indian fiction globally.  
+- Her success in winning the Booker stamped India as "the most fertile new literary ground in international eyes".
+- Her book made "no allowances for a foreign audience" but was met with "Wild International excitement"
+
+### V.S. Naipaul
+- He was the first writer to make "the Great Leap" and prove that "neither poverty nor his obscure Beginnings...could stop him from becoming one of the greatest masters of the English language"
+- Though his early work like _The Mystic Masseur_ was "scorned as a little Savory from the colonies" and _A House for Mr. Biswas_ was "greeted with indifference" in the 1950s, he is now considered "one of the greatest living writers in the English language"
+- He wrote novels, short stories, essays and travelogs. 
+- He wrote "with passion and Authority on subjects ranging from Life in the small island colonies of Trinidad and Tobago to cultural fundamentalism and Islam".
+- The British establishment has honored him with a Knighthood, and Oxford University with an honorary doctorate, though these honors are "recent history".
+- Unlike Narayan and Anand, Naipaul's works were not exclusively focused on Indian themes but rather on diverse subjects
+
+
 ## Jnapith Award
 
 - The highest Indian literary award presented annually to an Indian author for their "outstanding contribution towards literature".
