@@ -145,3 +145,28 @@ In C++, input and output (I/O) are handled using a concept called streams. There
 
 `cout` stands for character output. It’s a global object of type `std::ostream` defined in `<iostream>`. It represents the standard output stream, usually the console/terminal screen. It lives in the `std` namespace: you access it as `std::cout` (or just `cout` if you do `using namespace std;`). The `<<` symbol is called the stream insertion or put to operator. It's like an arrow pointing to `cout`, showing that we're sending data to be displayed.
 
+```cpp title:"Printing using cout"
+// Printing numbers and texts 
+cout << "I love C++";
+
+// To print multiple outputs on the same line
+cout << 20;
+cout << 40;
+// This will output: 2040
+
+cout << 20 << 40;
+// This will also output: 2040
+
+// To print on separate lines, we use endl(end line).
+cout << 20 << endl;
+cout << 40 << endl;
+// This will output:
+// 20
+// 40
+
+// Combining Text and Numbers
+cout << "I am " << 25 << " years old.";
+// This will output: I am 25 years old
+
+
+3. 

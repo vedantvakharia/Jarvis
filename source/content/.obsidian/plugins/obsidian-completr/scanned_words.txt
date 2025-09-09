@@ -199,6 +199,7 @@ Princes
 Prison
 Pigeons
 Politics
+Printing
 IHDR
 IDATx
 IU
@@ -645,6 +646,7 @@ tension
 trader
 tumultuous
 translations
+texts
 Matplotlib
 Mj
 MR
@@ -4465,6 +4467,7 @@ encounter
 encouraged
 exploiting
 emancipation
+endl
 gee
 go
 gko
@@ -9001,6 +9004,8 @@ contrasting
 concluding
 centre
 career
+cpp
+cout
 whatever
 write
 will

@@ -37,8 +37,8 @@
 ### Bankimchandra Chatterjee (1838-1894)
 
 - Studied at the University of Calcutta, of which he was one of the first graduates.
-- Wrote his debut novel Rajmohan's Wife (1864) in English — it is the first Indian novel written in English.
-- Gave up literary writing in English and switched to writing in his mother-tongue Bengali.
+- Wrote his debut novel Rajmohan's Wife (1864) in English — it is the first Indian novel written in English which was serialized into a magazine called Indian Field.  
+- Gave up literary writing in English after the 1st novel and switched to writing in his mother-tongue Bengali. The 1st bengali novel was durgesh nandini. 
 - Wrote 13 influential novels in Bengali.
 - His novels firmly established prose as a literary vehicle for the Bengali language and helped create in India a school of fiction on the European model
 
@@ -52,6 +52,24 @@
 - Trinidadian-British writer of Indian descent.
 - Winner of the Booker Prize (1971) and the Nobel Prize for Literature (2001).
 - Not just celebrated as the greatest novelist of his time, but often described as “the greatest living writer of English prose.”
+
+### Amitav Ghosh
+- His ability to capture India's multilingual reality using English sets him apart from monolingual counterparts.
+- He has been long listed or shortlisted for the Booker/Man Booker Prize.
+- He became the first writer in English to receive the Jnanpith Award in 2018
+#### Key texts
+- **Shadow lines -** 
+	- Rated as "one of the best novels in the English language published by an Indian".
+	- Its narrative moves in time and place with "economy of effort" and "evocative Beauty".
+	- It speculates on **"the varieties of human freedom and the bonds across space and time," particularly the "shadow lines we draw between people and Nations"**
+	- An "urban book" that draws "a very strong parallel connection" between urban India and urban England
+	- It **questions the idea of nationhood**
+	- Described as a love story which switches between Kolkata and London
+- **The Circle of Reason -** His first novel, which critics excitedly compared with great classics like Tom Jones and Don Quixote.
+- **In an Antique Land -** A non-fictional study of Egypt and India.
+- **The Calcutta Chromosome -** A Sci-Fi Detective novel.
+
+- Critics excitedly compared his first novel, _The Circle of Reason_, with great classics, and his subsequent books cemented his name as a "First Rate writer of international repute".
 
 ---
 ## 1930s - 1940 (Midnight's Parents)
@@ -94,6 +112,7 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 - _**Coolie**_ (1936): Chronicled the exploitation faced by working classes.
 - _**Two Leaves and a Bud**_ (1937): Depicted the tensions between the privileged and the underprivileged.
 - _**The Big Heart**_ (1945): Addressed the conflict between industrialization and Gandhian ideals.
+- **The Village**
 #### Cultural and Linguistic Negotiations
 - Anand, along with Narayan and Rao, embraced Western genres of the novel to articulate their unique perceptions of culture, space, and experience.
 - They **indigenized English**, infusing it with Indian rhythms and idioms.
@@ -135,7 +154,7 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
   
 #### Key Texts
 - _**Kanthapura**_ (1938): This novel depicted the impact of Gandhism in rural India. It specifically tells the story of the Gandhian struggle for Independence reaching a small South Indian village.
-- _**The Serpent and the Rope**_: Focused on metaphysics and Vedanta.
+- _**The Serpent and the Rope**_ (1960): Focused on metaphysics and Vedanta. Represents India as a "spiritual and cultural Unity," the "guru of the world," and a continuity in space, outside of time.
   
 #### Cultural and Linguistic Negotiations (as described by Raja Rao in his foreword to 'Kanthapura')**:
 - Raja Rao posed the fundamental question for Indian writers in English: "how does one convey in a language that is not one's own the spirit that is One's Own".
@@ -191,7 +210,6 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 #### Miscellaneous
 - He is identified as Marxist author. 
 
----
 
 ---
 ## Post-Independence Fiction (1950s-70s)
