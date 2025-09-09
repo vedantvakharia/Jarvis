@@ -62,14 +62,32 @@
 	- Rated as "one of the best novels in the English language published by an Indian".
 	- Its narrative moves in time and place with "economy of effort" and "evocative Beauty".
 	- It speculates on **"the varieties of human freedom and the bonds across space and time," particularly the "shadow lines we draw between people and Nations"**
-	- An "urban book" that draws "a very strong parallel connection" between urban India and urban England
-	- It **questions the idea of nationhood**
-	- Described as a love story which switches between Kolkata and London
+	- An "urban book" that draws "a very strong parallel connection" between urban India and urban England.
+	- It questions the idea of nationhood.
+	- Described as a love story which switches between Kolkata and London.
 - **The Circle of Reason -** His first novel, which critics excitedly compared with great classics like Tom Jones and Don Quixote.
 - **In an Antique Land -** A non-fictional study of Egypt and India.
 - **The Calcutta Chromosome -** A Sci-Fi Detective novel.
 
 - Critics excitedly compared his first novel, _The Circle of Reason_, with great classics, and his subsequent books cemented his name as a "First Rate writer of international repute".
+
+### Gita Hariharan
+- She fiercely resists the idea that her writing is slanted to suit a Western audience.
+
+#### Key Texts
+- **_The Thousand Faces of Night_ -** 
+	- She uses myth to enlarge the spaces of these women.
+	- It shades characters with references to different archetypal goddesses to layer her narrative.
+	- It won the Commonwealth prize for best first book.
+- **_The Ghosts of Vasu Master_ -** She explores parables and modern versions of Jataka tales
+
+### Upamanyu Chatterjee
+
+#### Key Texts
+- English, August - 
+	- Chatterjee takes a searingly honest and irreverent look at the pettiness and tedium of Indian bureaucratic life and the unbridgeable gap between the elite English educated urbanite and the rest of the country.
+	- Writing with verve, humor and a cynical truthfulness, Upamanyu Chatterjee captured the voice of a generation in _English August_.
+- 
 
 ---
 ## 1930s - 1940 (Midnight's Parents)
