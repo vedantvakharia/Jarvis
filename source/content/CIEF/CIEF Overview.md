@@ -61,8 +61,8 @@
 - **Shadow lines -** 
 	- Rated as "one of the best novels in the English language published by an Indian".
 	- Its narrative moves in time and place with "economy of effort" and "evocative Beauty".
-	- It speculates on **"the varieties of human freedom and the bonds across space and time," particularly the "shadow lines we draw between people and Nations"**
-	- An "urban book" that draws "a very strong parallel connection" between urban India and urban England.
+	- It speculates on the varieties of human freedom and the bonds across space and time, particularly the shadow lines we draw between people and Nations.
+	- An urban book that draws a very strong parallel connection between urban India and urban England.
 	- It questions the idea of nationhood.
 	- Described as a love story which switches between Kolkata and London.
 - **The Circle of Reason -** His first novel, which critics excitedly compared with great classics like Tom Jones and Don Quixote.
@@ -72,14 +72,18 @@
 - Critics excitedly compared his first novel, _The Circle of Reason_, with great classics, and his subsequent books cemented his name as a "First Rate writer of international repute".
 
 ### Gita Hariharan
-- She fiercely resists the idea that her writing is slanted to suit a Western audience.
 
 #### Key Texts
 - **_The Thousand Faces of Night_ -** 
 	- She uses myth to enlarge the spaces of these women.
 	- It shades characters with references to different archetypal goddesses to layer her narrative.
 	- It won the Commonwealth prize for best first book.
-- **_The Ghosts of Vasu Master_ -** She explores parables and modern versions of Jataka tales
+- **_The Ghosts of Vasu Master_ -** 
+	- It was her debut novel and won the Commonwealth prize for best first book.
+	- She explores parables and modern versions of Jataka tales.
+	- The story is described as being "about the intertwining lives of three women and their search for fulfillment". Hariharan "shades her characters with references to different archetypal goddesses to lay her narrative," indicating a **skillful use of myths and folktale traditions** to "enlarge the spaces of these women"
+	- Gita Hariharan "fiercely resists the idea that her writing is slanted to suit a western audience". This is in the context of a broader criticism mentioned in the video, where books using indigenous myths are sometimes "attacked by critics for falling into the Trap of being exotic, perfectly flavored menu for a western audience"
+- 
 
 ### Upamanyu Chatterjee
 
@@ -105,9 +109,6 @@ The Indian English Fiction (IEF) authors of the 1930s and 1940s are often referr
 - Complex negotiation between the cultures of metropolitan centre and colonial periphery
 
 Unlike earlier Indian English writers of the 19th century, their work was not considered derivative. Instead, they drew inspiration from India's narrative traditions while being shaped by modern literary and political thought from abroad. Their writings were situated between the distinct cultural worlds of India and England, as well as Indian languages and English. These authors undertook a complex negotiation between the cultures of the metropolitan center and the colonial periphery. They are recognized for laying the foundation for contemporary Indian writing in English through their experimentation with social realism, cultural hybridity, and linguistic innovation.
-
-A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao was that their books were endorsed by prominent British novelists like E.M. Forster and Graham Greene.
-
 ### Historical Context
 - **Indian Nationalism -** Influenced by Gandhi's leadership, events like the Civil Disobedience Movement, the Dandi March, and later the Quit India Movement shaped cultural and literary expressions.
 - **Cosmopolitan Influence -** Many writers, including Mulk Raj Anand, Raja Rao, and Bhabani Bhattacharya, spent time in Europe, leading to cultural hybridity in their work.
@@ -137,7 +138,7 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 - Anand, along with Narayan and Rao, embraced Western genres of the novel to articulate their unique perceptions of culture, space, and experience.
 - They **indigenized English**, infusing it with Indian rhythms and idioms.
 - While they used English excellently, they approached it with the understanding that it was a borrowed tongue, often choosing to focus on Indian themes.
-- He was incidentally was part of the Bloomsbury Circle.
+- He was incidentally a part of the Bloomsbury Circle.
 #### Influence of Modernism and Marxism
 - A significant anecdote is that Mahatma Gandhi advised him to write in English.
 - Anand was significantly influenced by both European modernism and Marxism.
