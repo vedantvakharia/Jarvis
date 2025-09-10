@@ -137,7 +137,7 @@ A crucial factor in the visibility of Mulk Raj Anand, R.K. Narayan, and Raja Rao
 - Anand, along with Narayan and Rao, embraced Western genres of the novel to articulate their unique perceptions of culture, space, and experience.
 - They **indigenized English**, infusing it with Indian rhythms and idioms.
 - While they used English excellently, they approached it with the understanding that it was a borrowed tongue, often choosing to focus on Indian themes.
-- He was "incidentally was part of the Bloomsbury Circle.
+- He was incidentally was part of the Bloomsbury Circle.
 #### Influence of Modernism and Marxism
 - A significant anecdote is that Mahatma Gandhi advised him to write in English.
 - Anand was significantly influenced by both European modernism and Marxism.
