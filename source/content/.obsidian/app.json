@@ -26,5 +26,10 @@
     "Bankim",
     "Ghosh",
     "Jnanpith"
+  ],
+  "showUnsupportedFiles": false,
+  "attachmentFolderPath": "Attachements",
+  "userIgnoreFilters": [
+    "Attachements/"
   ]
 }

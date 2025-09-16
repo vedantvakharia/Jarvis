@@ -200,6 +200,8 @@ Prison
 Pigeons
 Politics
 Printing
+Pw
+Pt
 IHDR
 IDATx
 IU
@@ -375,6 +377,9 @@ ISRO
 IITs
 Imposition
 Influenced
+Islam
+IG
+IzQj
 tEXtSoftware
 ta
 tE
@@ -649,6 +654,9 @@ translations
 texts
 tedium
 truthfulness
+travelogs
+tDJ
+tzO
 Matplotlib
 Mj
 MR
@@ -836,6 +844,9 @@ Michael
 Madhusudan
 Maiden
 March
+Mystic
+Masseur
+MC
 version
 vyj
 vE
@@ -967,6 +978,9 @@ vacation
 vehicle
 varieties
 verve
+video
+vEK
+vnw
 pHYs
 pHa
 pi
@@ -1402,6 +1416,10 @@ professionals
 prize
 parables
 pettiness
+passion
+pe
+pP
+pRt
 xTU
 xK
 xzc
@@ -1610,6 +1628,10 @@ Explores
 East
 Eurasian
 Egypt
+Eg
+EPeP
+EK
+EC
 bY
 bEq
 bmO
@@ -1832,6 +1854,7 @@ boy
 bombed
 bengali
 bureaucratic
+bnMk
 ZBO
 ZD
 ZIw
@@ -1876,6 +1899,8 @@ Zm
 Zt
 ZAy
 Zhy
+Zc
+ZC
 QQQN
 Qg
 QB
@@ -1926,6 +1951,8 @@ QU
 Quiz
 Quit
 Quixote
+QGz
+QF
 nD
 ny
 nP
@@ -2089,6 +2116,9 @@ niece
 nostalgia
 nationality
 nandini
+neither
+ne
+nl
 Do
 DW
 Dm
@@ -2273,6 +2303,11 @@ Disobedience
 Dandi
 Described
 Detective
+Dark
+Demons
+DX
+DWU
+Dy
 YmU
 Yz
 You
@@ -2322,6 +2357,10 @@ YZ
 YYNv
 Yeats
 Young
+YG
+YB
+Yw
+Yyg
 ja
 jG
 jV
@@ -2365,6 +2404,9 @@ jY
 jjW
 jataka
 jet
+jg
+jEd
+jMk
 Rh
 RH
 Rs
@@ -2531,6 +2573,9 @@ Rural
 Reform
 Rated
 Reason
+Rn
+RoX
+RC
 yN
 yyyG
 yD
@@ -2595,6 +2640,7 @@ yyyy
 younger
 young
 youth
+ysL
 kw
 kH
 ka
@@ -3116,6 +3162,13 @@ dams
 die
 durgesh
 draws
+doctorate
+dMj
+dX
+dU
+dQmo
+dn
+dy
 UU
 UzH
 Um
@@ -3203,6 +3256,7 @@ Untouchable
 Unique
 Urdu
 Until
+UG
 zQ
 zFs
 zc
@@ -3253,6 +3307,8 @@ zoomable
 zw
 zx
 zV
+zt
+zPQA
 iv
 ib
 izp
@@ -3562,6 +3618,10 @@ invader
 institution
 identifying
 irreverent
+intertwining
+incidentally
+island
+iD
 mJN
 mM
 mL
@@ -3852,6 +3912,9 @@ migrants
 motif
 magazine
 monolingual
+met
+mHE
+mS
 KB
 KC
 Krauss
@@ -3912,6 +3975,10 @@ Kamala
 Kashmir
 Kick
 Kolkata
+Knighthood
+KI
+Kf
+Kfpr
 lq
 li
 ls
@@ -4137,6 +4204,8 @@ loneliness
 lonely
 lacking
 liberated
+lay
+lo
 ebh
 eL
 ev
@@ -4494,6 +4563,9 @@ emancipation
 endl
 evocative
 excitedly
+essays
+ee
+eC
 gee
 go
 gko
@@ -4653,6 +4725,11 @@ government
 generational
 grace
 goal
+ground
+greeted
+gI
+gH
+gSj
 Hv
 HV
 Hbb
@@ -4764,6 +4841,9 @@ Hear
 Handful
 Honeycomb
 Henry
+House
+Hz
+Hkk
 Fi
 Financial
 Fischer
@@ -4902,6 +4982,7 @@ Fragmentation
 Force
 From
 Field
+Fg
 hz
 hT
 hm
@@ -5053,6 +5134,12 @@ honour
 hydro
 hills
 honest
+honored
+honorary
+honors
+hL
+hw
+hTjh
 Oo
 Oc
 OBt
@@ -5165,6 +5252,9 @@ OB
 Overloads
 Other
 Own
+Others
+Oxford
+Og
 LRZ
 Long
 LSTM
@@ -5306,6 +5396,8 @@ Leaves
 Linguistic
 Llewellyn
 Louis
+Leap
+LIZ
 Vn
 VIUj
 VU
@@ -5387,6 +5479,8 @@ Visions
 Vision
 Vivian
 Village
+VK
+VLLAlZ
 uZ
 uN
 uG
@@ -5527,6 +5621,7 @@ universal
 upliftment
 unfinished
 undertakes
+ul
 Wn
 Ws
 Wc
@@ -5619,6 +5714,11 @@ Wrote
 Wins
 Winner
 Writing
+Waiting
+Won
+Wild
+WV
+WqwRtN
 CE
 Cy
 CSKnn
@@ -5916,6 +6016,7 @@ Chromosome
 Critics
 Commonwealth
 Cult
+Ca
 ot
 oV
 oz
@@ -6111,6 +6212,8 @@ opened
 oppressive
 outstanding
 older
+os
+oHH
 Js
 JS
 JN
@@ -6182,6 +6285,9 @@ John
 Jnapith
 Jones
 Jataka
+JR
+JVm
+Jt
 Sv
 Sp
 STV
@@ -6473,6 +6579,7 @@ Sarojini
 Sri
 Studied
 Sci
+Savory
 Bw
 BO
 Building
@@ -6631,6 +6738,9 @@ Books
 Bianca
 Began
 Beauty
+Beginnings
+BT
+Bv
 Gy
 Gbb
 GitHub
@@ -6734,6 +6844,10 @@ Ganges
 Golden
 Gave
 Gender
+Gods
+Gs
+GI
+Gates
 fvy
 fNW
 fgg
@@ -6978,6 +7092,10 @@ floodgates
 fractured
 finally
 fiercely
+fulfillment
+fertile
+fL
+ft
 rt
 ru
 root
@@ -7329,6 +7447,7 @@ recognised
 repute
 resists
 readers
+rT
 sRR
 sFL
 shows
@@ -7866,6 +7985,10 @@ shadow
 switches
 slanted
 searingly
+skillful
+stamped
+scorned
+sM
 TA
 Te
 TXp
@@ -8013,6 +8136,13 @@ Tradition
 Toru
 Travelled
 Tom
+Trinidad
+Tobago
+Tr
+TCvC
+TW
+TM
+TD
 XM
 Xiong
 XX
@@ -8051,6 +8181,8 @@ XOR
 Xavier
 XL
 XGIDATx
+XD
+Xp
 az
 aog
 ate
@@ -8468,6 +8600,10 @@ army
 annually
 annual
 apart
+allowances
+aZB
+af
+aCDpBJ
 qiW
 qG
 quantitative
@@ -8521,6 +8657,8 @@ questions
 questioning
 question
 quest
+qlH
+qn
 cd
 change
 cat
@@ -9062,6 +9200,9 @@ counterparts
 classics
 cemented
 cynical
+colonies
+cL
+ck
 whatever
 write
 will
@@ -9211,6 +9352,9 @@ worldview
 woman
 writes
 widespread
+wI
+wm
+woVC
 Adaptive
 Aware
 Architecture
@@ -9441,3 +9585,6 @@ Anti
 Aftermath
 Awarded
 Antique
+Authority
+AO
+AUG

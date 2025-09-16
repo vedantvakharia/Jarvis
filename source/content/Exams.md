@@ -5,6 +5,6 @@
 | DISCO  | Q1 - 4/9<br>Q2 - 25/9<br>Q3 - 30/10<br>Q4 - 13/11 | 7/10<br>11:30 am - 1 pm         | Pre compre - 23/11<br><br>Compre - 3/12<br>10 am - 1 pm                         |
 | EVS    |                                                   |                                 | 29/11<br>2 pm - 5 pm                                                            |
 | LCS    |                                                   | 9/10 (CB)<br>11.30 AM – 1.00 PM | 8/12 (POB)<br>2 pm - 5 pm                                                       |
-| M3     | Q1 (OB) - 20/9<br>Q2 (OB) - 15/11                 | 6/10 (CB)<br>9:30 am            | 1/12 (CB)<br>10 am - 1 pm                                                       |
 | OOPS   |                                                   | 11/10 (CB)<br>4:00 pm -5:30 pm  | 16/12 (CB)<br>10 am - 1 pm                                                      |
+| M3     | Q1 (OB) - 20/9<br>Q2 (OB) - 15/11                 | 6/10 (CB)<br>9:30 am            | 1/12 (CB)<br>10 am - 1 pm                                                       |
 | CIEF   |                                                   |                                 | 10/12 (OB)<br>10 am - 1 pm                                                      |

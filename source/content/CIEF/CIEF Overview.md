@@ -163,8 +163,8 @@ Unlike earlier Indian English writers of the 19th century, their work was not co
   
 #### Cultural and Linguistic Negotiations
 - Narayan, like Anand and Rao, adopted Western novel genres to express their cultural, spatial, and experiential perspectives.
-- He was "first championed by Graham green".
-- He notably **employed the English language and English literary conventions to map the social life of the imaginary Malgudi**.
+- He was first championed by Graham Greene.
+- He notably employed the English language and English literary conventions to map the social life of the imaginary Malgudi.
 - He, Anand, Rao, and Desani collectively **indigenized English**, imbuing it with Indian rhythms and idioms.
 - Narayan's writing brought the "small town chatter, the rituals and superstitions" of India vividly to life, which had previously been confined to colonial caricatures.
   
@@ -345,7 +345,7 @@ Her autobiography is titled _Prison and Chocolate Cake_. Sahgal's works are uniq
 - **Major Themes:** Bond’s work is characterized by themes of **nostalgia, nature, and small-town life**. He primarily writes for children and young adults, emphasizing human connection with nature.
 - **Key Texts:**
 	- _The Room on the Roof_ (1956): Depicts the life of an orphaned and lonely Eurasian boy called Rusty, winning the John Llewellyn Rhys Prize in 1957.
-	- _A Flight of Pigeons_ (1978): Tells the story of a British family caught in the complications of the Mutiny of 1857.Post-Independence Fiction (1950s-70s).
+	- _A Flight of Pigeons_ (1978): Tells the story of a British family caught in the complications of the Mutiny of 1857.
   
 ---
 ## Visions of India (Gandhi vs. Nehru)

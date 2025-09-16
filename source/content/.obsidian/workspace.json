@@ -13,12 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Basics.md",
+                "file": "Verilog.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
+              "title": "Verilog"
             }
           },
           {
@@ -71,28 +72,14 @@
               "state": {
                 "file": "Python/OOPS.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
               "title": "OOPS"
             }
-          },
-          {
-            "id": "17b0287a094859e9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CIEF/CIEF Overview.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CIEF Overview"
-            }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -146,7 +133,7 @@
             }
           },
           {
-            "id": "88e1ffe73f3c9f1e",
+            "id": "5c6b779308afd53d",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -155,7 +142,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -253,25 +241,29 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "17b0287a094859e9",
+  "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "C++/Basics.md",
+    "index.md",
+    "Verilog.md",
     "Java/Basics.md",
+    "Tags",
+    "Python/OOPS.md",
+    "Pasted image 20250815000350.png",
+    "Exams.md",
+    "Attachements",
     "CIEF/CIEF Overview.md",
+    "C++/Basics.md",
     "Pytorch/Untitled.md",
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Pytorch.md",
     "Pytorch/torch.optim.md",
     "CIEF/Untitled.md",
     "C/Basics.md",
-    "Python/OOPS.md",
     "CIEF/Midnight's Children.md",
     "CV/Camera Calibration.md",
-    "Exams.md",
     "CV",
     "C++/CV/CV.md",
     "C++/CV",
-    "Untitled.md",
     "C++",
     "DISCO/Logic and Proofs .md",
     "CIEF",
@@ -284,23 +276,18 @@
     "Logic/Proportional logic.md",
     "Java/OOPS.md",
     "DD/CHP 1.md",
-    "index.md",
     "Figure_1 3.png",
     "Figure_1 2.png",
     "Figure_1.png",
     "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
     "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
     "Designing a Simple Raman Spectrometer.md",
-    "Anthem Biosciences - An In-Depth Financial and Strategic Analysis.md",
-    "Tags",
     "DD",
-    "Pasted image 20250815000350.png",
     "Logic",
     "torch-activation-2.png",
     "torch-activation-1.png",
     "pytorch-loss2.png",
     "Java",
-    "Pytorch/Untitled",
     "Pytorch/Untitled.canvas"
   ]
 }
