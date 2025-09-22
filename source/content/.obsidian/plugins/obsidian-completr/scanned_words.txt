@@ -202,6 +202,8 @@ Politics
 Printing
 Pw
 Pt
+Prolog
+Pat
 IHDR
 IDATx
 IU
@@ -380,6 +382,7 @@ Influenced
 Islam
 IG
 IzQj
+Implication
 tEXtSoftware
 ta
 tE
@@ -1855,6 +1858,8 @@ bombed
 bengali
 bureaucratic
 bnMk
+believe
+begin
 ZBO
 ZD
 ZIw
@@ -2119,6 +2124,7 @@ nandini
 neither
 ne
 nl
+neatness
 Do
 DW
 Dm
@@ -2576,6 +2582,8 @@ Reason
 Rn
 RoX
 RC
+Relationships
+Recursion
 yN
 yyyG
 yD
@@ -3169,6 +3177,8 @@ dU
 dQmo
 dn
 dy
+dasharray
+distinguish
 UU
 UzH
 Um
@@ -3622,6 +3632,7 @@ intertwining
 incidentally
 island
 iD
+individuals
 mJN
 mM
 mL
@@ -3915,6 +3926,7 @@ monolingual
 met
 mHE
 mS
+mask
 KB
 KC
 Krauss
@@ -4206,6 +4218,7 @@ lacking
 liberated
 lay
 lo
+letter
 ebh
 eL
 ev
@@ -4566,6 +4579,7 @@ excitedly
 essays
 ee
 eC
+enclosed
 gee
 go
 gko
@@ -4730,6 +4744,7 @@ greeted
 gI
 gH
 gSj
+grandparent
 Hv
 HV
 Hbb
@@ -4983,6 +4998,7 @@ Force
 From
 Field
 Fg
+Finding
 hz
 hT
 hm
@@ -5140,6 +5156,7 @@ honors
 hL
 hw
 hTjh
+href
 Oo
 Oc
 OBt
@@ -5481,6 +5498,7 @@ Vivian
 Village
 VK
 VLLAlZ
+Vectors
 uZ
 uN
 uG
@@ -5719,6 +5737,7 @@ Won
 Wild
 WV
 WqwRtN
+Who
 CE
 Cy
 CSKnn
@@ -6017,6 +6036,7 @@ Critics
 Commonwealth
 Cult
 Ca
+Composed
 ot
 oV
 oz
@@ -6214,6 +6234,7 @@ outstanding
 older
 os
 oHH
+objectBoundingBox
 Js
 JS
 JN
@@ -6288,6 +6309,7 @@ Jataka
 JR
 JVm
 Jt
+Jim
 Sv
 Sp
 STV
@@ -6580,6 +6602,8 @@ Sri
 Studied
 Sci
 Savory
+SourceGraphic
+Symbols
 Bw
 BO
 Building
@@ -6741,6 +6765,7 @@ Beauty
 Beginnings
 BT
 Bv
+Bob
 Gy
 Gbb
 GitHub
@@ -6848,6 +6873,7 @@ Gods
 Gs
 GI
 Gates
+Grandparent
 fvy
 fNW
 fgg
@@ -7096,6 +7122,8 @@ fulfillment
 fertile
 fL
 ft
+filterUnits
+feColorMatrix
 rt
 ru
 root
@@ -7448,6 +7476,9 @@ repute
 resists
 readers
 rT
+rect
+reasons
+rounding
 sRR
 sFL
 shows
@@ -7989,6 +8020,9 @@ skillful
 stamped
 scorned
 sM
+satisfied
+satisfying
+symbolic
 TA
 Te
 TXp
@@ -8604,6 +8638,7 @@ allowances
 aZB
 af
 aCDpBJ
+alpha
 qiW
 qG
 quantitative
@@ -8659,6 +8694,7 @@ question
 quest
 qlH
 qn
+query
 cd
 change
 cat
@@ -9203,6 +9239,8 @@ cynical
 colonies
 cL
 ck
+conclusion
+crunching
 whatever
 write
 will
@@ -9588,3 +9626,5 @@ Antique
 Authority
 AO
 AUG
+Ann
+Atoms

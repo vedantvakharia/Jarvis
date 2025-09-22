@@ -13,70 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Verilog.md",
+                "file": "Prolog.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Verilog"
+              "title": "Prolog"
             }
           },
           {
-            "id": "0f2d763176decbdf",
+            "id": "07c5ad2653637ff5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/OOPS.md",
+                "file": "Java/Basics.md",
                 "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "OOPS"
-            }
-          },
-          {
-            "id": "0aa44a99d99f378c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/OOPS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "OOPS"
-            }
-          },
-          {
-            "id": "c4b6fb75f41456ab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++/Basics.md",
-                "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
               "title": "Basics"
-            }
-          },
-          {
-            "id": "06a00ff52ba4649a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/OOPS.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "OOPS"
             }
           }
         ]
@@ -133,7 +91,7 @@
             }
           },
           {
-            "id": "5c6b779308afd53d",
+            "id": "629595f59439f636",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -142,13 +100,11 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -243,20 +199,31 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "index.md",
     "Verilog.md",
-    "Java/Basics.md",
-    "Tags",
-    "Python/OOPS.md",
-    "Pasted image 20250815000350.png",
+    "Prolog.md",
+    "index.md",
     "Exams.md",
+    "Attachements/Pasted image 20250922192808.png",
+    "Java/Basics.md",
+    "Java/OOPS.md",
+    "Java/Packages.md",
+    "Attachements/Figure_1.png",
+    "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
+    "Pytorch/torch.optim.md",
+    "Attachements/output_minibatch-sgd_f4d60f_159_0.svg",
+    "Attachements/output_minibatch-sgd_f4d60f_135_1.svg",
+    "C++/Basics.md",
+    "Python/OOPS.md",
+    "Java/Java.md",
+    "Pytorch/Tensors.md",
+    ".md",
+    "Tags",
+    "Attachements/Pasted image 20250815000350.png",
     "Attachements",
     "CIEF/CIEF Overview.md",
-    "C++/Basics.md",
     "Pytorch/Untitled.md",
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Pytorch.md",
-    "Pytorch/torch.optim.md",
     "CIEF/Untitled.md",
     "C/Basics.md",
     "CIEF/Midnight's Children.md",
@@ -267,27 +234,16 @@
     "C++",
     "DISCO/Logic and Proofs .md",
     "CIEF",
-    "1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "DISCO/.md",
-    "output_minibatch-sgd_f4d60f_123_1.svg",
-    "output_minibatch-sgd_f4d60f_111_1.svg",
+    "Attachements/output_minibatch-sgd_f4d60f_123_1.svg",
+    "Attachements/output_minibatch-sgd_f4d60f_111_1.svg",
     "DISCO",
-    "Java/Packages.md",
     "Logic/Proportional logic.md",
-    "Java/OOPS.md",
     "DD/CHP 1.md",
-    "Figure_1 3.png",
-    "Figure_1 2.png",
-    "Figure_1.png",
-    "Enhanced Implementation of Fischer & Krauss (2018) - Deep Learning for Financial Markets with Advanced Sentiment Integration and Adaptive Learning.md",
-    "Detailed Analysis of Holden Crater for Mars Rover  Mission.md",
-    "Designing a Simple Raman Spectrometer.md",
+    "Attachements/Figure_1 3.png",
+    "Attachements/Figure_1 2.png",
     "DD",
     "Logic",
-    "torch-activation-2.png",
-    "torch-activation-1.png",
-    "pytorch-loss2.png",
-    "Java",
     "Pytorch/Untitled.canvas"
   ]
 }

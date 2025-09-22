@@ -166,83 +166,8 @@ System.out.println(name.endsWith(""));        // true (empty suffix is always va
 
 ##### Static method
 
-1. `public static String format(String format, Object... args)` - 
+1. `public static String format(String format, Object... args)` - Returns a formatted string using the specified format string and arguments.
    
-   Format Specifiers - `%[argument_index$][flags][width][.precision]conversion`
 
 
-**Conversion Characters**
 
-1. **General**
-
-| Conversion   | Meaning                      | Example                                 |
-| ------------ | ---------------------------- | --------------------------------------- |
-| `%b` or `%B` | Boolean                      | `String.format("%b", null)` → `"false"` |
-| `%h` or `%H` | Hash code                    | `"7d4991a"`, etc.                       |
-| `%s` or `%S` | String (calls `.toString()`) | `"hello"`                               |
-
-2. **Character**
-
-| Conversion   | Meaning           | Example                           |
-| ------------ | ----------------- | --------------------------------- |
-| `%c` or `%C` | Unicode character | `String.format("%c", 65)` → `"A"` |
-
-3.  **Integral**
-
-| Conversion | Meaning                 | Example |
-| ---------- | ----------------------- | ------- |
-| `%d`       | Decimal integer         | `123`   |
-| `%o`       | Octal integer           | `"173"` |
-| `%x`       | Hex integer (lowercase) | `"7b"`  |
-| `%X`       | Hex integer (uppercase) | `"7B"`  |
-
-4. **Floating-point**
-
-| Conversion | Meaning                                         | Example          |
-| ---------- | ----------------------------------------------- | ---------------- |
-| `%e`       | Scientific notation (lowercase)                 | `"1.234568e+02"` |
-| `%E`       | Scientific notation (uppercase)                 | `"1.234568E+02"` |
-| `%f`       | Decimal (fixed-point)                           | `"123.456000"`   |
-| `%g`       | General (uses `%e` or `%f`, depending on value) | `"123.456"`      |
-| `%G`       | General (uppercase)                             | `"123.456"`      |
-| `%a`       | Hexadecimal floating-point (lowercase)          | `"0x1.edd2f2p7"` |
-| `%A`       | Hexadecimal floating-point (uppercase)          | `"0X1.EDD2F2P7"` |
-
-5. **Date/Time**
-- You must supply a date/time argument (`java.util.Date`, `Calendar`, or `long` epoch).
-- Format is `%tX` or `%TX`.
-
-| Conversion | Meaning                              | Example         |
-| ---------- | ------------------------------------ | --------------- |
-| `%tH`      | Hour (00–23)                         | `"09"`          |
-| `%tI`      | Hour (01–12)                         | `"09"`          |
-| `%tk`      | Hour (0–23, no leading zero)         | `"9"`           |
-| `%tl`      | Hour (1–12, no leading zero)         | `"9"`           |
-| `%tM`      | Minute (00–59)                       | `"05"`          |
-| `%tS`      | Seconds (00–59)                      | `"30"`          |
-| `%tL`      | Milliseconds (000–999)               | `"123"`         |
-| `%tp`      | am/pm (lowercase)                    | `"pm"`          |
-| `%Tp`      | AM/PM (uppercase)                    | `"PM"`          |
-| `%tB`      | Full month name                      | `"August"`      |
-| `%tb`      | Abbreviated month name               | `"Aug"`         |
-| `%th`      | Same as `%tb`                        | `"Aug"`         |
-| `%tA`      | Full weekday name                    | `"Friday"`      |
-| `%ta`      | Abbreviated weekday name             | `"Fri"`         |
-| `%tY`      | Year (4-digit)                       | `"2025"`        |
-| `%ty`      | Year (last 2 digits)                 | `"25"`          |
-| `%tj`      | Day of year (001–366)                | `"234"`         |
-| `%tm`      | Month (01–12)                        | `"08"`          |
-| `%td`      | Day of month (01–31)                 | `"22"`          |
-| `%te`      | Day of month (1–31, no leading zero) | `"22"`          |
-| `%tR`      | 24-hour hh:mm                        | `"09:30"`       |
-| `%tT`      | 24-hour hh:mm:ss                     | `"09:30:45"`    |
-| `%tr`      | 12-hour hh:mm:ss am/pm               | `"09:30:45 PM"` |
-| `%tD`      | Date mm/dd/yy                        | `"08/22/25"`    |
-| `%tF`      | ISO 8601 yyyy-mm-dd                  | `"2025-08-22"`  |
-
-6. **Percent & Literals**
-
-|Conversion|Meaning|Example|
-|---|---|---|
-|`%%`|Literal percent sign|`"%"`|
-|`%n`|Platform-specific newline|Windows → `"\r\n"`, Linux → `"\n"`|

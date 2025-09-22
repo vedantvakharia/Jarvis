@@ -37,5 +37,11 @@ assign lower_nibble = data_bus[3:0]; // Accesses bits 3, 2, 1, and 0
 assign upper_nibble = data_bus[7:4]; // Accesses bits 7, 6, 5, and 4
 
 // Concatenation
+wire [3:0] A = 4'b1111;
+wire [3:0] B = 4'b0000;
+wire [7:0] Y;
+wire [2:0] Z;
 
+assign Y = {A, B};            // Y becomes 8'b11110000
+assign Z = {A[0], B[3:2]};    // Z becomes 3'b100
 ```
