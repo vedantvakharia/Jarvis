@@ -149,3 +149,69 @@ Atoms are symbolic constants, used to name objects and relationships. They can b
 ### Numbers
 
 Prolog supports both integers and real numbers. The syntax for integers is simple and includes positive and negative whole numbers. There is a limit to the range of integers, which depends on the specific Prolog implementation. Real numbers are not used as frequently in typical Prolog programming for two main reasons - 1. Prolog is primarily a language for symbolic computation, not heavy number-crunching. 2. Real number arithmetic can introduce rounding errors, which can affect the logical neatness of a program.
+
+---
+### Variables
+
+Variables in Prolog are strings of letters, digits, and underscore characters. They serve as placeholders for objects that are not yet known. A variable name must start with an upper-case letter** or an underscore character (`_`). Examples - `X`, `Result`, `Object2`, `ShoppingList`, `_23`. 
+
+#### The Anonymous Variable (`_`)
+
+Prolog has a special variable called the anonymous variable, which is written as a single underscore `_`.
+
+You use the anonymous variable when a variable appears only once in a clause, and u don't need to refer to its value again. This saves you from having to invent a name for a variable you don't care about. 
+
+```css
+// X has a child if X is a parent of some person
+hasachild(X) :- parent(X, _).
+hasachild(X) :- parent(X, Y).
+// Both are equivalent
+```
+
+Each occurrence of `_` in a clause represents a new and distinct variable. `parent(_, _)` is equivalent to `parent(X, Y)`. This is very different from `parent(X, X)`, which forces both arguments to be the same object. 
+#### Lexical Scope
+
+The lexical scope of a variable's name is just one clause (a single fact or rule). This means that if a variable name like X appears in two different clauses, it signifies two different variables. 
+
+However, every occurrence of X within the same clause refers to the same variable. This is different from constants (atoms), where an atom like tom refers to the exact same object throughout the entire program.
+
+---
+### Structures
+
+Structures (or structured objects) are single objects that are composed of several components1. These components can be any type of Prolog object, including other structures, allowing you to create complex, hierarchical data.
+
+Syntactically, all data objects in Prolog including simple objects like atoms, numbers, and variables, as well as complex structures are called terms.
+
+```css
+// To combine several components into a single structured object, you must choose a name called a functor.
+functor(component1, component2, ...) // Syntax
+
+// A date can be viewed as a structure with three components: day, month, and year. Using date as the functor, the date 1st May 1983 is written as
+date(1, may, 1983)
+
+// Components can be simple objects (atoms, numbers) or variables. For example, any day in May can be represented by
+date(Day may, 1983)
+```
+
+#### Structures as Trees
+
+All structured objects in Prolog can be visualized as trees. The functor is the root of the tree. The components (arguments) are the children of the root. If a component is also a structure, it forms a subtree.
+
+**Example**: Representing geometric objects:
+- A point with two coordinates: `point(1, 1)`
+- A line segment defined by two points: `seg(point(1,1), point(2,3))`
+- A triangle defined by three points: `triangle(point(4,2), point(6,4), point(7,1))`
+
+#### Functor Identity: Name and Arity
+
+Prolog identifies a functor not just by its name, but by its name and its arity (the number of arguments) combined. This means you can have different functors that share the same name as long as they have a different number of arguments.
+
+```css
+point(X, Y)       % A functor for 2D points
+point(X, Y, Z)    % A different functor for 3D points
+```
+
+
+---
+
+$$\frac{1}{3-4D+D^2} = \frac{1}{3}\left(\frac{1}{1 - \frac{4D-D^2}{3}}\right) \approx \frac{1}{3}\left(1 + \frac{4D}{3}\right)$$Now, apply this to $x$:$$\frac{1}{3}\left(1 + \frac{4D}{3}\right)(x) = \frac{1}{3}\left(x + \frac{4}{3}D(x)\right) = \frac{1}{3}\left(x + \frac{4}{3}\right) = \frac{x}{3} + \frac{4}{9}$$

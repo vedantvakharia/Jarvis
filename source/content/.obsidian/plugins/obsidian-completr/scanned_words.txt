@@ -660,6 +660,8 @@ truthfulness
 travelogs
 tDJ
 tzO
+tom
+triangle
 Matplotlib
 Mj
 MR
@@ -984,6 +986,7 @@ verve
 video
 vEK
 vnw
+visualized
 pHYs
 pHa
 pi
@@ -2584,6 +2587,7 @@ RoX
 RC
 Relationships
 Recursion
+Representing
 yN
 yyyG
 yD
@@ -3633,6 +3637,8 @@ incidentally
 island
 iD
 individuals
+invent
+identifies
 mJN
 mM
 mL
@@ -4745,6 +4751,7 @@ gI
 gH
 gSj
 grandparent
+geometric
 Hv
 HV
 Hbb
@@ -4999,6 +5006,7 @@ From
 Field
 Fg
 Finding
+Functor
 hz
 hT
 hm
@@ -5415,6 +5423,7 @@ Llewellyn
 Louis
 Leap
 LIZ
+Lexical
 Vn
 VIUj
 VU
@@ -6235,6 +6244,7 @@ older
 os
 oHH
 objectBoundingBox
+occurrence
 Js
 JS
 JN
@@ -6604,6 +6614,8 @@ Sci
 Savory
 SourceGraphic
 Symbols
+Structures
+Syntactically
 Bw
 BO
 Building
@@ -7124,6 +7136,8 @@ fL
 ft
 filterUnits
 feColorMatrix
+functor
+functors
 rt
 ru
 root
@@ -7479,6 +7493,7 @@ rT
 rect
 reasons
 rounding
+refer
 sRR
 sFL
 shows
@@ -8023,6 +8038,8 @@ sM
 satisfied
 satisfying
 symbolic
+saves
+signifies
 TA
 Te
 TXp
@@ -8639,6 +8656,8 @@ aZB
 af
 aCDpBJ
 alpha
+arity
+apply
 qiW
 qG
 quantitative
@@ -9241,6 +9260,8 @@ cL
 ck
 conclusion
 crunching
+clause
+clauses
 whatever
 write
 will
@@ -9628,3 +9649,4 @@ AO
 AUG
 Ann
 Atoms
+Arity
