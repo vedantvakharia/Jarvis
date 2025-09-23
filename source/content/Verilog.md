@@ -49,8 +49,6 @@ assign Z = {A[0], B[3:2]};    // Z becomes 3'b100
 
 ## Behavioral Modeling
 
-
-
 The target output of a procedural assignment statement must be of the reg data type. Contrary to the wire data type, whereby the target output of an assignment may be continuously updated, a reg data type retains its value until a new value is assigned.
 
 ### Always
@@ -139,7 +137,7 @@ endmodule
 
 ### Switches
 
-The `case` statement compares an `expression` to a list of `case_items`. When it finds the first match, it executes the associated statements and then exits the block.
+The `case` statement compares an `expression` to a list of `case_items`. When it finds the first match, it executes the associated statements and then exits the block. If multiple case items could match the expression (e.g., in a `casex` statement), only the first one in the list will be executed.
 
 A case statement has the following parts
 - **Case statement header -** Consists of the case, casez, or casex followed by _case expression_
@@ -185,92 +183,11 @@ case (sel) // sel is a 4-bit vector
     4'b101x: Y = A; // Matches if sel is 1010 or 1011
     4'b0x1z: Y = B; // Matches 0010, 0011, 0110, 0111
 endcase
-```
 
----
+//casez
+// same as casex, just using z and ?, and not x.
 
-## 2. Types of `case` Statements
-
-There are three variations of the `case` statement that differ in how they handle unknown (`x`) and high-impedance (`z`) values.
-
-### a) `case` (Standard)
-
-This is a standard, exact comparison. It treats `x` and `z` values literally. For a match to occur, the `expression` and the `case_item` must be identical, bit for bit.
-
-### b) `casex`
-
-
-
-**Example:**
-
-Verilog
-
-```
-case (sel) // sel is a 4-bit vector
-    4'b101x: Y = A; // Matches if sel is 1010 or 1011
-    4'b0x1z: Y = B; // Matches 0010, 0011, 0110, 0111
-endcase
-```
-
-### c) `casez`
-
-
-
----
-
-## 3. Common Mistakes and Edge Cases
-
-### Mistake 1: Creating Unintentional Latches (Very Important!)
-
-This is the most common and critical error when using a `case` statement to model **combinational logic**.
-
-- **Problem:** If you do not specify an output for **every possible value** of the `case` expression, Verilog will infer a latch to hold the previous value.
-    
-- **Incorrect Example (Creates a latch for `Y`):**
-    
-    Verilog
-    
-    ```
-    // MISTAKE: What happens if sel is 2'b11?
-    always @(*) begin
-        case (sel)
-            2'b00: Y = A;
-            2'b01: Y = B;
-            2'b10: Y = C;
-        endcase
-        // Verilog creates a latch to remember the value of Y
-    end
-    ```
-    
-- **Correct Solution:** Always include a **`default`** statement to cover all other possibilities. This ensures the logic is purely combinational.
-    
-    Verilog
-    
-    ```
-    // CORRECT: No latch is created
-    always @(*) begin
-        case (sel)
-            2'b00: Y = A;
-            2'b01: Y = B;
-            2'b10: Y = C;
-            default: Y = D; // Covers the 2'b11 case and any x/z cases
-        endcase
-    end
-    ```
-    
-
-### Mistake 2: Implied Priority
-
-A `case` statement behaves like an `if-else if` structure, meaning it has an **implied priority**. The synthesis tool will build a priority-encoded circuit. If multiple case items could match the expression (e.g., in a `casex` statement), only the **first** one in the list will be executed.
-
-### Mistake 3: Forgetting `begin...end`
-
-If a case item needs to execute more than one statement, you must enclose those statements in a `begin...end` block. Forgetting this is a common syntax error.
-
-Verilog
-
-```
-// CORRECT: Multiple statements in a block
+// If a case item needs to execute more than one statement, you must enclose those statements in a `begin...end` block. Forgetting this is a common syntax error.
 case (sel)
     2'b00: begin
         Y = A;
@@ -279,8 +196,6 @@ case (sel)
     // ...
 endcase
 ```
-
-
 
 
 ## Study later
