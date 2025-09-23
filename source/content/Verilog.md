@@ -146,8 +146,12 @@ A case statement has the following parts
 - **Case expression -** the expression in parentheses immediately following the **case** keyword. Valid expressions include constants (e.g. 1’b1), an expression that evaluates to a constant, or a vector
 - _Case item_—the expression that is compared against the _case expression_. Note that C-style **break** is implied following each _case item statement_
 - _Case item statement_—one or more statements that is executed if the _case item_ matches the current _case expression_. If more than one statement is required, they must be enclosed with **begin…end**
-- _Case default_—optional, but can include statements to be executed if none of the defined _case items_ match the current _case expressio_
+- _Case default_—optional, but can include statements to be executed if none of the defined _case items_ match the current case expression
 
+- **`x` (Unknown):** This represents a state that is logically unknown. The simulator cannot determine if the value is a `0` or a `1`. This often occurs due to conflicting driver signals or uninitialized registers.
+- **`z` (High-Impedance):** This represents a state where a wire is not being driven by any source, effectively like an open circuit. This is the state produced by a disabled three-state buffer.
+  
+  
 ```verilog
 // Standard case
 case (expression)
@@ -164,7 +168,7 @@ endcase
 
 
 // Casez
-// casez allows Z and ? to be treated as don’t care values in either the case expression and/or the case item when doing case comparison
+// casez allows z and ? to be treated as don’t care values in either the case expression and/or the case item when doing case comparison. 
 always @(irq) begin
   {int2, int1, int0} = 3'b000;
   casez (irq)
