@@ -383,6 +383,7 @@ Islam
 IG
 IzQj
 Implication
+Impedance
 tEXtSoftware
 ta
 tE
@@ -662,6 +663,7 @@ tDJ
 tzO
 tom
 triangle
+tick
 Matplotlib
 Mj
 MR
@@ -1426,6 +1428,8 @@ passion
 pe
 pP
 pRt
+procedural
+produced
 xTU
 xK
 xzc
@@ -2588,6 +2592,8 @@ RC
 Relationships
 Recursion
 Representing
+Resets
+Reset
 yN
 yyyG
 yD
@@ -3183,6 +3189,9 @@ dn
 dy
 dasharray
 distinguish
+descriptions
+driver
+disabled
 UU
 UzH
 Um
@@ -3639,6 +3648,7 @@ iD
 individuals
 invent
 identifies
+item
 mJN
 mM
 mL
@@ -4225,6 +4235,8 @@ liberated
 lay
 lo
 letter
+latch
+logically
 ebh
 eL
 ev
@@ -4586,6 +4598,7 @@ essays
 ee
 eC
 enclosed
+else
 gee
 go
 gko
@@ -5007,6 +5020,8 @@ Field
 Fg
 Finding
 Functor
+Flip
+Flop
 hz
 hT
 hm
@@ -5508,6 +5523,8 @@ Village
 VK
 VLLAlZ
 Vectors
+Valid
+Verilog
 uZ
 uN
 uG
@@ -5649,6 +5666,7 @@ upliftment
 unfinished
 undertakes
 ul
+uninitialized
 Wn
 Ws
 Wc
@@ -6046,6 +6064,8 @@ Commonwealth
 Cult
 Ca
 Composed
+Contrary
+Consists
 ot
 oV
 oz
@@ -6616,6 +6636,9 @@ SourceGraphic
 Symbols
 Structures
 Syntactically
+Switches
+Sensitive
+Sequential
 Bw
 BO
 Building
@@ -6778,6 +6801,7 @@ Beginnings
 BT
 Bv
 Bob
+Behavioral
 Gy
 Gbb
 GitHub
@@ -7138,6 +7162,9 @@ filterUnits
 feColorMatrix
 functor
 functors
+flip
+flops
+flop
 rt
 ru
 root
@@ -7494,6 +7521,9 @@ rect
 reasons
 rounding
 refer
+reg
+retains
+rising
 sRR
 sFL
 shows
@@ -8040,6 +8070,8 @@ satisfying
 symbolic
 saves
 signifies
+semicolon
+simulator
 TA
 Te
 TXp
@@ -8658,6 +8690,7 @@ aCDpBJ
 alpha
 arity
 apply
+asynchronous
 qiW
 qG
 quantitative
@@ -9262,6 +9295,11 @@ conclusion
 crunching
 clause
 clauses
+combinational
+compares
+casez
+casex
+circuit
 whatever
 write
 will
@@ -9414,6 +9452,8 @@ widespread
 wI
 wm
 woVC
+wire
+whereby
 Adaptive
 Aware
 Architecture

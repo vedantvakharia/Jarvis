@@ -3,7 +3,10 @@
 | Logic       | Symbol |
 | ----------- | ------ |
 | And         | ,      |
+| OR          | ;      |
 | Implication | :-     |
+
+Or has more priority than And ,i.e., The comma (and) binds stronger than the semicolon (or). 
 
 ## Relationships
 
@@ -214,4 +217,51 @@ point(X, Y, Z)    % A different functor for 3D points
 
 ---
 
-$$\frac{1}{3-4D+D^2} = \frac{1}{3}\left(\frac{1}{1 - \frac{4D-D^2}{3}}\right) \approx \frac{1}{3}\left(1 + \frac{4D}{3}\right)$$Now, apply this to $x$:$$\frac{1}{3}\left(1 + \frac{4D}{3}\right)(x) = \frac{1}{3}\left(x + \frac{4}{3}D(x)\right) = \frac{1}{3}\left(x + \frac{4}{3}\right) = \frac{x}{3} + \frac{4}{9}$$
+### Matching 
+
+The decision of whether two terms, S and T, match is governed by the following rules:
+
+1. **Constants**: If S and T are constants (atoms or numbers), they match only if they are the exact same object. 
+2. **Variable and Term**: If S is a variable and T is any type of term (a constant, another variable, or a structure), they match. The variable S is then instantiated to the term T. 
+3. **Structures**: If S and T are both structures, they match only if both of the following are true:
+    - They have the same principal functor and the same arity (number of arguments). 
+    - All their corresponding components (arguments) also match. The final instantiation of variables is determined by the matching of these components. 
+
+Prolog always finds the most general instantiation when it matches terms. This means it constrains the variables as little as possible, which leaves the greatest possible freedom for any further matching that might be required. 
+
+#### Example: Horizontal and Vertical Lines
+
+Matching alone can be used for interesting computations. Consider a program to recognize horizontal and vertical line segments. A segment can be represented as`seg(point(X1,Y1), point(X2,Y2))`.
+
+We can define the properties `vertical` and `horizontal` with two simple facts that rely entirely on matching:
+
+```css
+vertical(seg(point(X, Y), point(X, Y1))).
+horizontal(seg(point(X, Y), point(X1, Y))).
+
+?- horizontal(seg(point(1,1), point(2,Y))). // Succeeds and instantiate Y to 1
+```
+
+- A line segment is vertical if it can match the pattern where the X-coordinates of its two endpoints are the same variable, `X`. 
+- A line segment is horizontal if its Y-coordinates can match the same variable, `Y`. 
+
+---
+
+### Declarative Meaning of Prolog Programs
+
+The declarative meaning of a Prolog program determines if a given goal is true and, if so, for what values of its variables it is true. It is concerned only with the logical relationships defined by the program, not the step-by-step procedure for how an answer is found2.
+
+- **Instance of a clause -** This is a clause where each of its variables has been substituted by some term. E.g. -`hasachild(peter) :- parent(peter, Z).` is an instance of the clause `hasachild(X) :- parent(X, Y).`.
+- **Variant of a clause -** This is a special instance where each variable is substituted by another variable. E.g. - `hasachild(A) :- parent(A, B).` is a variant of `hasachild(X) :- parent(X, Y).`
+
+#### Formal Definition of Truth
+
+The declarative meaning states that a goal **G** is true (or satisfiable) if and only if the following conditions are met
+
+1. There is a clause `C` in the program.
+2. There is a clause **instance** `I` of `C` such that:
+    - The head of the instance `I` is identical to the goal `G`.
+    - All the goals in the body of the instance `I` are true.
+
+
+---
