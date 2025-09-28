@@ -198,20 +198,22 @@ endcase
 ```
 
 
-## Study later
-
-## Edge-Sensitive Sensitivity List (for Sequential Logic)
+### Sequential Logic
 
 An edge-sensitive `always` block is used to model **sequential logic**, like flip-flops. It executes only at a specific signal transition (the clock edge).
 
 - **Syntax:** `always @(posedge clk)` or `always @(negedge clk)`
-    
 - **`posedge`**: Triggers on the rising edge of the clock (0 to 1).
-    
 - **`negedge`**: Triggers on the falling edge of the clock (1 to 0).
-    
 
 This is how you model a flip-flop that only changes its state at the exact moment of a clock tick.
+
+
+## Study later
+
+## Edge-Sensitive Sensitivity List (for Sequential Logic)
+
+
 
 ### Handling Asynchronous Resets
 
@@ -220,3 +222,6 @@ You can make a block sensitive to both a clock edge and an asynchronous signal.
 **Example: D Flip-Flop with Asynchronous Reset**
 
 Verilog
+
+
+![[Pasted image 20250927231108.png]]

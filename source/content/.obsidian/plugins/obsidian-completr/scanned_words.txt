@@ -204,6 +204,7 @@ Pw
 Pt
 Prolog
 Pat
+Programs
 IHDR
 IDATx
 IU
@@ -384,6 +385,7 @@ IG
 IzQj
 Implication
 Impedance
+Incomplete
 tEXtSoftware
 ta
 tE
@@ -854,6 +856,7 @@ March
 Mystic
 Masseur
 MC
+Matching
 version
 vyj
 vE
@@ -989,6 +992,7 @@ video
 vEK
 vnw
 visualized
+variant
 pHYs
 pHa
 pi
@@ -1430,6 +1434,8 @@ pP
 pRt
 procedural
 produced
+priority
+postponed
 xTU
 xK
 xzc
@@ -1867,6 +1873,9 @@ bureaucratic
 bnMk
 believe
 begin
+binds
+behavioral
+bench
 ZBO
 ZD
 ZIw
@@ -2321,6 +2330,8 @@ Demons
 DX
 DWU
 Dy
+Declarative
+Delays
 YmU
 Yz
 You
@@ -2835,6 +2846,7 @@ Nana
 Never
 Naidu
 Nations
+Nesting
 dK
 dm
 dF
@@ -3280,6 +3292,7 @@ Unique
 Urdu
 Until
 UG
+Unintended
 zQ
 zFs
 zc
@@ -3649,6 +3662,9 @@ individuals
 invent
 identifies
 item
+instantiation
+inactive
+infer
 mJN
 mM
 mL
@@ -4237,6 +4253,7 @@ lo
 letter
 latch
 logically
+literally
 ebh
 eL
 ev
@@ -4599,6 +4616,8 @@ ee
 eC
 enclosed
 else
+endpoints
+expires
 gee
 go
 gko
@@ -4765,6 +4784,8 @@ gH
 gSj
 grandparent
 geometric
+governed
+goes
 Hv
 HV
 Hbb
@@ -5439,6 +5460,7 @@ Louis
 Leap
 LIZ
 Lexical
+Latches
 Vn
 VIUj
 VU
@@ -5525,6 +5547,7 @@ VLLAlZ
 Vectors
 Valid
 Verilog
+Variant
 uZ
 uN
 uG
@@ -6066,6 +6089,7 @@ Ca
 Composed
 Contrary
 Consists
+Correct
 ot
 oV
 oz
@@ -6639,6 +6663,7 @@ Syntactically
 Switches
 Sensitive
 Sequential
+Start
 Bw
 BO
 Building
@@ -6910,6 +6935,7 @@ Gs
 GI
 Gates
 Grandparent
+Generating
 fvy
 fNW
 fgg
@@ -7165,6 +7191,8 @@ functors
 flip
 flops
 flop
+facts
+finishes
 rt
 ru
 root
@@ -7524,6 +7552,9 @@ refer
 reg
 retains
 rising
+reason
+responds
+reset
 sRR
 sFL
 shows
@@ -8072,6 +8103,12 @@ saves
 signifies
 semicolon
 simulator
+substituted
+satisfiable
+simulation
+stimulus
+synthesizable
+synchronous
 TA
 Te
 TXp
@@ -8226,6 +8263,8 @@ TCvC
 TW
 TM
 TD
+Truth
+Timing
 XM
 Xiong
 XX
@@ -8691,6 +8730,7 @@ alpha
 arity
 apply
 asynchronous
+answer
 qiW
 qG
 quantitative
@@ -9300,6 +9340,12 @@ compares
 casez
 casex
 circuit
+constrains
+concerned
+constitutes
+clocks
+concurrently
+clocked
 whatever
 write
 will
@@ -9454,6 +9500,7 @@ wm
 woVC
 wire
 whereby
+waveforms
 Adaptive
 Aware
 Architecture

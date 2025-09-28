@@ -13,13 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prolog.md",
+                "file": "Verilog/Behavioral Modeling .md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Prolog"
+              "title": "Behavioral Modeling"
+            }
+          },
+          {
+            "id": "de3ea8c03c621101",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Verilog/Verilog.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Verilog"
             }
           },
           {
@@ -91,7 +106,7 @@
             }
           },
           {
-            "id": "fd2350365de66a7f",
+            "id": "d3d87d9dd46059e6",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -100,12 +115,12 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -198,9 +213,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "20634bd84818d5ea",
+  "active": "d3d87d9dd46059e6",
   "lastOpenFiles": [
-    "Verilog.md",
+    "Verilog/Verilog.md",
+    "Verilog/Behavioral Modeling .md",
+    "Attachements/Pasted image 20250927231108.png",
+    "Verilog",
     "Prolog.md",
     "index.md",
     "Exams.md",
@@ -240,11 +258,8 @@
     "Attachements/output_minibatch-sgd_f4d60f_111_1.svg",
     "DISCO",
     "Logic/Proportional logic.md",
-    "DD/CHP 1.md",
     "Attachements/Figure_1 3.png",
-    "Attachements/Figure_1 2.png",
     "DD",
-    "Logic",
     "Pytorch/Untitled.canvas"
   ]
 }
