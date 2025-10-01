@@ -106,7 +106,7 @@
             }
           },
           {
-            "id": "e37cda33d3e2ad84",
+            "id": "6e3e331b79b47205",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -115,12 +115,12 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -215,9 +215,9 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
+    "Verilog/Verilog.md",
     "Exams.md",
     "Verilog/Behavioral Modeling .md",
-    "Verilog/Verilog.md",
     "Attachements/Pasted image 20250927231108.png",
     "Verilog",
     "Prolog.md",
