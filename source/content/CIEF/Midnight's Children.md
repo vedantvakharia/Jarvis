@@ -318,3 +318,38 @@ Pickles and chutney are the central metaphor for the process of memory and the w
 	- S R acknowledges this - “memory manipulates” - creates its own reality
 	    - heterogeneous but coherent - personal history & historical record of entangled thin memory - personal & public activity - history is also manufactured to suit us - grand stories of bravery arise on both sides of war meant for audience to celebrate the nation
 	    - “nothing was real - nothing is certain”
+
+
+### **1. Critical Reception of Salman Rushdie**
+
+This section provides a more nuanced view of how Rushdie's work has been received, including the criticisms against him.
+
+- Critical reception of Rushdie has, to some degree, risen and fallen1.
+    
+- While his use of magical realism and exploration of hybridity has won him praise, he has also been accused of pandering to Western ideas of the exotic2.
+    
+- Indian writers in the vernacular have critiqued his valorization of English3.
+    
+- Though reviews of his most recent novels have been lukewarm, the scholarly work on him is remarkable 4, with the MLA international bibliography listing 1769 scholarly pieces on his works as of 20225.
+    
+
+### **2. Thematic Role of Minor Characters**
+
+This section adds a specific analysis of the function of minor characters in the novel, highlighting that history is not only shaped by major figures.
+
+- Figures like Lifafa Das, Tai the boatman, and Mary Pereira highlight the role of ordinary people in shaping history, often unintentionally6.
+    
+- Rushdie includes a vast array of minor figures to demonstrate that history is not made by great leaders alone7.
+    
+- For example, Mary Pereira is the midwife whose personal act of rebellion (swapping the babies) sets the entire plot in motion8.
+    
+- These characters show how ordinary people, through small actions, misunderstandings, and personal choices, inadvertently shape the course of individual, family, and national events9.
+    
+
+### **3. Specific Literary Terms from Notes**
+
+These are specific literary terms mentioned in your handwritten notes which can be added to the "Literary Style and Narrative Techniques" section of your guide.
+
+- **Autofiction:** The novel can be described as a form of autofiction, which involves writing about real events and times that happened, but with fictional elements10. This is relevant as Rushdie's own biography is closely related to Saleem's story11.
+    
+- **Onomatopoeia:** A specific example of Rushdie's playful use of language is onomatopoeia, such as using "thoo" to represent the act of spitting in disgust12.
