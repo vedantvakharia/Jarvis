@@ -58,7 +58,7 @@ Back in India, Saleem's life is again tied to national events. As India goes to 
 ### Book Three: 1965–1977
 
 #### The Indo-Pakistani War and Amnesia
-The general of pakistan was General Yahya Khan at that time. Following India's military defeat to China, Saleem's entire family moves back to Pakistan. His younger sister, now a famous vocalist known as Jamila Singer, becomes a national icon. During the Indo-Pakistani War of 1965, Saleem's family—except for Jamila and himself—is killed in a bombing raid. During the attack, Saleem is hit on the head by his grandfather's silver spittoon, which causes him to lose his memory completely.
+The general of Pakistan was General Yahya Khan at that time. Following India's military defeat to China, Saleem's entire family moves back to Pakistan. His younger sister, now a famous vocalist known as Jamila Singer, becomes a national icon. During the Indo-Pakistani War of 1965, Saleem's family—except for Jamila and himself—is killed in a bombing raid. During the attack, Saleem is hit on the head by his grandfather's silver spittoon, which causes him to lose his memory completely.
 
 #### The Bangladesh Liberation War 
 Now an amnesiac, Saleem is reduced to a passive, animalistic state. His keen sense of smell makes him an excellent human tracker, and he is conscripted into the Pakistani army. Though he doesn't know how he ended up there, he suspects Jamila sent him as a form of punishment. As part of a tracking unit, he participates in the brutal military crackdown on the independence movement in what was then East Pakistan (now Bangladesh). After witnessing numerous atrocities, he deserts and flees into the Sundarbans jungle with three fellow soldiers. In the jungle, he regains his memories but cannot recall his own name.
@@ -227,7 +227,7 @@ _Midnight's Children_ is considered a quintessential postcolonial novel because 
 ### Magical Realism
 
 #### Definition and Function
-Magical realism is a literary style that integrates fantastical, mythical, or supernatural elements into a realistic, historical setting without any special narrative emphasis. In _Midnight's Children_, this technique is central to the storytelling, blending the extraordinary with the mundane to create a unique narrative fabric.
+Magical realism is a literary style that integrates fantastical, mythical, or supernatural elements into a realistic, historical setting without any special narrative emphasis. In _Midnight's Children_, this technique is central to the storytelling, blending the extraordinary with the mundane to create a unique narrative fabric. Magical realism was first used in 1920s in paintings. 
 
 #### Blending Fantastical Elements with History
 
@@ -286,6 +286,8 @@ The game of Snakes and Ladders appears as a recurring motif, representing the un
 
 The game symbolizes the duality of fate and chance, order and chaos, progress and decline. Saleem sees it as a metaphor for the "eternal opposition of ladders and snakes," representing the constant struggle between creation and destruction that defines both his life and India's. Climbing a ladder symbolizes progress and hope, while sliding down a snake represents sudden, unavoidable disaster. The novel's plot follows this pattern: moments of success for the Sinai family or the nation are inevitably followed by catastrophic setbacks, showing that history does not follow a straight path of progress.
 
+Snake venom helps Saleem retain his memory, telepathic power and smell. 
+
 #### Saleem's Nose
 
 Saleem is born with an enormous, cucumber-like nose that is his most prominent feature and the source of both ridicule and power.
@@ -303,3 +305,7 @@ Pickles and chutney are the central metaphor for the process of memory and the w
 - **Preservation of Memory -** Saleem is desperately trying to “pickle” his memories and the story of his generation before his body disintegrates. Chutney, with its mixture of countless ingredients, represents the blending of stories, characters, facts, and fictions that constitute Saleem's narrative. The act of making chutney is analogous to the act of creating history—preserving disparate elements to create a new, composite whole.
 - **The Subjectivity of History -** The process of "chutnification" implies that history is not a pure, objective truth but a subjective mixture, its flavor depending on the ingredients chosen by the "cook" (the historian/narrator). Saleem's story comes full circle when the taste of a chutney leads him back to his old nanny, Mary Pereira, the owner of the pickle factory, reinforcing the connection between personal memory, food, and the preservation of the past.
 
+## Miscellaneous
+
+- **Reference to clearance of slums -** Sanjay Gandhi was active in politics. Wanted Delhi to look clean and control the population. He would pick up slum men and sterilize them. 
+- **Post Modernism -** There was no center to anything. Rejects meta narratives / grand narratives about history. Grand narratives ignore the small scale things For example, Indian freedom struggle claimed to be non - violent. This book deals with a lot of personal and local struggle, poverty, how ppl were internally fighting in India itself and how fragmented everything was.
