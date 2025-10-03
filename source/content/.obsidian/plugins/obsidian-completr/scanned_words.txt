@@ -224,6 +224,7 @@ Parody
 Perception
 Prophetic
 Pickles
+Parajay
 IHDR
 IDATx
 IU
@@ -721,6 +722,8 @@ treatment
 threatened
 trait
 taste
+tyrannies
+thin
 Matplotlib
 Mj
 MR
@@ -1584,6 +1587,7 @@ perceive
 please
 paintings
 ppl
+play
 xTU
 xK
 xzc
@@ -2060,6 +2064,8 @@ blends
 basket
 breathing
 boatman
+bloodshed
+bravery
 ZBO
 ZD
 ZIw
@@ -2538,6 +2544,7 @@ Delay
 Due
 Disintegration
 Destruction
+Diwas
 YmU
 Yz
 You
@@ -4004,6 +4011,7 @@ inevitably
 intuitive
 implies
 inaccurate
+imp
 mJN
 mM
 mL
@@ -4339,6 +4347,8 @@ moments
 mixture
 men
 meta
+manipulates
+manufactured
 KB
 KC
 Krauss
@@ -5049,6 +5059,7 @@ embraces
 echoes
 epic
 eternal
+entangled
 gee
 go
 gko
@@ -5687,6 +5698,7 @@ hardened
 historiographic
 heralded
 historian
+heterogeneous
 Oo
 Oc
 OBt
@@ -6048,6 +6060,7 @@ Verilog
 Variant
 Vanita
 Voice
+Vijay
 uZ
 uN
 uG
@@ -6840,6 +6853,7 @@ overwhelming
 overcome
 outright
 opposition
+oppressions
 Js
 JS
 JN
@@ -8241,6 +8255,7 @@ ridicule
 revealed
 reinforcing
 responses
+rem
 sRR
 sFL
 shows
@@ -8873,6 +8888,7 @@ snakes
 sliding
 slum
 sterilize
+sides
 TA
 Te
 TXp
@@ -10247,6 +10263,7 @@ connects
 constitute
 cook
 claimed
+coherent
 whatever
 write
 will
@@ -10668,3 +10685,4 @@ Amina
 Amnesia
 Abilities
 Authorial
+Akoba

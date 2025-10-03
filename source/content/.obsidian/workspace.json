@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CIEF/CIEF Overview.md",
+                "file": "CIEF/Midnight's Children.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CIEF Overview"
+              "title": "Midnight's Children"
             }
           },
           {
@@ -214,12 +214,12 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
+    "CIEF/CIEF Overview.md",
     "CIEF/The God of Small Things.md",
     "CIEF/Midnight's Children.md",
     "Java/Basics.md",
     "Verilog/Verilog.md",
     "Attachements/Pasted image 20251002133233.png",
-    "CIEF/CIEF Overview.md",
     "Untitled mindmap.md",
     "Verilog/Behavioral Modeling .md",
     "Exams.md",
