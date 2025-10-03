@@ -2,10 +2,8 @@ Published in 1981. It made ripples in india and other areas of world after colon
 
 The sotry begins with his grandfather in 1915. Midnight children is a frame story. Padma is not a passive listener, she questions the story the narrator is telling. 
 
-Methwold represents the british leaving india. 1001 births represent the
+Methwold represents the british leaving india. 
 
-
-Of course. Here is a comprehensive study guide on the plot of Salman Rushdie's _Midnight's Children_, drawing from all the provided sources.
 
 ![[Pasted image 20251002133233.png]]
 ## Detailed Plot Summary of Midnight's Children

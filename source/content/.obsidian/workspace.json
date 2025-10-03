@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CIEF/The God of Small Things.md",
+                "file": "CIEF/Midnight's Children.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "The God of Small Things"
+              "title": "Midnight's Children"
             }
           },
           {
@@ -214,10 +214,10 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "Attachements/Pasted image 20251004004147.png",
-    "CIEF/Midnight's Children.md",
     "CIEF/CIEF Overview.md",
     "CIEF/The God of Small Things.md",
+    "Attachements/Pasted image 20251004004147.png",
+    "CIEF/Midnight's Children.md",
     "Java/Basics.md",
     "Verilog/Verilog.md",
     "Attachements/Pasted image 20251002133233.png",
@@ -257,7 +257,6 @@
     "CIEF",
     "DISCO/.md",
     "Attachements/output_minibatch-sgd_f4d60f_123_1.svg",
-    "Attachements/output_minibatch-sgd_f4d60f_111_1.svg",
     "DISCO",
     "DD",
     "Pytorch/Untitled.canvas"
