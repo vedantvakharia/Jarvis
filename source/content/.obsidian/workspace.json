@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Verilog/Behavioral Modeling .md",
+                "file": "CIEF/Midnight's Children.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Behavioral Modeling"
+              "title": "Midnight's Children"
             }
           },
           {
@@ -106,7 +106,7 @@
             }
           },
           {
-            "id": "6e3e331b79b47205",
+            "id": "93add7fdf3bfed57",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -116,11 +116,12 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -215,9 +216,14 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
+    "CIEF/Untitled.md",
+    "CIEF/Midnight's Children.md",
+    "Attachements/Pasted image 20251002133233.png",
+    "CIEF/CIEF Overview.md",
+    "Untitled mindmap.md",
+    "Verilog/Behavioral Modeling .md",
     "Verilog/Verilog.md",
     "Exams.md",
-    "Verilog/Behavioral Modeling .md",
     "Attachements/Pasted image 20250927231108.png",
     "Verilog",
     "Prolog.md",
@@ -239,13 +245,10 @@
     "Tags",
     "Attachements/Pasted image 20250815000350.png",
     "Attachements",
-    "CIEF/CIEF Overview.md",
     "Pytorch/Untitled.md",
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Pytorch.md",
-    "CIEF/Untitled.md",
     "C/Basics.md",
-    "CIEF/Midnight's Children.md",
     "CV/Camera Calibration.md",
     "CV",
     "C++/CV/CV.md",
@@ -257,8 +260,6 @@
     "Attachements/output_minibatch-sgd_f4d60f_123_1.svg",
     "Attachements/output_minibatch-sgd_f4d60f_111_1.svg",
     "DISCO",
-    "Logic/Proportional logic.md",
-    "Attachements/Figure_1 3.png",
     "DD",
     "Pytorch/Untitled.canvas"
   ]
