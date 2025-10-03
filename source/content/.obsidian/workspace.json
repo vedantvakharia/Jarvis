@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CIEF/Midnight's Children.md",
+                "file": "CIEF/CIEF Overview.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Midnight's Children"
+              "title": "CIEF Overview"
             }
           },
           {
@@ -115,13 +115,11 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -216,10 +214,10 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "Java/Basics.md",
+    "CIEF/The God of Small Things.md",
     "CIEF/Midnight's Children.md",
+    "Java/Basics.md",
     "Verilog/Verilog.md",
-    "CIEF/Untitled.md",
     "Attachements/Pasted image 20251002133233.png",
     "CIEF/CIEF Overview.md",
     "Untitled mindmap.md",

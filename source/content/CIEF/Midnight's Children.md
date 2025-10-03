@@ -309,3 +309,13 @@ Pickles and chutney are the central metaphor for the process of memory and the w
 
 - **Reference to clearance of slums -** Sanjay Gandhi was active in politics. Wanted Delhi to look clean and control the population. He would pick up slum men and sterilize them. 
 - **Post Modernism -** There was no center to anything. Rejects meta narratives / grand narratives about history. Grand narratives ignore the small scale things For example, Indian freedom struggle claimed to be non - violent. This book deals with a lot of personal and local struggle, poverty, how ppl were internally fighting in India itself and how fragmented everything was.
+- **Memory -** 
+	- imp role to play in construction of nation’s history
+	- nation wants to rem good things & forget the losses
+	- But there are oppressions, bloodshed, tyrannies - never brought up
+	- “glorious” narrative of partition
+	    - Vijay Diwas for Akoba
+	    - no “Parajay” Diwas
+	- S R acknowledges this - “memory manipulates” - creates its own reality
+	    - heterogeneous but coherent - personal history & historical record of entangled thin memory - personal & public activity - history is also manufactured to suit us - grand stories of bravery arise on both sides of war meant for audience to celebrate the nation
+	    - “nothing was real - nothing is certain”
