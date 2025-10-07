@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CIEF/Midnight's Children.md",
+                "file": "Prolog.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Midnight's Children"
+              "title": "Prolog"
             }
           },
           {
@@ -76,8 +76,7 @@
               "title": "Midnight's Children"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -131,7 +130,7 @@
             }
           },
           {
-            "id": "38c91e09011e5bae",
+            "id": "ed29de76fea3bd19",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -140,7 +139,8 @@
               "title": "Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -237,19 +237,20 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b873f1724ddc9d39",
+  "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "CIEF/The God of Small Things.md",
+    "Week - 3 Assignment.md",
+    "Exams.md",
+    "Attachements/Pasted image 20251006011255.png",
     "CIEF/Midnight's Children.md",
-    "Untitled.md",
+    "Untitled mindmap.md",
+    "CIEF/The God of Small Things.md",
     "CIEF/CIEF Overview.md",
     "Attachements/Pasted image 20251004004147.png",
     "Java/Basics.md",
     "Verilog/Verilog.md",
     "Attachements/Pasted image 20251002133233.png",
-    "Untitled mindmap.md",
     "Verilog/Behavioral Modeling .md",
-    "Exams.md",
     "Attachements/Pasted image 20250927231108.png",
     "Verilog",
     "Prolog.md",
@@ -281,8 +282,6 @@
     "C++",
     "DISCO/Logic and Proofs .md",
     "CIEF",
-    "DISCO/.md",
-    "Attachements/output_minibatch-sgd_f4d60f_123_1.svg",
     "DISCO",
     "DD",
     "Pytorch/Untitled.canvas"

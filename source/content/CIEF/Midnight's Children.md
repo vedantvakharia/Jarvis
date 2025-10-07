@@ -95,12 +95,11 @@ Saleem is the novel's central national allegory. He is not just living through h
 #### Role and Rivalry 
 Shiva is Saleem's lifelong rival and antagonist, the other baby born at the exact stroke of midnight. He is the biological son of the wealthy Sinai family but is switched at birth with Saleem by the midwife Mary Pereira, and is consequently raised in poverty by the street performer Wee Willie Winkie. His difficult upbringing in the slums instills in him a cynical worldview and a deep resentment toward the privileged, a perspective that Saleem's sheltered life blinds him to. In the Midnight's Children's Conference, Shiva fiercely challenges Saleem's idealism with a cynical, individualistic perspective rooted in brute force and survival.
 
-#### Powers and Nature 
+#### Powers and Nature
 Named after the Hindu god of destruction, Shiva lives up to his namesake. He is a man of violent action, aggression, and destructive impulses. His magical gift is physical: **enormous, powerful knees** and a natural talent for combat. As a child, he breaks his father's wrist. He grows up to become a decorated war hero and a major in the Indian army.
 
 #### Symbolic Significance
 Shiva represents the violent, destructive, and aggressive aspects of post-colonial India's politics. While Saleem represents the fragile, intellectual hope for unity, Shiva symbolizes brute force, majoritarian aggression, and the power struggles that have marked the nation's history. His collaboration with Indira Gandhi's authoritarian regime during the Emergency, where he hunts down and sterilizes the other Midnight's Children, shows him as an agent of the state's oppressive power. However, he also embodies the creative and generative aspect of his namesake, being immensely fertile and fathering countless children before voluntarily undergoing a vasectomy.
-
 
 ### Aadam Aziz
 
@@ -112,7 +111,6 @@ The central event of Aadam's early life occurs when, attempting to pray, he hits
 
 #### Key relationships
 His relationship with his wife, Naseem Ghani, begins through a perforated sheet, which initially only allows him to see isolated parts of her body. He falls in love with this fragmented, partitioned image, a metaphor for the incomplete and often distorted understanding that characterizes relationships across cultural divides. His marriage to the deeply traditional Naseem is a constant negotiation between his modern, secular views and her strict adherence to custom.
-
 
 ### Padma
 

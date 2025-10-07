@@ -234,6 +234,10 @@ Paapen
 Patriarchy
 Psychological
 Pillai
+Parts
+Pandas
+Preparation
+Propagation
 IHDR
 IDATx
 IU
@@ -422,6 +426,12 @@ Ipe
 Inspector
 Ideals
 Inevitable
+Imaginary
+Im
+Identify
+Introductory
+Inspect
+Initialize
 tEXtSoftware
 ta
 tE
@@ -758,6 +768,8 @@ traditionally
 tamper
 termed
 trouble
+topics
+threshold
 Matplotlib
 Mj
 MR
@@ -980,6 +992,9 @@ Mammachi
 Mulligan
 Men
 Malayalam
+Mount
+Machine
+Mastery
 version
 vyj
 vE
@@ -1655,6 +1670,8 @@ pan
 punished
 proclaimed
 promises
+pcos
+psin
 xTU
 xK
 xzc
@@ -1873,6 +1890,9 @@ Englishman
 Englishmen
 Elements
 Estha
+Eigenvector
+Euler
+Entropy
 bY
 bEq
 bmO
@@ -2201,6 +2221,7 @@ Zhy
 Zc
 ZC
 Zulfikar
+Zhou
 QQQN
 Qg
 QB
@@ -2438,6 +2459,7 @@ nationalist
 narration
 narrates
 neglect
+notebook
 Do
 DW
 Dm
@@ -2638,6 +2660,11 @@ Das
 December
 Dalit
 Discrimination
+Download
+Disease
+DataFrame
+Display
+Derivatives
 YmU
 Yz
 You
@@ -2942,6 +2969,8 @@ Returning
 Rhodes
 Repercussions
 Reality
+Requirements
+Recall
 yN
 yyyG
 yD
@@ -3207,6 +3236,8 @@ Neglected
 Neither
 Needs
 Necessary
+NumPy
+Networks
 dK
 dm
 dF
@@ -3653,6 +3684,9 @@ disorienting
 dozen
 despair
 dismantling
+determinant
+disease
+dives
 UU
 UzH
 Um
@@ -3750,6 +3784,9 @@ Unsafe
 Ultimately
 Untouchables
 Upholders
+Upload
+UCI
+Understanding
 zQ
 zFs
 zc
@@ -4184,6 +4221,8 @@ innocence
 intelligence
 internalized
 injustices
+isin
+incrementally
 mJN
 mM
 mL
@@ -4541,6 +4580,7 @@ male
 marker
 metatemporal
 marchers
+multiplying
 KB
 KC
 Krauss
@@ -4610,6 +4650,8 @@ Kashmiri
 King
 Kerala
 Kochamma
+Keras
+Kaggle
 lq
 li
 ls
@@ -4881,6 +4923,8 @@ locus
 lingering
 lifestyle
 lifetimes
+libraries
+loading
 ebh
 eL
 ev
@@ -5290,6 +5334,10 @@ expense
 enforces
 exhibiting
 encounters
+eigenvector
+equation
+entries
+eigenvalue
 gee
 go
 gko
@@ -5607,6 +5655,7 @@ Heritage
 Hybrids
 Historically
 Hangover
+Hint
 Fi
 Financial
 Fischer
@@ -5956,6 +6005,7 @@ hypocritical
 hangover
 haunts
 hours
+homogeneous
 Oo
 Oc
 OBt
@@ -6079,6 +6129,7 @@ Onomatopoeia
 Orangedrink
 Over
 Oppression
+Optional
 LRZ
 Long
 LSTM
@@ -6238,6 +6289,8 @@ Laws
 Lemondrink
 Loved
 Locusts
+Load
+Link
 Vn
 VIUj
 VU
@@ -6332,6 +6385,9 @@ Velutha
 Vellya
 Violent
 Violating
+Video
+Victor
+Videos
 uZ
 uN
 uG
@@ -6932,6 +6988,8 @@ Culture
 Communism
 Comrade
 Consequence
+Colab
+Codebasics
 ot
 oV
 oz
@@ -7563,6 +7621,10 @@ Struggle
 Standards
 Stand
 Speaking
+Separate
+Setup
+Scratch
+Score
 Bw
 BO
 Building
@@ -7736,6 +7798,10 @@ Bangladesh
 Betrayal
 Blending
 Beginning
+Blog
+Brown
+BCE
+Backpropagation
 Gy
 Gbb
 GitHub
@@ -7852,6 +7918,8 @@ Gaining
 Ghetto
 Grimus
 Grand
+Google
+Guide
 fvy
 fNW
 fgg
@@ -8175,6 +8243,7 @@ frying
 fire
 framed
 fatherless
+fantastic
 rt
 ru
 root
@@ -9288,6 +9357,12 @@ subjugation
 standi
 siding
 separately
+slide
+solving
+scratch
+scikit
+submission
+sums
 TA
 Te
 TXp
@@ -9455,6 +9530,9 @@ Touchable
 Transgression
 Touchables
 Trauma
+TensorFlow
+Target
+Tasks
 XM
 Xiong
 XX
@@ -9998,6 +10076,7 @@ accusing
 affects
 aspiring
 adrift
+articles
 qiW
 qG
 quantitative
@@ -10057,6 +10136,8 @@ query
 quickly
 quintessential
 quietness
+qsin
+qcos
 cd
 change
 cat
@@ -10730,6 +10811,12 @@ college
 communist
 crumble
 cocktail
+conjugate
+cos
+coefficients
+categorical
+calculating
+curve
 whatever
 write
 will
