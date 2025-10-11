@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prolog.md",
+                "file": "Exams.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Prolog"
+              "title": "Exams"
             }
           },
           {
@@ -130,7 +130,7 @@
             }
           },
           {
-            "id": "ed29de76fea3bd19",
+            "id": "0b5c42ee96cb1db7",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -139,8 +139,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -239,8 +238,10 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "Week - 3 Assignment.md",
     "Prolog.md",
+    "Verilog/Verilog.md",
+    "Verilog/Behavioral Modeling .md",
+    "Week - 3 Assignment.md",
     "Exams.md",
     "Attachements/Pasted image 20251006011255.png",
     "CIEF/Midnight's Children.md",
@@ -249,9 +250,7 @@
     "CIEF/CIEF Overview.md",
     "Attachements/Pasted image 20251004004147.png",
     "Java/Basics.md",
-    "Verilog/Verilog.md",
     "Attachements/Pasted image 20251002133233.png",
-    "Verilog/Behavioral Modeling .md",
     "Attachements/Pasted image 20250927231108.png",
     "Verilog",
     "index.md",
