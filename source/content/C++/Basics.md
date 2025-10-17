@@ -108,7 +108,6 @@ These are very modern keywords related to major new features like modules, conce
 |**`co_yield`**|Pauses a coroutine and yields a value.|
 
 ---
-
 ## Operator Precedence
 
 
@@ -133,6 +132,14 @@ These are very modern keywords related to major new features like modules, conce
 | **16**     | `=` `+=` `-=` `*=` `/=` `%=` `<<=` `>>=` `&=` `^=` `                                                             | =`                                                                                                                                                                                                                       | Assignment operators |
 | **17**     | `throw`, `co_yield`, `co_return`                                                                                 | Exception/coroutine operators                                                                                                                                                                                            | Right-to-left        |
 | **18**     | `,`                                                                                                              | Comma (sequencing)                                                                                                                                                                                                       | Left-to-right        |
+
+---
+
+## Variables
+
+### Declaring 
+
+C++ allows definition of variables at the point where they are used. C++ does not require declaring all variables before their first executable statement unlike C. 
 
 ---
 ## Input Output
@@ -169,4 +176,5 @@ cout << "I am " << 25 << " years old.";
 // This will output: I am 25 years old
 
 
-3. 
+```
+
