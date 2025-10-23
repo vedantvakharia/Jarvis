@@ -132,6 +132,8 @@ These are very modern keywords related to major new features like modules, conce
 | **17**     | `throw`, `co_yield`, `co_return`                                                                                 | Exception/coroutine operators                                                                                                                                                                                            | Right-to-left        |
 | **18**     | `,`                                                                                                              | Comma (sequencing)                                                                                                                                                                                                       | Left-to-right        |
 
+The std:: in std::cout says that the cout is to be found in the standard library that we made accessible with import std.
+
 ---
 
 ## Variables
@@ -177,3 +179,16 @@ cout << "I am " << 25 << " years old.";
 
 ```
 
+
+
+
+## import and include
+
+In C++, **`#include`** and **`import`** both bring in code from other files, but:
+- `#include` belongs to the **preprocessor** era (C-style).
+- `import` belongs to the **modern module system** (C++20).
+
+
+### include
+
+`#include` is a preprocessor directive. It copies entire contents of the header file and pastes those contents directly into your `.cpp` file, right where you wrote `#include`.
