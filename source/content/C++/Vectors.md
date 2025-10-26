@@ -140,10 +140,12 @@ These functions deal with the size and memory allocation of the vector.
    The vector allocates a _new_, smaller block of memory just big enough for the current `size()`. It then moves the elements from the old large block to the new small block and deallocates the old large block. Afterward, `capacity()` would be much closer (ideally equal) to `size()`. However, this operation usually involves reallocation (allocating new memory, moving elements, deallocating old memory), which can be slow. 
    
    The request is non-binding, and the container implementation is free to optimize otherwise and leave the vector with a capacity greater than its size. This happens because of the following reasons
-   
-- Reallocating memory (which `shrink_to_fit` usually requires) can be slow. The library implementers might decide that the potential memory saving is so small, or the current capacity matches their internal allocation strategy so well, that it's actually _faster_ overall to just keep the extra memory. For example, if the vector allocates memory in chunks of 16, and you shrink from size 10 / capacity 32 down to size 10, it might still allocate a chunk of 16 anyway, so the saving isn't huge but the cost of reallocation was paid.
-- **Avoiding Thrashing -** If the implementation suspects you might add elements again soon after shrinking, it might keep the extra capacity to avoid shrinking now only to have to grow and reallocate again immediately afterward. This back-and-forth ("thrashing") would be inefficient.
-- **Implementation Freedom -** The standard generally tries to specify _what_ a function should achieve, but not always exactly how. Giving implementations the freedom to ignore `shrink_to_fit` allows them to use different memory management strategies internally without breaking the standard.
+   - Reallocating memory (which `shrink_to_fit` usually requires) can be slow. The library implementers might decide that the potential memory saving is so small, or the current capacity matches their internal allocation strategy so well, that it's actually _faster_ overall to just keep the extra memory. For example, if the vector allocates memory in chunks of 16, and you shrink from size 10 / capacity 32 down to size 10, it might still allocate a chunk of 16 anyway, so the saving isn't huge but the cost of reallocation was paid.
+   - **Avoiding Thrashing -** If the implementation suspects you might add elements again soon after shrinking, it mi```
+
+```
+ght keep the extra capacity to avoid shrinking now only to have to grow and reallocate again immediately afterward. This back-and-forth ("thrashing") would be inefficient.
+   - **Implementation Freedom -** The standard generally tries to specify _what_ a function should achieve, but not always exactly how. Giving implementations the freedom to ignore `shrink_to_fit` allows them to use different memory management strategies internally without breaking the standard.
 
 ---
 
