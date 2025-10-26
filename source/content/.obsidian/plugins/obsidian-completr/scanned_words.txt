@@ -238,6 +238,9 @@ Parts
 Pandas
 Preparation
 Propagation
+Pollution
+Preprocessor
+Parses
 IHDR
 IDATx
 IU
@@ -432,6 +435,7 @@ Identify
 Introductory
 Inspect
 Initialize
+Interface
 tEXtSoftware
 ta
 tE
@@ -770,6 +774,10 @@ termed
 trouble
 topics
 threshold
+twice
+tiny
+today
+tooling
 Matplotlib
 Mj
 MR
@@ -996,6 +1004,10 @@ Mount
 Machine
 Mastery
 Mealy
+Macro
+Modules
+Massively
+Macros
 version
 vyj
 vE
@@ -1673,6 +1685,10 @@ proclaimed
 promises
 pcos
 psin
+preprocessor
+pastes
+parse
+produces
 xTU
 xK
 xzc
@@ -2175,6 +2191,8 @@ banishes
 befriends
 breath
 banishing
+brand
+biggest
 ZBO
 ZD
 ZIw
@@ -2666,6 +2684,9 @@ Disease
 DataFrame
 Display
 Derivatives
+Directive
+Dangerous
+Dumps
 YmU
 Yz
 You
@@ -2972,6 +2993,7 @@ Repercussions
 Reality
 Requirements
 Recall
+Required
 yN
 yyyG
 yD
@@ -3239,6 +3261,9 @@ Needs
 Necessary
 NumPy
 Networks
+Namespace
+Namespaces
+Needed
 dK
 dm
 dF
@@ -3689,6 +3714,13 @@ determinant
 disease
 dives
 declaring
+directive
+declarations
+doing
+deques
+dumb
+deleted
+diagram
 UU
 UzH
 Um
@@ -3789,6 +3821,7 @@ Upholders
 Upload
 UCI
 Understanding
+Useful
 zQ
 zFs
 zc
@@ -4225,6 +4258,13 @@ internalized
 injustices
 isin
 incrementally
+incredibly
+importing
+inserted
+involve
+inserting
+iterators
+interacting
 mJN
 mM
 mL
@@ -4583,6 +4623,8 @@ marker
 metatemporal
 marchers
 multiplying
+macro
+manages
 KB
 KC
 Krauss
@@ -4927,6 +4969,7 @@ lifestyle
 lifetimes
 libraries
 loading
+logarithmically
 ebh
 eL
 ev
@@ -5341,6 +5384,8 @@ equation
 entries
 eigenvalue
 executable
+exported
+extra
 gee
 go
 gko
@@ -5531,6 +5576,8 @@ grudges
 games
 groups
 girl
+guards
+grow
 Hv
 HV
 Hbb
@@ -5659,6 +5706,9 @@ Hybrids
 Historically
 Hangover
 Hint
+Header
+Headers
+HEAP
 Fi
 Financial
 Fischer
@@ -6010,6 +6060,8 @@ hangover
 haunts
 hours
 homogeneous
+helper
+hack
 Oo
 Oc
 OBt
@@ -6134,6 +6186,7 @@ Orangedrink
 Over
 Oppression
 Optional
+Otherwise
 LRZ
 Long
 LSTM
@@ -6295,6 +6348,8 @@ Loved
 Locusts
 Load
 Link
+Libraries
+Layout
 Vn
 VIUj
 VU
@@ -6560,6 +6615,7 @@ unacceptable
 unwritten
 unravels
 upheld
+unsafe
 Wn
 Ws
 Wc
@@ -6994,6 +7050,11 @@ Comrade
 Consequence
 Colab
 Codebasics
+Compilation
+Cases
+Clean
+CMake
+Compared
 ot
 oV
 oz
@@ -7220,6 +7281,7 @@ outlived
 ourselves
 ordered
 officially
+offsets
 Js
 JS
 JN
@@ -7629,6 +7691,10 @@ Separate
 Setup
 Scratch
 Score
+Slow
+Semantic
+Safe
+STACK
 Bw
 BO
 Building
@@ -7806,6 +7872,8 @@ Blog
 Brown
 BCE
 Backpropagation
+Brain
+Brawn
 Gy
 Gbb
 GitHub
@@ -7924,6 +7992,7 @@ Grimus
 Grand
 Google
 Guide
+Guards
 fvy
 fNW
 fgg
@@ -8248,6 +8317,7 @@ fire
 framed
 fatherless
 fantastic
+frustrating
 rt
 ru
 root
@@ -8686,6 +8756,10 @@ retribution
 reinforces
 relive
 revolution
+reallocated
+reallocate
+reallocations
+resized
 sRR
 sFL
 shows
@@ -9367,6 +9441,11 @@ scratch
 scikit
 submission
 sums
+std
+semantically
+stay
+smart
+strictly
 TA
 Te
 TXp
@@ -9537,6 +9616,8 @@ Trauma
 TensorFlow
 Target
 Tasks
+Table
+Textual
 XM
 Xiong
 XX
@@ -10081,6 +10162,10 @@ affects
 aspiring
 adrift
 articles
+advice
+allocating
+accommodate
+amortized
 qiW
 qG
 quantitative
@@ -10821,6 +10906,14 @@ coefficients
 categorical
 calculating
 curve
+connecting
+certainly
+compilers
+containers
+consume
+controller
+cleans
+const
 whatever
 write
 will
@@ -11254,3 +11347,6 @@ Autofiction
 Ayemenem
 Ammu
 Anglophile
+Advice
+Assigns
+APIs

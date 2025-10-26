@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/Basics.md",
+                "file": "C++/Vectors.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
+              "title": "Vectors"
             }
           }
         ],
@@ -92,7 +92,7 @@
             }
           },
           {
-            "id": "834f41fedfa14356",
+            "id": "3fa37f65610eb55d",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -201,7 +201,10 @@
   },
   "active": "de3ea8c03c621101",
   "lastOpenFiles": [
+    "Prolog.md",
     "Java/Basics.md",
+    "C++/Vectors.md",
+    "C++/Strings.md",
     "C++/Basics.md",
     "C++/CV/CV.md",
     "Verilog/FSM.md",
@@ -209,7 +212,6 @@
     "Verilog/Verilog.md",
     "Java/Java.md",
     "Exams.md",
-    "Prolog.md",
     "Week - 3 Assignment.md",
     "Attachements/Pasted image 20251006011255.png",
     "CIEF/Midnight's Children.md",
@@ -239,11 +241,9 @@
     "Pytorch/Torch.nn Library.md",
     "Pytorch/Pytorch.md",
     "C/Basics.md",
-    "CV/Camera Calibration.md",
     "CV",
     "C++/CV",
     "C++",
-    "DISCO/Logic and Proofs .md",
     "CIEF",
     "DISCO",
     "DD",
