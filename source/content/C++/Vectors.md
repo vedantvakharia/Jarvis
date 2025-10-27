@@ -38,6 +38,17 @@ Here is a diagram of what it looks like in memory when you have a `std::vector<i
 | `ptr_to_end (size=3)`          | ───────►        | `_ _ _ _ _ _ _ ^`                    |
 | `ptr_to_capacity (cap=5)`      | ──────────────► | `_ _ _ _ _ _ _ _ _ _ _ _ _ _ _^`     |
 
+### Destruction and removal of an element
+
+- **Destroying** an element means its **destructor** is called. This is the function that cleans up the resources held by that specific object (like releasing memory it allocated, closing files, etc.). The object's lifetime ends. The memory slot _where_ the object lived might still be part of the vector's allocated capacity, but the object itself is gone. 
+    
+- **Removing** an element from a vector (using functions like `erase()` or `pop_back()`) is a higher-level operation that typically involves **two steps**:
+    
+    1. **Destroying** the element(s) being removed (calling their destructors).
+        
+    2. **Adjusting the vector's structure**. This usually means decreasing the vector's `size()` and, for `erase()`, potentially shifting subsequent elements forward to fill the gap, ensuring the vector remains contiguous. 
+
+
 ---
 ## Functions
 
@@ -135,16 +146,13 @@ These functions deal with the size and memory allocation of the vector.
 - If _n_ is smaller than the current container size, the content is reduced to its first _n_ elements, removing those beyond (and destroying them).  
 - If _n_ is greater than the current container size, the content is expanded by inserting at the end as many elements as needed to reach a size of _n_. If _val_ is specified, the new elements are initialized as copies of _val_, otherwise, they are value-initialized.  
 - If _n_ is also greater than the current container capacity, an automatic reallocation of the allocated storage space takes place.  
-1. `shrink_to_fit()`: Requests that the vector reduce its `capacity` to match its `size`. (Useful for saving memory after removing many elements). 
+7. `shrink_to_fit()`: Requests that the vector reduce its `capacity` to match its `size`. (Useful for saving memory after removing many elements). 
    
    The vector allocates a _new_, smaller block of memory just big enough for the current `size()`. It then moves the elements from the old large block to the new small block and deallocates the old large block. Afterward, `capacity()` would be much closer (ideally equal) to `size()`. However, this operation usually involves reallocation (allocating new memory, moving elements, deallocating old memory), which can be slow. 
    
    The request is non-binding, and the container implementation is free to optimize otherwise and leave the vector with a capacity greater than its size. This happens because of the following reasons
    - Reallocating memory (which `shrink_to_fit` usually requires) can be slow. The library implementers might decide that the potential memory saving is so small, or the current capacity matches their internal allocation strategy so well, that it's actually _faster_ overall to just keep the extra memory. For example, if the vector allocates memory in chunks of 16, and you shrink from size 10 / capacity 32 down to size 10, it might still allocate a chunk of 16 anyway, so the saving isn't huge but the cost of reallocation was paid.
-   - **Avoiding Thrashing -** If the implementation suspects you might add elements again soon after shrinking, it mi```
-
-```
-ght keep the extra capacity to avoid shrinking now only to have to grow and reallocate again immediately afterward. This back-and-forth ("thrashing") would be inefficient.
+   - **Avoiding Thrashing -** If the implementation suspects you might add elements again soon after shrinking, it might keep the extra capacity to avoid shrinking now only to have to grow and reallocate again immediately afterward. This back-and-forth ("thrashing") would be inefficient.
    - **Implementation Freedom -** The standard generally tries to specify _what_ a function should achieve, but not always exactly how. Giving implementations the freedom to ignore `shrink_to_fit` allows them to use different memory management strategies internally without breaking the standard.
 
 ---
@@ -153,20 +161,69 @@ ght keep the extra capacity to avoid shrinking now only to have to grow and real
 
 These functions change the contents of the vector.
 
-- `clear()`: Removes **all** elements from the vector (`size()` becomes 0).
+1. `clear()`- It destroys elements and sets `size` to 0. It does not change `capacity()`.`clear()` does not deallocate the memory the vector was using. The `capacity()` remains the same as it was before the call. The vector holds onto the allocated memory, anticipating that you might want to add new elements soon. A reallocation is not guaranteed to happen, and the [vector capacity](https://cplusplus.com/vector::capacity) is not guaranteed to change due to calling this function. A typical alternative that forces a reallocation is to use swap :  `vector<T>().swap(x);   // clear x reallocating
     
-- `insert(pos, ...)`: Inserts new elements **before** the specified iterator position (`pos`). Can insert single elements, multiple copies of an element, or a range of elements.
+2. `insert(pos, ...)`: Inserts new elements before the specified iterator position (`pos`). Can insert single elements, multiple copies of an element, or a range of elements.
+   
+```c++
+// Single element 
+iterator insert (const_iterator position, const value_type& val);
+
+// Filling with the same name
+iterator insert (const_iterator position, size_type n, const value_type& val);
+
+// Range insertion
+// Inserts copies of elements from another sequence (like another vector, an array, a list, etc.) into the vector. It copies the elements starting from the one pointed to by the first iterator up to, but not including, the one pointed to by the last iterator.
+template <class InputIterator>iterator insert (const_iterator position, InputIterator first, InputIterator last);
+std::vector<int> vec = {10, 50}; // Target vector 
+std::list<int> source = {20, 30, 40}; // Source sequence
+auto it_pos = vec.begin() + 1; // Iterator pointing to 50
+vec.insert(it_pos, source.begin(), source.end()); // Vec = 10, 20, 30, 40, 50
+
+// Move Insertion
+// Inserts a single element into the vector before position. The key here is value_type&& val. This && means it takes an rvalue reference. This version is optimized for inserting temporary objects or objects you explicitly mark with std::move. Instead of copying the object val, it moves its contents directly into the vector's storage, which can be much faster for complex objects (like strings or other vectors) that own resources. The original val is left in a valid but unspecified state afterward.
+iterator insert (const_iterator position, value_type&& val);
+std::vector<std::string> vec = {"apple", "orange"}; 
+std::string temp_fruit = "banana"; // A regular string object 
+auto it_pos = vec.begin() + 1; // Position before "orange"
+vec.insert(it_pos, std::move(temp_fruit));
+// Vec is now apple, bannana, orange and temp is "".
+
+// Initializer list 
+// Inserts elements directly specified within curly braces {} into the vector before position. This is a convenient way to insert multiple known values at once.
+iterator insert (const_iterator position, initializer_list<value_type> il);
+std::vector<int> vec = {10, 50}; 
+auto it_pos = vec.begin() + 1; // Position before 50
+vec.insert(it_pos, {20, 30, 40}); // vec = 10, 20, 30, 40, 50
+```
+
     
-- `emplace(pos, ...)`: Constructs an element **in-place** (directly in the vector's memory) before the specified iterator position. Often more efficient than `insert` if you're creating complex objects.
+3. `emplace(pos, ...)`: Constructs an element in-place (directly in the vector's memory) before the specified iterator position. Often more efficient than `insert` if you're creating complex objects. It returns an iterator that points to the newly emplaced element.
+  
+  The problem with move insert is that we are creating unnecessary temp variable for insertion. For complex objects, creating this temporary can be wasteful if you're just going to move from it immediately. Also, because vectors use an array as their underlying storage, inserting elements in positions other than the vector end causes the container to shift all the elements that were after _position_ by one to their new positions. This is generally an inefficient operation compared to the one performed by other kinds of sequence containers (such as list or forward list). `emplace` takes the arguments needed to construct the object directly. It then forwards these arguments to the element's constructor, which is called right inside the allocated memory slot within the vector. The element is constructed in-place by calling `allocator_traits::construct` with _args_ forwarded.
+
+```c++
+template <class... Args>iterator emplace (const_iterator position, Args&&... args);
+
+std::vector<int> myvector = {10,20,30};
+auto it = myvector.emplace ( myvector.begin()+1, 100 );
+myvector.emplace ( it, 200 );
+myvector.emplace ( myvector.end(), 300 );
+```
+
     
-- `erase(pos)` / `erase(first, last)`: Removes the element at the specified position (`pos`) or a range of elements (`[first, last)`).
+4. `erase()`- Removes the element at the specified position (`pos`) or a range of elements (`[first, last)`). Returns an iterator pointing to the element immediately following the erased section. This is the container end if the operation erased the last element in the sequence. Time complexity is linear on the number of elements erased (destructions) plus the number of elements after the last element deleted (moving).
+   
+```c++
+iterator erase (const_iterator position);
+iterator erase (const_iterator first, const_iterator last);
+```
+
     
-- `push_back(value)`: Adds an element to the **end** of the vector. Might cause a reallocation if `capacity` is reached. When this _capacity_ is exhausted and more is needed, it is automatically expanded by the container (reallocating it storage space)
+- `push_back(value)`- Adds an element to the end of the vector. Might cause a reallocation if `capacity` is reached. When this capacity is exhausted and more is needed, it is automatically expanded by the container (reallocating it storage space). 
     
-- `emplace_back(...)`: Constructs an element **in-place** at the **end** of the vector. Often more efficient than `push_back`.
+- `emplace_back(...)`: Constructs an element in-place at the end of the vector. Often more efficient than `push_back`. insert-> emplace, push_back -> emplace_back.
     
 - `pop_back()`: Removes the **last** element from the vector. (Does not return the element).
-    
-- `resize(n)` / `resize(n, value)`: Changes the `size()` of the vector to `n`. If `n` is larger than the current size, new elements are added (with a specific `value` or default-initialized). If `n` is smaller, elements are removed from the end.
     
 - `swap(other_vector)`: Exchanges the contents of this vector with another vector of the same type. This is usually very fast (just swaps the internal pointers).

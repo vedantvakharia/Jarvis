@@ -436,6 +436,11 @@ Introductory
 Inspect
 Initialize
 Interface
+Iterators
+InputIterator
+Iterator
+Insertion
+Initializer
 tEXtSoftware
 ta
 tE
@@ -778,6 +783,10 @@ twice
 tiny
 today
 tooling
+traversing
+theoretically
+thrashing
+traits
 Matplotlib
 Mj
 MR
@@ -1166,6 +1175,8 @@ valorization
 veshya
 victim
 valuing
+val
+vec
 pHYs
 pHa
 pi
@@ -1689,6 +1700,9 @@ preprocessor
 pastes
 parse
 produces
+pointed
+push
+pop
 xTU
 xK
 xzc
@@ -1910,6 +1924,7 @@ Estha
 Eigenvector
 Euler
 Entropy
+Exchanges
 bY
 bEq
 bmO
@@ -2193,6 +2208,9 @@ breath
 banishing
 brand
 biggest
+beforehand
+banana
+bannana
 ZBO
 ZD
 ZIw
@@ -2687,6 +2705,7 @@ Derivatives
 Directive
 Dangerous
 Dumps
+Destroying
 YmU
 Yz
 You
@@ -2994,6 +3013,10 @@ Reality
 Requirements
 Recall
 Required
+Removing
+Requests
+Resizes
+Reallocating
 yN
 yyyG
 yD
@@ -3721,6 +3744,14 @@ deques
 dumb
 deleted
 diagram
+destructor
+destructors
+dereference
+destructions
+destroying
+deallocates
+deallocating
+deallocate
 UU
 UzH
 Um
@@ -4265,6 +4296,14 @@ involve
 inserting
 iterators
 interacting
+iterator
+iterating
+iterate
+increasing
+ideally
+implementers
+insert
+il
 mJN
 mM
 mL
@@ -4625,6 +4664,8 @@ marchers
 multiplying
 macro
 manages
+mark
+myvector
 KB
 KC
 Krauss
@@ -4970,6 +5011,9 @@ lifetimes
 libraries
 loading
 logarithmically
+lifetime
+loops
+letting
 ebh
 eL
 ev
@@ -5386,6 +5430,9 @@ eigenvalue
 executable
 exported
 extra
+erasing
+emplace
+erase
 gee
 go
 gko
@@ -5578,6 +5625,7 @@ groups
 girl
 guards
 grow
+generalized
 Hv
 HV
 Hbb
@@ -5863,6 +5911,7 @@ Father
 Forbidden
 Female
 Finite
+Filling
 hz
 hT
 hm
@@ -6616,6 +6665,7 @@ unwritten
 unravels
 upheld
 unsafe
+unspecified
 Wn
 Ws
 Wc
@@ -7282,6 +7332,8 @@ ourselves
 ordered
 officially
 offsets
+otherwise
+orange
 Js
 JS
 JN
@@ -7993,6 +8045,7 @@ Grand
 Google
 Guide
 Guards
+Giving
 fvy
 fNW
 fgg
@@ -8318,6 +8371,8 @@ framed
 fatherless
 fantastic
 frustrating
+forth
+fruit
 rt
 ru
 root
@@ -8760,6 +8815,10 @@ reallocated
 reallocate
 reallocations
 resized
+removal
+releasing
+reserve
+rvalue
 sRR
 sFL
 shows
@@ -9446,6 +9505,10 @@ semantically
 stay
 smart
 strictly
+slot
+saving
+shrinking
+swaps
 TA
 Te
 TXp
@@ -9618,6 +9681,7 @@ Target
 Tasks
 Table
 Textual
+Thrashing
 XM
 Xiong
 XX
@@ -10166,6 +10230,11 @@ advice
 allocating
 accommodate
 amortized
+anyway
+anticipating
+auto
+apple
+allocator
 qiW
 qG
 quantitative
@@ -10914,6 +10983,9 @@ consume
 controller
 cleans
 const
+closer
+chunk
+curly
 whatever
 write
 will
@@ -11350,3 +11422,6 @@ Anglophile
 Advice
 Assigns
 APIs
+Adjusting
+Avoiding
+Args
