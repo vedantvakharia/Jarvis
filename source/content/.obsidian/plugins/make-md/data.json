@@ -41,7 +41,8 @@
     "/",
     "//SEM3",
     "//Verilog",
-    "//C++"
+    "//Java",
+    "//CIEF"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",

@@ -13,32 +13,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Basics.md",
+                "file": "CIEF/Namesake.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
-            }
-          },
-          {
-            "id": "de3ea8c03c621101",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++/Vectors.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Vectors"
+              "title": "Namesake"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -92,7 +76,7 @@
             }
           },
           {
-            "id": "2fa9da5653cfea04",
+            "id": "f82b365ee7b54811",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -106,7 +90,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -199,10 +184,20 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "de3ea8c03c621101",
+  "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "Prolog.md",
     "Java/Basics.md",
+    "CIEF/Namesake.md",
+    "Pytorch/Quantization.md",
+    "Prolog.md",
+    "CIEF/CIEF Overview.md",
+    "Java/Data structure.md",
+    "Java/Java.md",
+    "Pytorch/Attention Mechanism.md",
+    "Pytorch/Federated learning.md",
+    "Exams.md",
+    "Pytorch/torch.optim.md",
+    "Attachements/Pasted image 20251101200956.png",
     "C++/Vectors.md",
     "C++/Strings.md",
     "C++/Basics.md",
@@ -210,14 +205,11 @@
     "Verilog/FSM.md",
     "Verilog/Behavioral Modeling .md",
     "Verilog/Verilog.md",
-    "Java/Java.md",
-    "Exams.md",
     "Week - 3 Assignment.md",
     "Attachements/Pasted image 20251006011255.png",
     "CIEF/Midnight's Children.md",
     "Untitled mindmap.md",
     "CIEF/The God of Small Things.md",
-    "CIEF/CIEF Overview.md",
     "Attachements/Pasted image 20251004004147.png",
     "Attachements/Pasted image 20251002133233.png",
     "Attachements/Pasted image 20250927231108.png",
@@ -228,19 +220,12 @@
     "Java/Packages.md",
     "Attachements/Figure_1.png",
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
-    "Pytorch/torch.optim.md",
     "Attachements/output_minibatch-sgd_f4d60f_159_0.svg",
     "Attachements/output_minibatch-sgd_f4d60f_135_1.svg",
     "Python/OOPS.md",
-    "Pytorch/Tensors.md",
     ".md",
     "Tags",
-    "Attachements/Pasted image 20250815000350.png",
     "Attachements",
-    "Pytorch/Untitled.md",
-    "Pytorch/Torch.nn Library.md",
-    "Pytorch/Pytorch.md",
-    "C/Basics.md",
     "CV",
     "C++/CV",
     "C++",
