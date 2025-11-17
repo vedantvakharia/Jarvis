@@ -99,6 +99,7 @@ In addition to writing in Italian, the notes also mention that she **translates 
 - Ashoke was more open to American ways, while Ashima was more focused on maintaining Bengali culture (sarees, bindi, food), though she was tolerant of his open-ness.
 - The family eventually starts to adopt American traditions and activities, including clothing, holidays, and some American foods.
 - Ashoke is very particular about his clothing, immediately hanging up his shirt and trousers when he returns home and spending an hour polishing his shoes on Sundays.
+- A key piece of context showing the parents' assimilation is that when their second child, Sonali (Sonia), is born, Ashoke and Ashima relax the Bengali rules of choosing the names and choose her name themselves, showing they have become more Americanized.
 
 #### Future Plans
 - Ashima and Ashoke plan to visit family back in Calcutta to introduce Gogol, though Ashima's father dies before the trip, turning it into a journey home for funeral duties.
@@ -146,7 +147,7 @@ The name "Gogol" becomes his son's pet name (_daknaam_). The story of the train 
 
 The **central theme of _The Namesake_ is the importance of names**. The central conflict surrounding Gogol’s name stems from the collision between the **Bengali cultural tradition of having two names (one of which is chosen by an elder)** and the **American laws and systems regarding identity and naming**. This tension forces Ashoke and Ashima into a decision that they had initially refused to make. The result is that the child's informal pet name is accidentally made his official public name, which later embarrasses and alienates Gogol.
 
-### The Bengali Tradition of Two Names
+#### The Bengali Tradition of Two Names
 
 The Bengali tradition of naming includes a **$daknaam$ (a pet name or nickname)** and a **$bhalonaam$ (a good name)**.
 
@@ -157,7 +158,7 @@ The reasoning behind this practice is the belief that one is not all things to a
 
 Ashoke and Ashima, who are known to their families as **Mithu and Monu**, respectively, had maintained this tradition and intended to keep it for their firstborn child. They follow another tradition where the **parents do not choose the good name**, but instead **wait for an elder in the family to choose it**. Ashima’s grandmother has this duty. The choice of the good name was so important that Ashoke and Ashima **refuse to choose it themselves**.
 
-### Specific Events After Gogol's Birth
+#### Specific Events After Gogol's Birth
 
 Following Ashima's labor and the birth of their baby boy, Ashima and Ashoke give the child a **pet name, Gogol**. This name is chosen after **Ashoke's favorite author, Nikolai Gogol**, whose story **"The Overcoat" saved Ashoke from dying in a train accident earlier in India**. Ashoke had a page of the story in his hand, and the dropped page **alerted rescuers that he was still alive**.
 
@@ -167,15 +168,114 @@ However, a series of unforeseen events disrupts this tradition:
 
 1. **Lost Letter and Stroke:** Ashima’s **grandmother’s letter containing the chosen name never arrives**; the letter is **lost in the mail**.
 2. **Inability to Communicate:** Following the loss of the letter, Ashima’s grandmother **suffers a stroke**. As a result, she is **unable to communicate the chosen name for the new-born child**.
-3. **Hospital Pressure:** Because the family is in the United States, the **hospital needs an official name** for the child. The cultural tradition of having two names, one chosen by an elder, runs **"up against American laws regarding identity and naming"**.
+3. **Hospital Pressure -** Because the family is in the United States, the hospital needs an official name for the child. The cultural tradition of having two names, one chosen by an elder, runs "up against American laws regarding identity and naming".
 
-### Consequences of Choosing "Gogol" as the Official Name
+#### The Kindergarten Incident
+
+- When Gogol begins kindergarten, Ashoke and Ashima want him to use his "good name," **Nikhil** (which they had apparently chosen by this time).
+- However, the principal asks the young Gogol what he wants to be called. Gogol, who "cannot see attached to himself" the name Nikhil, says he wants to be called **Gogol**.
+- This event is the first time Gogol _himself_ makes a choice, and it's the moment his parents "lose the right to determine where and when their child uses the pet name".
+
+#### Consequences of Choosing "Gogol" as the Official Name
 
 Facing pressure to provide a name for the birth certificate, Ashima and Ashoke feel they have **no choice but to use the pet name**. They **put "Gogol" on the birth certificate**.
 
 The consequence of this accidental naming is that **the choice of name for Gogol carries a great deal of emotional weight**.
 
-- **For Ashoke:** Gogol's name represents Ashoke’s **miraculous survival** of the train accident. Ashoke marks his own rebirth as a parent and Gogol’s birth by **naming his son for the Russian author who had saved his life**. The name represents Ashoke's deep gratitude.
-- **For Gogol:** As he grows older, **Gogol’s name embarrasses him because it is Russian, not Indian**. He is **mortified** when his English teacher discusses his namesake, Nikolai Gogol, because the author had such a **depressing life**. The weight of gratitude does not extend from Ashoke to his son, and Gogol comes to **hate his name** as something that does not reflect his Bengali heritage or acknowledge that he is American. He eventually goes to court to **officially change his name to Nikhil**, which was the 'good name' his parents eventually wanted him to use.
+- **For Ashoke -** Gogol's name represents Ashoke’s miraculous survival of the train accident. Ashoke marks his own rebirth as a parent and Gogol’s birth by **naming his son for the Russian author who had saved his life**. The name represents Ashoke's deep gratitude.
+- **For Gogol -** As he grows older, Gogol’s name embarrasses him because it is Russian, not Indian. He is mortified when his English teacher discusses his namesake, Nikolai Gogol, because the author had such a depressing life. The weight of gratitude does not extend from Ashoke to his son, and Gogol comes to hate his name as something that does not reflect his Bengali heritage or acknowledge that he is American. Also, as he has not read the stories his father loved, he personally doesn't have the connection to the author. Because of his Russian name, he was ridiculed in school. He eventually goes to court to officially change his name to Nikhil, which was the good name his parents eventually wanted him to use.
 
-The fact that the name "Gogol" was intended as a temporary nickname but became the official name on the birth certificate represents one of the many **accidents in Gogol's life**, including his father's near-fatal train crash and the lost letter. This initial mishap set up his lifelong struggle with his identity.
+The fact that the name "Gogol" was intended as a temporary nickname but became the official name on the birth certificate represents one of the many accidents in Gogol's life, including his father's near-fatal train crash and the lost letter. This initial mishap set up his lifelong struggle with his identity.
+
+### Gogol's Childhood, Name Change, & Romances
+
+#### Gogol's Childhood and Early Struggles with His Name
+
+As Gogol grew up, his life reflected the conflict between his inherited Bengali culture and his American upbringing.
+
+**Early Education and Naming Conflict -** When Gogol began kindergarten, his parents, Ashoke and Ashima, wanted him to use the good name Nikhil. However, the principal of his kindergarten speaks with Gogol after his father has left and asks what he wants to be called. Gogol chooses to stay Gogol at school because Nikhil is a name he cannot see attached to himself.
+
+**Name Embarrassment in Adolescence -** As he got older, Gogol’s name embarrassed him because it is Russian, not Indian. His distress escalated in high school when his English teacher talks about his namesake, Nikolai Gogol, and Gogol is mortified because the author Gogol had such a depressing life. Gogol comes to hate his name as something that does not reflect his Bengali heritage or acknowledge that he is American. He also does not want to hurt his father by revealing his true feelings about the name. He has no connection with the name at all because he has not read the stories his father loved.
+
+**Ashoke's Attempt to Explain the Name at 14 -** When Gogol turned 14, his father almost divulges why he named his son after the author, but Ashoke keeps that information to himself. Instead, Ashoke simply gives a copy of Gogol's stories to his son. Gogol puts the book away and does not read it.
+
+**Father Reveals the Train Accident:** Ashoke finally tells Gogol about his namesake and the train accident **after Gogol officially changes his name to Nikhil**.
+
+#### Name Change and Identity
+
+**Official Name Change to Nikhil -** When Gogol graduates from high school and goes to Yale, he decides to go to court to change his name officially to Nikhil, thus freeing himself from the legacy of the name in public. This change to Nikhil, his Bengali good name, reveals his desire to stay connected to his heritage, but it also serves as a way to placate his parents. The dispassionate American court witnessed the real reason - Gogol hates the name Gogol and cannot envision himself carrying that name throughout his whole life.
+
+**Adjustment to Nikhil -** For months, Gogol has a hard time answering to Nikhil because it feels like he cannot inhabit the name. He feels like he is trying on an identity, like an actor playing a part, though he eventually gets used to the change. His family, however, still calls him Gogol.
+
+#### Romantic Relationships
+
+Gogol graduated with a degree in architecture and attended graduate school at Columbia. His romantic life included two significant relationships before his marriage:
+
+**Ruth -** Gogol meets a girl named Ruth at college and dates her for a year. Their relationship involved an intense physical relationship, but their differences could not be overcome. Ultimately, Ruth’s study abroad at Oxford caused them to grow apart.
+
+**Maxine Ratliff -** Gogol’s next girlfriend was Maxine Ratliff, a wealthy New Yorker he met while working at an architectural firm in New York City. Maxine and her parents live together in a luxury apartment, and she invites him to move in with her. Gogol takes her home to meet his parents, and he is invited by her parents to spend time at their vacation home in New Hampshire. Gogol longs to have an easy life as they do, seeing this as a contrast to the life of his parents and all their hard work. Gogol tries to escape not just his traditions but his family as well when he lives with Maxine. He even keeps his parents from contacting him at the Ratliff's vacation home in New Hampshire. He gets a glimpse of the difference between himself and the Ratliffs when Lydia Ratliff defends him at a dinner party as being American. After his father, Ashoke, dies, Gogol alienates Maxine with his family-centered behavior, and they break up.
+
+#### Ashoke's Death
+
+Ashoke had decided to take a temporary position in Ohio at another university. He did not want to move his family there, so he came home every few weeks to help Ashima with the house. While he was away, Ashoke develops stomach problems, which he ignores. He eventually goes to the hospital. When Ashima calls the hospital to check on him, an employee informs her that Ashoke had a heart attack and passed away. Gogol and Sonia drop everything to help their mother. Sonia stays with Ashima while Gogol cleans out his father's Ohio apartment. 
+
+Gogol alienates Maxine with his family-centered behavior, and they break up. He distances himself from the Ratliffs and their differences from his life when his father dies. He embraces Bengali traditions again, going through traditional mourning rites. After his father’s death and his starting his life over again, he keeps Maxine separate from his life with his family and shuts her out because she has no place in his traditions. Gogol thinks the worst accident was losing his father.
+
+#### Marriage to Moushumi
+
+After the death of his father, Ashoke, Gogol began to spend more time with Ashima and Sonia. Ashima convinced him to go on a blind date with Moushumi, a girl he had met previously at his 14th birthday party.
+
+**Moushumi's Background -** Moushumi also lives in New York and is a PhD student studying French literature.
+
+**The Marriage and Divorce -** Gogol and Moushumi discover they feel comfortable with the familiarity of being with another Bengali. They fall in love and get married. Their wedding was a huge Bengali affair run entirely by Moushumi's parents.
+
+The marriage soon began to sour. Moushumi makes Gogol spend time with her intellectual friends, who make him uncomfortable. Gogol feels uncomfortable in Moushumi's world because it is not familiar to him, and he has nothing in common with her friends. Moushumi also begins to feel restless, wanting to study in France, where Gogol does not fit in with her colleagues. Gogol becomes upset and feels betrayed when Moushumi reveals his pet name, "Gogol," to her intellectual friends. This is a major source of tension, as he is still highly sensitive about the name. Moushumi is bored with her life with Gogol and starts having an affair with Dimitri(German professor), an old crush of hers. Gogol finds out about the affair, and they divorce. After the divorce, Gogol changes architectural firms so he can be more creative with his work.
+
+**Final Realization -** At the end of the novel, Gogol returns to his cultural identity as a child of Bengali immigrants. He returns to the memory of his father in a meaningful way. 
+
+Gogol comes home for Christmas, to celebrate his mother's final holiday in the old Boston house. Ashima has decided to sell the house. She plans to alternate living in Boston (with Sonia and her fiancé, Ben) and Calcutta so she can maintain her ties with family. Ashima starts her life again by moving from the marital home.
+
+While home for his mother's final holiday in the family's old Boston house, Gogol enters his old bedroom and finds the book of Nikolai Gogol's stories, the gift from his father. He sees his father's inscription: “The man who gave you his name, from the man who gave you your name”. This sparks the realization in Gogol that his parents were in an unbelievably lonely place when they first came to the United States, and his loneliness is nothing compared to theirs. Gogol, by finally reading "The Overcoat," is symbolically stepping into his father's legacy—just as Ashima once secretly stepped into Ashoke's shoes, feeling the warmth of his presence and the foreignness of his journey.
+
+**Thematic Realization ("Series of Accidents"):** In his final reflections, Gogol thinks about how his life feels like a **"series of accidents"** or **"disasters"** : his father's train accident, the lost letter and accidental naming , and the mistake of marrying Moushumi.
+
+**Thematic Realization ("Adapting"):** He realizes that these unexpected events have made him who he is and that, just like his parents, **he has spent his life trying to "adapt"**.
+
+### Detailed Summary of Nikolai Gogol’s Short Story "The Overcoat"
+
+"The Overcoat," a short story by Nikolai Gogol, was published in Russian in 1842 and is considered the best-known and most influential short fiction in all of Russian literature.
+
+**Protagonist and Background:**
+
+- The protagonist is Akaky Akakiyevich Bashmachkin.
+- Akaky Akakiyevich is an unattractive, unnoticed, underpaid government clerk.
+- His job is to meekly copy documents written by others.
+- Ashoke Ganguli, who loves the story, notes that his heart went out to poor Akaky, a humble clerk just as Ashoke’s father had been at the start of his career.
+- Ashoke notes that certain sentences and phrases about the story are embedded in his memory.
+
+**The Plot (The Coat, Theft, and Death) -**
+- Akaky decides that he must replace his ancient, worn overcoat.
+- After economizing for months, a tailor fashions for him a fine new coat made of cat fur just in time for winter.
+- A specific detail Ashoke remembers is that he "shuddered at the description of the tailor Petrovich's big toe, 'with its deformed nail as thick and hard as the shell of a tortoise'"
+- The story captures Ashoke’s heart because it lays the "truth of human tragedy laid threadbare".
+- Ashoke, when reading, was immersed in the sartorial plight of Akaky Akakyevich.
+- Ashoke’s mouth watered at the cold veal and cream pastries and champagne Akaky consumed the night his precious coat was stolen, in spite of the fact that Ashoke had never tasted these things himself.
+- On his way home from a office party, wearing his new coat for the first time, Akaky is assaulted by two ruffians who steal the garment.
+- Ashoke was always devastated when Akaky was robbed in "a square that looked to him like a dreadful desert," leaving him cold and vulnerable.
+- The police are indifferent to Akaky’s plight.
+- His coworkers refer him to a Certain Important Personage who becomes outraged by Akaky’s temerity and refuses to help.
+- Coatless, Akaky catches cold and dies.
+- Akaky’s death, some pages later, never failed to bring tears to Ashoke’s eyes.
+
+**Rumor of the Ghost -**
+- Soon, rumours spread that a ghost is stripping coats from pedestrians.
+- The story concludes when one night, the Certain Important Personage was on his way to meet his mistress is seized by the collar and relieved of his overcoat.
+- The ghost, satisfied, never returns.
+- Just as Akaky’s ghost haunted the final pages, so did it haunt a place deep in Ashoke’s soul, shedding light on all that was irrational, all that was inevitable about the world.
+
+**Themes -**
+- The story is described as an absurd, tragic, yet oddly inspiring story.
+- It captured Ashoke’s heart because it laid the "truth of human tragedy laid threadbare".
+- The name Akaky Akakiyevich Bashmachkin comes from a scene where Ashoke laughed aloud when reading the account of Akaky’s christening, and the series of queer names his mother had rejected.
+- Ashoke notes that in some ways the story made less sense each time he read it, and the scenes grew more elusive and profound.
+- A theme of the story is the pointlessness of human lives, summarized colloquially as shit happens.
