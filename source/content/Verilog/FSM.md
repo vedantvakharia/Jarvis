@@ -1,3 +1,154 @@
+## Adders
+
+```Verilog title:"Half adder"
+// Dataflow
+module ha_df(input a, b, output s, c);
+    assign {c, s} = a + b;
+endmodule
+
+// Structural 
+module ha_str(input a, b, output s, c);
+    xor g1(s, a, b);
+    and g2(c, a, b);
+endmodule
+
+// Behavioral
+module ha_beh(input a, b, output reg s, c);
+    always @* {c, s} = a + b;
+endmodule
+```
+
+```Verilog title:"Full adder"
+// Dataflow
+module fa_df(input a, b, cin, output s, cout);
+	assign {cout, s} = a + b + cin;
+endmodule
+
+// Structural
+module fa_str(input a, b, cin, output s, cout);
+	wire w1, w2, w3;
+	xor x1(s, a, b, cin);
+	and a1(w1, a, b), a2(w2, b, cin), a3(w3, a, cin);
+	or o1(cout, w1, w2, w3);
+endmodule
+
+// Behavioral
+module ha_beh(input a, b, cin, output s, cout);
+	always @* {cout, s} = a + b +cin;
+endmodule
+```
+
+```Verilog title:"BCD BitAdder"
+// Dataflow
+module bcd_df(input [3:0] a, b, input cin, output [3:0] s, output cout);
+	wire [4:0] d = a + b + cin;
+	assign cout = (d > 9);
+	assign s = cout ? (d+6) : d; // Truncatation of vector, discards MSB
+endmodule
+
+// Strcutural
+// Helper module
+module adder4(input [3:0] a, b, input cin, output [3:0] s, output cout);
+	assign {cout, s} = a + b + cin;
+endmodule
+
+module bcd_str(input [3:0] a, b, input cin, output [3:0] s, output cout);
+	wire [3:0] z, y;
+	wire c1, c2, adj, t1, t2;
+	
+	adder4 add1(a, b, cin, z, c1);
+	
+	// If z>9, we add 6. adj = 1 if c1 = 1 or z>9.
+	// z>9 when z[3] = 1 and (z[2] = 1 or z[1] = 1).
+	or o1(t1, z[2], z[1]);
+	and a1(t2, o1, z[3]);
+	or o2(adj, t2, c1);
+	
+	assign cout = adj;
+	
+	adder4 add2(z, 4'b0110, 1'b0, y, c2);
+	assign s = adj ? y : z;
+endmodule
+
+// Behavioral
+module bcd_beh(input [3:0] a, b, input cin, output reg [3:0] s, output reg cout);
+	reg [4:0] sum_temp; 
+	always @(*) begin
+		sum_temp  = a + b + cin;
+		
+		if(sum_temp>9) {cout, s} = sum_temp + 6;
+		else if begin
+			s = sum_temp;
+			cout = 0;
+		end
+	end
+endmodule
+```
+
+## Multipliers
+
+```Verilog title:"Multiplier"
+// Dataflow
+module mul_df(input [1:0] a, b, output [3:0] p);
+	assign p = a*b;
+endmodule
+
+// Behavioral
+module mul_bf(input [1:0] a, b, output reg [3:0] p);
+	always @* p = a*b;
+endmodule
+
+// Multiplier code will be same for all a bit x b bit numbers, only the input and output vector will change when using dataflow and behavioral. 
+
+// Structural for 4x3
+module mul4x3_str(input [3:0] a, input [2:0] b, output [6:0] p);
+    wire [3:0] pp0, pp1, pp2; // Partial products
+    wire [6:0] sum1;
+
+    // 1. Generate Partial Products (AND gates)
+    and g0[3:0](pp0, a, {4{b[0]}}); // a * b[0]
+    and g1[3:0](pp1, a, {4{b[1]}}); // a * b[1]
+    and g2[3:0](pp2, a, {4{b[2]}}); // a * b[2]
+    // {4{b[0]}} means that we need to make 4 copies of b[0] so that the number becomes b[0], b[0], b[0], b[0].
+
+    // 2. Summation (Shift and Add)
+    // sum1 = pp0 + (pp1 << 1)
+    adder7 add1({3'b0, pp0}, {2'b0, pp1, 1'b0}, sum1);
+    // We are padding here because the output needs 7 bit output. Also, we don't directly add ro1 and ro2, we shift the row2 1 left and then add in multiplication.
+    // p = sum1 + (pp2 << 2)
+    adder7 add2(sum1, {1'b0, pp2, 2'b0}, p);
+
+endmodule
+
+// Helper adder module
+module adder7(input [6:0] x, y, output [6:0] s);
+    assign s = x + y;
+endmodule
+```
+
+## Decoders
+
+```Verilog title:Decoders
+module dec3to8_en_df(input [2:0] in, input en, output [7:0] out);
+    assign out = en ? (1'b1 << in) : 8'b0; // With enable
+    // For 4 to 16 decoder, it will be 16'b0 instead of 8'b0.
+    assign out = 1'b1<<in; // Without enable, same for both cases. 
+endmodule
+
+module dec3to8_en_beh(input [2:0] in, input en, output reg [7:0] out);
+    always @* out = en ? (1'b1 << in) : 8'b0; // With enable
+    // For 4 to 16 decoder, it will be 16'b0 instead of 8'b0.
+    always @* out = 1'b1<<in; // Without enable, same for both cases. 
+endmodule
+```
+
+## Encoders
+
+
+
+
+
+
 ## Mealy Finite State Machine
 
 ## Using Behavioral Modeling

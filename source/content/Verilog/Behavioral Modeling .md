@@ -35,7 +35,7 @@ begin
 end
 ```
 
-Four statements—_x = 0, y = 0, x = 1, y = 1_—are to be executed at simulation time 0. However, since _x = 1_ and _y = 1_ have #0, they will be executed last. Thus, at the end of time 0, _x_ will have value 1 and _y_ will have value 1. The order in which _x = 1_ and _y = 1_ are executed is not deterministic.
+Four statements - x = 0, y = 0, x = 1, y = 1 are to be executed at simulation time 0. However, since _x = 1_ and _y = 1_ have #0, they will be executed last. Thus, at the end of time 0, _x_ will have value 1 and _y_ will have value 1. The order in which _x = 1_ and _y = 1_ are executed is not deterministic.
 
 
 ### Event-Based Timing Control (`@`)
@@ -59,7 +59,7 @@ always @(posedge clock)
 always @(reset or clock or d)
 ```
 
-- **Implicit Events (@*) -** This is a special form of level-sensitive event control introduced in Verilog-2001. The @* automatically creates a sensitivity list of all signals that are read inside the always block. It is the modern, recommended way to model combinational logic to prevent accidentally creating latches.
+- **Implicit Events (`@*`) -** This is a special form of level-sensitive event control introduced in Verilog-2001. The @* automatically creates a sensitivity list of all signals that are read inside the always block. It is the modern, recommended way to model combinational logic to prevent accidentally creating latches.
 
 - **Named Events -** Verilog allows you to declare a named event, which can then be triggered manually. The always block can wait for this named event. An event is declared with the keyword event and triggered with the -> operator.
 

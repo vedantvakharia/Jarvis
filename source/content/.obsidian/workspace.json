@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CIEF/Namesake.md",
+                "file": "Verilog/FSM.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Namesake"
+              "title": "FSM"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "856ac061c917d108",
+            "id": "34a291a87d3fe95f",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -185,10 +185,13 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
-    "Java/Basics.md",
-    "CIEF/Namesake.md",
-    "Pytorch/Quantization.md",
+    "Verilog/Behavioral Modeling .md",
+    "Verilog/Verilog.md",
     "Prolog.md",
+    "Verilog/FSM.md",
+    "CIEF/Namesake.md",
+    "Java/Basics.md",
+    "Pytorch/Quantization.md",
     "CIEF/CIEF Overview.md",
     "Java/Data structure.md",
     "Java/Java.md",
@@ -201,9 +204,6 @@
     "C++/Strings.md",
     "C++/Basics.md",
     "C++/CV/CV.md",
-    "Verilog/FSM.md",
-    "Verilog/Behavioral Modeling .md",
-    "Verilog/Verilog.md",
     "Week - 3 Assignment.md",
     "Attachements/Pasted image 20251006011255.png",
     "CIEF/Midnight's Children.md",

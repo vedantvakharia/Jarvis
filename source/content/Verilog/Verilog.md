@@ -65,7 +65,6 @@ For every case, specify the value. If for any case, a value is not given, then a
 
 #### If else
 
-
 ```verilog title:If-else
 // The begin and end keywords are optional if you only have one statement in the block.
 
