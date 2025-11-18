@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Verilog/FSM.md",
+                "file": "Verilog/Codes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "FSM"
+              "title": "Codes"
             }
           }
         ]
@@ -188,7 +188,7 @@
     "Verilog/Behavioral Modeling .md",
     "Verilog/Verilog.md",
     "Prolog.md",
-    "Verilog/FSM.md",
+    "Verilog/Codes.md",
     "CIEF/Namesake.md",
     "Java/Basics.md",
     "Pytorch/Quantization.md",

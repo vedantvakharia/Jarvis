@@ -144,6 +144,49 @@ endmodule
 
 ## Encoders
 
+```verilog title:Encoders
+// Dataflow
+module enc8to3_df(input [7:0] i, output [2:0] y);
+    assign y [2] = i[4]|i[5]|i[6]|i[7];
+    assign y [1] = i[2]|i[3]|i[6]|i[7];
+    assign y [0] = i[1]|i[3]|i[5]|i[7];
+endmodule
+
+// Behavioral
+module enc8to3_beh(input [7:0] i, output reg [2:0] y);
+    always @* begin
+        y[2] = i[4] | i[5] | i[6] | i[7];
+        y[1] = i[2] | i[3] | i[6] | i[7];
+        y[0] = i[1] | i[3] | i[5] | i[7];
+    end
+endmodule
+
+// Strcutural
+module enc8to3_str(input [7:0] i, output [2:0] y);
+    or g2(y[2], i[4], i[5], i[6], i[7]);
+    or g1(y[1], i[2], i[3], i[6], i[7]);
+    or g0(y[0], i[1], i[3], i[5], i[7]);
+endmodule
+```
+
+```verilog title:"Priority Encoder"
+module pe4to3_df(input [3:0] d, output [2:0] y);
+    assign y[2] = |d;                       // Valid bit (OR reduction)
+    assign y[1] = d[3] | d[2];              // Bit 1
+    assign y[0] = d[3] | (~d[2] & d[1]);    // Bit 0
+endmodule
+
+module pe4to3_beh(input [3:0] d, output reg [2:0] y);
+	integer i;
+	always @* begin
+	y = 0;
+		for(i = 0; i < 4, i = i+1)
+			if(d[i]) y = i[2:0];
+			// i is first converted to bin, then sliced for it's last 3 digits
+	end
+	// Use loops if there are like 8 or 16, where for loop will be better than writing cases. We can use cases for 4:3 as there are only 4 cases. 
+endmodule
+```
 
 
 
