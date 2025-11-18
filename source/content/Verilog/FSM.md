@@ -1,6 +1,6 @@
 ## Adders
 
-```Verilog title:"Half adder"
+```verilog title:"Half adder"
 // Dataflow
 module ha_df(input a, b, output s, c);
     assign {c, s} = a + b;
@@ -18,7 +18,7 @@ module ha_beh(input a, b, output reg s, c);
 endmodule
 ```
 
-```Verilog title:"Full adder"
+```verilog title:"Full adder"
 // Dataflow
 module fa_df(input a, b, cin, output s, cout);
 	assign {cout, s} = a + b + cin;
@@ -38,7 +38,7 @@ module ha_beh(input a, b, cin, output s, cout);
 endmodule
 ```
 
-```Verilog title:"BCD BitAdder"
+```verilog title:"BCD Adder"
 // Dataflow
 module bcd_df(input [3:0] a, b, input cin, output [3:0] s, output cout);
 	wire [4:0] d = a + b + cin;
@@ -87,7 +87,7 @@ endmodule
 
 ## Multipliers
 
-```Verilog title:"Multiplier"
+```verilog title:"Multiplier"
 // Dataflow
 module mul_df(input [1:0] a, b, output [3:0] p);
 	assign p = a*b;
