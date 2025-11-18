@@ -477,16 +477,39 @@ endmodule
 module dff(input clk, rst_n, output q)
 	always @(posedge clk, negedge rst_n) begin
 		if(!rst_n) q <= 1'b0;
-		else if q <= ~q; // We are doing here compliment as counters need compliment input. 
+		else if q <= ~q; 
+		// We are doing here compliment as counters need compliment input. 
 	end
 endmodule
 
 module brc(input clk, rst_n, output [3:0] q)
-	
 	dff d0(clk, rst_n, q[0]);
 	dff d1(q[0], rst_n, q[1]);
 	dff d2(q[1], rst_n, q[2]);
 	dff d3(q[2], rst_n, q[3]);
+endmodule
+
+// Without making module of dff. 
+module brc(input clk, rst_n, output [3:0]q)
+	always @(posedge clk, negedge rst_n) begin
+		if(!rst_n) q <= 1'b0;
+		else if q [0] <= ~q [0];
+	end
+	
+	always @(posedge q[0], negedge rst_n) begin
+		if(!rst_n) q <= 1'b0;
+		else if q [1] <= ~q [1];
+	end
+	
+	always @(posedge q[1], negedge rst_n) begin
+		if(!rst_n) q <= 1'b0;
+		else if q [2] <= ~q [2];
+	end
+	
+	always @(posedge q[2], negedge rst_n) begin
+		if(!rst_n) q <= 1'b0;
+		else if q [3] <= ~q [3];
+	end
 endmodule
 ```
 
