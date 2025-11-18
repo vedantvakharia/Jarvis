@@ -370,7 +370,7 @@ endmodule
 ```
 
 ```verilog title:"2 Always blocks"
-module FSM (input clk, input reset, input in, output reg out);
+module mealyfsm(input clk, input reset, input in, output reg out);
 
 	reg [1:0]state; nextState;
 	
@@ -401,3 +401,95 @@ module FSM (input clk, input reset, input in, output reg out);
 	end
 endmodule
 ```
+
+### Moore Finite State Machine
+
+```verilog 
+modue moorefsm(input clk, rstn, x, output reg out)
+	
+	// Parameters
+	parameter S0 = 2'b00, S1 = 2'b01, S2 = 2'b10, S3 = 2'b11;
+	
+	reg [1:0] state, next_state;
+	
+	// Flip flop block
+	always @(posedge clk, negedge rstn) begin
+		if(!rst) state <= S0;
+		else if state <= next_state;
+	end
+	
+	// Next state block
+	always @(posedge clk) begin
+		case(state)
+			S0: begin
+				if(x) next_state = ___
+				else if next state = ___
+		.
+		.
+		.
+		endcase
+	end
+	
+	// Output block
+	always @* begin
+		case (state) begin
+			S0: out = __
+			.
+			.
+			default out = __
+		endcase
+	end
+endmodule
+```
+
+
+## Registers
+
+```verilog title:"Universal Shift Registers"
+module usr4(input clk, rstn, sinr, sinl, [1:0] s, [3:0] pin, output reg [3:0] q)
+// sinr = Serial Input right
+// sinl = Serial Input left
+// s = serial input lines
+// pin = parallel input
+
+	always @(posedge clk, negedge rstn) begin
+		if(!rstn) q <= 4'b0;
+		else begin
+			case (s)
+				2'b00 : q <= q; // Hold values
+				2'b01 : q <= {sinr, q[3:1]}; // Shift right
+				2'b10 : q <= {q[2:0], sinl}; // Shift left
+				2'b11 : q <= pin; // Get new values
+				default : q <= q; // Default - hold values
+			endcase
+		end
+	end
+endmodule
+```
+
+
+## Counters
+
+## Ripple counters
+
+```verilog title:"Binary ripple counter"
+// Using Hierarchical modelling
+module dff(input clk, rst_n, output q)
+	always @(posedge clk, negedge rst_n) begin
+		if(!rst_n) q <= 1'b0;
+		else if q <= ~q; // We are doing here compliment as counters need compliment input. 
+	end
+endmodule
+
+module brc(input clk, rst_n, output [3:0] q)
+	
+	dff d0(clk, rst_n, q[0]);
+	dff d1(q[0], rst_n, q[1]);
+	dff d2(q[1], rst_n, q[2]);
+	dff d3(q[2], rst_n, q[3]);
+endmodule
+```
+
+
+
+

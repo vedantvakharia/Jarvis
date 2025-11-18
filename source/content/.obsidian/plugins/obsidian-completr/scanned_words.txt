@@ -1110,6 +1110,8 @@ Medical
 Maxine
 Moushumi
 Multipliers
+MUX
+Moore
 version
 vyj
 vE
@@ -3275,6 +3277,7 @@ Ratliff
 Ratliffs
 Realization
 Rumor
+Registers
 yN
 yyyG
 yD
