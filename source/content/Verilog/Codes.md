@@ -186,9 +186,51 @@ module pe4to3_beh(input [3:0] d, output reg [2:0] y);
 	end
 	// Use loops if there are like 8 or 16, where for loop will be better than writing cases. We can use cases for 4:3 as there are only 4 cases. 
 endmodule
+
+module pe4to3_str(input [3:0] d, output [2:0] y);
+    wire not_d2, term;
+    
+    or valid(y[2], d[3], d[2], d[1], d[0]); // Valid Bit
+    or out1 (y[1], d[3], d[2]);             // Bit 1 logic
+    
+    // Bit 0 logic: d[3] + (!d[2] * d[1])
+    not inv2(not_d2, d[2]);
+    and and1(term, not_d2, d[1]);
+    or  out0(y[0], d[3], term);
+endmodule
 ```
 
+## MUX
 
+```verilog title:"2:1 MUX"
+module mux2to1_df(input a, b, s, output y)
+	assign y = s ? b : a;
+endmodule
+
+module mux2to1_beh(input a, b, s, output reg y)
+	always @* begin
+		if(s) y = b;
+		else y = a;
+	end
+endmodule
+```
+
+```verilog title:"4:1 MUX"
+module mux4to1_df(input [3:0] i, input [1:0] s, output y)
+	assign y = i[s];
+endmodule
+
+module mux4to1_beh(input [3:0] i, input [1:0] s, output y)
+	always @* begin
+		case (s)
+			2'b00 : y = i[0];
+			2'b00 : y = i[0];
+			2'b00 : y = i[0];
+			2'b00 : y = i[0];
+		endcase
+	end
+endmodule
+```
 
 
 
