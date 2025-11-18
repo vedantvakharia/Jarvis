@@ -232,6 +232,18 @@ module mux4to1_beh(input [3:0] i, input [1:0] s, output y)
 endmodule
 ```
 
+## Latches
+
+```verilog title:"SR Latch"
+
+```
+
+
+
+
+
+
+
 
 
 ## Mealy Finite State Machine
