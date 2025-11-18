@@ -85,6 +85,7 @@ module bcd_beh(input [3:0] a, b, input cin, output reg [3:0] s, output reg cout)
 endmodule
 ```
 
+
 ## Multipliers
 
 ```verilog title:"Multiplier"
@@ -126,6 +127,7 @@ module adder7(input [6:0] x, y, output [6:0] s);
 endmodule
 ```
 
+
 ## Decoders
 
 ```verilog title:Decoders
@@ -141,6 +143,7 @@ module dec3to8_en_beh(input [2:0] in, input en, output reg [7:0] out);
     always @* out = 1'b1<<in; // Without enable, same for both cases. 
 endmodule
 ```
+
 
 ## Encoders
 
@@ -200,6 +203,7 @@ module pe4to3_str(input [3:0] d, output [2:0] y);
 endmodule
 ```
 
+
 ## MUX
 
 ```verilog title:"2:1 MUX"
@@ -231,6 +235,7 @@ module mux4to1_beh(input [3:0] i, input [1:0] s, output y)
 	end
 endmodule
 ```
+
 
 ## Latches
 
@@ -266,20 +271,42 @@ module dlatch(input d, en, output reg q, qn)
 			else if {q, qn} = 2'b01;
 		end
 	end
-endmodul
+endmodule
 ```
 
 
+## Flip-flop
+
+```verilog title:Flip-Flop
+module jkff(input j, k, clk, output reg q);
+    always @(posedge clk) begin
+        case ({j,k})
+            2'b01: q <= 0;  // Reset
+            2'b10: q <= 1;  // Set
+            2'b11: q <= ~q; // Toggle
+            // 2'b00 implies Hold (default)
+        endcase
+    end
+    
+    assign qn = ~q;
+endmodule
+
+module dff(input d, clk, output reg q);
+    always @(posedge clk) q <= d;
+    assign qn = ~q;
+endmodule
+
+module tff(input t, clk, output reg q);
+    always @(posedge clk) if (t) q <= ~q; // Else implies hold
+    
+    assign qn = ~q;
+endmodule
+```
 
 
+## Finite State Machine
 
-
-
-
-
-## Mealy Finite State Machine
-
-## Using Behavioral Modeling
+### Mealy Finite State Machine
 
 ```verilog title:"3 Always blocks"
 module mealy_fsm (
