@@ -128,7 +128,7 @@ endmodule
 
 ## Decoders
 
-```Verilog title:Decoders
+```verilog title:Decoders
 module dec3to8_en_df(input [2:0] in, input en, output [7:0] out);
     assign out = en ? (1'b1 << in) : 8'b0; // With enable
     // For 4 to 16 decoder, it will be 16'b0 instead of 8'b0.
