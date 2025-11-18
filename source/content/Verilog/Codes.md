@@ -234,8 +234,39 @@ endmodule
 
 ## Latches
 
-```verilog title:"SR Latch"
+```verilog title:"Latches"
+module srnorlatch(input s, r, output reg q, qn)
+	always @* begin
+		if(s) {q, qn} = 2'b10;
+		else if(r) {q, qn} = 2'b01;
+		// For all the other cases, q and qn don't change as they are supossed to as those cases have not been mentioned.
+	end
+endmodule
 
+module srnandlatch(input s, r, output reg q, qn)
+	always @* begin
+		if(~s) {q, qn} = 2'b10;
+		else if(~r) {q, qn} = 2'b01;
+	end
+endmodule
+
+module srenlatch(input s, r, en, output reg q, qn)
+	always @* begin
+		if(en) begin
+			if(s) {q, qn} = 2'b10;
+			else if(r) {q, qn} = 2'b01;
+		end
+	end
+endmodule
+
+module dlatch(input d, en, output reg q, qn)
+	always @* begin
+		if(en) begin
+			if(d) {q, qn} = 2'b10;
+			else if {q, qn} = 2'b01;
+		end
+	end
+endmodul
 ```
 
 
