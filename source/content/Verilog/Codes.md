@@ -513,6 +513,89 @@ module brc(input clk, rst_n, output [3:0]q)
 endmodule
 ```
 
+```verilog title:"BCD Ripple counter"
+module jk_flip_flop(input clk, rst_n, j_in, k_in, output reg q_out, output qn_out);
+    assign qn_out = ~q_out; 
+    
+    always @(negedge clk or negedge rst_n) begin
+        if (!rst_n) 
+            q_out <= 1'b0;
+        else begin
+            case ({j_in, k_in})
+                2'b00: q_out <= q_out; // Hold
+                2'b01: q_out <= 1'b0;  // Reset (K=1, J=0)
+                2'b10: q_out <= 1'b1;  // Set (J=1, K=0)
+                2'b11: q_out <= ~q_out;// Toggle (J=1, K=1)
+                default: q_out <= 1'b0; 
+            endcase
+        end
+    end
+endmodule
+
+module bcd_ripple_counter(input clk, nrst_n, output [3:0] Q);
+    
+    // Wires for the Q and QN outputs of each JK Flip-Flop
+    wire [3:0] QN;
+
+    // --- DECADE COUNTER JK LOGIC ---
+    // JK Inputs are defined based on the BCD transition table (J=K=1 for stages 0 and 2)
+    // J=K=1 is set for U0 and U2
+    wire j0 = 1'b1;
+    wire k0 = 1'b1;
+    
+    wire j1 = ~Q[3]; // Q1 only toggles if Q3 is 0 (i.e., counts 0-7)
+    wire k1 = 1'b1;  
+    
+    wire j2 = Q[0];  // Q2 only toggles if Q0 is 1
+    wire k2 = 1'b1;
+    
+    // Q3 should only toggle when Q2=1 AND Q1=1 (at count 7)
+    // But it must be forced LOW at count 10 (when Q3 and Q1 are HIGH)
+    wire j3 = Q[2] & Q[1]; 
+    wire k3 = 1'b1; // K is always 1 to reset Q3 at the appropriate time
+
+    // --- INSTANTIATIONS ---
+    // Stage 0 (LSB): Clocked by the main CLK. Always Toggle (J=K=1)
+    jk_flip_flop u0 (
+        .clk    (clk), 
+        .rst_n  (rst_n), 
+        .j_in   (j0), 
+        .k_in   (k0), 
+        .q_out  (Q[0]),
+        .qn_out (QN[0])
+    );
+    
+    // Stage 1: Clocked by Q0's inverted output (Ripple). Conditional Toggle.
+    jk_flip_flop u1 (
+        .clk    (QN[0]), // Clocked by Q0_bar
+        .rst_n  (rst_n), 
+        .j_in   (j1),    // J1 = Q3_bar
+        .k_in   (k1), 
+        .q_out  (Q[1]),
+        .qn_out (QN[1])
+    );
+
+    // Stage 2: Clocked by Q1's inverted output (Ripple). Conditional Toggle.
+    jk_flip_flop u2 (
+        .clk    (QN[1]), // Clocked by Q1_bar
+        .rst_n  (rst_n), 
+        .j_in   (j2),    // J2 = Q0
+        .k_in   (k2), 
+        .q_out  (Q[2]),
+        .qn_out (QN[2])
+    );
+
+    // Stage 3 (MSB): Clocked by Q2's inverted output (Ripple). Conditional Toggle/Reset.
+    jk_flip_flop u3 (
+        .clk    (QN[2]), // Clocked by Q2_bar
+        .rst_n  (rst_n), 
+        .j_in   (j3),    // J3 = Q2 & Q1
+        .k_in   (k3), 
+        .q_out  (Q[3]),
+        .qn_out (QN[3])
+    );
+endmodule
+```
 
 
 

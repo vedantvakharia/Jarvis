@@ -3278,6 +3278,7 @@ Ratliffs
 Realization
 Rumor
 Registers
+Ripple
 yN
 yyyG
 yD
@@ -7670,6 +7671,7 @@ City
 Coat
 Certain
 Coatless
+Counters
 ot
 oV
 oz
@@ -11900,6 +11902,7 @@ catches
 coats
 collar
 christening
+counters
 whatever
 write
 will
