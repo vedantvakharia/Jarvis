@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Verilog/Codes.md",
+                "file": "CIEF/White tiger.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Codes"
+              "title": "White tiger"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "84953e1db8914a3b",
+            "id": "e4adc30b8e221fed",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -186,11 +186,12 @@
   },
   "active": "20634bd84818d5ea",
   "lastOpenFiles": [
+    "CIEF/White tiger.md",
+    "CIEF/Namesake.md",
+    "Verilog/Codes.md",
     "Verilog/Behavioral Modeling .md",
     "Verilog/Verilog.md",
     "Prolog.md",
-    "Verilog/Codes.md",
-    "CIEF/Namesake.md",
     "Java/Basics.md",
     "Pytorch/Quantization.md",
     "CIEF/CIEF Overview.md",
@@ -222,7 +223,6 @@
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "Attachements/output_minibatch-sgd_f4d60f_159_0.svg",
     "Attachements/output_minibatch-sgd_f4d60f_135_1.svg",
-    "Python/OOPS.md",
     ".md",
     "Tags",
     "Attachements",

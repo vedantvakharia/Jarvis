@@ -13,7 +13,7 @@ Following her debut, Lahiri published her novel, The Namesake, in 2003 (which wa
 
 In her later career, Lahiri focused on writing in Italian. She moved to Rome in 2012 and developed fluency in the language. This resulted in the publication of her first book written in Italian, In altre parole (_In Other Words_), in 2015.
 
-In addition to writing in Italian, the notes also mention that she **translates from Italian to English**.
+In addition to writing in Italian, the notes also mention that she translates from Italian to English.
 
 ## Plot
 
@@ -56,9 +56,12 @@ In addition to writing in Italian, the notes also mention that she **translates 
 - She is pregnant but still feels as if she and Ashoke do not really know each other yet.
 - During labor at Mount Auburn Hospital, she is alone, cut off by curtains from the three American women (Beverly, Lois, and Carol) in the room.
 - She notes that all her life she had slept either in a room with her parents or with Ashoke at her side, making this the first time she has slept alone, surrounded by strangers.
-- Hearing an American man tell his wife, "I love you, sweetheart," Ashima notes that these are words she has neither heard nor expects to hear from her own husband because "this is not how they are".
+- Hearing an American man tell his wife, "I love you, sweetheart," Ashima notes that these are words she has neither heard nor expects to hear from her own husband because "this is not how they are". She notes that Americans, despite their "miniskirts and bikinis" and public displays of affection ("lying on top of each other on the Cambridge Common"), surprisingly "prefer their privacy" in the hospital (the curtains). This highlights her confusion about American boundaries—they are physically open but emotionally distant in moments of crisis.
 - She is embarrassed by the hospital’s flowered cotton gown that only reaches her knees.
 - She wonders if she is the only Indian person in the hospital.
+- In the delivery room, Ashima wears a watch that was a "bon voyage gift from her parents" given to her at the airport. She calculates the time in India on her hands: "it is nine and a half hours ahead in Calcutta". She vividly imagines what her family is doing at that exact moment (pouring tea, her father smoking). This emphasizes that while her body is in the US, her mind is living in Indian time.
+- While lying in her hospital bed during the early stages of labor, she reads a tattered copy that she had originally brought with her on the plane ride to Boston. It is a source of perpetual comfort for her, particularly because page eleven features a pen-and-ink drawing of the North Calcutta skyline sketched by her father. She had watched him draw it on their roof in Calcutta. This deepens the tragedy of his later death, as this object was her tangible connection to him in the delivery room.
+- Ashima refuses the hospital meal (cold baked chicken) because Americans eat their chicken in its skin. She sticks to Jell-O and apple juice instead.
 - She reflects that in India, women go home to their parents to give birth, retreating to childhood, and finds nothing comforting in the off-white tiles, ceilings, or white sheets of the hospital.
 - Ashima is terrified to raise a child in a country where she is related to no one, where she knows so little, where life seems so tentative and spare.
 - After Ashoke becomes a professor and moves the family to a suburb of Boston, the move is difficult for Ashima because she leaves her friends in Cambridge for a neighborhood where people do not really speak with one another often.
@@ -85,7 +88,7 @@ In addition to writing in Italian, the notes also mention that she **translates 
 - The Ganguli family’s social life revolves around a large group of Bengali families who emigrated for study and professional opportunities.
 - The need for familiar faces and Bengali customs led Bengalis to find one another and create communities.
 - Ashoke works hard to make the best of the opportunity in the US and wants to give his wife and children a comfortable life and a social network.
-- Ashima reads materials from home, such as a tattered copy of _Desh_ magazine, in her native Bengali language.
+- Ashima reads materials from home, such as a tattered copy of Desh magazine, in her native Bengali language. 
 
 #### Language and Propriety
 - Bengali immigrants had to learn American English, which differed from the British English they knew.
@@ -114,7 +117,7 @@ Ashoke Ganguli’s near-fatal train accident occurred in the earliest hours of O
 #### The Journey and Conversation with Ghosh
 Ashoke carried a single volume for the journey, a hardbound collection of short stories by Nikolai Gogol. His grandfather had given him this book when he had graduated from class twelve, and Ashoke had written his own name beneath his grandfather’s signature on the title page. Because of Ashoke’s passion for this particular book, the spine had recently split.
 
-Ashoke was traveling in a second-class sleeper in the seventh bogie, behind the air-conditioned coach. He shared his compartment with three others, including a friendly, potbellied, middle-aged Bengali businessman named Ghosh, who was wearing a suit and tie. Ghosh told Ashoke he had returned to India after spending 2 years in England on a job voucher because his wife was inconsolably miserable abroad. Ghosh spoke reverently of England, describing its sparkling, empty streets, polished black cars, and rows of gleaming white houses as being like a dream. He mentioned that trains departed and arrived according to schedule and that no one spat on the sidewalks.
+Ashoke was traveling in a second-class sleeper in the seventh bogie, behind the air-conditioned coach. He shared his compartment with three others - a friendly, potbellied, middle-aged Bengali businessman named Ghosh, who was wearing a suit and tie and a middle-aged Bihari couple. Ashoke observes them drink water from the same cup without either of them putting their lips to the rim, a specific cultural detail of the setting. Ghosh told Ashoke he had returned to India after spending 2 years in England on a job voucher because his wife was inconsolably miserable abroad. Ghosh spoke reverently of England, describing its sparkling, empty streets, polished black cars, and rows of gleaming white houses as being like a dream. He mentioned that trains departed and arrived according to schedule and that no one spat on the sidewalks.
 
 Ghosh asked Ashoke if he had seen much of this world. Ashoke replied that he had only traveled once to Delhi and once a year to Jamshedpur. Ghosh then tilted his head toward the window, mentioning England and America, and asked Ashoke if he had considered going there. Ashoke said his professors mentioned it but that he had a family (a mother, father, and six siblings; he was the eldest). Ghosh speculated that in a few years Ashoke would be married and living in his parents' house. Ghosh then urged Ashoke: "You are still young. Free... Do yourself a favor. Before it’s too late, without thinking too much about it first, pack a pillow and a blanket and see as much of the world as you can. You will not regret it. One day it will be too late"**.
 
@@ -142,13 +145,10 @@ Ashoke’s survival of the train accident and subsequent recovery led him to sta
 
 The name "Gogol" becomes his son's pet name (_daknaam_). The story of the train accident and his survival, however, is a secret Ashoke keeps to himself for years. He finally tells Gogol about his namesake and the train accident when Gogol is an adult, after he officially changes his name to Nikhil. Ashoke later gives his son a volume of Gogol's stories as a gift, bearing the inscription: “The man who gave you his name, from the man who gave you your name”. This book, which Ashoke had loved, was given to the most precious person in his life: his son, Gogol.
 
-
 ### The Central Conflict of Gogol's Name
-
 The **central theme of _The Namesake_ is the importance of names**. The central conflict surrounding Gogol’s name stems from the collision between the **Bengali cultural tradition of having two names (one of which is chosen by an elder)** and the **American laws and systems regarding identity and naming**. This tension forces Ashoke and Ashima into a decision that they had initially refused to make. The result is that the child's informal pet name is accidentally made his official public name, which later embarrasses and alienates Gogol.
 
 #### The Bengali Tradition of Two Names
-
 The Bengali tradition of naming includes a **$daknaam$ (a pet name or nickname)** and a **$bhalonaam$ (a good name)**.
 
 - **$Daknaam$ (Pet Name):** This name is typically used for private or familiar life.
@@ -279,3 +279,23 @@ While home for his mother's final holiday in the family's old Boston house, Gogo
 - The name Akaky Akakiyevich Bashmachkin comes from a scene where Ashoke laughed aloud when reading the account of Akaky’s christening, and the series of queer names his mother had rejected.
 - Ashoke notes that in some ways the story made less sense each time he read it, and the scenes grew more elusive and profound.
 - A theme of the story is the pointlessness of human lives, summarized colloquially as shit happens.
+  
+## Miscellaneous
+
+**Ashoke’s walking while reading habit -**
+- **The Habit:** Since childhood, Ashoke had the habit of "reading while walking"
+- **The Previous Accident:** Once, while imitating him, a cousin fell down the stairs.
+- **The Mother's Fear:** Ashoke’s mother feared he would one day "be hit by a bus or a tram, his nose deep into _War and Peace_".
+- **Irony:** The irony is that his mother feared reading would kill him, but reading (Gogol) is ultimately what _saved_ him in the train crash.
+
+**Historical Context (Pre-1965 Immigration Laws) -**
+- **1924 Immigration Act:** This act drastically reduced immigration from "Southern and Eastern Europe" and Asian countries to "prevent communism and maintain cultural control" .
+- **Preference:** The US previously preferred "North Europeans" with similar ideologies.
+- **Significance:** Including this highlights just how new and rare the Gangulis' presence was in 1968; they were the very first beneficiaries of a massive policy shift.
+
+**Ashoke’s Pujo Money -**
+- He purchased his books (Graham Greene, Somerset Maugham) with his **"pujo money"** (gift money from religious festivals)9. This highlights his transition from religious tradition to secular intellectual passion.
+
+**Ashoke’s Physical & Psychological Scars -**
+- **The Limp -** A slight limp causes Ashoke's right foot to drag almost imperceptibly with each step. This is a permanent physical reminder of the crash.
+- **Claustrophobia:** The accident left him with deepest dread. He is claustrophobic, "holding his breath in elevators" and feeling pent-up in cars unless windows are open. On planes, he specifically "requests the bulkhead seat".
