@@ -264,8 +264,6 @@ Where:
   
 ##### Momentum
 
-
-
 In **standard SGD**, each step depends _only_ on the current gradient: $$ θ_{t+1} = θ_t−η⋅∇L(θ_t)$$
 But with **momentum**, we update using a velocity term that carries over information from the previous steps:
 $$

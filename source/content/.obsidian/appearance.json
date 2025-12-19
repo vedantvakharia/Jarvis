@@ -1,4 +1,5 @@
 {
   "showRibbon": false,
-  "accentColor": "#00ccff"
+  "accentColor": "#00ccff",
+  "theme": "moonstone"
 }

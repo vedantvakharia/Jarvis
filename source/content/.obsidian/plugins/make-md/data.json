@@ -40,9 +40,8 @@
   "expandedSpaces": [
     "/",
     "//SEM3",
-    "//CIEF",
     "//Tags",
-    "//Verilog"
+    "//C++"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",

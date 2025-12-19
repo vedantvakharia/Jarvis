@@ -157,13 +157,26 @@ These functions deal with the size and memory allocation of the vector.
 
 ---
 
-## Modifiers
+### Modifiers
 
 These functions change the contents of the vector.
 
-1. `clear()`- It destroys elements and sets `size` to 0. It does not change `capacity()`.`clear()` does not deallocate the memory the vector was using. The `capacity()` remains the same as it was before the call. The vector holds onto the allocated memory, anticipating that you might want to add new elements soon. A reallocation is not guaranteed to happen, and the [vector capacity](https://cplusplus.com/vector::capacity) is not guaranteed to change due to calling this function. A typical alternative that forces a reallocation is to use swap :  `vector<T>().swap(x);   // clear x reallocating
+1. `assign()`- 
+   
+```c++
+// Fill version - The new contents are _n_ elements, each initialized to a copy of val
+v.assign(size_t n, const T& val);
+
+// Range version - The new contents are elements constructed from each of the elements in the range between first and last, in the same order.
+v.assign(InputIterator first, InputIterator last);
+
+// The Initializer List Version - The new contents are copies of the values passed as initializer list, in the same order
+v.assign({val1, val2, val3...});
+```
+
+2. . `clear()`- It destroys elements and sets `size` to 0. It does not change `capacity()`.`clear()` does not deallocate the memory the vector was using. The `capacity()` remains the same as it was before the call. The vector holds onto the allocated memory, anticipating that you might want to add new elements soon. A reallocation is not guaranteed to happen, and the vector capacity is not guaranteed to change due to calling this function. A typical alternative that forces a reallocation is to use swap :  `vector<T>().swap(x);   // clear x reallocating
     
-2. `insert(pos, ...)`: Inserts new elements before the specified iterator position (`pos`). Can insert single elements, multiple copies of an element, or a range of elements.
+3. `insert(pos, ...)`: Inserts new elements before the specified iterator position (`pos`). Can insert single elements, multiple copies of an element, or a range of elements.
    
 ```c++
 // Single element 
@@ -198,7 +211,7 @@ vec.insert(it_pos, {20, 30, 40}); // vec = 10, 20, 30, 40, 50
 ```
 
     
-3. `emplace(pos, ...)`: Constructs an element in-place (directly in the vector's memory) before the specified iterator position. Often more efficient than `insert` if you're creating complex objects. It returns an iterator that points to the newly emplaced element.
+4. `emplace(pos, ...)`: Constructs an element in-place (directly in the vector's memory) before the specified iterator position. Often more efficient than `insert` if you're creating complex objects. It returns an iterator that points to the newly emplaced element.
   
   The problem with move insert is that we are creating unnecessary temp variable for insertion. For complex objects, creating this temporary can be wasteful if you're just going to move from it immediately. Also, because vectors use an array as their underlying storage, inserting elements in positions other than the vector end causes the container to shift all the elements that were after _position_ by one to their new positions. This is generally an inefficient operation compared to the one performed by other kinds of sequence containers (such as list or forward list). `emplace` takes the arguments needed to construct the object directly. It then forwards these arguments to the element's constructor, which is called right inside the allocated memory slot within the vector. The element is constructed in-place by calling `allocator_traits::construct` with _args_ forwarded.
 
@@ -212,7 +225,7 @@ myvector.emplace ( myvector.end(), 300 );
 ```
 
     
-4. `erase()`- Removes the element at the specified position (`pos`) or a range of elements (`[first, last)`). Returns an iterator pointing to the element immediately following the erased section. This is the container end if the operation erased the last element in the sequence. Time complexity is linear on the number of elements erased (destructions) plus the number of elements after the last element deleted (moving).
+5. `erase()`- Removes the element at the specified position (`pos`) or a range of elements (`[first, last)`). Returns an iterator pointing to the element immediately following the erased section. This is the container end if the operation erased the last element in the sequence. Time complexity is linear on the number of elements erased (destructions) plus the number of elements after the last element deleted (moving).
    
 ```c++
 iterator erase (const_iterator position);
@@ -220,10 +233,10 @@ iterator erase (const_iterator first, const_iterator last);
 ```
 
     
-- `push_back(value)`- Adds an element to the end of the vector. Might cause a reallocation if `capacity` is reached. When this capacity is exhausted and more is needed, it is automatically expanded by the container (reallocating it storage space). 
+6. `push_back(value)`- Adds an element to the end of the vector. Might cause a reallocation if `capacity` is reached. When this capacity is exhausted and more is needed, it is automatically expanded by the container (reallocating it storage space). 
     
-- `emplace_back(...)`: Constructs an element in-place at the end of the vector. Often more efficient than `push_back`. insert-> emplace, push_back -> emplace_back.
+7. `emplace_back(...)`: Constructs an element in-place at the end of the vector. Often more efficient than `push_back`. insert-> emplace, push_back -> emplace_back.
     
-- `pop_back()`: Removes the **last** element from the vector. (Does not return the element).
+8. `pop_back()`: Removes the last element from the vector. (Does not return the element).
     
-- `swap(other_vector)`: Exchanges the contents of this vector with another vector of the same type. This is usually very fast (just swaps the internal pointers).
+9. `swap(other_vector)`: Exchanges the contents of this vector with another vector of the same type. This is usually very fast (just swaps the internal pointers).

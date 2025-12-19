@@ -22,7 +22,7 @@ In addition to writing in Italian, the notes also mention that she translates fr
 #### Background in Calcutta
 - Ashoke and Ashima have immigrated to the United States from Calcutta, India.
 - Ashima’s family lived in a flat on Amherst street.
-- Ashima was working toward a college degree in English and used to tutor neighborhood schoolchildren in Tennyson, Wordsworth, pronunciation (of words like _sign_ and _cough_), and the difference between Aristotelian and Shakespearean tragedy.
+- Ashima was working toward a college degree in English and used to tutor neighborhood school children in Tennyson, Wordsworth, pronunciation (of words like _sign_ and _cough_), and the difference between Aristotelian and Shakespearean tragedy.
 - Ashoke’s family lived in Alipore.
 - Ashoke attended St. Xavier’s and then B.E. College, graduating first-class-first from both institutions.
 - Ashoke's father was a labor officer for the customs department of a shipping company.
@@ -36,7 +36,7 @@ In addition to writing in Italian, the notes also mention that she translates fr
 - When Ashoke came to see her, Ashima noticed his shoes—brown with black heels, off-white laces, and stitching, with a pattern pricked into the leather and the initials U.S.A. written inside.
 - Ashima, unable to resist an "overwhelming urge," stepped into the shoes; the lingering sweat from the owner’s feet mingled with hers, causing her heart to race, which was the closest thing she had ever experienced to the touch of a man.
 - She noted that on the left shoe, one of the crisscrossing laces had missed a hole, which helped set her at ease.
-- Ashoke was described as slightly plump, scholarly-looking, and youthful, with black thick-framed glasses, a neat mustache, and a beard covering only his chin.
+- Ashoke is described as slightly plump, scholarly-looking, and youthful, with black thick-framed glasses, a neat mustache, and a beard covering only his chin.
 - During the meeting, Ashoke was staring glumly at his knees and did not look up or say a word. His father did the talking.
 - Ashima was questioned about her willingness to fly on a plane and her capability of living in a city characterized by severe, snowy winters, alone.
 - Ashima only learned Ashoke’s name after the betrothal.
@@ -45,7 +45,7 @@ In addition to writing in Italian, the notes also mention that she translates fr
 
 #### Move to the United States
 - They moved to the United States so Ashoke could go to the Massachusetts Institute of Technology (MIT) to earn a PhD in electrical engineering.
-- Ashoke was able to come to the US as a PhD student because the Hart-Cellar Act (1965) had recently been passed, allowing his wife to join him.
+- Ashoke was able to come to the US as a PhD student because of the Hart-Cellar Act (1965) had recently been passed, allowing his wife to join him.
 - A key detail about Ashoke's character and hard work is that, despite his meager graduate student wages, he set aside money to send to his father in India to help build an extension on his parents' house.
 - A major cultural and social change for the couple was that immigrants in the US could no longer hire domestic help for cooking, cleaning, and washing. This meant these roles, which would have been handled by servants in India, shifted entirely to the women in the household.
 - Thematically, Ashoke is noted as representing all the very hard-working immigrants and the Indian mentality of hard work and success.
@@ -56,7 +56,7 @@ In addition to writing in Italian, the notes also mention that she translates fr
 - She is pregnant but still feels as if she and Ashoke do not really know each other yet.
 - During labor at Mount Auburn Hospital, she is alone, cut off by curtains from the three American women (Beverly, Lois, and Carol) in the room.
 - She notes that all her life she had slept either in a room with her parents or with Ashoke at her side, making this the first time she has slept alone, surrounded by strangers.
-- Hearing an American man tell his wife, "I love you, sweetheart," Ashima notes that these are words she has neither heard nor expects to hear from her own husband because "this is not how they are". She notes that Americans, despite their "miniskirts and bikinis" and public displays of affection ("lying on top of each other on the Cambridge Common"), surprisingly "prefer their privacy" in the hospital (the curtains). This highlights her confusion about American boundaries—they are physically open but emotionally distant in moments of crisis.
+- Hearing an American man tell his wife, "I love you, sweetheart," Ashima notes that these are words she has neither heard nor expects to hear from her own husband because this is not how they are. She notes that Americans, despite their miniskirts and bikinis and public displays of affection (lying on top of each other on the Cambridge Common), surprisingly prefer their privacy in the hospital (the curtains). This highlights her confusion about American boundaries—they are physically open but emotionally distant in moments of crisis.
 - She is embarrassed by the hospital’s flowered cotton gown that only reaches her knees.
 - She wonders if she is the only Indian person in the hospital.
 - In the delivery room, Ashima wears a watch that was a "bon voyage gift from her parents" given to her at the airport. She calculates the time in India on her hands: "it is nine and a half hours ahead in Calcutta". She vividly imagines what her family is doing at that exact moment (pouring tea, her father smoking). This emphasizes that while her body is in the US, her mind is living in Indian time.
@@ -65,7 +65,6 @@ In addition to writing in Italian, the notes also mention that she translates fr
 - She reflects that in India, women go home to their parents to give birth, retreating to childhood, and finds nothing comforting in the off-white tiles, ceilings, or white sheets of the hospital.
 - Ashima is terrified to raise a child in a country where she is related to no one, where she knows so little, where life seems so tentative and spare.
 - After Ashoke becomes a professor and moves the family to a suburb of Boston, the move is difficult for Ashima because she leaves her friends in Cambridge for a neighborhood where people do not really speak with one another often.
-- Gogol later realizes that his parents were in an unbelievably lonely place when they first came to the United States.
 - After Ashoke takes a temporary fellowship in Ohio, Ashima has to start over as a woman living mostly alone.
 - Ashima finally starts to feel comfortable after Gogol’s birth, which gives her a purpose; she takes him everywhere and finally ventures out to shop for food, take walks, and interact with people in the neighborhood.
 
@@ -85,7 +84,7 @@ In addition to writing in Italian, the notes also mention that she translates fr
 - She knows Ashoke’s preferences - he likes his food on the salty side, his favorite thing about lamb curry is the potatoes, and he finishes with a small final helping of rice and _dal_.
 - Ashima had to find a kind butcher on Prospect Street willing to pull the skin off chicken, which Americans usually eat in its skin.
 - Indian holidays were still celebrated, and holiday foods became more common daily to keep cultural ties strong.
-- The Ganguli family’s social life revolves around a large group of Bengali families who emigrated for study and professional opportunities.
+- The Ganguli family’s social life revolves around a large group of Bengali families who migrated for study and professional opportunities.
 - The need for familiar faces and Bengali customs led Bengalis to find one another and create communities.
 - Ashoke works hard to make the best of the opportunity in the US and wants to give his wife and children a comfortable life and a social network.
 - Ashima reads materials from home, such as a tattered copy of Desh magazine, in her native Bengali language. 
@@ -146,7 +145,7 @@ Ashoke’s survival of the train accident and subsequent recovery led him to sta
 The name "Gogol" becomes his son's pet name (_daknaam_). The story of the train accident and his survival, however, is a secret Ashoke keeps to himself for years. He finally tells Gogol about his namesake and the train accident when Gogol is an adult, after he officially changes his name to Nikhil. Ashoke later gives his son a volume of Gogol's stories as a gift, bearing the inscription: “The man who gave you his name, from the man who gave you your name”. This book, which Ashoke had loved, was given to the most precious person in his life: his son, Gogol.
 
 ### The Central Conflict of Gogol's Name
-The **central theme of _The Namesake_ is the importance of names**. The central conflict surrounding Gogol’s name stems from the collision between the **Bengali cultural tradition of having two names (one of which is chosen by an elder)** and the **American laws and systems regarding identity and naming**. This tension forces Ashoke and Ashima into a decision that they had initially refused to make. The result is that the child's informal pet name is accidentally made his official public name, which later embarrasses and alienates Gogol.
+The central theme of _The Namesake_ is the importance of names. The central conflict surrounding Gogol’s name stems from the collision between the Bengali cultural tradition of having two names (one of which is chosen by an elder) and the American laws and systems regarding identity and naming. This tension forces Ashoke and Ashima into a decision that they had initially refused to make. The result is that the child's informal pet name is accidentally made his official public name, which later embarrasses and alienates Gogol.
 
 #### The Bengali Tradition of Two Names
 The Bengali tradition of naming includes a **$daknaam$ (a pet name or nickname)** and a **$bhalonaam$ (a good name)**.
@@ -154,35 +153,32 @@ The Bengali tradition of naming includes a **$daknaam$ (a pet name or nickname)*
 - **$Daknaam$ (Pet Name):** This name is typically used for private or familiar life.
 - **$Bhalonaam$ (Good Name):** This name is used for public life and on official documents.
 
-The reasoning behind this practice is the belief that one is not all things to all people. It also allows individuals to **use the name that fits the occasion**, which helps to **lose the formality of the good name when appropriate**.
+The reasoning behind this practice is the belief that one is not all things to all people. It also allows individuals to use the name that fits the occasion, which helps to lose the formality of the good name when appropriate.
 
-Ashoke and Ashima, who are known to their families as **Mithu and Monu**, respectively, had maintained this tradition and intended to keep it for their firstborn child. They follow another tradition where the **parents do not choose the good name**, but instead **wait for an elder in the family to choose it**. Ashima’s grandmother has this duty. The choice of the good name was so important that Ashoke and Ashima **refuse to choose it themselves**.
+Ashoke and Ashima, who are known to their families as Mithu and Monu, respectively, had maintained this tradition and intended to keep it for their firstborn child. They follow another tradition where the parents do not choose the good name, but instead wait for an elder in the family to choose it. Ashima’s grandmother has this duty. The choice of the good name was so important that Ashoke and Ashima refuse to choose it themselves.
 
 #### Specific Events After Gogol's Birth
 
-Following Ashima's labor and the birth of their baby boy, Ashima and Ashoke give the child a **pet name, Gogol**. This name is chosen after **Ashoke's favorite author, Nikolai Gogol**, whose story **"The Overcoat" saved Ashoke from dying in a train accident earlier in India**. Ashoke had a page of the story in his hand, and the dropped page **alerted rescuers that he was still alive**.
+Following Ashima's labor and the birth of their baby boy, Ashima and Ashoke give the child a pet name, Gogol. This name is chosen after Ashoke's favorite author, Nikolai Gogol, whose story "The Overcoat" saved Ashoke from dying in a train accident earlier in India. 
 
-The expectation, according to Bengali tradition, was that **Gogol’s nickname would be replaced with a "good name," his official name, when Ashima's grandmother mailed them her name selection**.
+The expectation, according to Bengali tradition, was that Gogol’s nickname would be replaced with a "good name," his official name, when Ashima's grandmother mailed them her name selection.
 
 However, a series of unforeseen events disrupts this tradition:
 
-1. **Lost Letter and Stroke:** Ashima’s **grandmother’s letter containing the chosen name never arrives**; the letter is **lost in the mail**.
-2. **Inability to Communicate:** Following the loss of the letter, Ashima’s grandmother **suffers a stroke**. As a result, she is **unable to communicate the chosen name for the new-born child**.
-3. **Hospital Pressure -** Because the family is in the United States, the hospital needs an official name for the child. The cultural tradition of having two names, one chosen by an elder, runs "up against American laws regarding identity and naming".
+1. **Lost Letter and Stroke -** Ashima’s grandmother’s letter containing the chosen name never arrives; the letter is lost in the mail.
+2. **Inability to Communicate -** Following the loss of the letter, Ashima’s grandmother suffers a stroke. As a result, she is unable to communicate the chosen name for the new-born child.
+3. **Hospital Pressure -** Because the family is in the United States, the hospital needs an official name for the child. The cultural tradition of having two names, one chosen by an elder, runs up against American laws regarding identity and naming.
 
 #### The Kindergarten Incident
+- When Gogol begins kindergarten, Ashoke and Ashima want him to use his good name, Nikhil (which they had apparently chosen by this time).
+- However, the principal asks the young Gogol what he wants to be called. Gogol, who cannot see attached to himself the name Nikhil, says he wants to be called Gogol.
+- This event is the first time Gogol _himself_ makes a choice, and it's the moment his parents lose the right to determine where and when their child uses the pet name.
 
-- When Gogol begins kindergarten, Ashoke and Ashima want him to use his "good name," **Nikhil** (which they had apparently chosen by this time).
-- However, the principal asks the young Gogol what he wants to be called. Gogol, who "cannot see attached to himself" the name Nikhil, says he wants to be called **Gogol**.
-- This event is the first time Gogol _himself_ makes a choice, and it's the moment his parents "lose the right to determine where and when their child uses the pet name".
+#### Consequences of Choosing Gogol as the Official Name
 
-#### Consequences of Choosing "Gogol" as the Official Name
+Facing pressure to provide a name for the birth certificate, Ashima and Ashoke feel they have no choice but to use the pet name. They put "Gogol" on the birth certificate. The consequence of this accidental naming is that the choice of name for Gogol carries a great deal of emotional weight.
 
-Facing pressure to provide a name for the birth certificate, Ashima and Ashoke feel they have **no choice but to use the pet name**. They **put "Gogol" on the birth certificate**.
-
-The consequence of this accidental naming is that **the choice of name for Gogol carries a great deal of emotional weight**.
-
-- **For Ashoke -** Gogol's name represents Ashoke’s miraculous survival of the train accident. Ashoke marks his own rebirth as a parent and Gogol’s birth by **naming his son for the Russian author who had saved his life**. The name represents Ashoke's deep gratitude.
+- **For Ashoke -** Gogol's name represents Ashoke’s miraculous survival of the train accident. Ashoke marks his own rebirth as a parent and Gogol’s birth by naming his son for the Russian author who had saved his life. The name represents Ashoke's deep gratitude.
 - **For Gogol -** As he grows older, Gogol’s name embarrasses him because it is Russian, not Indian. He is mortified when his English teacher discusses his namesake, Nikolai Gogol, because the author had such a depressing life. The weight of gratitude does not extend from Ashoke to his son, and Gogol comes to hate his name as something that does not reflect his Bengali heritage or acknowledge that he is American. Also, as he has not read the stories his father loved, he personally doesn't have the connection to the author. Because of his Russian name, he was ridiculed in school. He eventually goes to court to officially change his name to Nikhil, which was the good name his parents eventually wanted him to use.
 
 The fact that the name "Gogol" was intended as a temporary nickname but became the official name on the birth certificate represents one of the many accidents in Gogol's life, including his father's near-fatal train crash and the lost letter. This initial mishap set up his lifelong struggle with his identity.
@@ -199,7 +195,7 @@ As Gogol grew up, his life reflected the conflict between his inherited Bengali 
 
 **Ashoke's Attempt to Explain the Name at 14 -** When Gogol turned 14, his father almost divulges why he named his son after the author, but Ashoke keeps that information to himself. Instead, Ashoke simply gives a copy of Gogol's stories to his son. Gogol puts the book away and does not read it.
 
-**Father Reveals the Train Accident:** Ashoke finally tells Gogol about his namesake and the train accident **after Gogol officially changes his name to Nikhil**.
+**Father Reveals the Train Accident -** Ashoke finally tells Gogol about his namesake and the train accident after Gogol officially changes his name to Nikhil.
 
 #### Name Change and Identity
 
@@ -293,9 +289,8 @@ While home for his mother's final holiday in the family's old Boston house, Gogo
 - **Preference:** The US previously preferred "North Europeans" with similar ideologies.
 - **Significance:** Including this highlights just how new and rare the Gangulis' presence was in 1968; they were the very first beneficiaries of a massive policy shift.
 
-**Ashoke’s Pujo Money -**
-- He purchased his books (Graham Greene, Somerset Maugham) with his **"pujo money"** (gift money from religious festivals)9. This highlights his transition from religious tradition to secular intellectual passion.
+**Ashoke’s Pujo Money -** He purchased his books (Graham Greene, Somerset Maugham) with his pujo money (gift money from religious festivals). This highlights his transition from religious tradition to secular intellectual passion.
 
 **Ashoke’s Physical & Psychological Scars -**
 - **The Limp -** A slight limp causes Ashoke's right foot to drag almost imperceptibly with each step. This is a permanent physical reminder of the crash.
-- **Claustrophobia:** The accident left him with deepest dread. He is claustrophobic, "holding his breath in elevators" and feeling pent-up in cars unless windows are open. On planes, he specifically "requests the bulkhead seat".
+- **Claustrophobia -** The accident left him with deepest dread. He is claustrophobic, holding his breath in elevators and feeling pent-up in cars unless windows are open. On planes, he specifically requests the bulkhead seat.

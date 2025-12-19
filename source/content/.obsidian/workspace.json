@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "5cb246bfb687407f",
+        "id": "e45d5e20549919c0",
         "type": "tabs",
         "children": [
           {
-            "id": "20634bd84818d5ea",
+            "id": "9a8a49d61b60b0dd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CIEF/White tiger.md",
+                "file": "C++/Vectors.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "White tiger"
+              "title": "Vectors"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "e4adc30b8e221fed",
+            "id": "9885090926767068",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -90,8 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -107,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Java/OOPS.md",
+                "file": "CIEF/White tiger.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +116,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for OOPS"
+              "title": "Backlinks for White tiger"
             }
           },
           {
@@ -184,45 +183,45 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "20634bd84818d5ea",
+  "active": "9a8a49d61b60b0dd",
   "lastOpenFiles": [
-    "CIEF/White tiger.md",
-    "CIEF/Namesake.md",
-    "Verilog/Codes.md",
-    "Verilog/Behavioral Modeling .md",
-    "Verilog/Verilog.md",
-    "Prolog.md",
-    "Java/Basics.md",
-    "Pytorch/Quantization.md",
-    "CIEF/CIEF Overview.md",
-    "Java/Data structure.md",
-    "Java/Java.md",
-    "Pytorch/Attention Mechanism.md",
-    "Pytorch/Federated learning.md",
-    "Exams.md",
-    "Pytorch/torch.optim.md",
-    "Attachements/Pasted image 20251101200956.png",
-    "C++/Vectors.md",
     "C++/Strings.md",
-    "C++/Basics.md",
-    "C++/CV/CV.md",
-    "Week - 3 Assignment.md",
-    "Attachements/Pasted image 20251006011255.png",
-    "CIEF/Midnight's Children.md",
-    "Untitled mindmap.md",
-    "CIEF/The God of Small Things.md",
-    "Attachements/Pasted image 20251004004147.png",
-    "Attachements/Pasted image 20251002133233.png",
-    "Attachements/Pasted image 20250927231108.png",
-    "Verilog",
-    "index.md",
-    "Attachements/Pasted image 20250922192808.png",
-    "Java/OOPS.md",
+    "C++/Vectors.md",
+    "Java/Java.md",
     "Java/Packages.md",
-    "Attachements/Figure_1.png",
-    "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
-    "Attachements/output_minibatch-sgd_f4d60f_159_0.svg",
-    "Attachements/output_minibatch-sgd_f4d60f_135_1.svg",
+    "CIEF/White tiger.md",
+    "CIEF/The God of Small Things.md",
+    "CIEF/Midnight's Children.md",
+    "CIEF/Namesake.md",
+    "CIEF/CIEF Overview.md",
+    "Prolog.md",
+    "Exams.md",
+    "Untitled.md",
+    "DISCO/Logic and Proofs .md",
+    "index.md",
+    "Disco.md",
+    "Attachements/Pasted image 20251203084723.png",
+    "Attachements/Pasted image 20251203084711.png",
+    "Attachements/Pasted image 20251203084657.png",
+    "Attachements/Pasted image 20251203084645.png",
+    "Attachements/Pasted image 20251203084632.png",
+    "Attachements/Pasted image 20251203084620.png",
+    "Attachements/Pasted image 20251203084607.png",
+    "Attachements/Pasted image 20251203084552.png",
+    "Attachements/Pasted image 20251203084534.png",
+    "Attachements/Pasted image 20251203084522.png",
+    "Pytorch/torch.optim.md",
+    "Pytorch/Attention Mechanism.md",
+    "Pytorch/Torch.nn Library.md",
+    "Pytorch/Torch Library.md",
+    "Pytorch/Tensors.md",
+    "Pytorch/Data Types.md",
+    "Pytorch/Saving and Loading Models.md",
+    "Pytorch/Basics of Neural Network.md",
+    "Pytorch/Quantization.md",
+    "Pytorch/Federated learning.md",
+    "Pytorch/Untitled.md",
+    "Verilog",
     ".md",
     "Tags",
     "Attachements",

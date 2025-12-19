@@ -2,8 +2,7 @@
 
 Aravind Adiga was born in Madras (Chennai) in 1974 and grew up in Mangalore. His family later immigrated to Australia, where he completed his schooling in Sydney.
 
-**Education and Career:**
-
+**Education and Career -**
 - Adiga studied English Literature at Columbia University, New York, and later at Magdalene College, Oxford.
 - He worked as a journalist and literary reviewer for various publications, including the Financial Times, The Independent, The Sunday Times, and Time.
 - He eventually gave up his job as a journalist, correspondent, and reviewer to dedicate himself to writing fiction.
