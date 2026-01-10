@@ -1,4 +1,3 @@
-
 ## C++ Keywords
 
 ### Data Types 
@@ -135,14 +134,288 @@ These are very modern keywords related to major new features like modules, conce
 The std:: in std::cout says that the cout is to be found in the standard library that we made accessible with import std.
 
 ---
-
 ## Variables
 
-### Declaring 
-
-C++ allows definition of variables at the point where they are used. C++ does not require declaring all variables before their first executable statement unlike C. 
+1. Declaring - C++ allows definition of variables at the point where they are used. C++ does not require declaring all variables before their first executable statement unlike C. 
+2. Initializing - double d2 {2.3} same as double d2 = 2.3. When we use the curly bracket method, it doesn't convert the variables from 1 type to another. E.g. - int i{2.3} will cause an error, and i will not become 2.  Use the curly bracket method when we don't want the variables to be typecast. 
+3. Pointer - There is only one `nullptr` shared by all pointer types - `double∗ pd = nullptr;`. In older code, 0 or NULL is typically used instead of `nullptr`. However, using `nullptr` eliminates potential confusion between integers (such as 0 or NULL) and pointers (such as `nullptr`).
+4. References - In C++, when you pass a variable to a function "by value," the program creates a completely new copy of that variable in memory for the function to use. For a `std::vector<int>` with 106 elements, the program must allocate new memory and copy every single one of those million integers. This takes O(N) time. If your function is called inside a loop that runs 105 times, and each time it copies a vector of size 106, your program will try to perform 1011 operations. Most competitive programming judges only allow 108 operations per second. When you use `&` (e.g., `void func(vector<int>& vec)`), the function does not create a copy. It simply receives the "address" of the original vector. No matter how large the vector is, passing that address takes the same tiny amount of time—O(1).
+5. Auto type - With auto, we use the = syntax because there is no type conversion involved that might cause problems.  Using auto, we avoid redundancy and writing long type names. This is especially important in generic programming where the exact type of an object can be hard for the programmer to know and the type names can be quite long .
+   
+   We use auto where we don’t have a specific reason to mention the type explicitly. ‘‘Specific reasons’’ include:
+	-  The definition is in a large scope where we want to make the type clearly visible to readers
+	  of our code.
+	- We want to be explicit about a variable’s range or precision (e.g., double rather than float).
 
 ---
+## Constants
+
+### `const`
+Means "read-only." It's a promise that you won't change the value _after_ it's been initialized. However, that initialization can happen at runtime (e.g., getting a number from a user).This is used primarily to specify interfaces, so that data can be passed to functions without fear of it being modified. The compiler enforces the promise made by const.
+
+### `constexpr` 
+Means "compile-time constant." It implies `const`, but it also guarantees that the value must be known at the moment the code is compiled. This is used primarily to specify constants, to allow placement of data in memory where it is unlikely to be corrupted, and for performance. So, unlike `const` where we can initialize it at runtime, `constexpr` cannot be done. 
+
+```c++
+const int dmv = 17; // dmv is a named constant
+int var = 17; // var is not a constant
+constexpr double max1 = 1.4∗square(dmv); // OK if square(17) is a constant expression
+constexpr double max2 = 1.4∗square(var); // error : var is not a constant expression
+const double max3 = 1.4∗square(var); // OK, may be evaluated at run time
+double sum(const vector<double>&); // sum will not modify its argument (§2.2.5)
+vector<double> v {1.2, 3.4, 4.5}; // v is not a constant
+const double s1 = sum(v); // OK: evaluated at run time
+constexpr double s2 = sum(v); // error : sum(v) not constant expression
+```
+
+#### `constexpr` Variables
+When you mark a variable as `constexpr`, you are telling the compiler to replace every usage of that variable with its actual value, similar to a `#define` macro but much safer because it follows C++ scope and type rules.
+
+A variable or variable template(since C++14) can be declared `constexpr` if all following conditions are satisfied:
+- The declaration is a definition.
+- It is of a literal type. 
+- It is initialized (by the declaration).
+- The full-expression of its initialization is a constant expression.
+- It is constant-initializable.
+- It has constant destruction. If the variable is an object (like a `struct`), its destructor must also be able to run at compile time. This is crucial for using things like `std::vector` inside `constexpr` functions in modern C++ which means one of the following conditions needs to be satisfied:
+	- It is not of class type nor (possibly multi-dimensional) array thereof.
+	- It is of a class type with a `constexpr` destructor or (possibly multi-dimensional) array thereof, and for a hypothetical expression e whose only effect is to destroy the object, e would be a core constant expression if the lifetime of the object and its non-mutable subobjects (but not its mutable subobjects) were considered to start within e.
+
+```c++
+constexpr double PI = 3.14159;
+constexpr int MAX_STUDENTS = 30;
+constexpr int TOTAL_CAPACITY = MAX_STUDENTS * 2; // OK: calculated by compiler
+```
+
+##### Difference between `constexpr` and `#define`
+`#define` (The Preprocessor) is a "dumb" text substitution tool. It runs before the compiler even sees your code. It simply finds the name and replaces it with the value, like a "Find and Replace" in a text editor.`constexpr` (The Compiler) understands types, scopes, and C++ rules.
+
+| **Feature**     | **#define**                                                               | **constexpr**                                              |
+| --------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Type Safety** | **None.** It’s just text.                                                 | **Strong.** It has a specific type (int, double, etc.).    |
+| **Scope**       | **Global.** Once defined, it stays until the end of the file.             | **Respects Scope.** Can be local to a function or a class. |
+| **Evaluation**  | Simple substitution.                                                      | Can perform complex logic and loops at compile-time.       |
+| **Namespace**   | Ignores namespaces (can cause name clashes).                              | Follows namespace rules perfectly.                         |
+
+#### `constexpr` Functions
+A `constexpr` function is a function that can be executed by the compiler and can be invoked within a constant expression. 
+
+- A constexpr specifier used in the first declaration of a function or static data member(since C++17) implies inline. 
+- If any declaration of a function or function template has a `constexpr` specifier, then every declaration must contain that specifier. 
+- You cannot use `rand()` or `mt19937` inside a `constexpr` function because the result must be "constant" (the same every time).
+
+**Requirements**
+- If it is a constructor or destructor(since C++20), its class does not have any [virtual base class](https://en.cppreference.com/w/cpp/language/derived_class.html#Virtual_base_classes "cpp/language/derived class").
+- It is not a [virtual](https://en.cppreference.com/w/cpp/language/virtual.html "cpp/language/virtual") function.(Not relevant)
+- You cannot use `goto` or assembly code inside the function.
+- **Arguments & Return Type**: Must be "literal types" (simple types like `int`, `double`, `char`, or simple structs).
+- **No "Side Effects"**: You can't change global variables or do I/O (like `std::cout`) inside them because the console doesn't exist yet during compilation.
+- **No `try-catch` blocks (Until C++20):** In C++20 and later, you _can_ have `try-catch`, but you cannot throw an exception that isn't caught within the function during compile-time evaluation.
+
+
+**Inside the function -**
+- **C++11 -** Only allowed a single `return` statement.
+- **C++14 onwards -** You can use loops (`for`, `while`), `if` statements, and local variables.
+- **Local Variables -** You can declare and modify local variables, provided they are literal types.
+- **Memory Allocation (Since C++20) -** You can use `std::vector` or `std::string` inside a `constexpr` function. The catch is that any memory allocated must be freed before the function returns. For example, you can use a vector to help calculate a result at compile time, but you cannot return that vector as a `constexpr` object.
+
+```c++
+// If you call a constexpr function where a constant is required (like an array size), the arguments you pass to it must also be constant expressions.
+constexpr int square(int n) {
+    return n * n;
+}
+
+int main() {
+    constexpr int res = square(5); // OK: 5 is a constant. Compiler does the math.
+    
+    int x; cin >> x;
+    int runtime_res = square(x);   // OK: Acts like a normal function at runtime.
+    
+    // constexpr int error = square(x); // ERROR: 'x' is not known at compile time.
+}
+```
+
+#### `if constexpr` (The "Static If")
+Introduced in C++17, it allows the compiler to discard branches of code entirely during compilation.
+
+If you use the result to initialize a `constexpr` variable, it must run at compile-time.
+
+You can have recursive `constexpr` functions (like calculating Factorial or Fibonacci). However, compilers have a "recursion limit" (usually around 512 or 1024 calls). If your compile-time calculation is too deep, the compiler will throw an error.
+
+You can use pointers in `constexpr`, but they must point to objects with **static storage duration** (like global variables). You cannot point to a local variable that won't exist once compilation finishes.
+
+```c++
+template <typename T>
+void print_value(T value) {
+    if constexpr (std::is_integral_v<T>) {
+        std::cout << "This is an integer: " << value << "\n";
+    } else {
+        std::cout << "This is not an integer.\n";
+    }
+}
+// If you call print_value(10), the compiler sees that T is an int, keeps the first block, and completely deletes the else block from the final program.
+```
+
+
+---
+
+## User Defined Types
+
+### Structures
+
+The first step in building a new type is often to organize the elements it needs into a data structure, a struct:
+```c++
+struct Vector {
+int sz; //
+number of elements
+double∗ elem; //
+pointer to elements
+};
+
+// This first version of Vector consists of an int and a double∗.
+// A variable of type Vector can be defined like this:
+Vector v;
+
+// However, by itself that is not of much use because v’s elem pointer doesn’t point to anything. To be useful, we must give v some elements to point to. For example, we can construct a Vector like this:
+void vector_init(Vector& v, int s)
+{
+v.elem = new double[s]; //
+allocate an array of s doubles
+v.sz = s;
+}
+// That is, v’s elem member gets a pointer produced by the new operator and v’s size member gets the number of elements. The & in Vector& indicates that we pass v by non-const reference; that way, vector_init() can modify the vector passed to it.
+// The new operator allocates memory from an area called the free store (also known as dynamic memory and heap.
+```
+
+### Enumerations
+
+```c++
+enum class Color { red, blue, green };
+enum class Traffic_light { green, yellow, red };
+Color col = Color::red;
+Traffic_light light = Traffic_light::red;
+```
+
+Note that enumerators (e.g., red) are in the scope of their enum class, so that they can be used
+repeatedly in different enum classes without confusion. For example, Color::red is Color’s red
+which is different from Traffic_light::red.
+Enumerations are used to represent small sets of integer values. They are used to make code
+more readable and less error-prone than it would have been had the symbolic (and mnemonic) enumerator names not been used.
+The class after the `enum` specifies that an enumeration is strongly typed and that its enumerators are scoped. Being separate types, `enum` classes help prevent accidental misuses of constants. In
+particular, we cannot mix Traffic_light and Color values:
+```c++
+Color x = red; // error : which red?
+Color y = Traffic_light::red; // error : that red is not a Color
+Color z = Color::red; // OK
+
+// Similarly, we cannot implicitly mix Color and integer values:
+int i = Color::red; // error : Color ::red is not an int
+Color c = 2; // error : 2 is not a Color
+```
+
+If you don’t want to explicitly qualify enumerator names and want enumerator values to be ints
+(without the need for an explicit conversion), you can remove the class from enum class to get a
+‘‘plain enum’’.
+
+By default, an `enum` class has only assignment, initialization, and comparisons (e.g., == and <) defined. However, an enumeration is a user-defined type so we can define operators for it:
+
+```c++
+Traffic_light& operator++(Traffic_light& t)
+//prefix increment: ++
+{
+switch (t) {
+case Traffic_light::green: return t=Traffic_light::yellow;
+case Traffic_light::yellow: return t=Traffic_light::red;
+case Traffic_light::red: return t=Traffic_light::green;
+}
+}
+Traffic_light next = ++light; //next becomes Traffic_light::green
+```
+
+
+
+## Name Lookup
+
+Name lookup is the process the C++ compiler uses to figure out what a "name" (like a variable, function, or class) refers to when it sees it in your code. Think of it as the compiler’s "Search Engine." If you type `cout`, the compiler has to search through your code and included libraries to find where `cout` was defined.
+### Unqualified Name Lookup
+This happens when you use a name without specifying its namespace or class (no `::` operator).
+
+The compiler searches "outwards" starting from the current scope. The order of search is
+1. **Local Scope:** Inside the current function or block `{}`.
+2. **Class Scope:** If the code is inside a class method.
+3. **Namespace Scope:** Inside the current namespace.
+4. **Global Scope:** The very top level of the file.
+
+- If you define a global variable `int n` and then define another `int n` inside your `main` function, the compiler's unqualified lookup will find the local one first. This "shadowing" is a common source of bugs where you accidentally update the wrong variable.
+- 
+
+### Qualified Name Lookup
+This happens when you use the scope resolution operator (`::`).
+- **Example:** `std::vector<int> v;`
+- **How it works:** The compiler does not search outwards. It goes directly to the specified scope (in this case, the `std` namespace) and looks for the name there. If it's not in that specific container, it throws a "Not Declared" error
+
+### 2. Advanced Type: Argument-Dependent Lookup (ADL)
+
+As a senior dev, this is a "hidden" mechanic you should know. ADL (also called **Koenig Lookup**) allows the compiler to find functions in the namespaces of their arguments.
+
+**Example:**
+
+C++
+
+
+## Scope 
+
+Each [declaration](https://en.cppreference.com/w/cpp/language/declarations.html "cpp/language/declarations") that appears in a C++ program is only visible in some possibly discontiguous _scopes_ ﻿. Within a scope, [unqualified name lookup](https://en.cppreference.com/w/cpp/language/lookup.html "cpp/language/lookup") can be used to associate a name with its declaration.
+
+### General
+
+Each program has a _global scope_ ﻿, which _contains_ the entire program.
+
+Every other scope `S` is introduced by one of the following:
+
+- a [declaration](https://en.cppreference.com/w/cpp/language/declarations.html "cpp/language/declarations")
+- a parameter in [parameter list](https://en.cppreference.com/w/cpp/language/function.html#Parameter_list "cpp/language/function")
+- a [statement](https://en.cppreference.com/w/cpp/language/statements.html "cpp/language/statements")
+- a [handler](https://en.cppreference.com/w/cpp/language/catch.html "cpp/language/catch")
+
+|   |   |
+|---|---|
+|- a [contract assertion](https://en.cppreference.com/w/cpp/language/contracts.html "cpp/language/contracts")|(since C++26)|
+
+`S` always appear in another scope, which thereby _contains_ `S`.
+
+An _enclosing scope_ at a program point is any scope that contains it; the smallest such scope is said to be the _immediate scope_ at that point.
+
+A scope _intervenes_ between a program point `P` and a scope `S` (that does not contain `P`) if it is or contains `S` but does not contain `P`.
+
+The _parent scope_ of any scope `S` that is not a [template parameter scope](https://en.cppreference.com/w/cpp/language/scope.html#Template_parameter_scope) is the smallest scope that contains `S` and is not a template parameter scope.
+
+Unless otherwise specified:
+
+- A declaration _inhabits_ the immediate scope at its [locus](https://en.cppreference.com/w/cpp/language/scope.html#Point_of_declaration).
+- A declaration’s _target scope_ is the scope it inhabits.
+- Any names (re)introduced by a declaration are _bound_ to it in its target scope.
+
+An entity _belongs_ to a scope `S` if `S` is the target scope of a declaration of the entity.
+
+
+
+
+
+
+
+## Namespace
+
+Namespaces provide a method for preventing name conflicts in large projects.
+
+Entities declared inside a namespace block are placed in a namespace scope, which prevents them from being mistaken for identically-named entities in other scopes.
+
+Entities declared outside all namespace blocks belong to the _global namespace_. The global namespace belongs to the [global scope](https://en.cppreference.com/w/cpp/language/scope.html "cpp/language/scope"), and can be referred to explicitly with a leading `::`. While it has no declaration, the global namespace is not an [unnamed namespace](https://en.cppreference.com/w/cpp/language/namespace.html#Unnamed_namespaces).
+
+Multiple namespace blocks with the same name are allowed. All declarations within these blocks are declared in the same namespace scope.
+
+
+
 ## Input Output
 
 In C++, input and output (I/O) are handled using a concept called streams. There are input and output streams. To use these streams, you must include the `<iostream>` header file at the top of your code.

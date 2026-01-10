@@ -1,15 +1,13 @@
 {
   "languages": [
     "c",
-    "ruby",
     "less",
-    "makefile",
-    "php",
-    "plaintext",
     "python-repl",
-    "cpp",
     "css",
     "java",
-    "javascript"
+    "javascript",
+    "python",
+    "sql",
+    "markdown"
   ]
 }

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/Vectors.md",
+                "file": "C++/Basics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Vectors"
+              "title": "Basics"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "9885090926767068",
+            "id": "643b050830d9919a",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -106,17 +106,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CIEF/White tiger.md",
-                "collapseAll": false,
-                "extraContext": false,
+                "file": "C++/Basics.md",
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for White tiger"
+              "title": "Backlinks for Basics"
             }
           },
           {
@@ -162,6 +162,20 @@
               "icon": "lucide-list",
               "title": "Outline of OOPS"
             }
+          },
+          {
+            "id": "7a9a831be22cbb24",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
           }
         ]
       }
@@ -180,13 +194,31 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "markdown-importer:Open format converter": false,
+      "publish:Publish changes...": false
     }
   },
   "active": "9a8a49d61b60b0dd",
   "lastOpenFiles": [
-    "C++/Strings.md",
+    "Exams.md",
+    "C/Leetcode.md",
+    "C/Data Structures.md",
+    "C/Algorithms.md",
+    "C++/Basics.md",
+    "Git.md",
     "C++/Vectors.md",
+    "Untitled 1.md",
+    "Untitled.md",
+    "Untitled",
+    "walkthrough.md",
+    "USE_CASES.md",
+    "Prolog.md",
+    "index.md",
+    "Python/OOPS.md",
+    "Verilog/Verilog.md",
+    "C++/Strings.md",
+    "C++/.md",
     "Java/Java.md",
     "Java/Packages.md",
     "CIEF/White tiger.md",
@@ -194,11 +226,7 @@
     "CIEF/Midnight's Children.md",
     "CIEF/Namesake.md",
     "CIEF/CIEF Overview.md",
-    "Prolog.md",
-    "Exams.md",
-    "Untitled.md",
     "DISCO/Logic and Proofs .md",
-    "index.md",
     "Disco.md",
     "Attachements/Pasted image 20251203084723.png",
     "Attachements/Pasted image 20251203084711.png",
@@ -210,17 +238,6 @@
     "Attachements/Pasted image 20251203084552.png",
     "Attachements/Pasted image 20251203084534.png",
     "Attachements/Pasted image 20251203084522.png",
-    "Pytorch/torch.optim.md",
-    "Pytorch/Attention Mechanism.md",
-    "Pytorch/Torch.nn Library.md",
-    "Pytorch/Torch Library.md",
-    "Pytorch/Tensors.md",
-    "Pytorch/Data Types.md",
-    "Pytorch/Saving and Loading Models.md",
-    "Pytorch/Basics of Neural Network.md",
-    "Pytorch/Quantization.md",
-    "Pytorch/Federated learning.md",
-    "Pytorch/Untitled.md",
     "Verilog",
     ".md",
     "Tags",
@@ -230,7 +247,6 @@
     "C++",
     "CIEF",
     "DISCO",
-    "DD",
     "Pytorch/Untitled.canvas"
   ]
 }

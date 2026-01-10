@@ -29,7 +29,8 @@
     "Prolog",
     "Prolog",
     "Blo",
-    "deallocating"
+    "deallocating",
+    "const"
   ],
   "showUnsupportedFiles": false,
   "attachmentFolderPath": "Attachements",
