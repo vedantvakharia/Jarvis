@@ -295,6 +295,10 @@ Print
 Programming
 Perfect
 Probing
+Picks
+Procedure
+Placeholder
+Pseudocode
 IHDR
 IDATx
 IU
@@ -537,6 +541,7 @@ Index
 Initializing
 Ignores
 Introduced
+Introsort
 tEXtSoftware
 ta
 tE
@@ -1248,6 +1253,7 @@ Means
 Must
 Minimize
 Mid
+MergeSort
 version
 vyj
 vE
@@ -2077,6 +2083,10 @@ placement
 probing
 probe
 preference
+prototype
+portions
+pivot
+partitioning
 xTU
 xK
 xzc
@@ -2337,6 +2347,7 @@ Electron
 ETL
 Extract
 Enumerations
+Enumeration
 bY
 bEq
 bmO
@@ -2704,6 +2715,8 @@ blob
 bracket
 bottom
 bernstein
+bucketSort
+bi
 ZBO
 ZD
 ZIw
@@ -2810,6 +2823,9 @@ Queen
 Quantization
 Queue
 Questions
+Qualified
+Quick
+QuickSort
 nD
 ny
 nP
@@ -3280,6 +3296,7 @@ Difference
 DP
 Deterministic
 Division
+Declared
 YmU
 Yz
 You
@@ -3402,6 +3419,7 @@ joke
 jobs
 justified
 judges
+jumps
 Rh
 RH
 Rs
@@ -3662,6 +3680,7 @@ Rebasing
 Respects
 Recursively
 Represent
+Redefinition
 yN
 yyyG
 yD
@@ -3960,6 +3979,8 @@ Native
 NTFS
 NUMA
 NULL
+Normal
+NlogN
 dK
 dm
 dF
@@ -4530,6 +4551,12 @@ djb
 dan
 distribute
 dividing
+didn
+discontiguous
+discussed
+declarator
+deduction
+depthLimit
 UU
 UzH
 Um
@@ -4645,6 +4672,9 @@ URL
 Updating
 Undo
 Unstage
+Unqualified
+Unless
+Unordered
 zQ
 zFs
 zc
@@ -5156,6 +5186,14 @@ ith
 initializable
 invoked
 ints
+intervenes
+inhabits
+initializers
+introsort
+insertionsort
+idx
+insertionSort
+introsortUtil
 mJN
 mM
 mL
@@ -5579,6 +5617,9 @@ mistakes
 mutable
 mnemonic
 misuses
+merging
+maxdepth
+maxVal
 KB
 KC
 Krauss
@@ -5656,6 +5697,7 @@ Krispies
 Kindergarten
 Kuratowski
 Khavda
+Koenig
 lq
 li
 ls
@@ -6462,6 +6504,8 @@ extracting
 enumerators
 enum
 enumerator
+exp
+eliminated
 gee
 go
 gko
@@ -6847,6 +6891,10 @@ HDDs
 Hierarchy
 Hybrid
 HEAD
+Hermann
+HeapSort
+Helper
+Have
 Fi
 Financial
 Fischer
@@ -7028,6 +7076,7 @@ Fetching
 Fetch
 Follows
 Factorial
+Finds
 hz
 hT
 hm
@@ -7259,6 +7308,12 @@ hunks
 hashed
 hashing
 hypothetical
+hasn
+handler
+heapify
+heapSort
+heapsort
+halved
 Oo
 Oc
 OBt
@@ -7596,6 +7651,7 @@ Locality
 Logs
 Linked
 Local
+Lifting
 Vn
 VIUj
 VU
@@ -7920,6 +7976,8 @@ unmerged
 upstream
 untracked
 undoes
+unqualified
+unordered
 Wn
 Ws
 Wc
@@ -8464,6 +8522,7 @@ Characterize
 Construct
 Collisions
 Chained
+Constrained
 ot
 oV
 oz
@@ -8715,6 +8774,9 @@ occasionally
 optimizes
 onwards
 organize
+outwards
+overloads
+opaque
 Js
 JS
 JN
@@ -8801,6 +8863,7 @@ Jell
 JavaScript
 Juniper
 JSONPath
+Jump
 Sv
 Sp
 STV
@@ -9219,6 +9282,8 @@ Submodules
 Side
 Spread
 Square
+Sort
+STL
 Bw
 BO
 Building
@@ -9439,6 +9504,8 @@ Basically
 Bottom
 Break
 Being
+Bubble
+Bottenbruch
 Gy
 Gbb
 GitHub
@@ -9974,6 +10041,7 @@ fps
 forwarding
 fractional
 freed
+friend
 rt
 ru
 root
@@ -10514,6 +10582,10 @@ recursion
 recomputing
 repeat
 repeatedly
+redeclaration
+radixSort
+rbegin
+rend
 sRR
 sFL
 shows
@@ -11388,6 +11460,10 @@ scrambling
 searched
 subobjects
 struct
+sort
+seq
+specialization
+specification
 TA
 Te
 TXp
@@ -12226,6 +12302,10 @@ api
 apps
 adequately
 adjacent
+annoying
+associate
+arr
+arrayint
 qiW
 qG
 quantitative
@@ -13142,6 +13222,9 @@ clusters
 continuing
 catch
 comparisons
+countingSort
+countForRadix
+cmath
 whatever
 write
 will
@@ -13361,6 +13444,7 @@ watched
 worth
 worktrees
 worktree
+wouldn
 Adaptive
 Aware
 Architecture
@@ -13672,3 +13756,7 @@ Auto
 Allocate
 Addressing
 Approaches
+Argument
+ADL
+Associated
+Assuming

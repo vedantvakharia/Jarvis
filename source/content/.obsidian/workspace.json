@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/Basics.md",
+                "file": "C++/Containers.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
+              "title": "Containers"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "643b050830d9919a",
+            "id": "2e373a5abf863957",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -189,25 +189,28 @@
       "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "markdown-importer:Open format converter": false,
-      "publish:Publish changes...": false
+      "markdown-importer:Open format converter": false
     }
   },
   "active": "9a8a49d61b60b0dd",
   "lastOpenFiles": [
-    "Exams.md",
+    "C++/Vectors.md",
+    "C++/Sorting Algorithms.md",
+    "C++/Containers.md",
+    "C++/Algorithms.md",
+    "C++/Strings.md",
     "C/Leetcode.md",
+    "C/Sorting.md",
+    "C++/Basics.md",
+    "Exams.md",
     "C/Data Structures.md",
     "C/Algorithms.md",
-    "C++/Basics.md",
     "Git.md",
-    "C++/Vectors.md",
     "Untitled 1.md",
     "Untitled.md",
     "Untitled",
@@ -217,17 +220,12 @@
     "index.md",
     "Python/OOPS.md",
     "Verilog/Verilog.md",
-    "C++/Strings.md",
     "C++/.md",
     "Java/Java.md",
     "Java/Packages.md",
     "CIEF/White tiger.md",
     "CIEF/The God of Small Things.md",
     "CIEF/Midnight's Children.md",
-    "CIEF/Namesake.md",
-    "CIEF/CIEF Overview.md",
-    "DISCO/Logic and Proofs .md",
-    "Disco.md",
     "Attachements/Pasted image 20251203084723.png",
     "Attachements/Pasted image 20251203084711.png",
     "Attachements/Pasted image 20251203084657.png",

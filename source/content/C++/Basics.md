@@ -136,16 +136,193 @@ The std:: in std::cout says that the cout is to be found in the standard library
 ---
 ## Variables
 
-1. Declaring - C++ allows definition of variables at the point where they are used. C++ does not require declaring all variables before their first executable statement unlike C. 
-2. Initializing - double d2 {2.3} same as double d2 = 2.3. When we use the curly bracket method, it doesn't convert the variables from 1 type to another. E.g. - int i{2.3} will cause an error, and i will not become 2.  Use the curly bracket method when we don't want the variables to be typecast. 
-3. Pointer - There is only one `nullptr` shared by all pointer types - `double∗ pd = nullptr;`. In older code, 0 or NULL is typically used instead of `nullptr`. However, using `nullptr` eliminates potential confusion between integers (such as 0 or NULL) and pointers (such as `nullptr`).
-4. References - In C++, when you pass a variable to a function "by value," the program creates a completely new copy of that variable in memory for the function to use. For a `std::vector<int>` with 106 elements, the program must allocate new memory and copy every single one of those million integers. This takes O(N) time. If your function is called inside a loop that runs 105 times, and each time it copies a vector of size 106, your program will try to perform 1011 operations. Most competitive programming judges only allow 108 operations per second. When you use `&` (e.g., `void func(vector<int>& vec)`), the function does not create a copy. It simply receives the "address" of the original vector. No matter how large the vector is, passing that address takes the same tiny amount of time—O(1).
-5. Auto type - With auto, we use the = syntax because there is no type conversion involved that might cause problems.  Using auto, we avoid redundancy and writing long type names. This is especially important in generic programming where the exact type of an object can be hard for the programmer to know and the type names can be quite long .
+1. **Declaring -** C++ allows definition of variables at the point where they are used. C++ does not require declaring all variables before their first executable statement unlike C. 
+2. **Initializing -** double d2 {2.3} same as double d2 = 2.3. When we use the curly bracket method, it doesn't convert the variables from 1 type to another. E.g. - int i{2.3} will cause an error, and i will not become 2.  Use the curly bracket method when we don't want the variables to be typecast. 
+3. **Static Variables -** When you put `static` inside a function, it means one copy for the whole program, but it is hidden inside that function. It is initialized exactly **once** the first time the function is called and remembers it's value between calls.
+4. **Pointer -** There is only one `nullptr` shared by all pointer types - `double∗ pd = nullptr;`. In older code, 0 or NULL is typically used instead of `nullptr`. However, using `nullptr` eliminates potential confusion between integers (such as 0 or NULL) and pointers (such as `nullptr`).
+5. **References -** In C++, when you pass a variable to a function "by value," the program creates a completely new copy of that variable in memory for the function to use. For a `std::vector<int>` with 106 elements, the program must allocate new memory and copy every single one of those million integers. This takes O(N) time. If your function is called inside a loop that runs 105 times, and each time it copies a vector of size 106, your program will try to perform 1011 operations. Most competitive programming judges only allow 108 operations per second. When you use `&` (e.g., `void func(vector<int>& vec)`), the function does not create a copy. It simply receives the "address" of the original vector. No matter how large the vector is, passing that address takes the same tiny amount of time—O(1).
+6. **Auto type -** With auto, we use the = syntax because there is no type conversion involved that might cause problems.  Using auto, we avoid redundancy and writing long type names. This is especially important in generic programming where the exact type of an object can be hard for the programmer to know and the type names can be quite long .
    
    We use auto where we don’t have a specific reason to mention the type explicitly. ‘‘Specific reasons’’ include:
 	-  The definition is in a large scope where we want to make the type clearly visible to readers
 	  of our code.
 	- We want to be explicit about a variable’s range or precision (e.g., double rather than float).
+  
+### Placeholder variables / Name-independent declarations
+
+Introduced in C++26, they allow you to declare multiple variables using the underscore `_` as a name within the same scope without causing a naming conflict. You generally cannot have multiple name-independent declarations at the global or namespace level; they are meant for Block Scope.
+
+In versions before C++26, if you tried to declare two variables named `_` in the same block, the compiler would throw a "Redefinition Error" because of the **Name Conflict** rules we discussed earlier.
+In **C++26**, if you name a variable `_`, it is treated as name-independent. This means:
+- You can have multiple variables named `_` in the same scope.
+- The compiler essentially "ignores" the name for the purpose of conflict checking.
+
+```c++
+// C++20 and below
+// If you only need the second value of a pair, you still have to give the first one a unique name.
+auto [unused, value] = get_pair();
+// If you do it again:
+auto [unused2, value2] = get_another_pair(); // You have to keep coming up with names like unused2
+
+// C++26
+// You can use _ every single time.
+auto [_, score] = get_player_data();
+auto [_, weight] = get_item_data(); // No conflict! Both use _
+```
+
+
+
+### Scope 
+
+Each declaration that appears in a C++ program is only visible in some possibly discontiguous scopes ﻿. Within a scope, unqualified name lookup can be used to associate a name with its declaration. Each program has a global scope ﻿, which _contains_ the entire program. Every other scope `S` is introduced by a declaration, a parameter in parameter list, a statement, a handler or a contract assertion.`S` always appear in another scope, which thereby _contains_ `S`.
+
+An enclosing scope at a program point is any scope that contains it; the smallest such scope is said to be the immediate scope at that point.
+
+A scope intervenes between a program point `P` and a scope `S` (that does not contain `P`) if it is or contains `S` but does not contain `P`.
+
+The parent scope of any scope `S` is the smallest scope that contains `S`.
+
+Unless otherwise specified:
+- A declaration _inhabits_ the immediate scope at its locus.
+- A declaration’s _target scope_ is the scope it inhabits.
+- Any names (re)introduced by a declaration are _bound_ to it in its target scope.
+
+An entity _belongs_ to a scope `S` if `S` is the target scope of a declaration of the entity.
+
+```c++
+//                global  scope  scope
+//                scope     S      T
+int x;         //   ─┐                 // program point X
+               //    │
+{              //    │     ─┐
+    {          //    │      │     ─┐
+        int y; //    │      │      │   // program point Y
+    }          //    │      │     ─┘
+}              //   ─┘     ─┘
+```
+
+In the program above
+- The global scope, scope `S` and scope `T` contains program point `Y`.
+- In other words, these three scopes are all enclosing scopes at program point `Y`.
+- The global scope contains scopes `S` and `T`, and scope `S` contains scope `T`.
+- Therefore, scope `T` is the smallest scope among all three, which means:
+- Scope `T` is the immediate scope at program point `Y`.
+- The declaration of the variable `y` inhabits scope `T` at its locus.
+- Scope `T` is the target scope of the declaration of `y`.
+- The variable y belongs to scope `T`.
+- Scope `S` is the parent scope of scope `T`, and the global scope is the parent scope of scope `S`.
+- Scope `S` intervenes between program point `X` and scope `T`
+
+### Block scope
+
+Each selection statement (if, switch), iteration statement or compound statement (block) introduces a block scope that includes the statement or handler. A variable that belongs to a block scope is a _block variable_ ﻿ (also known as local variable).
+
+```c++
+int i = 42;
+int a[10];
+ 
+for (int i = 0; i < 10; i++) // inner “i” inhabits the block scope
+    a[i] = i;                // introduced by the for-statement
+ 
+int j = i; // j = 42
+
+if (int x = f())  // declares “x”
+{ // the if-block is a substatement of the if-statement
+    int x;        // error: redeclaration of “x”
+}
+else
+{ // the else-block is also a substatement of the if-statement
+    int x;        // error: redeclaration of “x”
+}
+ 
+void g(int i)
+{
+    extern int i; // error: redeclaration of “i”
+}
+```
+
+### Function parameter scope
+
+Each [parameter declaration](https://en.cppreference.com/w/cpp/language/function.html#Parameter_list "cpp/language/function") `P` introduces a _function parameter scope_ that includes `P`.
+
+- If the declared parameter is of the parameter list of a [function declaration](https://en.cppreference.com/w/cpp/language/function.html "cpp/language/function"):
+
+- If the function declaration is a [function definition](https://en.cppreference.com/w/cpp/language/function.html#Function_definition "cpp/language/function"), the scope introduced is extended to the end of the function definition.
+- Otherwise (the function declaration is a function prototype), the scope introduced is extended to the end of the function declarator.
+- In both cases, the scope does not include the [locus](https://en.cppreference.com/w/cpp/language/scope.html#Point_of_declaration) of the function declaration.
+
+|   |   |
+|---|---|
+|- If the declared parameter is of the parameter list of a [lambda expression](https://en.cppreference.com/w/cpp/language/lambda.html "cpp/language/lambda"), the scope introduced is extended to the end of `**{**` body `**}**`.|(since C++11)|
+|- If the declared parameter is of the parameter list of a [deduction guide](https://en.cppreference.com/w/cpp/language/deduction_guide.html "cpp/language/deduction guide"), the scope introduced is extended to the end of that deduction guide.|(since C++17)|
+|- If the declared parameter is of the parameter list of a [requires expression](https://en.cppreference.com/w/cpp/language/requires.html "cpp/language/requires"), the scope introduced is extended to the end of `**{**` requirement-seq `**}**`.|(since C++20)|
+
+int f(int n) // the declaration of the parameter “n”
+{            // introduces a function parameter scope
+    /* ... */
+}            // the function parameter scope ends here
+
+|   |   |
+|---|---|
+|### Lambda scope<br><br>Each [lambda expression](https://en.cppreference.com/w/cpp/language/lambda.html "cpp/language/lambda") introduces a _lambda scope_ that starts immediately after `**[**`captures ﻿`**]**` and extends to the end of `**{**` body `**}**`.<br><br>The [captures](https://en.cppreference.com/w/cpp/language/lambda.html#Lambda_captures "cpp/language/lambda") with initializers of a lambda expression E inhabit the lambda scope introduced by E.<br><br>auto lambda = [x = 1, y]() // this lambda expression introduces a lambda scope,<br>{                          // it is the target scope of capture “x”<br>    /* ... */<br>};                         // the lambda scope ends before the semicolon|(since C++14)|
+
+### Namespace scope
+
+Every [namespace definition](https://en.cppreference.com/w/cpp/language/namespace.html "cpp/language/namespace") for a namespace `N` introduces a _namespace scope_ `S` that includes the declarations for every namespace definition for `N`.
+
+For each non-friend redeclaration or specialization whose target scope is `S` or is contained by `S`, the following portions are also included in scope `S`:
+
+- For a [class](https://en.cppreference.com/w/cpp/language/class.html "cpp/language/class") (template) redeclaration or class template specialization, the portion after its class-head-name.
+- For a [enumeration](https://en.cppreference.com/w/cpp/language/enum.html "cpp/language/enum") redeclaration, the portion after its enum-head-name.
+- For any other redeclaration or specialization, the portion after the unqualified-id or qualified-id of the [declarator](https://en.cppreference.com/w/cpp/language/declarations.html#Declarators "cpp/language/declarations").
+
+The [global scope](https://en.cppreference.com/w/cpp/language/scope.html#General) is the namespace scope of the [global namespace](https://en.cppreference.com/w/cpp/language/namespace.html "cpp/language/namespace").
+
+namespace V   // the namespace definition of “V”
+{             // introduces a namespace scope “S”
+    // the first part of scope “S” begins here
+    void f();
+    // the first part of scope “S” ends here
+}
+ 
+void V::f()   // the portion after “f” is also a part of scope “S”
+{
+    void h(); // declares V::h
+}             // the second part of scope “S” ends here
+
+### Class scope
+
+Each declaration of a class or class template `C` introduces a _class scope_ `S` that includes the member-specification of the [class definition](https://en.cppreference.com/w/cpp/language/class.html "cpp/language/class") of `C`.
+
+For each non-friend redeclaration or specialization whose target scope is `S` or is contained by `S`, the following portions are also included in scope `S`:
+
+- For a [class](https://en.cppreference.com/w/cpp/language/class.html "cpp/language/class") (template) redeclaration or class template specialization, the portion after its class-head-name.
+- For a [enumeration](https://en.cppreference.com/w/cpp/language/enum.html "cpp/language/enum") redeclaration, the portion after its enum-head-name.
+- For any other redeclaration or specialization, the portion after the unqualified-id or qualified-id of the [declarator](https://en.cppreference.com/w/cpp/language/declarations.html#Declarators "cpp/language/declarations").
+
+class C       // the class definition of “C”
+{             // introduces a class scope “S”
+    // the first part of scope “S” begins here
+    void f();
+    // the first part of scope “S” ends here
+}
+ 
+void C::f()   // the portion after “f” is also a part of scope “S”
+{
+    /* ... */
+}             // the second part of scope “S” ends here
+
+### Enumeration scope
+
+Each declaration of an enumeration `E` introduces an _enumeration scope_ that includes the enumerator-list of the non-opaque(since C++11) [enumeration declaration](https://en.cppreference.com/w/cpp/language/enum.html "cpp/language/enum") of `E` (if present).
+
+enum class E // the enumeration declaration of “E”
+{            // introduces an enumeration scope “S”
+    // scope “S” begins here
+    e1, e2, e3
+    // scope “S” ends here
+}
+
 
 ---
 ## Constants
@@ -332,7 +509,7 @@ case Traffic_light::red: return t=Traffic_light::green;
 Traffic_light next = ++light; //next becomes Traffic_light::green
 ```
 
-
+---
 
 ## Name Lookup
 
@@ -347,62 +524,80 @@ The compiler searches "outwards" starting from the current scope. The order of s
 4. **Global Scope:** The very top level of the file.
 
 - If you define a global variable `int n` and then define another `int n` inside your `main` function, the compiler's unqualified lookup will find the local one first. This "shadowing" is a common source of bugs where you accidentally update the wrong variable.
-- 
+- If you use `sort(v.begin(), v.end())` without `using namespace std;`, the unqualified lookup will fail. Understanding lookup tells you that you must either use Qualified Lookup (`std::sort`) or a`using` declaration.
+- In constructors, if your parameter has the same name as a class member (`int val`), you use `this->val` (qualified) to distinguish it from the parameter `val` (unqualified).
 
+#### Advanced Type: Argument-Dependent Lookup (ADL)
+
+Argument-Dependent Lookup (ADL), also known as Koenig Lookup, is a set of rules in C++ that allows the compiler to find a function's definition based on the namespaces of its arguments. In short: If you call a function without a prefix (like `std::`), the compiler will look for that function in the namespaces where the arguments "live".
+
+ADL works only for functions and does not work for variables or classes. You cannot use it to find a `std::vector` without the `std::` prefix.
+
+
+```c++
+// Swapping
+using std::swap; // 1. Bring the standard swap into scope
+swap(obj1, obj2); // 2. Call swap without a prefix
+
+// If obj1 and obj2 have a custom, optimized swap function in their own namespace, ADL will find that custom one and use it (which is faster).
+// If no custom swap exists, the compiler falls back to the std::swap you brought into scope.
+
+
+#include <iostream>
+ 
+int main()
+{
+// There is no operator<< in global namespace, but ADL examines std namespace because the left argument is in std and finds std::operator<<(std::ostream&, const char*)    
+    std::cout << "Test\n"; 
+    
+// Same, using function call notation    
+    operator<<(std::cout, "Test\n"); 
+    
+// Error: “endl” is not declared in this namespace.
+// This is not a function call to endl(), so ADL does not apply 
+    std::cout << endl; 
+
+// OK: this is a function call: ADL examines std namespace because the argument of endl is in std, and finds std::endl 
+    endl(std::cout); 
+    
+// If you put parentheses around the function name, ADL is disabled. 
+    (endl)(std::cout);  // Error: “endl” is not declared in this namespace.
+```
+
+
+##### The Problem
+
+Without ADL, C++ would be incredibly annoying to write. Consider the most common line in C++:
+
+```c++
+std::cout << "Hello World";
+```
+
+Here, `<<` is actually a function call: `operator<<(std::cout, "Hello World")`.
+- The first argument (`std::cout`) is in the **`std`** namespace.
+- The function `operator<<` is also defined inside the **`std`** namespace.
+
+If C++ didn't have ADL, the compiler wouldn't find the operator unless you wrote:
+
+```c++
+std::operator<<(std::cout, "Hello World");
+```
+
+ADL tells the compiler: "Since one of the arguments is a `std::ostream`, you should also check the `std` namespace for a matching function name".
+
+##### How it works (The Search Logic)
+
+When the compiler encounters a function call like `func(arg1, arg2)`:
+1. **Normal Lookup:** It looks in the current scope, then parent scopes (standard **Unqualified Lookup**).
+2. **ADL Kick-in:** If it hasn't found a match yet (or to find better overloads), it looks into the **associated namespaces** of the arguments' types.
 ### Qualified Name Lookup
 This happens when you use the scope resolution operator (`::`).
 - **Example:** `std::vector<int> v;`
 - **How it works:** The compiler does not search outwards. It goes directly to the specified scope (in this case, the `std` namespace) and looks for the name there. If it's not in that specific container, it throws a "Not Declared" error
 
-### 2. Advanced Type: Argument-Dependent Lookup (ADL)
-
-As a senior dev, this is a "hidden" mechanic you should know. ADL (also called **Koenig Lookup**) allows the compiler to find functions in the namespaces of their arguments.
-
-**Example:**
-
-C++
 
 
-## Scope 
-
-Each [declaration](https://en.cppreference.com/w/cpp/language/declarations.html "cpp/language/declarations") that appears in a C++ program is only visible in some possibly discontiguous _scopes_ ﻿. Within a scope, [unqualified name lookup](https://en.cppreference.com/w/cpp/language/lookup.html "cpp/language/lookup") can be used to associate a name with its declaration.
-
-### General
-
-Each program has a _global scope_ ﻿, which _contains_ the entire program.
-
-Every other scope `S` is introduced by one of the following:
-
-- a [declaration](https://en.cppreference.com/w/cpp/language/declarations.html "cpp/language/declarations")
-- a parameter in [parameter list](https://en.cppreference.com/w/cpp/language/function.html#Parameter_list "cpp/language/function")
-- a [statement](https://en.cppreference.com/w/cpp/language/statements.html "cpp/language/statements")
-- a [handler](https://en.cppreference.com/w/cpp/language/catch.html "cpp/language/catch")
-
-|   |   |
-|---|---|
-|- a [contract assertion](https://en.cppreference.com/w/cpp/language/contracts.html "cpp/language/contracts")|(since C++26)|
-
-`S` always appear in another scope, which thereby _contains_ `S`.
-
-An _enclosing scope_ at a program point is any scope that contains it; the smallest such scope is said to be the _immediate scope_ at that point.
-
-A scope _intervenes_ between a program point `P` and a scope `S` (that does not contain `P`) if it is or contains `S` but does not contain `P`.
-
-The _parent scope_ of any scope `S` that is not a [template parameter scope](https://en.cppreference.com/w/cpp/language/scope.html#Template_parameter_scope) is the smallest scope that contains `S` and is not a template parameter scope.
-
-Unless otherwise specified:
-
-- A declaration _inhabits_ the immediate scope at its [locus](https://en.cppreference.com/w/cpp/language/scope.html#Point_of_declaration).
-- A declaration’s _target scope_ is the scope it inhabits.
-- Any names (re)introduced by a declaration are _bound_ to it in its target scope.
-
-An entity _belongs_ to a scope `S` if `S` is the target scope of a declaration of the entity.
-
-
-
-
-
-
+---
 
 ## Namespace
 
@@ -414,7 +609,11 @@ Entities declared outside all namespace blocks belong to the _global namespace_.
 
 Multiple namespace blocks with the same name are allowed. All declarations within these blocks are declared in the same namespace scope.
 
+#### **What is an "Associated Namespace"?**
 
+- If the argument is a class member, the namespace of the class is associated.
+    
+- If the argument is a template (like `std::vector<MyType>`), both the namespace of the template (`std`) and the namespace of the type (`MyType`) are associated.
 
 ## Input Output
 
