@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/Containers.md",
+                "file": "C++/Vectors.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Containers"
+              "title": "Vectors"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "2e373a5abf863957",
+            "id": "5741e966457a147b",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -199,33 +199,33 @@
   },
   "active": "9a8a49d61b60b0dd",
   "lastOpenFiles": [
-    "C++/Vectors.md",
-    "C++/Sorting Algorithms.md",
-    "C++/Containers.md",
+    "C++/Binary Search.md",
     "C++/Algorithms.md",
-    "C++/Strings.md",
-    "C/Leetcode.md",
-    "C/Sorting.md",
+    "C++/Vectors.md",
     "C++/Basics.md",
-    "Exams.md",
+    "C/File Operations.md",
+    "C/Leetcode.md",
+    "C/Libraries.md",
+    "C/Dynamic Memory Allocation.md",
+    "C/C preprocessor.md",
     "C/Data Structures.md",
     "C/Algorithms.md",
-    "Git.md",
+    "C/Arrays.md",
+    "C/Pointers.md",
+    "C/Recursion.md",
+    "C++/Strings.md",
+    "C++/Containers.md",
+    "C++/Sorting Algorithms.md",
+    "Untitled 2.md",
     "Untitled 1.md",
+    "C/Sorting.md",
+    "Exams.md",
+    "Git.md",
     "Untitled.md",
     "Untitled",
     "walkthrough.md",
     "USE_CASES.md",
     "Prolog.md",
-    "index.md",
-    "Python/OOPS.md",
-    "Verilog/Verilog.md",
-    "C++/.md",
-    "Java/Java.md",
-    "Java/Packages.md",
-    "CIEF/White tiger.md",
-    "CIEF/The God of Small Things.md",
-    "CIEF/Midnight's Children.md",
     "Attachements/Pasted image 20251203084723.png",
     "Attachements/Pasted image 20251203084711.png",
     "Attachements/Pasted image 20251203084657.png",
