@@ -546,6 +546,8 @@ Ignores
 Introduced
 Introsort
 Identification
+Interpersonal
+Identifying
 tEXtSoftware
 ta
 tE
@@ -984,6 +986,7 @@ trap
 theoretical
 terminated
 tokenizing
+titles
 Matplotlib
 Mj
 MR
@@ -1277,6 +1280,11 @@ Mawrth
 Marte
 Malloc
 Mode
+Manager
+Managers
+Motivating
+Mintzberg
+Managerial
 version
 vyj
 vE
@@ -1457,6 +1465,7 @@ veins
 vegetation
 vents
 vitality
+vice
 pHYs
 pHa
 pi
@@ -2127,6 +2136,11 @@ popped
 ptr
 printf
 perror
+president
+pay
+planned
+persons
+productive
 xTU
 xK
 xzc
@@ -2395,6 +2409,12 @@ END
 End
 EOF
 Examination
+Employees
+Employability
+ESM
+Evaluate
+EBMgt
+Entries
 bY
 bEq
 bmO
@@ -3101,6 +3121,8 @@ numeric
 nearby
 needing
 nulls
+nonmanagerial
+negotiator
 Do
 DW
 Dm
@@ -3359,6 +3381,9 @@ Declared
 Diatomite
 Dereferencing
 Descriptor
+Determining
+Develop
+Dutch
 YmU
 Yz
 You
@@ -3484,6 +3509,7 @@ justified
 judges
 jumps
 jointing
+judgment
 Rh
 RH
 Rs
@@ -3749,6 +3775,7 @@ Reasons
 Responsible
 Reading
 Rewind
+Rotated
 yN
 yyyG
 yD
@@ -4638,6 +4665,11 @@ dries
 delimiters
 delimited
 delim
+district
+disseminating
+disseminator
+decisional
+disturbance
 UU
 UzH
 Um
@@ -5291,6 +5323,10 @@ indirectly
 infinity
 indexing
 instant
+interpersonal
+informational
+intuition
+invariant
 mJN
 mM
 mL
@@ -5735,6 +5771,8 @@ macros
 malloc
 memset
 monotonic
+managers
+managerial
 KB
 KC
 Krauss
@@ -5813,6 +5851,8 @@ Kindergarten
 Kuratowski
 Khavda
 Koenig
+Katz
+Knowledge
 lq
 li
 ls
@@ -6140,6 +6180,7 @@ limestone
 laterite
 leaks
 lcs
+liaison
 ebh
 eL
 ev
@@ -6637,6 +6678,7 @@ evaporates
 extremophile
 evolved
 extinction
+entail
 gee
 go
 gko
@@ -6872,6 +6914,7 @@ glues
 geysers
 garbage
 getchar
+guiding
 Hv
 HV
 Hbb
@@ -7041,6 +7084,7 @@ Hydrothermal
 Hot
 HiRISE
 Heap
+Helps
 Fi
 Financial
 Fischer
@@ -7615,6 +7659,8 @@ Overhead
 Overwrite
 Olivine
 Opening
+Organizing
+Organisation
 LRZ
 Long
 LSTM
@@ -7815,6 +7861,7 @@ Lifting
 Lowlands
 Limestone
 Laterite
+Leading
 Vn
 VIUj
 VU
@@ -7926,6 +7973,7 @@ Vue
 Validated
 VS
 Verifies
+Virtual
 uZ
 uN
 uG
@@ -8696,6 +8744,10 @@ Chert
 Columnar
 Calloc
 CUR
+Commanding
+Conceptual
+Communication
+Collaboration
 ot
 oV
 oz
@@ -8956,6 +9008,12 @@ oxides
 orbital
 organics
 orbiters
+oversees
+organizational
+overseeing
+organizations
+obviously
+opinions
 Js
 JS
 JN
@@ -9474,6 +9532,9 @@ Spirit
 SEEK
 SET
 Stops
+Setting
+Sustainability
+Skills
 Bw
 BO
 Building
@@ -10259,6 +10320,8 @@ feof
 flags
 fclose
 fflush
+frontline
+figurehead
 rt
 ru
 root
@@ -10815,6 +10878,7 @@ resize
 ram
 readBytes
 rewind
+receiving
 sRR
 sFL
 shows
@@ -11719,6 +11783,16 @@ safely
 stdin
 stdio
 stdout
+servicing
+supervisor
+supervisors
+structuring
+subordinates
+spokesperson
+satisfaction
+students
+seeks
+stakeholders
 TA
 Te
 TXp
@@ -12569,6 +12643,11 @@ algae
 append
 alphanumeric
 alphabetic
+accomplished
+administrator
+arranging
+arrangements
+alternatives
 qiW
 qG
 quantitative
@@ -13523,6 +13602,13 @@ ccan
 clearing
 ctype
 chars
+coordinating
+chief
+crafting
+ceremonial
+collecting
+conceptualize
+circumstances
 whatever
 write
 will
@@ -13748,6 +13834,7 @@ weakly
 wind
 wetter
 watery
+workplace
 Adaptive
 Aware
 Architecture
@@ -14066,3 +14153,4 @@ Assuming
 Accessing
 Append
 Appends
+Alternatives

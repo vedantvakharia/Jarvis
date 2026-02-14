@@ -45,3 +45,15 @@
 -  All organizations develop a deliberate structure within which members do their work. That structure may be open and flexible, with no specific job duties or strict adherence to explicit job arrangements.
 
 
+## Decision making process
+
+- Steps in decision making process
+	- Identifying a Problem 
+	- Identifying Decision Criteria - Once a manager has identified a problem, he or she must identify the decision criteria important or relevant to resolving the problem. Whether explicitly stated or not, every decision maker has criteria guiding his or her decisions.
+	- Allocate Weights to the Criteria - Once a manager has identified a problem, he or she must identify the decision criteria important or relevant to resolving the problem. Whether explicitly stated or not, every decision maker has criteria guiding his or her decisions. A simple way to do so is by giving the most important criterion a weight of 10 and then assign weights to the rest using that standard. 
+	- Develop Alternatives - A decision maker needs to be creative, and the alternatives are only listed—not evaluated just yet
+	- Analyze Alternatives - 
+	- Select an Alternative
+	- Implement the Alternative
+	- Evaluate Decision Effectiveness
+- Evidence-based management (EBMgt) is obviously relevant to managerial decision making. Its four essential elements are (1) the decision maker’s expertise and judgment; (2) external evidence that’s been evaluated by the decision maker; (3) opinions, preferences, and values of those who have a stake in the decision; and (4) relevant organizational (internal) factors such as context, circumstances, and organizational members. The strength or influence of each of these elements on a decision will vary with each decision. Sometimes, the decision maker’s intuition (judgment) might be given greater emphasis in the decision; other times it might be the opinions of stakeholders; and at other times, it might be ethical considerations (organizational context). 

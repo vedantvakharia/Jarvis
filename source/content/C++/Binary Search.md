@@ -28,3 +28,7 @@ Function binarySearch2
 	end
 	return pos
 ```
+
+In the check function, < gives the last element strictly smaller than the target. It is used for finding the lower bound, i.e., when you need the first occurrence of a number (the answer is `pos + 1`). 
+
+In the check function, <= gives the last element that is not greater than the target. `pos` will point to the actual target (if it exists) or the last occurrence of it if there are duplicates. It is used for finding the upper bound. 
