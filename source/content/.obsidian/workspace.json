@@ -11,15 +11,12 @@
             "id": "9a8a49d61b60b0dd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "vscode-editor",
               "state": {
-                "file": "C++/Vectors.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "C++/abc.cpp"
               },
               "icon": "lucide-file",
-              "title": "Vectors"
+              "title": "abc"
             }
           }
         ]
@@ -194,18 +191,22 @@
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "markdown-importer:Open format converter": false
+      "markdown-importer:Open format converter": false,
+      "vscode-editor:Create Code File": false
     }
   },
   "active": "9a8a49d61b60b0dd",
   "lastOpenFiles": [
-    "C++/Containers.md",
-    "C++/Sorting Algorithms.md",
+    "C++/Trees.md",
+    "C++/Untitled.md",
+    "C++/abc.cpp",
+    "C++/Algorithms.md",
+    "C++/IMP Questions.md",
+    "C++/Basics.md",
     "C++/Binary Search.md",
     "C++/Vectors.md",
-    "C++/IMP Questions.md",
-    "C++/Algorithms.md",
-    "C++/Basics.md",
+    "C++/Containers.md",
+    "C++/Sorting Algorithms.md",
     "Untitled 1.md",
     "Untitled.md",
     "The Robust Vision Challenge Adaptation Under Distributional Shift and Label Noise.md",
@@ -223,9 +224,6 @@
     "C/Recursion.md",
     "C++/Strings.md",
     "C/Sorting.md",
-    "Exams.md",
-    "Git.md",
-    "walkthrough.md",
     "Attachements/Pasted image 20251203084723.png",
     "Attachements/Pasted image 20251203084711.png",
     "Attachements/Pasted image 20251203084657.png",
@@ -244,7 +242,6 @@
     "C++/CV",
     "C++",
     "CIEF",
-    "DISCO",
     "Pytorch/Untitled.canvas"
   ]
 }

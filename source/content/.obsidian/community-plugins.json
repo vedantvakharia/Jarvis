@@ -10,5 +10,7 @@
   "obsidian-plugin-toc",
   "obsidian-completr",
   "beautitab",
-  "OA-file-hider"
+  "OA-file-hider",
+  "vscode-editor",
+  "simple-code-formatter"
 ]

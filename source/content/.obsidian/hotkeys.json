@@ -22,5 +22,11 @@
       "modifiers": [],
       "key": "F6"
     }
+  ],
+  "simple-code-formatter:simple_code_formatter": [
+    {
+      "modifiers": [],
+      "key": "F6"
+    }
   ]
 }
