@@ -1,16 +1,9 @@
 [
   "obsidian-git",
-  "obsidian-minimal-settings",
   "code-styler",
-  "code-block-plugin",
   "table-editor-obsidian",
-  "editing-toolbar",
   "make-md",
-  "obsidian-latex-suite",
-  "obsidian-plugin-toc",
-  "obsidian-completr",
   "beautitab",
   "OA-file-hider",
-  "vscode-editor",
   "simple-code-formatter"
 ]
