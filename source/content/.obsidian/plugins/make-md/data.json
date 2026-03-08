@@ -40,8 +40,7 @@
   "expandedSpaces": [
     "/",
     "//SEM3",
-    "//Tags",
-    "//C++"
+    "//Tags"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",
@@ -72,7 +71,8 @@
     "torch-activation-1.png",
     "torch-activation-2.png",
     "Pasted image 20250815000350.png",
-    "Untitled.md"
+    "Untitled.md",
+    "desktop.ini"
   ],
   "hiddenExtensions": [
     ".mdb",

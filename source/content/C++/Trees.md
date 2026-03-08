@@ -115,14 +115,65 @@ Node * bst(vector <int> & nums, int l, int r) {
     return root;
 }
 
-// Inorder Traversal of BST
-void traverse(Node* root){
+// Inorder Traversal of BST - left -> root -> right
+void inorderRecursive(Node* root){
 	if(root == nullptr) return;
 	
-	traverse(root -> left);
+	inorderRecursive(root -> left);
 	
-	// Logic we need to check
+	// Logic we need to check for the root
 	
-	traverse(root -> right);
+	inorderRecursive(root -> right);
+}
+
+void inorderIterative(TreeNode* root) {
+    stack<TreeNode*> s;
+    TreeNode* curr = root;
+
+    while (curr != nullptr || !s.empty()) {
+        // Reach the leftmost node of the current subtree
+        while (curr != nullptr) {
+            s.push(curr);
+            curr = curr->left;
+        }
+
+        // Current must be NULL at this point. So pop the node as it is the next smallest 
+        curr = s.top();
+        s.pop();
+        
+	// Logic we need to check for the root
+	
+		// We have visited the node and its left subtree. 
+		// Now, move to the right subtree.
+        curr = curr->right;
+    }
+}
+
+// Pre-order Traversal (Root → Left → Right)
+void preorderRecursive(TreeNode* root) {
+    if (root == nullptr) return;
+    
+	// Logic we need to check for the root
+    
+    preorderRecursive(root->left);
+    preorderRecursive(root->right); 
+}
+
+void preorderIterative(TreeNode* root) {
+    if (root == nullptr) return;
+    
+    stack<TreeNode*> s;
+    s.push(root);
+    
+    while (!s.empty()) {
+        TreeNode* curr = s.top();
+        s.pop();
+        
+        // Logic we need to check for the root
+        
+        // Push Right child first (so Left is processed first)
+        if (curr->right) s.push(curr->right);
+        if (curr->left) s.push(curr->left);
+    }
 }
 ```

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/Trees.md",
+                "file": "DSA.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Trees"
+              "title": "DSA"
             }
           }
         ]
@@ -76,7 +76,7 @@
             }
           },
           {
-            "id": "e9c3446ea3a9ed60",
+            "id": "800630b3a3b38766",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -85,8 +85,7 @@
               "title": "Navigator"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -199,20 +198,22 @@
   },
   "active": "9a8a49d61b60b0dd",
   "lastOpenFiles": [
-    "C++/abc.cpp",
+    "POM/Chapter 1.md",
+    "DSA.md",
+    "DSA",
+    "Git.md",
+    "C++/Containers.md",
+    "Untitled 1.md",
     "C++/Trees.md",
+    "C++/abc.cpp",
     "C++/Untitled.md",
     "C++/Algorithms.md",
     "C++/IMP Questions.md",
     "C++/Basics.md",
     "C++/Binary Search.md",
     "C++/Vectors.md",
-    "C++/Containers.md",
     "C++/Sorting Algorithms.md",
-    "Untitled 1.md",
-    "Untitled.md",
     "The Robust Vision Challenge Adaptation Under Distributional Shift and Label Noise.md",
-    "POM/Chapter 1.md",
     "POM",
     "C/File Operations.md",
     "C/Leetcode.md",
@@ -225,7 +226,6 @@
     "C/Pointers.md",
     "C/Recursion.md",
     "C++/Strings.md",
-    "C/Sorting.md",
     "Attachements/Pasted image 20251203084723.png",
     "Attachements/Pasted image 20251203084711.png",
     "Attachements/Pasted image 20251203084657.png",
@@ -243,7 +243,6 @@
     "CV",
     "C++/CV",
     "C++",
-    "CIEF",
     "Pytorch/Untitled.canvas"
   ]
 }
