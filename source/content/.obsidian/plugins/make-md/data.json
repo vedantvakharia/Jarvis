@@ -40,7 +40,9 @@
   "expandedSpaces": [
     "/",
     "//SEM3",
-    "//Tags"
+    "//Tags",
+    "//POM",
+    "//C++"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",
