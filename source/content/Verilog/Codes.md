@@ -303,6 +303,35 @@ module tff(input t, clk, output reg q);
 endmodule
 ```
 
+## Registers
+
+```verilog title:Registers
+module register8bit(
+    input clk, chipSelect, reset, regWrite, enable,
+    input [7:0] inR,
+    output [7:0] outR
+);
+
+    genvar i;
+    generate
+        for (i = 0; i < 8; i = i + 1) begin : dff_gen
+            D_ff dff_inst (
+                .clk(clk),
+                .chipSelect(chipSelect),
+                .reset(reset),
+                .regWrite(regWrite),
+                .enable(enable),
+                .d(inR[i]),
+                .q(outR[i])
+            );
+        end
+    endgenerate
+
+endmodule
+
+```
+
+
 
 ## Finite State Machine
 
@@ -596,6 +625,3 @@ module bcd_ripple_counter(input clk, nrst_n, output [3:0] Q);
     );
 endmodule
 ```
-
-
-

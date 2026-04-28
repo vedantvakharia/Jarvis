@@ -1,16 +1,4 @@
 {
-  "obsidian-git:push": [
-    {
-      "modifiers": [],
-      "key": "F3"
-    }
-  ],
-  "code-block-plugin:Add code block": [
-    {
-      "modifiers": [],
-      "key": "F4"
-    }
-  ],
   "theme-picker:open-theme-picker": [
     {
       "modifiers": [],
@@ -27,6 +15,46 @@
     {
       "modifiers": [],
       "key": "F6"
+    }
+  ],
+  "code-block-plugin:Add code block": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "\\"
+    }
+  ],
+  "obsidian-plugin-toc:create-toc": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "A"
+    }
+  ],
+  "obsidian-plugin-toc:create-toc-next-level": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ],
+  "automatic-table-of-contents:insert-automatic-table-of-contents": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "A"
+    }
+  ],
+  "obsidian-git:push": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
     }
   ]
 }
