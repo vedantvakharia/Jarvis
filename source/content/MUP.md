@@ -203,7 +203,7 @@ The output follows **different paths** depending on whether the input is rising 
 |Symbol|Standard gate symbol|Gate symbol with ⊓ inside|
 
 ---
-
+---
 ## 2. 8086/8088 
 
 ### Device Specifications
@@ -236,6 +236,7 @@ The output follows **different paths** depending on whether the input is rising 
 | I8086  | 5 MHz     | HMOS       |
 | M8086  | 5 MHz     | HMOS       |
 
+---
 ### 8086/8088 Pin Out – Common Pins
 
 #### Address/Data Bus Pins
@@ -274,7 +275,9 @@ The output follows **different paths** depending on whether the input is rising 
 | **GND**    | Ground                   | —                   | Ground reference                                                                                                                                                                              |
 | **TEST**   | TEST                     |                     | Checked by the `WAIT` instruction. 8086 pauses until TEST goes LOW. Used to **synchronize external activities** with the processor. If Test = 1 → Wait; If Test = 0 → 8086 resumes execution. |
 | **READY**  |                          |                     | Used to **insert wait states**. If LOW, the processor enters wait states and remains idle (used with slow memory/peripherals).                                                                |
-### Queue Status Signals (QS0, QS1)
+
+
+#### Queue Status Signals (QS0, QS1)
 
 Used by external devices (e.g., 8087 coprocessor) to track the 8086's internal instruction queue:
 
@@ -284,17 +287,18 @@ Used by external devices (e.g., 8087 coprocessor) to track the 8086's internal i
 | 0   | 1   | First byte of opcode fetched |
 | 1   | 0   | Queue is empty               |
 | 1   | 1   | Subsequent byte of opcode    |
-### RQ/GT Pins (Request/Grant)
+#### RQ/GT Pins (Request/Grant)
 
 | Pin                | Description                                                                                                                                           |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **RQ/GT0, RQ/GT1** | Bidirectional. Used by other bus masters to request and release the local bus (e.g., during DMA). Processor releases bus at end of current bus cycle. |
-### LOCK Pin
+#### LOCK Pin
 
 - Output signal activated by the `LOCK` prefix instruction.
 - Goes LOW while executing the `LOCK`-prefixed instruction to **prevent other bus masters from taking control** of the system bus.
 - Example: `LOCK MOV CX, [4000H]` — bus is locked for duration of this instruction.
 
+---
 ### Reset Operation
 
 #### How Reset Works
@@ -316,6 +320,7 @@ An RC (Resistor-Capacitor) circuit is used to generate the reset signal automati
 
 This ensures the RESET pin stays high long enough during power-up for the processor to reset reliably.
 
+---
 ### Min/Max Mode Operation
 
 #### MN/MX Pin (Pin 33)
@@ -360,6 +365,7 @@ These replace the min-mode control pins and are decoded by the 8288:
 | 1   | 1   | 0   | Memory Write           |
 | 1   | 1   | 1   | Passive (no operation) |
 
+---
 ### Bus Demultiplexing
 
 #### Three Buses in a Computer System
@@ -385,19 +391,18 @@ These replace the min-mode control pins and are decoded by the 8288:
 |A16–A19 / S3–S6|Upper address / Status signals|
 |BHE / S7|Bus High Enable / Status|
 
+---
 ### Demultiplexing with Latch IC 74LS373
 
 To separate the address from the data, **latch ICs (74LS373)** are used.
 
 #### Key Features
-
 - 8-bit transparent D-latch
 - Pins: $D_0$–$D_7$ (inputs), $O_0$–O7 (outputs)
 - **LE (Latch Enable):** When HIGH, output follows input (transparent); when LOW, output is **latched** (held).
 - **OE (Output Enable, active LOW):** When LOW, outputs are enabled; when HIGH, outputs go to **high impedance** (tri-state).
 
 #### How it works in 8086 System
-
 - **ALE → G (LE):** When ALE is HIGH, address is passed through; when ALE goes LOW, address is latched.
 - **OE tied to GND:** Outputs always enabled.
 - Three 74LS373s are used:
@@ -405,16 +410,15 @@ To separate the address from the data, **latch ICs (74LS373)** are used.
     2. Latch for **A8–A15** (from AD8–AD15)
     3. Latch for **A16–A19 + BHE** (from the upper address/status lines)
 
+---
 ### Bus Buffering (74LS245)
 
 #### Why Buffering is Needed
-
 - The 8086 can only **drive a limited number of devices** (fan-out limitation).
 - Buffers increase the **drive strength** of the bus, allowing more memory/IO chips to be connected.
 - They also improve **signal integrity** (reduce noise and distortion).
 
 #### 74LS245 – Bidirectional Buffer
-
 - 8-bit **bidirectional** (Octal Bus Transceiver) buffer
 - **DEN (Data Enable, active LOW):** Enables the buffer
 - **DT/R (Data Transmit/Receive):**
