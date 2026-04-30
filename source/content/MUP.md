@@ -262,41 +262,27 @@ The output follows **different paths** depending on whether the input is rising 
 | 1   | 1   | Data Segment (DS)  |
 #### Other Common Pins
 
-| Pin        | Name                     | Type                | Description                                                                                                                                                                                                                                             |
-| ---------- | ------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **BHE/S7** | Bus High Enable / Status | Output (Active Low) | Enables data on upper half of data bus (D8–D15); multiplexed with S7 (always 1)                                                                                                                                                                         |
-| **MN/MX**  | Min/Max Mode Select      | Input               | Selects operating mode (HIGH = Min, LOW = Max)                                                                                                                                                                                                          |
-| **RD**     | Read                     | Output (Active Low) | Whenever the read signal is a logic 0, the data bus is receptive to data from the memory or I/O devices connected to the system.                                                                                                                        |
-| **NMI**    | Non-Maskable Interrupt   | Input               | Non-maskable interrupt request. Does not check to see whether the IF flag bit is a logic 1. If NMI is activated, this interrupt input uses interrupt vector 2.                                                                                          |
-| **INTR**   | Interrupt Request        | Input               | Request a hardware interrupt. If INTR is held<br>high when IF = 1, the 8086/8088 enters an interrupt acknowledge cycle ( becomes active) after the current instruction has completed execution.                                                         |
-| **CLK**    | Clock                    | Input               | System clock from 8284A. A duty cycle of 33 % (high for one third of the clocking period and low for two thirds) to provide proper internal timing for the 8086/8088.                                                                                   |
-| **RESET**  | Reset                    | Input               | Resets processor to known state                                                                                                                                                                                                                         |
-| **VCC**    | Power                    | —                   | +5V supply, ±10 % signal                                                                                                                                                                                                                                |
-| **GND**    | Ground                   | —                   | Ground reference                                                                                                                                                                                                                                        |
-| **TEST**   | TEST                     |                     | Checked by the `WAIT` instruction. 8086 pauses until TEST goes LOW. Used to **synchronize external activities** with the processor. If Test = 1 → Wait(NOP); If Test = 0 → 8086 resumes execution. Most often connected to the 8087 numeric coprocessor |
-| **READY**  |                          |                     | Used to **insert wait states**. If LOW, the processor enters wait states and remains idle (used with slow memory/peripherals).                                                                                                                          |
-
-
-#### Queue Status Signals (QS0, QS1)
-
-Used by external devices (e.g., 8087 coprocessor) to track the 8086's internal instruction queue:
-
-| QS1 | QS0 | Queue Status                 |
-| --- | --- | ---------------------------- |
-| 0   | 0   | Queue is idle                |
-| 0   | 1   | First byte of opcode fetched |
-| 1   | 0   | Queue is empty               |
-| 1   | 1   | Subsequent byte of opcode    |
+| Pin                   | Name                     | Type                | Description                                                                                                                                                                                                                                             |
+| --------------------- | ------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **BHE/S7**            | Bus High Enable / Status | Output (Active Low) | Enables data on upper half of data bus (D8–D15); multiplexed with S7 (always 1)                                                                                                                                                                         |
+| **MN/MX**             | Min/Max Mode Select      | Input               | Selects operating mode (HIGH = Min, LOW = Max)                                                                                                                                                                                                          |
+| **RD**                | Read                     | Output (Active Low) | Whenever the read signal is a logic 0, the data bus is receptive to data from the memory or I/O devices connected to the system.                                                                                                                        |
+| **NMI**               | Non-Maskable Interrupt   | Input               | Non-maskable interrupt request. Does not check to see whether the IF flag bit is a logic 1. If NMI is activated, this interrupt input uses interrupt vector 2.                                                                                          |
+| **INTR**              | Interrupt Request        | Input               | Request a hardware interrupt. If INTR is held<br>high when IF = 1, the 8086/8088 enters an interrupt acknowledge cycle ( becomes active) after the current instruction has completed execution.                                                         |
+| **CLK**               | Clock                    | Input               | System clock from 8284A. A duty cycle of 33 % (high for one third of the clocking period and low for two thirds) to provide proper internal timing for the 8086/8088.                                                                                   |
+| **RESET**             | Reset                    | Input               | Resets processor to known state                                                                                                                                                                                                                         |
+| **VCC**               | Power                    | —                   | +5V supply, ±10 % signal                                                                                                                                                                                                                                |
+| **GND**               | Ground                   | —                   | Ground reference                                                                                                                                                                                                                                        |
+| **TEST**              |                          |                     | Checked by the `WAIT` instruction. 8086 pauses until TEST goes LOW. Used to **synchronize external activities** with the processor. If Test = 1 → Wait(NOP); If Test = 0 → 8086 resumes execution. Most often connected to the 8087 numeric coprocessor |
+| **READY**             |                          |                     | Used to **insert wait states**. If LOW, the processor enters wait states and remains idle (used with slow memory/peripherals).                                                                                                                          |
+| **$QS_1$ and $QS_0$** | Queue Status             |                     | Show the status of the internal instruction queue.<br>Provided for access by the numeric coprocessor (8087).                                                                                                                                            |
+| **LOCK**              |                          |                     |                                                                                                                                                                                                                                                         |
 #### RQ/GT Pins (Request/Grant)
 
 | Pin                | Description                                                                                                                                           |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **RQ/GT0, RQ/GT1** | Bidirectional. Used by other bus masters to request and release the local bus (e.g., during DMA). Processor releases bus at end of current bus cycle. |
-#### LOCK Pin
 
-- Output signal activated by the `LOCK` prefix instruction.
-- Goes LOW while executing the `LOCK`-prefixed instruction to **prevent other bus masters from taking control** of the system bus.
-- Example: `LOCK MOV CX, [4000H]` — bus is locked for duration of this instruction.
 
 ---
 ### Reset Operation
@@ -364,11 +350,12 @@ In **Minimum Mode**, pin 33 is tied to VCC and the 8086 generates all bus contro
 
 In **Maximum Mode**, the 8086 works with an **8288 Bus Controller** which decodes status signals (S0, S1, S2) to generate bus control signals. Connect the MN/MX pin to ground.
 
-| Pin                                                                                                       | **Name**           | Description                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| $\overline{\mathbf{S_2}}, \overline{\mathbf{S_1}},$ and $\overline{\mathbf{S_0}}$                         | Status Bits        | Indicate the function of the current bus cycle. These signals are<br>normally decoded by the 8288 bus controller                                             |
-| $\overline{\mathbf{RQ}}/ \overline{\mathbf{GT_1}}$ and $\overline{\mathbf{RQ}}/ \overline{\mathbf{GT_0}}$ | Request/grant pins | Request direct memory accesses (DMA) during<br>maximum mode operation. These lines are bidirectional and are used to both request and grant a DMA operation. |
-
+| Pin                                                                                                       | **Name**           | Description                                                                                                                                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $\overline{\mathbf{S_2}}, \overline{\mathbf{S_1}},$ and $\overline{\mathbf{S_0}}$                         | Status Bits        | Indicate the function of the current bus cycle. These signals are<br>normally decoded by the 8288 bus controller                                                                                                                                                                   |
+| $\overline{\mathbf{RQ}}/ \overline{\mathbf{GT_1}}$ and $\overline{\mathbf{RQ}}/ \overline{\mathbf{GT_0}}$ | Request/grant pins | Request direct memory accesses (DMA) during<br>maximum mode operation. These lines are bidirectional and are used to both request and grant a DMA operation.                                                                                                                       |
+| $\overline{\mathbf{LOCK}}$                                                                                |                    | Output signal activated by the `LOCK` prefix instruction.<br>Goes LOW while executing the `LOCK`-prefixed instruction to **prevent other bus masters from taking control** of the system bus.<br>Example: `LOCK MOV CX, [4000H]` — bus is locked for duration of this instruction. |
+| $QS_1$ and $QS_0$                                                                                         |                    | Show the status of the internal instruction queue.<br>Provided for access by the numeric coprocessor (8087).                                                                                                                                                                       |
 ##### Bus control function generated by the bus controller (8288)
 
 These replace the min-mode control pins and are decoded by the 8288:
@@ -385,58 +372,217 @@ These replace the min-mode control pins and are decoded by the 8288:
 | 1                         | 1                         | 1                         | Passive (no operation) |
 ##### Queue Status
 
-| **QS1​** | **QS0​** | **Function**              |
-| -------- | -------- | ------------------------- |
-| 0        | 0        | Queue is idle             |
-| 0        | 1        | First byte of opcode      |
-| 1        | 0        | Queue is empty            |
-| 1        | 1        | Subsequent byte of opcode |
+| **$QS_1$​** | **$QS_0$​** | **Function**              |
+| ----------- | ----------- | ------------------------- |
+| 0           | 0           | Queue is idle             |
+| 0           | 1           | First byte of opcode      |
+| 1           | 0           | Queue is empty            |
+| 1           | 1           | Subsequent byte of opcode |
 
 
 ---
-### Bus Demultiplexing
+### Bus Demultiplexing of the 8086/8088 – Detailed Explanation
 
-#### Three Buses in a Computer System
+#### The Bus Cycle – 4 Clock States
 
-|Bus|Width|Purpose|
-|---|---|---|
-|Address|20-bit|Selects memory/IO location|
-|Data|8-bit (8088) / 16-bit (8086)|Carries data being read/written|
-|Control|Various signals|Controls direction & type of transfer|
+Every memory/IO access takes place over a **bus cycle** made up of clock states:
 
-#### Why Multiplexing?
+```
+T1          T2          T3          T4
+|-----------|-----------|-----------|-----------|
+  Address     ← Data valid window →
+  on AD bus              Data on AD bus
+  ALE HIGH
+  (latch it!)
+```
 
-- The 8086 has a **limited number of pins (40 pins)**.
-- To save pins, the **address and data buses are multiplexed** (time-shared) on the same physical lines.
-- **T1 (Address Phase):** The processor drives the memory address on AD0–AD15. The **ALE (Address Latch Enable)** signal goes HIGH, telling an external latch (8282/74LS373) to capture the address.
-- **T2–T4 (Data Phase):** The address is held by the latch; AD0–AD15 are now used for data transfer.
-
-#### Multiplexed Pins
-
-|Pin Group|Dual Function|
+|State|What Happens|
 |---|---|
-|AD0–AD15|Address A0–A15 / Data D0–D15|
-|A16–A19 / S3–S6|Upper address / Status signals|
-|BHE / S7|Bus High Enable / Status|
+|**T1**|8086 drives the **address** on AD0–AD15 and A16–A19. **ALE pulses HIGH** to signal valid address.|
+|**T2**|Address removed from bus. Bus turns around — now driven by memory (read) or CPU (write).|
+|**T3**|**Data is valid** on AD0–AD15.|
+|**T4**|Bus cycle ends. Data sampled.|
 
----
-### Demultiplexing with Latch IC 74LS373
+> If `READY` is LOW, **wait states ($T_w$)** are inserted between T3 and T4 to accommodate slow memory.
 
-To separate the address from the data, **latch ICs (74LS373)** are used.
 
-#### Key Features
-- 8-bit transparent D-latch
-- Pins: $D_0$–$D_7$ (inputs), $O_0$–O7 (outputs)
-- **LE (Latch Enable):** When HIGH, output follows input (transparent); when LOW, output is **latched** (held).
-- **OE (Output Enable, active LOW):** When LOW, outputs are enabled; when HIGH, outputs go to **high impedance** (tri-state).
+#### The Demultiplexing Circuit
 
-#### How it works in 8086 System
-- **ALE → G (LE):** When ALE is HIGH, address is passed through; when ALE goes LOW, address is latched.
-- **OE tied to GND:** Outputs always enabled.
-- Three 74LS373s are used:
-    1. Latch for **A0–A7** (from AD0–AD7)
-    2. Latch for **A8–A15** (from AD8–AD15)
-    3. Latch for **A16–A19 + BHE** (from the upper address/status lines)
+Three key external chips handle demultiplexing:
+
+```
+                        ┌────────────┐
+                        │   8086/    │
+                        │   8088     │
+                        │            │
+          AD0–AD7 ──────┤            ├──── ALE
+          AD8–AD15 ─────┤            ├──── DEN
+          A16–A19 ──────┤            ├──── DT/R̄
+                        └────────────┘
+               │               │               │
+               ▼               ▼               ▼
+        ┌─────────┐     ┌─────────┐     ┌─────────┐
+        │  8282   │     │  8282   │     │  8282   │
+        │  Latch  │     │  Latch  │     │  Latch  │
+        │ (AD0-7) │     │(AD8-15) │     │(A16-19) │
+        └─────────┘     └─────────┘     └─────────┘
+               │               │               │
+               ▼               ▼               ▼
+           A0–A7           A8–A15          A16–A19
+        (Address Bus — stable for entire bus cycle)
+
+        AD0–AD7 ─────────────────────────────────────►
+        AD8–AD15 ────────────────────────────────────►
+                     (Data Bus — available after T1)
+```
+
+#### The Three Key Control Signals
+
+##### 1. ALE – Address Latch Enable
+- Goes **HIGH during T1** when the address is valid on the AD lines.
+- Connected to the **STB (strobe)** input of the 8282 latch.
+- On the **falling edge of ALE**, the latch captures and holds the address.
+- After T1, ALE goes LOW — the latch holds the address **transparently**, freeing the AD lines for data.
+
+##### 2. DEN – Data Enable (Active LOW)
+- Controls the **output enable** of the data bus transceivers (8286).
+- Goes LOW during T2–T4 to enable data onto the system data bus.
+- Keeps data bus **disabled (high-Z)** when not in use to avoid bus conflicts.
+
+##### 3. DT/R̄ – Data Transmit/Receive
+- Controls the **direction** of the data transceiver:
+    - **HIGH (Transmit)** → CPU is writing data **to** memory/IO
+    - **LOW (Receive)** → CPU is reading data **from** memory/IO
+
+#### The 8282 Latch (Address Latch)
+
+The **8282** (or equivalent 74LS373) is an octal D-type latch:
+
+```
+       ALE ──────────────► STB (Strobe)
+    AD0–AD7 ─────────────► D0–D7 (inputs)
+                           Q0–Q7 ──────► A0–A7 (stable address output)
+```
+
+**How it works:**
+- While STB (ALE) is **HIGH**: outputs follow inputs (transparent mode)
+- When STB (ALE) goes **LOW**: outputs are **latched/frozen** — address is held stable
+
+Three 8282s are used:
+
+|Latch|Input Pins|Output|
+|---|---|---|
+|Latch 1|AD0–AD7|A0–A7|
+|Latch 2|AD8–AD15|A8–A15|
+|Latch 3|A16/S3–A19/S6|A16–A19|
+
+#### The 8286 Transceiver (Data Bus Buffer)
+
+The **8286** is a bidirectional octal bus transceiver used to buffer the data bus:
+
+```
+    DT/R̄ ─────────────► T (direction control)
+    DEN̄  ─────────────► OE̅ (output enable, active low)
+    AD0–AD7 ──────────► A side
+                        B side ────────► D0–D7 (system data bus)
+```
+
+- **DT/R̄ = 1**: Data flows A→B (CPU writing to memory)
+- **DT/R̄ = 0**: Data flows B→A (CPU reading from memory)
+- **DEN̄ = 1**: Transceiver disabled (high-impedance) — bus is isolated
+
+#### Timing Diagram – Read Cycle
+
+```
+CLK    ─┐ ┌─┐ ┌─┐ ┌─┐ ┌─
+         └─┘ └─┘ └─┘ └─┘
+          T1  T2  T3  T4
+
+ALE    ─┐  ┌──┐
+         └──┘  └──────────   (HIGH during T1, latches address)
+
+AD0-15  [  ADDRESS  ][   DATA VALID   ]
+          (T1)         (T2 → T4)
+
+A0-15   [  ADDRESS STABLE (held by latch)                ]
+          (latched at falling edge of ALE, held through T4)
+
+DT/R̄   ────────────────────── LOW (receive mode, reading)
+
+DEN̄    ────────┐        ┌──── LOW during T2–T4 (data enabled)
+                └────────┘
+```
+
+#### Timing Diagram – Write Cycle
+
+```
+CLK    ─┐ ┌─┐ ┌─┐ ┌─┐ ┌─
+         └─┘ └─┘ └─┘ └─┘
+          T1  T2  T3  T4
+
+ALE    ─┐  ┌──┐
+         └──┘  └──────────   (latches address)
+
+AD0-15  [  ADDRESS  ][ DATA FROM CPU  ]
+
+A0-15   [  ADDRESS STABLE (latched)                      ]
+
+DT/R̄   ──────────────────── HIGH (transmit mode, writing)
+
+DEN̄    ────────┐        ┌──
+                └────────┘    (LOW during T2–T4, data enabled)
+```
+
+#### 8088 Specific Note
+
+The **8088** has a narrower **8-bit external data bus** (AD0–AD7 only), unlike the 8086's 16-bit bus (AD0–AD15).
+
+|Feature|8086|8088|
+|---|---|---|
+|External data bus|16-bit (AD0–AD15)|**8-bit (AD0–AD7)**|
+|Address/data mux lines|16 lines|**8 lines**|
+|Latches needed|3 × 8282|**2 × 8282** (one for AD0–7, one for A8–A15)|
+|Data transceivers|2 × 8286|**1 × 8286**|
+|BHE pin|Present|**Absent** (no upper byte)|
+
+
+## Complete Demultiplexed System (8088)
+
+```
+┌──────────────────────────────────────────┐
+│                  8088 CPU                │
+│                                          │
+│  AD0–AD7 ──────────────────────────────► │─── (to Latch 1 AND Data Bus)
+│  A8–A15  ──────────────────────────────► │─── (to Latch 2 only)
+│  A16–A19 ──────────────────────────────► │─── (to Latch 3 only)
+│                                          │
+│  ALE  ─────────────────────────────────► │─── STB of all latches
+│  DEN  ─────────────────────────────────► │─── OE of data transceiver
+│  DT/R ─────────────────────────────────► │─── T of data transceiver
+└──────────────────────────────────────────┘
+
+         Latch 1 (8282)        Latch 2 (8282)       Latch 3 (8282)
+         AD0–AD7 → A0–A7      A8–A15 → A8–A15      A16–A19 → A16–A19
+              │
+              ▼
+         Transceiver (8286)
+         AD0–AD7 ↔ D0–D7 (system data bus)
+
+         └── A0–A7 ──┐
+         └── A8–A15 ─┤──► 20-bit Address Bus → Memory / IO
+         └── A16–A19 ┘
+```
+
+#### Summary
+
+|Step|Signal|Action|
+|---|---|---|
+|1|**ALE HIGH**|8086/88 puts address on AD lines|
+|2|**ALE falls LOW**|8282 latch captures & holds the address|
+|3|**AD lines free**|Now carry data instead of address|
+|4|**DT/R̄ set**|Direction of data flow established|
+|5|**DEN̄ LOW**|8286 transceiver enabled, data flows|
+|6|**T4 complete**|Data sampled, bus cycle ends|
 
 ---
 ### Bus Buffering (74LS245)
@@ -587,29 +733,31 @@ The **8284A** is a dedicated clock generation chip used with the 8086/8088. It i
 
 ### Clock Generation Process
 
-1. Crystal is connected to **X1** and **X2** pins of 8284A.
+1. Crystal is connected to **X1** and **X2** pins of 8284A to.
 2. The internal **XTAL OSC** generates a square wave at the crystal frequency (e.g., 15 MHz).
-3. A **2-to-1 MUX** selects between crystal (XTAL) or external frequency input (EFI), controlled by the **F/C** pin.
-4. The MUX output drives a **÷3 counter** (e.g., 15 MHz → 5 MHz CLK for 8086).
-5. The ÷3 output also drives a **÷2 counter** → 2.5 MHz **PCLK** for peripherals.
+3. The square-wave signal is fed to an AND gate and to an inverting buffer that provides the OSC output signal.
+4. A **2-to-1 MUX** selects between crystal (XTAL) or external frequency input (EFI), controlled by the **F/C** pin.
+5. The MUX output drives a **÷3 counter** (e.g., 15 MHz → 5 MHz CLK for 8086).
+6. The ÷3 output also drives a **÷2 counter** → 2.5 MHz **PCLK** for peripherals.
 
 ### 8284A Pin Summary
 
-| Pin            | Description                                                                                               |
-| -------------- | --------------------------------------------------------------------------------------------------------- |
-| **X1, X2**     | Crystal oscillator connections                                                                            |
-| **F/C**        | Selects XTAL oscillator (HIGH) or EFI external input (LOW)                                                |
-| **OSC**        | Oscillator output at crystal frequency; used as EFI for other 8284As in multi-processor systems           |
-| **CSYNC**      | Clock synchronization in multi-processor systems; grounded when using crystal                             |
-| **CLK**        | Output to 8086 CLK pin (crystal freq ÷ 3)                                                                 |
-| **PCLK**       | Peripheral Clock output (crystal freq ÷ 6)                                                                |
-| **RDY1, RDY2** | Ready inputs from bus devices                                                                             |
-| **AEN1, AEN2** | Address Enable – gate the RDY signals; control wait state generation                                      |
-| **READY**      | Synchronized READY output to 8086                                                                         |
-| **ASYNC**      | Selects 1-stage (synchronous) or 2-stage synchronization (for slow async devices, to avoid metastability) |
-| **RES**        | Active LOW input to 8284A; triggers power-on reset                                                        |
-| **RESET**      | Synchronized RESET output to 8086                                                                         |
-| **VCC / GND**  | +5V power and Ground                                                                                      |
+| Pin                             | Type   | Description                                                                                                                         |
+| ------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **X1, X2**                      |        | Crystal oscillator connections                                                                                                      |
+| **F/$\overline{\mathbf{C}}$**   | Input  | Selects XTAL oscillator (HIGH) by connecting to VCC or EFI external input (LOW) by connecting to GND                                |
+| **OSC**                         | Output | TTL-level signal that is at the same frequency as the crystal or EFI input. Used as EFI for other 8284As in multi-processor systems |
+| **CSYNC**                       |        | Clock synchronization in multi-processor systems; grounded when using crystal                                                       |
+| **CLK**                         | Output | Output to 8086 CLK pin (crystal freq ÷ 3) and has a 33% duty cycle                                                                  |
+| **PCLK**                        | Output | Peripheral Clock output (crystal freq ÷ 6) and has a 50% duty cycle                                                                 |
+| **RDY1, RDY2**                  | Input  | Ready inputs from bus devices to cause wait states                                                                                  |
+| **AEN1, AEN2**                  | Input  | Address Enable – gate the RDY signals; control wait state generation                                                                |
+| **READY**                       | Output | Output pin connected to the 8086/8088 READY input and is synchronized with the RDY1 and RDY2 inputs.                                |
+| **$\overline{\mathbf{ASYNC}}$** | Input  | Selects 1-stage (synchronous) or 2-stage synchronization (for slow async devices, to avoid metastability)                           |
+| **$\overline{\mathbf{RES}}$     |        | Active LOW input to 8284A; connected to an RC network that provides power-on resetting.                                             |
+| **RESET**                       |        | Synchronized RESET output to 8086                                                                                                   |
+| **VCC**                         |        | +5V power with a tolerance of ±10%                                                                                                  |
+| **GND**                         |        | Ground                                                                                                                              |
 ### RESET Timing Details
 
 - The 8284A uses a negative edge-triggered (1→0) flip-flop to apply RESET to the 8086 on the falling edge.
