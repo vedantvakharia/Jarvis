@@ -262,19 +262,19 @@ The output follows **different paths** depending on whether the input is rising 
 | 1   | 1   | Data Segment (DS)  |
 #### Other Common Pins
 
-| Pin        | Name                     | Type                | Description                                                                                                                                                                                   |
-| ---------- | ------------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **BHE/S7** | Bus High Enable / Status | Output (Active Low) | Enables data on upper half of data bus (D8–D15); multiplexed with S7 (always 1)                                                                                                               |
-| **MN/MX**  | Min/Max Mode Select      | Input               | Selects operating mode (HIGH = Min, LOW = Max)                                                                                                                                                |
-| **RD**     | Read                     | Output (Active Low) | Signals a read operation                                                                                                                                                                      |
-| **NMI**    | Non-Maskable Interrupt   | Input               | Non-maskable interrupt request                                                                                                                                                                |
-| **INTR**   | Interrupt Request        | Input               | Maskable interrupt request                                                                                                                                                                    |
-| **CLK**    | Clock                    | Input               | System clock from 8284A                                                                                                                                                                       |
-| **RESET**  | Reset                    | Input               | Resets processor to known state                                                                                                                                                               |
-| **VCC**    | Power                    | —                   | +5V supply                                                                                                                                                                                    |
-| **GND**    | Ground                   | —                   | Ground reference                                                                                                                                                                              |
-| **TEST**   | TEST                     |                     | Checked by the `WAIT` instruction. 8086 pauses until TEST goes LOW. Used to **synchronize external activities** with the processor. If Test = 1 → Wait; If Test = 0 → 8086 resumes execution. |
-| **READY**  |                          |                     | Used to **insert wait states**. If LOW, the processor enters wait states and remains idle (used with slow memory/peripherals).                                                                |
+| Pin        | Name                     | Type                | Description                                                                                                                                                                                                                                             |
+| ---------- | ------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **BHE/S7** | Bus High Enable / Status | Output (Active Low) | Enables data on upper half of data bus (D8–D15); multiplexed with S7 (always 1)                                                                                                                                                                         |
+| **MN/MX**  | Min/Max Mode Select      | Input               | Selects operating mode (HIGH = Min, LOW = Max)                                                                                                                                                                                                          |
+| **RD**     | Read                     | Output (Active Low) | Whenever the read signal is a logic 0, the data bus is receptive to data from the memory or I/O devices connected to the system.                                                                                                                        |
+| **NMI**    | Non-Maskable Interrupt   | Input               | Non-maskable interrupt request. Does not check to see whether the IF flag bit is a logic 1. If NMI is activated, this interrupt input uses interrupt vector 2.                                                                                          |
+| **INTR**   | Interrupt Request        | Input               | Request a hardware interrupt. If INTR is held<br>high when IF = 1, the 8086/8088 enters an interrupt acknowledge cycle ( becomes active) after the current instruction has completed execution.                                                         |
+| **CLK**    | Clock                    | Input               | System clock from 8284A. A duty cycle of 33 % (high for one third of the clocking period and low for two thirds) to provide proper internal timing for the 8086/8088.                                                                                   |
+| **RESET**  | Reset                    | Input               | Resets processor to known state                                                                                                                                                                                                                         |
+| **VCC**    | Power                    | —                   | +5V supply, ±10 % signal                                                                                                                                                                                                                                |
+| **GND**    | Ground                   | —                   | Ground reference                                                                                                                                                                                                                                        |
+| **TEST**   | TEST                     |                     | Checked by the `WAIT` instruction. 8086 pauses until TEST goes LOW. Used to **synchronize external activities** with the processor. If Test = 1 → Wait(NOP); If Test = 0 → 8086 resumes execution. Most often connected to the 8087 numeric coprocessor |
+| **READY**  |                          |                     | Used to **insert wait states**. If LOW, the processor enters wait states and remains idle (used with slow memory/peripherals).                                                                                                                          |
 
 
 #### Queue Status Signals (QS0, QS1)
@@ -334,36 +334,64 @@ This ensures the RESET pin stays high long enough during power-up for the proces
 
 In **Minimum Mode**, pin 33 is tied to VCC and the 8086 generates all bus control signals directly.
 
-| Pin      | Name                  | Description                                                                         |
-| -------- | --------------------- | ----------------------------------------------------------------------------------- |
-| **ALE**  | Address Latch Enable  | Pulses HIGH during T1 to latch address from multiplexed bus                         |
-| **DEN**  | Data Enable           | Activates the external **data bus buffer/transceiver**                              |
-| **DT/R** | Data Transmit/Receive | Controls **direction** of data through transceivers: HIGH = Transmit, LOW = Receive |
-| **M/IO** | Memory / I/O Select   | HIGH = **memory** access; LOW = **I/O** access (IN/OUT instructions)                |
-| **WR**   | Write                 | Active low; asserted when processor writes data to memory or I/O port               |
-| **RD**   | Read                  | Active low; asserted during read cycles                                             |
-| **INTA** | Interrupt Acknowledge | Goes LOW when processor accepts an interrupt request                                |
-| **HOLD** | Hold Request          | Input from DMA controller or bus master requesting bus control                      |
-| **HLDA** | Hold Acknowledge      | Output; asserted HIGH when processor grants bus control (accepts HOLD)              |
+| Pin      | Name                  | Description                                                                                                                                                                                                                                                                                |
+| -------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **ALE**  | Address Latch Enable  | Pulses HIGH during T1 to latch address from multiplexed bus. This address can be a memory address or an I/O port number.                                                                                                                                                                   |
+| **DEN**  | Data Enable           | Activates the external **data bus buffer/transceiver**                                                                                                                                                                                                                                     |
+| **DT/R** | Data Transmit/Receive | Controls **direction** of data through transceivers: HIGH = Transmit, LOW = Receive                                                                                                                                                                                                        |
+| **M/IO** | Memory / I/O Select   | HIGH = **memory** access; LOW = **I/O** access (IN/OUT instructions)                                                                                                                                                                                                                       |
+| **WR**   | Write                 | Active low; asserted when processor writes data to memory or I/O port                                                                                                                                                                                                                      |
+| **RD**   | Read                  | Active low; asserted during read cycles                                                                                                                                                                                                                                                    |
+| **INTA** | Interrupt Acknowledge | Goes LOW when processor accepts an interrupt request                                                                                                                                                                                                                                       |
+| **HOLD** | Hold Request          | The hold input requests a direct memory access (DMA). If the HOLD signal is a logic 1, the microprocessor stops executing software and places its address, data, and control bus at the high-impedance state. If the HOLD pin is a logic 0, the microprocessor executes software normally. |
+| **HLDA** | Hold Acknowledge      | Output; asserted HIGH when processor grants bus control (accepts HOLD)                                                                                                                                                                                                                     |
+| **SS0**  | SS0 Status Line       | Equivalent to the $S_0$ pin in maximum mode operation of the microprocessor. This signal is combined with IO/M and DT/R to<br>decode the function of the current bus cycle.                                                                                                                |
+
+##### Bus cycle status (8088) 
+
+| **IO/M** | **DT/R** | **SS0** | **Function**          |
+| -------- | -------- | ------- | --------------------- |
+| 0        | 0        | 0       | Interrupt acknowledge |
+| 0        | 0        | 1       | Memory read           |
+| 0        | 1        | 0       | Memory write          |
+| 0        | 1        | 1       | Halt                  |
+| 1        | 0        | 0       | Opcode fetch          |
+| 1        | 0        | 1       | I/O read              |
+| 1        | 1        | 0       | I/O write             |
+| 1        | 1        | 1       | Passive               |
 
 #### Maximum Mode Pins
 
-In **Maximum Mode**, the 8086 works with an **8288 Bus Controller** which decodes status signals (S0, S1, S2) to generate bus control signals.
+In **Maximum Mode**, the 8086 works with an **8288 Bus Controller** which decodes status signals (S0, S1, S2) to generate bus control signals. Connect the MN/MX pin to ground.
 
-#### Status Signals S0, S1, S2 (Active Low)
+| Pin                                                                                                       | **Name**           | Description                                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| $\overline{\mathbf{S_2}}, \overline{\mathbf{S_1}},$ and $\overline{\mathbf{S_0}}$                         | Status Bits        | Indicate the function of the current bus cycle. These signals are<br>normally decoded by the 8288 bus controller                                             |
+| $\overline{\mathbf{RQ}}/ \overline{\mathbf{GT_1}}$ and $\overline{\mathbf{RQ}}/ \overline{\mathbf{GT_0}}$ | Request/grant pins | Request direct memory accesses (DMA) during<br>maximum mode operation. These lines are bidirectional and are used to both request and grant a DMA operation. |
+
+##### Bus control function generated by the bus controller (8288)
 
 These replace the min-mode control pins and are decoded by the 8288:
 
-| S2  | S1  | S0  | Bus Cycle Function     |
-| --- | --- | --- | ---------------------- |
-| 0   | 0   | 0   | Interrupt Acknowledge  |
-| 0   | 0   | 1   | I/O Read               |
-| 0   | 1   | 0   | I/O Write              |
-| 0   | 1   | 1   | Halt                   |
-| 1   | 0   | 0   | Opcode Fetch           |
-| 1   | 0   | 1   | Memory Read            |
-| 1   | 1   | 0   | Memory Write           |
-| 1   | 1   | 1   | Passive (no operation) |
+| $\overline{\mathbf{S_2}}$ | $\overline{\mathbf{S_1}}$ | $\overline{\mathbf{S_0}}$ | Bus Cycle Function     |
+| ------------------------- | ------------------------- | ------------------------- | ---------------------- |
+| 0                         | 0                         | 0                         | Interrupt Acknowledge  |
+| 0                         | 0                         | 1                         | I/O Read               |
+| 0                         | 1                         | 0                         | I/O Write              |
+| 0                         | 1                         | 1                         | Halt                   |
+| 1                         | 0                         | 0                         | Opcode Fetch           |
+| 1                         | 0                         | 1                         | Memory Read            |
+| 1                         | 1                         | 0                         | Memory Write           |
+| 1                         | 1                         | 1                         | Passive (no operation) |
+##### Queue Status
+
+| **QS1​** | **QS0​** | **Function**              |
+| -------- | -------- | ------------------------- |
+| 0        | 0        | Queue is idle             |
+| 0        | 1        | First byte of opcode      |
+| 1        | 0        | Queue is empty            |
+| 1        | 1        | Subsequent byte of opcode |
+
 
 ---
 ### Bus Demultiplexing
@@ -512,12 +540,12 @@ Alternatively, these control signals can be derived using simple logic gates:
 
 ### Key Timing Parameters (5 MHz Clock)
 
-|Parameter|Description|Value|
-|---|---|---|
-|**TCLAV**|Clock to Address Valid|110 ns|
-|**TCLRL**|Clock to Read Line (RD) active|—|
-|**TDVCL**|Data Valid to Clock (data setup time)|30 ns|
-|Clock period (5 MHz)|1/5MHz|200 ns|
+| Parameter            | Description                           | Value  |
+| -------------------- | ------------------------------------- | ------ |
+| **TCLAV**            | Clock to Address Valid                | 110 ns |
+| **TCLRL**            | Clock to Read Line (RD) active        | —      |
+| **TDVCL**            | Data Valid to Clock (data setup time) | 30 ns  |
+| Clock period (5 MHz) | 1/5MHz                                | 200 ns |
 
 ### Memory Access Time Calculation (No Wait States)
 
