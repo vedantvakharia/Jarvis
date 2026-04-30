@@ -237,21 +237,21 @@ The output follows **different paths** depending on whether the input is rising 
 | M8086  | 5 MHz     | HMOS       |
 
 ---
-### 8086/8088 Pin Out – Common Pins
+### 8086/8088 Pins
 
 #### Address/Data Bus Pins
   
-| Pin(s)                         | Name                        | Description                                                                                           |
-| ------------------------------ | --------------------------- | ----------------------------------------------------------------------------------------------------- |
-| AD0–AD15                       | Address/Data Bus            | **Bidirectional, multiplexed.** Carry low-order address (A0–A15) or data (D0–D15) at different times. |
-| A16/S3, A17/S4, A18/S5, A19/S6 | High-Order Address / Status | Carry high-order address bits (20-bit total address space = 1 MB) or status signals.                  |
+| Pin(s)                         | Name                        | Description                                                                                                        |
+| ------------------------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| AD0–AD15                       | Address/Data Bus            | **Bidirectional, multiplexed.** Carry low-order address (A0–A15) when ALE = 1 or data (D0–D15) at different times. |
+| A16/S3, A17/S4, A18/S5, A19/S6 | High-Order Address / Status | Carry high-order address bits (20-bit total address space = 1 MB) or status signals.                               |
 #### Status Signals (S3–S6)
 
-| Signal     | Description                                         |
-| ---------- | --------------------------------------------------- |
-| **S6**     | Always logic **0**                                  |
-| **S5**     | Reflects the state of the **Interrupt Flag (IF)**   |
-| **S4, S3** | Indicate which **memory segment** is being accessed |
+| Signal     | Description                                                                                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **S6**     | Always logic **0**                                                                                                                                       |
+| **S5**     | Reflects the state of the **Interrupt Flag (IF)**                                                                                                        |
+| **S4, S3** | Indicate which **memory segment** is being accessed. Can be used to address four separate 1M byte memory banks by decoding them as $A_{21}$ and $A_{20}$ |
 #### S4/S3 Segment Encoding
 
 | S4  | S3  | Segment            |
