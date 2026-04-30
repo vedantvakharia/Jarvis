@@ -546,7 +546,7 @@ The **8088** has a narrower **8-bit external data bus** (AD0–AD7 only), unlike
 |BHE pin|Present|**Absent** (no upper byte)|
 
 
-## Complete Demultiplexed System (8088)
+#### Complete Demultiplexed System (8088)
 
 ```
 ┌──────────────────────────────────────────┐
@@ -589,8 +589,53 @@ The **8088** has a narrower **8-bit external data bus** (AD0–AD7 only), unlike
 
 #### Why Buffering is Needed
 - The 8086 can only **drive a limited number of devices** (fan-out limitation).
-- Buffers increase the **drive strength** of the bus, allowing more memory/IO chips to be connected.
+- Buffers increase the **drive strength** of the bus by placing a high-drive-capability chip between the processor and the rest of the system, so the processor only drives one input (the buffer), and the buffer does the heavy lifting of driving all the other devices.
 - They also improve **signal integrity** (reduce noise and distortion).
+
+#### Things latched
+
+##### 1. Address Bus (Unidirectional)
+The address bus flows in one direction only — out of the processor but the AD0–AD15 pins are multiplexed: they carry the address during T1, then switch to data during T2–T4. So the address must be captured and held while the pins switch to data mode. This is done by 8282 or 74LS373 latch.
+
+The **8282** is an octal latch (8 bits wide, so you need two for a 16-bit address, plus one for A16–A19 and BHE).
+
+**How it works:**
+- During **T1**, the 8086 puts the address on AD0–AD15 and simultaneously pulses **ALE HIGH**.
+- The 8282 latch is **transparent** while ALE is HIGH — the address passes straight through.
+- When **ALE goes LOW** (end of T1), the latch **freezes** the address and holds it stable for the rest of the bus cycle (T2–T4), even as the 8086 repurposes those same pins for data.
+- The latched address drives the memory chips and I/O devices throughout the cycle.
+
+```c title:Timing
+CLK:   |‾‾‾|___|‾‾‾|___|‾‾‾|___|‾‾‾|
+         T1      T2      T3      T4
+
+ALE:   |‾‾‾‾|_________________________
+              ↑ falls — address locked in latch
+
+AD0–15:|ADDRESS | ←——— DATA ————————→|
+```
+
+##### 2. Data Bus (Bidirectional)
+The data bus flows both ways — into the processor during reads, out during writes. A simple latch won't work here because you need directional control. This requires 8286 (or 74LS245) which is a transceiver (bidirectional buffer).
+
+The **8286** is an octal **bidirectional** buffer. Two of them give you a full 16-bit data bus buffer. It has two control pins:
+- **OE (Output Enable)** — connected to the processor's **DEN (Data Enable)** signal
+- **T (Transmit)** — connected to the processor's **DT/R (Data Transmit/Receive)** signal
+
+**How it works:**
+
+| DEN  | DT/R | Transceiver State                                             |
+| ---- | ---- | ------------------------------------------------------------- |
+| HIGH | —    | **Disabled** (high impedance, bus isolated from processor)    |
+| LOW  | HIGH | **Transmit** — data flows from processor → system bus (Write) |
+| LOW  | LOW  | **Receive** — data flows from system bus → processor (Read)   |
+
+**DEN** goes LOW only when valid data needs to pass. During the address phase (T1) and during wait states, DEN is HIGH so the transceiver is disabled, preventing bus conflicts.
+
+**DT/R** is set by the 8086 based on whether the current cycle is a read or write, well before data is actually transferred, giving the transceiver time to switch direction.
+
+##### 3. BHE
+The **BHE (Bus High Enable)** signal is also multiplexed — it's valid during T1 alongside the address. So it too must be latched by the 8282 (or a dedicated latch) along with A0–A19 to tell memory whether the upper byte of the data bus (D8–D15) is being used.
 
 #### 74LS245 – Bidirectional Buffer
 - 8-bit **bidirectional** (Octal Bus Transceiver) buffer
@@ -609,6 +654,68 @@ The full 8086 minimum-mode system has:
 - **Latches (74LS373)** → separate address from data → produce buffered address bus A0–A19
 - **Bidirectional Buffers (74LS245)** → amplify data bus D0–D15
 - **Unidirectional Buffer (74LS244)** → buffer control signals (RD, WR, M/IO)
+
+
+
+### The Demultiplexing + Buffering Circuit
+
+Here's the full picture of what happens between the 8086 and the system bus:
+
+```
+                        ALE
+                         |
+  8086                   ▼
+  AD0–AD15 ──────> [ 8282 Latch ] ──────> A0–A15 (Address Bus to memory/IO)
+                                   
+  AD0–AD15 ──────> [ 8286 Transceiver ] <──────> D0–D15 (Data Bus)
+                         ▲           ▲
+                        DEN         DT/R
+```
+
+The **ALE, DEN, and DT/R** signals from the 8086 (in minimum mode) coordinate exactly when each chip is active and in which direction.
+
+
+### The Data Transceiver — 
+
+---
+
+
+
+---
+
+### Maximum Mode: The 8288 Bus Controller
+
+In **maximum mode**, the 8086 doesn't generate ALE, DEN, DT/R, RD, or WR directly. Instead it outputs **S0, S1, S2** status signals. The **8288 Bus Controller** decodes these and generates all the buffering control signals:
+
+```
+8086 → S0, S1, S2 → [ 8288 Bus Controller ] → ALE, DEN, DT/R, MRDC, MWTC, IORC, IOWC
+```
+
+The 8288 generates separate read/write strobes for memory and I/O (MRDC, MWTC, IORC, IOWC), which is cleaner and more powerful than the min-mode single M/IO pin approach.
+
+---
+
+### Summary of Key Chips
+
+|Chip|Type|Purpose|
+|---|---|---|
+|**8282 / 74LS373**|Octal Latch|Captures and holds address during T1; demultiplexes AD bus|
+|**8286 / 74LS245**|Octal Transceiver|Bidirectional data buffer; controlled by DEN and DT/R|
+|**8288**|Bus Controller|Max-mode only; decodes S0–S2 into all bus control signals|
+|**8284A**|Clock Generator|Provides CLK, RESET, READY to the 8086|
+
+---
+
+### The Big Picture — Why It Matters
+
+Without buffering, a real 8086 system simply wouldn't work reliably. The processor's tiny drive current would be swamped by even a few memory chips. Bus buffering:
+
+1. **Boosts drive current** so many devices can be connected.
+2. **Demultiplexes** the address/data bus so both can exist simultaneously on separate lines.
+3. **Isolates** the processor from the bus during phases when no transfer is happening, preventing noise and bus conflicts.
+4. **Controls direction** of the data bus automatically based on read/write cycles.
+
+This is why every real 8086-based board (like the one shown in your lecture slides) has dedicated latch and transceiver ICs sitting between the 8086 and the rest of the hardware.
 
 ---
 
