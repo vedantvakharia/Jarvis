@@ -1008,40 +1008,6 @@ The decoder is active when $A_{19}-A_{16}$ are `1111`. The Select bits ($A_{15}-
 * **End:** `1111 0011 1111 1111 1111` = **F3FFFH**
 
 
-
-
-
-
-
-A **3:8 decoder (74LS138)** decodes the control signals from the 8086 to generate distinct memory/IO read and write strobes.
-
-### Decoder Truth Table (using M/IO, RD, WR)
-
-|M/IO|RD|WR|Function|
-|---|---|---|---|
-|1|0|1|**MEMR** (Memory Read)|
-|1|1|0|**MEMW** (Memory Write)|
-|0|0|1|**IOR** (I/O Read)|
-|0|1|0|**IOW** (I/O Write)|
-
-### 74LS138 as a 3:8 Decoder
-
-- Inputs: M/IO → A (MSB), RD → B, WR → C (LSB)
-- Outputs used:
-    - Y1 → **IORD** (I/O Read)
-    - Y2 → **IOWR** (I/O Write)
-    - Y5 → **MRD** (Memory Read)
-    - Y6 → **MWR** (Memory Write)
-
-### Logic Gate Implementation
-
-Alternatively, these control signals can be derived using simple logic gates:
-
-- **MRD** = NAND(RD, M/IO)
-- **MWR** = NAND(WR, M/IO)
-- **IORD** and **IOWR** similarly derived using inverted M/IO
-
-
 ## 6. Bus Timing & Timing Diagrams
 
 ### Bus Cycle / Machine Cycle
