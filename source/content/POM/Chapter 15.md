@@ -1,18 +1,3 @@
-# Chapter 15: Understanding and Managing Individual Behavior
-## Detailed Notes
-
----
-
-## Learning Objectives
-
-- **LO15.1** Identify the focus and goals of individual behavior within organizations
-- **LO15.2** Explain the role that attitudes play in job performance
-- **LO15.3** Describe different personality theories
-- **LO15.4** Describe perception and the factors that influence it
-- **LO15.5** Discuss learning theories and their relevance in shaping behavior
-
----
-
 ## 1. FOCUS AND GOALS OF ORGANIZATIONAL BEHAVIOR (LO15.1)
 
 ### Key Definitions
@@ -367,14 +352,14 @@ Developed by psychologist John Holland. Satisfaction is highest and turnover low
 
 **Six personality types:**
 
-| Type | Personality Characteristics | Sample Occupations |
-|---|---|---|
-| **Realistic** | Shy, genuine, persistent, stable, conforming, practical | Mechanic, farmer, assembly-line worker |
-| **Investigative** | Analytical, original, curious, independent | Biologist, economist, mathematician |
-| **Social** | Sociable, friendly, cooperative, understanding | Social worker, teacher, counselor |
-| **Conventional** | Conforming, efficient, practical, unimaginative, inflexible | Accountant, bank teller, file clerk |
-| **Enterprising** | Self-confident, ambitious, energetic, domineering | Lawyer, real estate agent, manager |
-| **Artistic** | Imaginative, disorderly, idealistic, emotional, impractical | Painter, musician, writer |
+| Type              | Personality Characteristics                                 | Sample Occupations                     |
+| ----------------- | ----------------------------------------------------------- | -------------------------------------- |
+| **Realistic**     | Shy, genuine, persistent, stable, conforming, practical     | Mechanic, farmer, assembly-line worker |
+| **Investigative** | Analytical, original, curious, independent                  | Biologist, economist, mathematician    |
+| **Social**        | Sociable, friendly, cooperative, understanding              | Social worker, teacher, counselor      |
+| **Conventional**  | Conforming, efficient, practical, unimaginative, inflexible | Accountant, bank teller, file clerk    |
+| **Enterprising**  | Self-confident, ambitious, energetic, domineering           | Lawyer, real estate agent, manager     |
+| **Artistic**      | Imaginative, disorderly, idealistic, emotional, impractical | Painter, musician, writer              |
 
 **Key points of Holland's theory:**
 1. Intrinsic differences in personality exist among individuals
@@ -401,13 +386,13 @@ Some jobs require emotional control (air traffic controllers, ER nurses, trial j
 
 **Five dimensions of EI:**
 
-| Dimension | Definition |
-|---|---|
-| **Self-awareness** | Ability to be aware of what you're feeling |
-| **Self-management** | Ability to manage one's own emotions and impulses |
+| Dimension           | Definition                                              |
+| ------------------- | ------------------------------------------------------- |
+| **Self-awareness**  | Ability to be aware of what you're feeling              |
+| **Self-management** | Ability to manage one's own emotions and impulses       |
 | **Self-motivation** | Ability to persist in the face of setbacks and failures |
-| **Empathy** | Ability to sense how others are feeling |
-| **Social skills** | Ability to handle the emotions of others |
+| **Empathy**         | Ability to sense how others are feeling                 |
+| **Social skills**   | Ability to handle the emotions of others                |
 
 **EI and job performance:**
 - Positively related to job performance at all levels
