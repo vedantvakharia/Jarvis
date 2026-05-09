@@ -1,15 +1,3 @@
-# Chapter 13 - Managing Groups and Teams
-
----
-
-## Learning Objectives
-
-- **LO 13.1** - Define groups and the stages of group development
-- **LO 13.2** - Describe the major components that determine group performance and satisfaction
-- **LO 13.3** - Define teams and best practices influencing team performance
-
----
-
 ## Part 1: Groups and Group Development (LO 13.1)
 
 ### What Is a Group?
@@ -32,8 +20,6 @@ Groups can be:
 ---
 
 ### Stages of Group Development
-
-Research shows groups develop through **five stages**:
 
 #### Stage 1 - Forming
 - Two phases: (1) people join the group, (2) defining the group's purpose, structure, and leadership

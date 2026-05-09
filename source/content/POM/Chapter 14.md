@@ -1,8 +1,3 @@
-# Chapter 14: Managing Communication
-## Robbins & Coulter - Management
-
----
-
 ## 1. Understanding Communication (LO 14.1)
 
 ### Definition
