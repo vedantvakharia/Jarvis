@@ -212,29 +212,15 @@ The output follows **different paths** depending on whether the input is rising 
 
 - Both 8086 and 8088 are packaged in **DIP (Dual In-Line Package)** with 40 pins.
 
-
 |                        | 8086              | 8088                                         |
 | ---------------------- | ----------------- | -------------------------------------------- |
 | Internal Data Width    | 16-bit            | 16-bit                                       |
 | Max Supply Current     | 360 mA            | 340 mA                                       |
-| External data bus      | 16-bit (AD0–AD15) | **8-bit (AD0–AD7)**                          |
-| Address/data mux lines | 16 lines          | **8 lines**                                  |
-| Latches needed         | 3 × 8282          | **2 × 8282** (one for AD0–7, one for A8–A15) |
-| Data transceivers      | 2 × 8286          | **1 × 8286**                                 |
-| BHE pin                | Present           | **Absent** (no upper byte)                   |
-
-| 80C86/80C88 (CMOS) | 10 mA (operating range: -40°F to 225°F) |
-| ------------------ | --------------------------------------- |
-#### Available Frequencies (8086 Variants)
-
-| Model  | Frequency | Technology |
-| ------ | --------- | ---------- |
-| 8086   | 5 MHz     | HMOS       |
-| 8086-1 | 10 MHz    | HMOS II    |
-| 8086-2 | 8 MHz     | HMOS II    |
-| 8086-4 | 4 MHz     | HMOS       |
-| I8086  | 5 MHz     | HMOS       |
-| M8086  | 5 MHz     | HMOS       |
+| External data bus      | 16-bit (AD0–AD15) | 8-bit (AD0–AD7)                          |
+| Address/data mux lines | 16 lines          | 8 lines                                  |
+| Latches needed         | 3 × 8282          | 2 × 8282 (one for AD0–7, one for A8–A15) |
+| Data transceivers      | 2 × 8286          | 1 × 8286                                 |
+| BHE pin                | Present           | Absent (no upper byte)                   |
 
 ---
 ### 8086/8088 Pins
@@ -282,7 +268,6 @@ The output follows **different paths** depending on whether the input is rising 
 | Pin                | Description                                                                                                                                           |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **RQ/GT0, RQ/GT1** | Bidirectional. Used by other bus masters to request and release the local bus (e.g., during DMA). Processor releases bus at end of current bus cycle. |
-
 
 ---
 ### Reset Operation
@@ -402,7 +387,7 @@ These replace the min-mode control pins and are decoded by the 8288:
 
 
 ---
-### Bus Demultiplexing of the 8086/8088 – Detailed Explanation
+### Bus Demultiplexing
 
 #### The Bus Cycle – 4 Clock States
 
@@ -432,29 +417,28 @@ T1          T2          T3          T4
 Three key external chips handle demultiplexing:
 
 ```
-                        ┌────────────┐
-                        │   8086/    │
-                        │   8088     │
-                        │            │
-          AD0–AD7 ──────┤            ├──── ALE
-          AD8–AD15 ─────┤            ├──── DEN
-          A16–A19 ──────┤            ├──── DT/R̄
-                        └────────────┘
-               │               │               │
-               ▼               ▼               ▼
-        ┌─────────┐     ┌─────────┐     ┌─────────┐
-        │  8282   │     │  8282   │     │  8282   │
-        │  Latch  │     │  Latch  │     │  Latch  │
-        │ (AD0-7) │     │(AD8-15) │     │(A16-19) │
-        └─────────┘     └─────────┘     └─────────┘
-               │               │               │
-               ▼               ▼               ▼
-           A0–A7           A8–A15          A16–A19
-        (Address Bus — stable for entire bus cycle)
+┌──────────────────────────────────────────┐
+│                  8088 CPU                │
+│                                          │
+│  AD0–AD7 ──────────────────────────────► │─── (to Latch 1 AND Data Bus)
+│  A8–A15  ──────────────────────────────► │─── (to Latch 2 only)
+│  A16–A19 ──────────────────────────────► │─── (to Latch 3 only)
+│                                          │
+│  ALE  ─────────────────────────────────► │─── STB of all latches
+│  DEN  ─────────────────────────────────► │─── OE of data transceiver
+│  DT/R ─────────────────────────────────► │─── T of data transceiver
+└──────────────────────────────────────────┘
 
-        AD0–AD7 ─────────────────────────────────────►
-        AD8–AD15 ────────────────────────────────────►
-                     (Data Bus — available after T1)
+         Latch 1 (8282)        Latch 2 (8282)       Latch 3 (8282)
+         AD0–AD7 → A0–A7      A8–A15 → A8–A15      A16–A19 → A16–A19
+              │
+              ▼
+         Transceiver (8286)
+         AD0–AD7 ↔ D0–D7 (system data bus)
+
+         └── A0–A7 ──┐
+         └── A8–A15 ─┤──► 20-bit Address Bus → Memory / IO
+         └── A16–A19 ┘
 ```
 
 #### The Three Key Control Signals
@@ -552,42 +536,6 @@ DT/R̄   ──────────────────── HIGH (tran
 
 DEN̄    ────────┐        ┌──
                 └────────┘    (LOW during T2–T4, data enabled)
-```
-
-#### 8088 Specific Note
-
-The **8088** has a narrower **8-bit external data bus** (AD0–AD7 only), unlike the 8086's 16-bit bus (AD0–AD15).
-
-| Feature                | 8086              | 8088                                         |
-| ---------------------- | ----------------- | -------------------------------------------- |
-
-
-
-#### Complete Demultiplexed System (8088)
-
-```
-┌──────────────────────────────────────────┐
-│                  8088 CPU                │
-│                                          │
-│  AD0–AD7 ──────────────────────────────► │─── (to Latch 1 AND Data Bus)
-│  A8–A15  ──────────────────────────────► │─── (to Latch 2 only)
-│  A16–A19 ──────────────────────────────► │─── (to Latch 3 only)
-│                                          │
-│  ALE  ─────────────────────────────────► │─── STB of all latches
-│  DEN  ─────────────────────────────────► │─── OE of data transceiver
-│  DT/R ─────────────────────────────────► │─── T of data transceiver
-└──────────────────────────────────────────┘
-
-         Latch 1 (8282)        Latch 2 (8282)       Latch 3 (8282)
-         AD0–AD7 → A0–A7      A8–A15 → A8–A15      A16–A19 → A16–A19
-              │
-              ▼
-         Transceiver (8286)
-         AD0–AD7 ↔ D0–D7 (system data bus)
-
-         └── A0–A7 ──┐
-         └── A8–A15 ─┤──► 20-bit Address Bus → Memory / IO
-         └── A16–A19 ┘
 ```
 
 #### Summary
@@ -932,6 +880,11 @@ A19 ─┘
 6. Lower bits → directly to chip address pins
 7. RD → OE of the chip
 8. WR → WE of the chip (for RAM)
+   
+   
+n = total address bits of processor
+p = address bits of memory chip (= log₂(chip size))
+Required decoder inputs = n - p
 ```
 
 
@@ -1076,35 +1029,18 @@ Memory Access Time = (3 × T_clk) - TCLAV - TDVCL
 With n wait states  = ((3 + n) × T_clk) - TCLAV - TDVCL
 ```
 
-
-
-
-
+---
 ## 8. Memory Types & Chips
-
-### Two Basic Types
-
-|Type|Full Name|Description|
-|---|---|---|
-|ROM|Read-Only Memory|Non-volatile; retains data when powered off|
-|RAM|Read-Write Memory|Volatile; loses data when powered off|
-
-### Four Commonly Used Memories
-
-1. **ROM** – Mask-programmed at factory
-2. **Flash (EEPROM)** – Electrically erasable; used in modern storage
-3. **Static RAM (SRAM)** – Fast; uses flip-flops; no refresh needed
-4. **Dynamic RAM (DRAM)** – Dense; uses capacitors; needs periodic refresh
 
 ### Memory Chip Pin Overview
 
-|Pin Type|Description|
-|---|---|
-|Address pins (An)|Select the memory location. # pins = log₂(# locations)|
-|Data pins (Dn)|Carry data in/out; typically bidirectional for RAM|
-|CS / CE / S|Chip Select – enables the chip for access|
-|OE|Output Enable – enables data output (active LOW)|
-|WE / R/W|Write Enable or Read/Write control|
+| Pin Type          | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| Address pins (An) | Select the memory location. pins = log₂(locations) |
+| Data pins (Dn)    | Carry data in/out; typically bidirectional for RAM |
+| CS / CE / S       | Chip Select – enables the chip for access          |
+| OE                | Output Enable – enables data output (active LOW)   |
+| WE / R/W          | Write Enable or Read/Write control                 |
 
 ### Memory Chip Notation
 
@@ -1125,136 +1061,9 @@ With n wait states  = ((3 + n) × T_clk) - TCLAV - TDVCL
 - **ROMs:** Have OE (output enable) or G (gate) pin
 - **RAMs:** Have both WE (write enable) and OE (read enable)
 - **Rule:** WE and OE must **never both be LOW** simultaneously (would cause bus contention)
-
----
-
-## 9. ROM Variants
-
-|Type|Full Name|Programmable?|Erasable?|Notes|
-|---|---|---|---|---|
-|**ROM**|Read-Only Memory|Factory only|No|Oldest style|
-|**PROM**|Programmable ROM|Once (field)|No|Blow fuses to program|
-|**EPROM**|Erasable Programmable ROM|Yes|UV light (~20 min)|Has quartz window|
-|**EEPROM / Flash**|Electrically Erasable Programmable ROM|Yes|Electrically|Also called EAROM / NOVRAM; write is slower than RAM|
-
 ### Example: 2716 EPROM (2K × 8)
 
 - 11 address lines (A0–A10) → 2K = 2048 locations
 - 8 data output lines (O0–O7)
 - Pins: **CS** (Chip Select), **PD/PGM** (Power Down / Program), **VPP** (programming voltage)
 - Used to store BIOS in early PC systems
-
----
-
-## 10. Memory Address Decoding & Interfacing
-
-### The Core Problem
-
-- 8086 has **20-bit address lines** → can address **1 MB** (2²⁰ = 1,048,576 locations)
-- A single memory chip (e.g., 2716 EPROM) only has **11 address pins** (covers 2 KB)
-- The remaining **9 address bits (A11–A19)** must be decoded to generate the Chip Select signal
-
-### Interfacing Rule
-
-```
-If processor has n address lines and memory chip has p address lines:
-- Connect A0 to Ap-1 directly to the memory chip
-- Use A_p to A_(n-1) for chip select decoding
-```
-
-### Example: Placing 2716 at Address FF800H–FFFFFH
-
-```
-FF800H = 1111 1111 1000 0000 0000
-FFFFFH = 1111 1111 1111 1111 1111
-```
-
-- A0–A10: Connected directly to memory chip (2K range = 11 bits)
-- A11–A19: All HIGH (= 1111 1111 1) → Input to a NAND decoder
-- When all A11–A19 = 1, NAND output goes LOW → activates CS' of the memory chip
-
-### NAND Gate Decoder (74ALS133)
-
-- 13-input NAND gate
-- Inputs: A11–A19 (9 bits) + M/IO (inverted, to ensure memory-only access)
-- Output LOW only when **all inputs are HIGH** → selects the 2K EPROM block
-
-### Example: Selecting DF800H–DFFFFH
-
-```
-DF800H = 1101 1111 1000 0000 0000
-DFFFFH = 1101 1111 1111 1111 1111
-```
-
-- Fixed high-order bits: A19=1, A18=1, A17=0, A16=1, A15=1, A14=1, A13=1, A12=1, A11=1
-- A17 = 0 → must be **inverted** before connecting to NAND gate inputs
-- All other fixed-high bits connect directly
-
-### General Interfacing Formula
-
-```
-n = total address bits of processor
-p = address bits of memory chip (= log₂(chip size))
-Required decoder inputs = n - p
-```
-
----
-
-## 11. Practice Problems
-
-### Problem 1
-
-**An 8086 operates at 8 MHz (8086-2). If one wait state (Tw) is inserted, what is the total time allowed for memory access?**
-
-**Solution:**
-
-- Clock period at 8 MHz = 1/8 MHz = **125 ns**
-- Without wait states: 3 clock periods available = 3 × 125 = 375 ns
-- Subtract TCLAV (8086-2): ~60 ns
-- Subtract TDVCL: ~30 ns
-- Base access time = 375 – 60 – 30 = **285 ns**
-- With 1 wait state: 285 + 125 = **410 ns**
-
----
-
-### Problem 2
-
-**A processor operates at 8 MHz. Memory access time = 300 ns. Address setup time = 120 ns, data setup time = 20 ns, latch buffer delay = 10 ns. What is the total time to read 16-bit data from memory location 2010H?**
-
-**Solution:**
-
-- Clock period = 125 ns
-- Available time = 3 × 125 = 375 ns
-- Subtract address setup (TCLAV): 375 – 120 = 255 ns
-- Subtract data setup (TDVCL): 255 – 20 = 235 ns
-- Subtract buffer delay: 235 – 10 = **225 ns** available for memory
-
-Since memory access time required is **300 ns > 225 ns**, a **wait state is needed**.
-
-- With 1 Tw: Available = 225 + 125 = 350 ns ≥ 300 ns ✓
-
-**Address 2010H is even (A0 = 0)**, so 16-bit data can be read in **one bus cycle** (both bytes on D0–D15 simultaneously).
-
-Total read time = 1 bus cycle + 1 wait state = **5 T-states × 125 ns = 625 ns**
-
----
-
-## Quick Reference Summary
-
-|Topic|Key Point|
-|---|---|
-|Reset|RESET HIGH for 4 clocks → execution from FFFF0H|
-|ALE|HIGH during T1 → latch address with 74LS373|
-|Bus cycle|4 T-states (T1–T4)|
-|Wait state|Extra clock between T2 and T3 for slow memory|
-|Memory access time (5 MHz)|460 ns (no wait), 660 ns (1 wait state)|
-|74LS373|Address latch – captures address when ALE falls|
-|74LS245|Bidirectional data buffer – controlled by DEN and DT/R|
-|74LS138|3:8 decoder for MEMR, MEMW, IOR, IOW|
-|ROM|Non-volatile; factory/PROM/EPROM/Flash variants|
-|RAM|Volatile; SRAM (fast) or DRAM (dense, needs refresh)|
-|CS decoding|Connect lower address bits to chip; decode upper bits for CS|
-
----
-
-_Notes compiled from Lectures 4, 5, and 6 – CS F241: Microprocessors & Interfacing_
