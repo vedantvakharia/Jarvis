@@ -8,67 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e293cbd2e9de0338",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "MUP.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "MUP"
-            }
-          },
-          {
             "id": "0f5038fbf80e1f5a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MUP.md",
+                "file": "Psycho/Intelligence - Cognitive, Practical, and Emotional.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "MUP"
-            }
-          },
-          {
-            "id": "1c0c364b02170479",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "MUP_notes.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "MUP_notes"
-            }
-          },
-          {
-            "id": "6ce8b12a0e2c8641",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "MUP/ch11_io_interface_study_notes.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "ch11_io_interface_study_notes"
+              "title": "Intelligence - Cognitive, Practical, and Emotional"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -233,21 +187,23 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "6ce8b12a0e2c8641",
+  "active": "0f5038fbf80e1f5a",
   "lastOpenFiles": [
-    "MUP/DMA_Study_Notes_Ch13.md",
+    "Psycho/Cognition - Thinking, Deciding, Communicating.md",
+    "index.md",
+    "Psycho/Intelligence - Cognitive, Practical, and Emotional.md",
+    "MUP/chapter12_interrupts_study_notes.md",
+    "MUP/ch11_io_interface_study_notes.md",
     "MUP/MUP.md",
+    "MUP/DMA_Study_Notes_Ch13.md",
     "MUP/MUP 1.md",
     "MUP/compre_notes.md",
     "MUP/Untitled.md",
     "MUP/MUP_notes.md",
     "MUP",
-    "MUP/chapter12_interrupts_study_notes.md",
     "Untitled 1.md",
-    "MUP/ch11_io_interface_study_notes.md",
     "MUP_notes (1).md",
     "compre_notes (1).md",
-    "index.md",
     "POM/Chapter 17.md",
     "DSA.md",
     "POM/Chapter 11.md",
@@ -260,8 +216,6 @@
     "POM/Chapter 18.md",
     "POM/Chapter 1.md",
     "POM/POM.md",
-    "C++/Untitled.md",
-    "C++/Trees.md",
     "Attachements/Pasted image 20260502221246.png",
     "Tags",
     "DSA",

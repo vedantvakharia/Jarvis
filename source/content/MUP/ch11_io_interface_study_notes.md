@@ -272,45 +272,6 @@ The 74ALS138 is a standard MSI decoder that takes a 3-bit binary code (A, B, C i
 
 When `A7=1, A6=1, A5=1, A4=1, A3=0` and the IORC or IOWC is asserted, the 74ALS138 selects one of F0H-F7H based on A2, A1, A0.
 
-#### Using a PLD (GAL22V10) - VHDL Example
-
-PLDs allow all decoding in a **single chip**, reducing parts count and propagation delay.
-
-```vhdl
--- VHDL: Decode ports F0H through F7H (8-bit decode, A7-A0 only)
-library ieee;
-use ieee.std_logic_1164.all;
-
-entity DECODER_F0H_F7H is
-    port (
-        A7, A6, A5, A4, A3, A2, A1, A0 : in  STD_LOGIC;
-        D0, D1, D2, D3, D4, D5, D6, D7 : out STD_LOGIC
-    );
-end;
-
-architecture V1 of DECODER_F0H_F7H is
-begin
-    -- D0 = active LOW when address = F0H (1111 0000)
-    D0 <= not( A7 and A6 and A5 and A4 and not A3 and not A2 and not A1 and not A0 );
-    -- D1 = F1H (1111 0001)
-    D1 <= not( A7 and A6 and A5 and A4 and not A3 and not A2 and not A1 and     A0 );
-    -- D2 = F2H (1111 0010)
-    D2 <= not( A7 and A6 and A5 and A4 and not A3 and not A2 and     A1 and not A0 );
-    -- D3 = F3H (1111 0011)
-    D3 <= not( A7 and A6 and A5 and A4 and not A3 and not A2 and     A1 and     A0 );
-    -- D4 = F4H (1111 0100)
-    D4 <= not( A7 and A6 and A5 and A4 and not A3 and     A2 and not A1 and not A0 );
-    -- D5 = F5H (1111 0101)
-    D5 <= not( A7 and A6 and A5 and A4 and not A3 and     A2 and not A1 and     A0 );
-    -- D6 = F6H (1111 0110)
-    D6 <= not( A7 and A6 and A5 and A4 and not A3 and     A2 and     A1 and not A0 );
-    -- D7 = F7H (1111 0111)
-    D7 <= not( A7 and A6 and A5 and A4 and not A3 and     A2 and     A1 and     A0 );
-end V1;
-```
-
-**How to read these equations:** Each output is the complement of an AND of all address bits. If any one bit does not match, the AND is 0, and the NOT makes the output 1 (inactive). Only the exact matching address produces a 0 output (active).
-
 ---
 
 ### 2.3 Decoding 16-Bit Port Addresses
@@ -323,28 +284,6 @@ EFF8H binary: `1110 1111 1111 1000`
 - A15=1, A14=1, A13=1, A12=0 (note: NOT A12)
 - A11=1, A10=1, A9=1, A8=1, A7=1, A6=1, A5=1, A4=1, A3=1
 - A2, A1, A0 select which of the 8 ports (EFF8H through EFFFH)
-
-```vhdl
--- VHDL: Decode 16-bit ports EFF8H through EFFFH
--- Z is the output of the external NAND gate decoding A15, A14, A13, A11
--- (Z is LOW when A15=1, A14=1, A13=1, A11=1, i.e., the NAND goes LOW)
-entity DECODER_EFF8 is
-    port (
-        Z, A12, A10, A9, A8, A7, A6, A5, A4, A3, A2, A1, A0 : in STD_LOGIC;
-        D0, D1, D2, D3, D4, D5, D6, D7 : out STD_LOGIC
-    );
-end;
-
-architecture V1 of DECODER_EFF8 is
-begin
-    -- D0 = EFF8H: Z=0 (A15,14,13,11=1), A12=0, A10-A3 all 1, A2=0, A1=0, A0=0
-    D0 <= not( not Z and not A12 and A10 and A9 and A8 and A7 and A6 and A5
-               and A4 and A3 and not A2 and not A1 and not A0 );
-    D1 <= not( not Z and not A12 and A10 and A9 and A8 and A7 and A6 and A5
-               and A4 and A3 and not A2 and not A1 and     A0 );
-    -- ... D2 through D7 follow the same pattern with A2,A1,A0 counting up
-end V1;
-```
 
 ---
 
