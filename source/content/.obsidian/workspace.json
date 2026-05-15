@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Psycho/Cognition.md",
+                "file": "Psycho/creativity_notes_v2.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Cognition"
+              "title": "creativity_notes_v2"
             }
           }
         ]
@@ -189,12 +189,14 @@
   },
   "active": "6b1b10a9227f839d",
   "lastOpenFiles": [
+    "Psycho/Creativity.md",
+    "Psycho/creativity_notes_v2.md",
+    "Psycho/ch11_intelligence_notes.md",
     "Psycho/Intelligence.md",
     "Psycho/Cognition.md",
-    "Psycho/Creativity.md",
-    "index.md",
     "MUP/chapter12_interrupts_study_notes.md",
     "MUP/ch11_io_interface_study_notes.md",
+    "index.md",
     "MUP/MUP.md",
     "MUP/DMA_Study_Notes_Ch13.md",
     "MUP/MUP 1.md",
@@ -214,8 +216,6 @@
     "POM/Chapter 13.md",
     "POM/Chapter 14.md",
     "POM/Chapter 15.md",
-    "POM/Chapter 18.md",
-    "POM/Chapter 1.md",
     "Attachements/Pasted image 20260502221246.png",
     "Tags",
     "DSA",

@@ -100,8 +100,6 @@ Three proposed mechanisms:
 >
 > **Result:** The metacognitive group performed **best** (fewest trials to solve). The problem-focused group performed **worst** (most trials). Conclusion: Talking through a problem is useful especially when it leads to metacognitive processing and a focus on the problem-solving *process*.
 
-> **Exam Tip:** Remember that problem-focused questioning actually hurt performance - an unintuitive result the exam may test.
-
 ---
 
 ## 2. Reasoning
@@ -361,6 +359,3 @@ Three phases:
 | **Luchins** (1942) | Water jar study - mental set |
 | **Gentner & Holyoak** (1997) | Analogy in problem solving |
 
----
-
-*Notes generated from Chapter 7 of the provided Psychology textbook text only.*
