@@ -253,7 +253,7 @@ Two approaches:
 
 The CPU keeps **repeatedly checking** ("polling") the status register in a loop, and only copies data once status says "ready."
 
-> ❌ **Problem**: The CPU is busy the whole time just checking - wasting cycles it could have spent on other work. Inefficient.
+> **Problem**: The CPU is busy the whole time just checking - wasting cycles it could have spent on other work. Inefficient.
 
 ### 6.2 Interrupts - the smart way
 
@@ -279,7 +279,7 @@ sequenceDiagram
 Even after data is "ready" in the device's register, it still needs to get into **main memory** so programs can use it. How?
 
 - **Naive option**: CPU reads data from the device register into its own registers, then writes it into RAM.
-  - ❌ Inefficient - data makes an unnecessary detour through the CPU.
+  - Inefficient - data makes an unnecessary detour through the CPU.
 - **DMA (Direct Memory Access)**:
   - The device controller is told *beforehand* which memory address to use.
   - When data is ready, the device controller **directly writes into RAM via the system bus** - bypassing the CPU entirely.
@@ -297,8 +297,6 @@ flowchart LR
         D2 -.->|interrupt when done| C2[CPU]
     end
 ```
-
-**Why DMA matters:** It frees the CPU to do useful computation instead of babysitting a slow data transfer.
 
 ---
 
@@ -333,8 +331,7 @@ flowchart TB
 ### 8.2 Key Characteristics
 
 - The OS is **middleware** - not an application users directly "use" for tasks (like a browser), but the underlying system software everything else depends on.
-  - Examples: **Linux, Windows, macOS**.
-- It **manages hardware**: CPU, memory, I/O devices (disks, network cards, mice, keyboards, etc.) - so that user applications **don't need to worry about low-level hardware details.**
+- It **manages hardware**: CPU, memory, I/O devices (disks, network cards, mice, keyboards, etc.) so that user applications **don't need to worry about low-level hardware details.**
 - The OS is made up of:
   - **Kernel** = the *core* functionality of the OS.
   - **Other useful programs** = the shell, shell commands, and utilities that help users interact with the OS.
@@ -416,9 +413,10 @@ timeline
 - UNIX was then **rewritten in C**, making it far more **portable** - it could be adapted to new hardware with much less rewriting work, since C compilers could target different CPU architectures.
 
 **Examples of UNIX-family systems:**
-| Category | Examples |
-|---|---|
-| **True UNIX** (officially certified) | AIX, HP-UX, macOS |
+
+| Category                                   | Examples                                 |
+| ------------------------------------------ | ---------------------------------------- |
+| **True UNIX** (officially certified)       | AIX, HP-UX, macOS                        |
 | **UNIX-like** (inspired by, not certified) | Linux, FreeBSD, Android (built on Linux) |
 
 ### 9.5 Features of UNIX
@@ -453,10 +451,10 @@ flowchart LR
     S -->|shows output| U
 ```
 
-| | Kernel | Shell |
-|---|---|---|
-| Role | The heart of the OS - manages CPU, memory, devices, file systems | The friendly interface for humans to give instructions to the kernel |
-| Handles | Low-level resource management | Process management, file management, network commands, etc. |
+|         | Kernel                                                           | Shell                                                                |
+| ------- | ---------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Role    | The heart of the OS - manages CPU, memory, devices, file systems | The friendly interface for humans to give instructions to the kernel |
+| Handles | Low-level resource management                                    | Process management, file management, network commands, etc.          |
 
 ### 10.2 Why is the Shell Powerful?
 
@@ -466,11 +464,11 @@ flowchart LR
 
 ### 10.3 Types of Shells
 
-| Shell | Description |
-|---|---|
-| `sh` (Bourne shell) | The original standard shell |
-| `bash` (Bourne Again Shell) | Most common shell on Linux today |
-| `zsh`, `ksh`, `fish` | Modern alternatives with extra features (autocompletion, better scripting, etc.) |
+| Shell                       | Description                                                                      |
+| --------------------------- | -------------------------------------------------------------------------------- |
+| `sh` (Bourne shell)         | The original standard shell                                                      |
+| `bash` (Bourne Again Shell) | Most common shell on Linux today                                                 |
+| `zsh`, `ksh`, `fish`        | Modern alternatives with extra features (autocompletion, better scripting, etc.) |
 
 ---
 
@@ -658,10 +656,10 @@ flowchart LR
 
 To keep the system safe (so one buggy or malicious program can't crash the whole machine or read another program's data), the CPU operates in two distinct modes:
 
-| Mode | Who runs in it | What it can do |
-|---|---|---|
-| **User (unprivileged) mode** | User programs | Can only execute *unprivileged* instructions - no direct hardware access |
-| **Kernel (privileged) mode** | The OS | Can execute *both* privileged and unprivileged instructions - full hardware access |
+| Mode                         | Who runs in it | What it can do                                                                     |
+| ---------------------------- | -------------- | ---------------------------------------------------------------------------------- |
+| **User (unprivileged) mode** | User programs  | Can only execute *unprivileged* instructions - no direct hardware access           |
+| **Kernel (privileged) mode** | The OS         | Can execute *both* privileged and unprivileged instructions - full hardware access |
 
 ```mermaid
 flowchart TB
@@ -694,10 +692,6 @@ sequenceDiagram
     HW-->>OS: interrupt (operation done)
     OS-->>User: returns control back to user code
 ```
-
-**Why can't the user program just talk to hardware directly?**
-- Because user processes are **not allowed to run privileged instructions** that access hardware directly.
-- This prevents one user/program from **harming another** - e.g., accidentally (or maliciously) corrupting another process's memory or another user's files.
 
 **How it flows:**
 1. The user program executes a system call (e.g., `write()`).
@@ -785,6 +779,3 @@ flowchart TB
 | **System Call** | The mechanism by which a user program asks the OS to do something on its behalf |
 | **Interrupt** | Hardware signal that forces the CPU to stop and let the OS handle an event |
 
----
-
-*End of notes - based on "CS F372: Operating Systems - Introduction to Operating Systems", BITS Pilani, K K Birla Goa Campus.*
