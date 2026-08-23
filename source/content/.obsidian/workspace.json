@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -190,7 +189,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ace81a845e1ff0d9",
+  "active": "b77831b90dd9f87b",
   "lastOpenFiles": [
     "OS/Untitled.md",
     "OS/Chapter 1.md",

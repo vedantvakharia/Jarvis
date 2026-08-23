@@ -41,14 +41,6 @@
       "key": "Q"
     }
   ],
-  "obsidian-git:push": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "Q"
-    }
-  ],
   "window:zoom-in": [
     {
       "modifiers": [
@@ -63,6 +55,15 @@
         "Alt"
       ],
       "key": "-"
+    }
+  ],
+  "editor:save-file": [],
+  "obsidian-git:push": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "S"
     }
   ]
 }

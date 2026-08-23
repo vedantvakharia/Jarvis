@@ -1,5 +1,8 @@
 {
   "showRibbon": false,
   "accentColor": "#00ccff",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "mermaid"
+  ]
 }
