@@ -6,6 +6,7 @@ vector<int> v = {5, 7, 9, 4, 6, 8};       // vector of 6 ints
 
 vector<int> vi(6);             // vector of 6 ints initialized to 0
 vector<string> vs(4);       // vector of 4 strings initialized to ""
+vector<vector<type>> name(row_count, vector<type>(col_count, value));
 ```
 
 
