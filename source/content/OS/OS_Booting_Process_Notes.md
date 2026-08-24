@@ -52,7 +52,7 @@ flowchart TD
 
 ## 3. BIOS (Basic Input/Output System)
 
-**Simple explanation:** BIOS is the classic firmware that has been around since the original IBM PC. Its job is to check that hardware works and then hand control over to the next stage.
+BIOS is the classic firmware that has been around since the original IBM PC. Its job is to check that hardware works and then hand control over to the next stage.
 
 ### Where BIOS lives
 - **Originally**: burned onto a ROM chip on the motherboard — permanent, could not be changed without physically replacing the chip.
@@ -90,7 +90,7 @@ sequenceDiagram
 
 ## 4. UEFI (Unified Extensible Firmware Interface)
 
-**Simple explanation:** UEFI is the modern replacement for BIOS. Think of BIOS as an old flip-phone and UEFI as a smartphone: same basic purpose (get you connected/booted), but far more capable, flexible, and easier to extend.
+UEFI is the modern replacement for BIOS. 
 
 ### Why BIOS needed replacing
 - BIOS had hard technical limitations that became too restrictive for **larger server platforms** — e.g., limited addressable disk space, 16-bit real mode code, slow boot times, no built-in networking or graphical interfaces.
@@ -103,20 +103,20 @@ sequenceDiagram
 
 ### UEFI vs BIOS quick comparison
 
-| Feature | BIOS | UEFI |
-|---|---|---|
-| Age | Older, legacy | Modern |
-| Interface | Text-based menus | Can support graphical menus, mouse support |
-| Partition scheme | MBR only | Supports GPT (and MBR via CSM) |
-| Max disk/partition size | Limited (2 TB per partition under MBR) | Much larger (GPT supports up to 8 ZiB) |
-| Boot speed | Slower | Generally faster |
-| Extensibility | Very limited | Extensible, driver support pre-OS |
+| Feature                 | BIOS                                   | UEFI                                       |
+| ----------------------- | -------------------------------------- | ------------------------------------------ |
+| Age                     | Older, legacy                          | Modern                                     |
+| Interface               | Text-based menus                       | Can support graphical menus, mouse support |
+| Partition scheme        | MBR only                               | Supports GPT (and MBR via CSM)             |
+| Max disk/partition size | Limited (2 TB per partition under MBR) | Much larger (GPT supports up to 8 ZiB)     |
+| Boot speed              | Slower                                 | Generally faster                           |
+| Extensibility           | Very limited                           | Extensible, driver support pre-OS          |
 
 ---
 
 ## 5. MBR (Master Boot Record) and the Legacy Boot Path
 
-**Simple explanation:** Once BIOS finishes its hardware checks, it needs to find *something* to run next. But BIOS doesn't understand file systems (folders, files, etc.) — it only understands raw disk locations. So there's a rule: always look at a fixed, predefined spot on the disk.
+Once BIOS finishes its hardware checks, it needs to find *something* to run next. But BIOS doesn't understand file systems (folders, files, etc.) — it only understands raw disk locations. So there's a rule: always look at a fixed, predefined spot on the disk.
 
 ### The mechanism
 - BIOS locates the **primary disk** and reads the **first 512 bytes** of it.
