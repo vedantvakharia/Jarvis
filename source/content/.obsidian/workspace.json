@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OS/OS_Booting_Process_Notes.md",
+                "file": "OS/Processes_and_SystemCalls_Notes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "OS_Booting_Process_Notes"
+              "title": "Processes_and_SystemCalls_Notes"
             }
           }
         ]
@@ -192,8 +192,9 @@
   },
   "active": "ace81a845e1ff0d9",
   "lastOpenFiles": [
-    "OS/Chapter 1.md",
     "OS/OS_Booting_Process_Notes.md",
+    "OS/Processes_and_SystemCalls_Notes.md",
+    "OS/Chapter 1.md",
     "OS/Untitled.md",
     "Python/Basics.md",
     "OS",
@@ -219,7 +220,6 @@
     "Misc/C/C preprocessor.md",
     "Misc/C/Basics.md",
     "Misc/C/Arrays.md",
-    "Misc/C/Algorithms.md",
     "Misc/C",
     "Misc/POM",
     "Misc/Java",

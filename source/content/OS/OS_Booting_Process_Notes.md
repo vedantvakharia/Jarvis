@@ -25,7 +25,7 @@ Every box above is explained in detail below.
 
 ## 2. Firmware: The First Program That Ever Runs
 
-**Simple explanation:** Firmware is a tiny program permanently baked into a chip on your motherboard. It is the very first code the CPU executes, before any operating system exists.
+Firmware is a tiny program permanently baked into a chip on your motherboard. It is the very first code the CPU executes, before any operating system exists.
 
 - When power is applied, the CPU is hardwired to jump to a specific, well-known memory address.
 - Whatever code sits at that address starts running. That code is the firmware.
@@ -142,7 +142,7 @@ flowchart LR
 
 ## 6. GPT (GUID Partition Table) and the UEFI Boot Path
 
-**Simple explanation:** GPT is the modern replacement for MBR's partitioning scheme, used alongside UEFI. It removes MBR's old size and partition-count limitations.
+GPT is the modern replacement for MBR's partitioning scheme, used alongside UEFI. It removes MBR's old size and partition-count limitations.
 
 - **GPT allows disks up to 8 ZiB** (zebibytes — an enormous, essentially future-proof size) compared to MBR's 2 TB per partition cap.
 - No hard 4-partition limit like MBR.
@@ -157,23 +157,11 @@ flowchart LR
     C --> D[Operating System]
 ```
 
-### Side-by-side: Legacy (BIOS/MBR) vs Modern (UEFI/GPT)
-
-```mermaid
-flowchart TB
-    subgraph Legacy Boot
-        A1[BIOS] --> A2[MBR] --> A3[Boot Loader] --> A4[Kernel] --> A5[OS]
-    end
-    subgraph UEFI Boot
-        B1[UEFI] --> B2[GPT / EFI Boot Loader] --> B3[Kernel] --> B4[OS]
-    end
-```
-
 ---
 
 ## 7. Bootloader (e.g., GRUB)
 
-**Simple explanation:** The bootloader is the "middle-manager" of the boot process. Firmware (BIOS/UEFI) is dumb about file systems and operating systems — it just finds and runs the bootloader. The bootloader, in contrast, actually understands the file system layout, so it can go find and load the real kernel intelligently.
+The bootloader is the "middle-manager" of the boot process. Firmware (BIOS/UEFI) is dumb about file systems and operating systems — it just finds and runs the bootloader. The bootloader, in contrast, actually understands the file system layout, so it can go find and load the real kernel intelligently.
 
 ### Key points
 - It is a **program compiled and stored on disk** (not embedded in a chip like firmware).
@@ -208,7 +196,7 @@ sequenceDiagram
 
 ## 8. OS Takes Control: What Happens After the Kernel Loads
 
-**Simple explanation:** Once the kernel's first instruction runs, the operating system has "woken up" and now needs to organize everything from scratch — memory, processes, file systems — before anything useful can happen.
+Once the kernel's first instruction runs, the operating system has "woken up" and now needs to organize everything from scratch — memory, processes, file systems — before anything useful can happen.
 
 Steps the OS performs once in control:
 
@@ -237,7 +225,7 @@ flowchart TD
 
 ## 9. The Init Process
 
-**Simple explanation:** Once the kernel is running, it needs one very first "parent" process to bootstrap everything else in user space. That process is called **init**.
+Once the kernel is running, it needs one very first "parent" process to bootstrap everything else in user space. That process is called **init**.
 
 ### Key facts
 - Its **Process ID (PID) is always 1** — it is literally the first process the kernel creates.
