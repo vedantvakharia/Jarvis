@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OS/Processes_and_SystemCalls_Notes.md",
+                "file": "OS/Chapter 4 - Trap Handling and Context Switching.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Processes_and_SystemCalls_Notes"
+              "title": "Chapter 4 - Trap Handling and Context Switching"
             }
           }
         ]
@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -192,9 +191,9 @@
   },
   "active": "ace81a845e1ff0d9",
   "lastOpenFiles": [
-    "OS/OS_Booting_Process_Notes.md",
-    "OS/Processes_and_SystemCalls_Notes.md",
+    "OS/Chapter 3 - Processes and SystemCalls.md",
     "OS/Chapter 1.md",
+    "OS/Chapter 2 - Booting.md",
     "OS/Untitled.md",
     "Python/Basics.md",
     "OS",
