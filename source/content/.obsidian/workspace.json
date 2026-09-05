@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "2e4367dfbf430612",
+        "id": "98835ab7e7443190",
         "type": "tabs",
         "children": [
           {
-            "id": "ace81a845e1ff0d9",
+            "id": "57c77888005349b4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OS/Chapter 4 - Trap Handling and Context Switching.md",
+                "file": "NN/Chapter 1.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 4 - Trap Handling and Context Switching"
+              "title": "Chapter 1"
             }
           }
         ]
@@ -81,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -189,8 +190,13 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ace81a845e1ff0d9",
+  "active": "57c77888005349b4",
   "lastOpenFiles": [
+    "NN/Chapter 1.md",
+    "NN/Chapter_1.md",
+    "Literature Review - Grounding Dino  (Group 5).md",
+    "Grounding DINO Literature Review Generation.md",
+    "OS/Chapter 4 - Trap Handling and Context Switching.md",
     "OS/Chapter 3 - Processes and SystemCalls.md",
     "OS/Chapter 1.md",
     "OS/Chapter 2 - Booting.md",
@@ -214,11 +220,6 @@
     "Misc/C/Libraries.md",
     "Misc/C/Leetcode.md",
     "Misc/C/File Operations.md",
-    "Misc/C/Dynamic Memory Allocation.md",
-    "Misc/C/Data Structures.md",
-    "Misc/C/C preprocessor.md",
-    "Misc/C/Basics.md",
-    "Misc/C/Arrays.md",
     "Misc/C",
     "Misc/POM",
     "Misc/Java",
