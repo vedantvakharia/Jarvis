@@ -6,5 +6,6 @@
   "OA-file-hider",
   "code-block-plugin",
   "automatic-table-of-contents",
-  "templater-obsidian"
+  "templater-obsidian",
+  "gemini-scribe"
 ]

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NN/Chapter 1.md",
+                "file": "NN/Chapter_1.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 1"
+              "title": "Chapter_1"
             }
           }
         ]
@@ -181,19 +181,31 @@
       "templater-obsidian:Templater": false,
       "bases:Create new base": false,
       "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
       "obsidian-git:Open Git source control": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "gemini-scribe:Gemini Scribe: Agent mode": false
     }
   },
   "active": "57c77888005349b4",
   "lastOpenFiles": [
-    "NN/Chapter 1.md",
+    "TOC/Chapter 1.md",
     "NN/Chapter_1.md",
+    "TOC",
+    "New folder",
+    "NN/Chapter 1.md",
+    "gemini-scribe/Prompts/example-expert.md",
+    "gemini-scribe/Scheduled-Tasks/scheduled-tasks-state.json",
+    "gemini-scribe/Scheduled-Tasks/Runs",
+    "gemini-scribe/Scheduled-Tasks",
+    "gemini-scribe/Skills",
+    "gemini-scribe/Prompts",
+    "gemini-scribe/Background-Tasks",
+    "gemini-scribe/Agent-Sessions",
+    "gemini-scribe",
     "Literature Review - Grounding Dino  (Group 5).md",
     "Grounding DINO Literature Review Generation.md",
     "OS/Chapter 4 - Trap Handling and Context Switching.md",
@@ -202,7 +214,6 @@
     "OS/Chapter 2 - Booting.md",
     "OS/Untitled.md",
     "Python/Basics.md",
-    "OS",
     "Java/Packages.md",
     "Misc/C++/Vectors.md",
     "Misc/C++/Trees.md",
@@ -214,23 +225,12 @@
     "Misc/C++/Containers.md",
     "Misc/C++/Binary Search.md",
     "Misc/C++/Algorithms.md",
-    "Misc/C++",
     "Misc/C/Pointers.md",
     "Misc/C/Recursion.md",
     "Misc/C/Libraries.md",
-    "Misc/C/Leetcode.md",
-    "Misc/C/File Operations.md",
-    "Misc/C",
-    "Misc/POM",
-    "Misc/Java",
-    "Misc",
-    "New folder",
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "Attachements/conventions.jpeg",
     "Attachements/mermaid-diagram-2026-06-19-152256.png",
-    "SOP/Domain 7 - COORDINATE SYSTEM ALIGNMENT (CRITICAL FOR YOUR PIPELINE).md.tmp.6464.32a6300dc6cc",
-    "SOP/Domain 7 - COORDINATE SYSTEM ALIGNMENT (CRITICAL FOR YOUR PIPELINE).md.tmp.23240.cf0257bfa4aa",
-    "SOP/Domain 2 - 3D Data Fundamentals.md.tmp.23240.1fd286758521",
     "Attachements/Pasted image 20260527030609.png",
     "Attachements/Pasted image 20260502221246.png",
     "Attachements/Pasted image 20251203084723.png",

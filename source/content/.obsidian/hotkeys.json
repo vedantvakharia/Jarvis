@@ -65,5 +65,13 @@
       ],
       "key": "S"
     }
+  ],
+  "gemini-scribe:ask-selection": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "A"
+    }
   ]
 }
