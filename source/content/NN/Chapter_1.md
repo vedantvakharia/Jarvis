@@ -1166,7 +1166,7 @@ $$\frac{\partial C_x}{\partial a^l_k} = \sum_j w^{l+1}_{jk} \delta^{l+1}_j$$
 **Converting this into an error $\delta^l_k$ :** Recall that $\delta^l_k$ = $\frac{\partial C_x}{\partial a^l_k} \sigma'(z^l_k)$  (same chain-rule logic as BP1, just one layer earlier). Substituting the sum we just derived: $$\delta^l_k = \left( \sum_j w^{l+1}_{jk} \delta^{l+1}_j \right) \sigma'(z^l_k) \tag{BP2, single neuron}$$
 
 **Vector form:** The sum $\sum_j(w^{(l+1)}_{jk} * \delta^{(l+1)}_j)$ is exactly the k-th component of the matrix-vector product $[w^{(l+1)}]^T * \delta^{(l+1)}$ (the transpose of the weight matrix, times the next layer's error vector). So in full vector form: $$\delta^l = \left( (w^{l+1})^T \delta^{l+1} \right) \odot \sigma'(z^l) \tag{BP2, vector form}$$
-**Intuition - why is this called "back"-propagation?** BP2 lets us compute the error of layer l using the error of layer l+1 (the layer *after* it). This means once we have $\delta^L$ (from BP1), we can get `delta^(L-1)` using BP2, then `delta^(L-2)` from `delta^(L-1)`, and so on, walking backward through the network one layer at a time, all the way to the first hidden layer. This backward flow of error information, layer by layer, is exactly why the algorithm is called **backpropagation**.
+**Intuition - why is this called "back"-propagation?** BP2 lets us compute the error of layer l using the error of layer l+1 (the layer *after* it). This means once we have $\delta^L$ (from BP1), we can get $\delta^{(L-1)}$ using BP2, then $\delta^{(L-2)}$ from $\delta^{(L-1)}$, and so on, walking backward through the network one layer at a time, all the way to the first hidden layer. This backward flow of error information, layer by layer, is exactly why the algorithm is called **backpropagation**.
 
 ```mermaid
 flowchart RL
@@ -1185,7 +1185,7 @@ flowchart RL
 
 ### 11.8 BP3 and BP4: From Error to the Actual Gradients
 
-We now have a way to find `delta^l_j` for every neuron in every layer (BP1 to start, BP2 to work backward). The whole point of computing all these errors was to make finding the ACTUAL derivatives we need - with respect to weights and biases - simple.
+We now have a way to find $\delta^l_j$ for every neuron in every layer (BP1 to start, BP2 to work backward). The whole point of computing all these errors was to make finding the ACTUAL derivatives we need - with respect to weights and biases - simple.
 
 **BP3 - derivative with respect to a bias:**
 
@@ -1193,30 +1193,23 @@ The dependency chain is $$b^l_j ---> z^l_j ---> C_x$$By the chain rule:$$\frac{\
 
 Since $z^l_j = \sum_k(w^l_{jk} * a^{(l-1)}_k) + b^l_j$, we have $\frac{\partial z^l_j}{\partial b^l_j} = 1$ (the bias contributes directly and additively, with coefficient 1). So: $$\frac{\partial C_x}{\partial b^l_j} = \delta^l_j \tag{BP3}$$
 
-**In plain words: the derivative of the cost with respect to any bias is simply that neuron's error.** No extra computation needed once you have `delta`.
+**In plain words: the derivative of the cost with respect to any bias is simply that neuron's error.** No extra computation needed once you have $\delta$.
 
 **BP4 - derivative with respect to a weight:**
 
-The dependency chain is `w^l_jk ---> z^l_j ---> Cx`. By the chain rule:
+The dependency chain is $$w^l_{jk} ---> z^l_j ---> C_x$$ By the chain rule:$$\frac{\partial C_x}{\partial w^l_{jk}} = \frac{\partial C_x}{\partial z^l_j} \frac{\partial z^l_j}{\partial w^l_{jk}}$$
 
-```
-dCx/dw^l_jk = (dCx/dz^l_j) * (dz^l_j/dw^l_jk)
-```
-
-Since `z^l_j = sum_k(w^l_jk * a^(l-1)_k) + b^l_j`, differentiating with respect to `w^l_jk` picks out just the one term containing it, giving `dz^l_j/dw^l_jk = a^(l-1)_k`. So:
-
-```
-dCx/dw^l_jk = a^(l-1)_k * delta^l_j          ... (BP4)
-```
+Since $z^l_j = \sum_k(w^l_{jk} * a^{(l-1)}_k) + b^l_j$, differentiating with respect to $w^l_{jk}$ picks out just the one term containing it, giving $\frac{\partial z^l_j}{\partial w^l_{jk}} = a^{l-1}_k$. So:$$\frac{\partial C_x}{\partial w^l_{jk}} = a^{l-1}_k \delta^l_j \tag{BP4}$$
 
 **In plain words: the derivative of the cost with respect to a weight is (the activation flowing INTO that connection) times (the error flowing OUT of that connection).**
 
 **Vectorized forms** (useful for implementation, avoiding explicit loops over j and k):
-
-```
-grad_(b^l)(Cx) = delta^l
-grad_(w^l)(Cx) = delta^l * (a^(l-1))^T
-```
+$$
+\begin{align}
+\nabla_{b^l} C_x &= \delta^l \\
+\nabla_{w^l} C_x &= \delta^l (a^{l-1})^T
+\end{align}
+$$
 
 ### 11.9 Worked Numeric Example: Backpropagation on a Tiny 2-2-2 Network
 
@@ -1501,27 +1494,15 @@ flowchart TD
 
 ### 12.2 Working Backwards: What Cost Function Would We Want?
 
-Instead of accepting this problem, let's ask: can we design a *different* cost function so that `delta` does NOT depend on `sigma'(z)` at all? That way, a confidently wrong neuron would always produce a large `delta`, regardless of how saturated it is.
+Instead of accepting this problem, let's ask: can we design a *different* cost function so that $\delta$ does NOT depend on $\sigma'(z)$ at all? That way, a confidently wrong neuron would always produce a large $\delta$, regardless of how saturated it is.
 
-For a single sigmoid output neuron, recall (from the chain rule) that:
-
-```
-delta^L = (dCx/da) * a * (1 - a)
-```
+For a single sigmoid output neuron, recall (from the chain rule) that: $$\delta^L = \frac{\partial C_x}{\partial a} a(1 - a)$$
 
 (This is just BP1 for a single output neuron, using `sigma'(z) = a*(1-a)` from Section 4.3.)
 
-We want to find a cost function `Cx` such that:
+We want to find a cost function $C_x$ such that: $$\frac{\partial C_x}{\partial a} = \frac{a - y}{a(1 - a)}$$
 
-```
-dCx/da = (a - y) / (a * (1 - a))
-```
-
-**Why this specific form?** Because if we plug this into the formula above:
-
-```
-delta^L = [(a-y) / (a*(1-a))] * a*(1-a) = a - y
-```
+**Why this specific form?** Because if we plug this into the formula above: $$\delta^L = \left[ \frac{a - y}{a(1 - a)} \right] a(1 - a) = a - y$$
 
 The `a*(1-a)` terms cancel out perfectly! We are left with simply `delta = a - y`. This is a beautifully clean result: the error signal is now JUST the difference between the prediction and the true answer, with no sigmoid-derivative term to shrink it when saturated.
 
@@ -1537,18 +1518,14 @@ flowchart LR
 
 ### 12.3 Deriving the Cross-Entropy Cost Function
 
-To find `Cx` itself, we integrate `dCx/da = (a-y)/(a(1-a))` with respect to `a`. Carrying out this integration (calculus mechanics aside, since the derivation itself is standard textbook calculus) gives:
+To find $C_x$ itself, we integrate $\frac{\partial C_x}{\partial a} = \frac{a - y}{a(1 - a)}$ with respect to `a`. Carrying out this integration gives:
 
-```
-Cx = -[y*ln(a) + (1-y)*ln(1-a)]        (cost for a single training example)
-```
-
-Summing (and averaging) over all `n` training examples gives the overall cost function:
-
-```
-C = -(1/n) * sum over x of [y*ln(a) + (1-y)*ln(1-a)]
-```
-
+$$
+\begin{align}
+C_x &= -\left[ y \ln(a) + (1 - y) \ln(1 - a) \right] \tag{single training example} \\
+C &= -\frac{1}{n} \sum_x \left[ y \ln(a) + (1 - y) \ln(1 - a) \right]
+\end{align}
+$$
 This is called the **cross-entropy cost function**.
 
 **When is this cost large? When is it small?** Let's check both terms:
@@ -2883,7 +2860,7 @@ flowchart TD
   $$y = \begin{cases} 1 & \text{if } \mathbf{w} \cdot \mathbf{x} + b > 0 \\ 0 & \text{otherwise} \end{cases}$$
 
 * **Sigmoid Activation:**
-  $$a = \sigma(z) = \frac{1}{1 + e^{-z}}, \quad \text{where } z = \mathbf{w} \cdot \mathbf{x} + b$$
+  $$a = \sigma(z) = \frac{1}{1 + e^{-z}}, \quad \text{where } z = \mathbf{w} \cdot \mathbf{x} + b$$$$\sigma'(z^l) = a^l \odot (1 - a^l)$$
 
 * **Sigmoid Derivative:**
   $$\frac{da}{dz} = a(1 - a)$$
