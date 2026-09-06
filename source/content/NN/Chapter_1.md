@@ -1127,7 +1127,6 @@ Let's derive and understand each one individually.
 **Goal -** compute $\delta^L_j$ for the very last layer, since this is where we can start (the cost is a direct function of the output activations).
 
 **Derivation using the chain rule -** The cost depends on $z^L_j$ only through $a^L_j$ (since $a^L_j = \sigma(z^L_j)$), so the dependency chain is:$$z^L_j \longrightarrow a^L_j \longrightarrow C_x$$
-
 By the chain rule: $$\delta^L_j = \frac{\partial C_x}{\partial z^L_j} = \left(\frac{\partial C_x}{\partial a^L_j}\right) \left(\frac{\partial a^L_j}{\partial z^L_j}\right)$$
 
 Since $a^L_j = \sigma(z^L_j)$, we know $\frac{\partial a^L_j}{\partial z^L_j} = \sigma'(z^L_j)$. Substituting: $$\delta^L_j = \frac{\partial C_x}{\partial a^L_j} \sigma'(z^L_j) \quad \dots \text{(BP1, single neuron)}$$
@@ -1143,17 +1142,9 @@ $$\delta^L = \nabla_{a^L} C_x \odot \sigma'(z^L) \quad \dots \text{(BP1, vector 
 
 **The problem:** BP1 only gives us the error at the very last layer, L. But we need `dC/dw` and `dC/db` for weights and biases in EVERY layer, including hidden ones. So we need a way to compute `delta^l` for a hidden layer l, given that we already know `delta^(l+1)` (the error one layer further along, toward the output).
 
-**Setting up the chain rule for a hidden neuron:** Consider neuron k in hidden layer l. Its activation `a^l_k` doesn't affect the cost directly - it affects the cost *indirectly*, by influencing every neuron j in the *next* layer (l+1), since:
+**Setting up the chain rule for a hidden neuron:** Consider neuron k in hidden layer l. Its activation $a^l_k$ doesn't affect the cost directly - it affects the cost *indirectly*, by influencing every neuron j in the *next* layer (l+1), since:$$z^{(l+1)}_j = \sum_k( w^{(l+1)_{jk}} * a^l_k) + b^{(l+1)_j}$$
 
-```
-z^(l+1)_j = sum_k( w^(l+1)_jk * a^l_k ) + b^(l+1)_j
-```
-
-Because `a^l_k` feeds into many different neurons j in the next layer, we must **sum over all of them** when applying the chain rule (this is the multivariable chain rule - contributions from every path must be added):
-
-```
-dCx/da^l_k = sum_j( (dCx/dz^(l+1)_j) * (dz^(l+1)_j/da^l_k) )
-```
+Because $a^l_k$ feeds into many different neurons j in the next layer, we must **sum over all of them** when applying the chain rule (this is the multivariable chain rule - contributions from every path must be added):$$\frac{\partial C_x}{\partial a^l_k} = \sum_j \left( \frac{\partial C_x}{\partial z^{l+1}_j} \frac{\partial z^{l+1}_j}{\partial a^l_k} \right)$$
 
 ```mermaid
 flowchart LR
@@ -1166,28 +1157,16 @@ flowchart LR
 ```
 
 **Evaluating the two derivatives inside the sum:**
-- By definition, `dCx/dz^(l+1)_j = delta^(l+1)_j` (that's literally how we defined "error").
-- From the formula for `z^(l+1)_j` above, `dz^(l+1)_j/da^l_k = w^(l+1)_jk` (since everything else in that sum is treated as constant when differentiating with respect to `a^l_k`).
+- By definition, $\frac{\partial C_x}{\partial z_j^{(l+1)}} = \delta_j^{(l+1)}$ (that's literally how we defined "error").
+- From the formula for $z^{(l+1)}_j$ above, $\frac{\partial z^{(l+1)}_j}{\partial a^l_k} = w^{(l+1)}_{jk}$ (since everything else in that sum is treated as constant when differentiating with respect to $a^l_k$).
 
 Substituting both in:
+$$\frac{\partial C_x}{\partial a^l_k} = \sum_j w^{l+1}_{jk} \delta^{l+1}_j$$
 
-```
-dCx/da^l_k = sum_j( w^(l+1)_jk * delta^(l+1)_j )
-```
+**Converting this into an error $\delta^l_k$ :** Recall that $\delta^l_k$ = $\frac{\partial C_x}{\partial a^l_k} \sigma'(z^l_k)$  (same chain-rule logic as BP1, just one layer earlier). Substituting the sum we just derived: $$\delta^l_k = \left( \sum_j w^{l+1}_{jk} \delta^{l+1}_j \right) \sigma'(z^l_k) \tag{BP2, single neuron}$$
 
-**Converting this into an error `delta^l_k`:** Recall that `delta^l_k = (dCx/da^l_k) * sigma'(z^l_k)` (same chain-rule logic as BP1, just one layer earlier). Substituting the sum we just derived:
-
-```
-delta^l_k = ( sum_j( w^(l+1)_jk * delta^(l+1)_j ) ) * sigma'(z^l_k)          ... (BP2, single neuron)
-```
-
-**Vector form:** The sum `sum_j( w^(l+1)_jk * delta^(l+1)_j )` is exactly the k-th component of the matrix-vector product `(w^(l+1))^T * delta^(l+1)` (the transpose of the weight matrix, times the next layer's error vector). So in full vector form:
-
-```
-delta^l = ( (w^(l+1))^T * delta^(l+1) ) ⊙ sigma'(z^l)          ... (BP2, vector form)
-```
-
-**Intuition - why is this called "back"-propagation?** BP2 lets us compute the error of layer l using the error of layer l+1 (the layer *after* it). This means once we have `delta^L` (from BP1), we can get `delta^(L-1)` using BP2, then `delta^(L-2)` from `delta^(L-1)`, and so on, walking backward through the network one layer at a time, all the way to the first hidden layer. This backward flow of error information, layer by layer, is exactly why the algorithm is called **backpropagation**.
+**Vector form:** The sum $\sum_j(w^{(l+1)}_{jk} * \delta^{(l+1)}_j)$ is exactly the k-th component of the matrix-vector product $[w^{(l+1)}]^T * \delta^{(l+1)}$ (the transpose of the weight matrix, times the next layer's error vector). So in full vector form: $$\delta^l = \left( (w^{l+1})^T \delta^{l+1} \right) \odot \sigma'(z^l) \tag{BP2, vector form}$$
+**Intuition - why is this called "back"-propagation?** BP2 lets us compute the error of layer l using the error of layer l+1 (the layer *after* it). This means once we have $\delta^L$ (from BP1), we can get `delta^(L-1)` using BP2, then `delta^(L-2)` from `delta^(L-1)`, and so on, walking backward through the network one layer at a time, all the way to the first hidden layer. This backward flow of error information, layer by layer, is exactly why the algorithm is called **backpropagation**.
 
 ```mermaid
 flowchart RL
@@ -1210,17 +1189,9 @@ We now have a way to find `delta^l_j` for every neuron in every layer (BP1 to st
 
 **BP3 - derivative with respect to a bias:**
 
-The dependency chain is `b^l_j ---> z^l_j ---> Cx`. By the chain rule:
+The dependency chain is $$b^l_j ---> z^l_j ---> C_x$$By the chain rule:$$\frac{\partial C_x}{\partial b^l_j} = \frac{\partial C_x}{\partial z^l_j} \frac{\partial z^l_j}{\partial b^l_j}$$
 
-```
-dCx/db^l_j = (dCx/dz^l_j) * (dz^l_j/db^l_j)
-```
-
-Since `z^l_j = sum_k(w^l_jk * a^(l-1)_k) + b^l_j`, we have `dz^l_j/db^l_j = 1` (the bias contributes directly and additively, with coefficient 1). So:
-
-```
-dCx/db^l_j = delta^l_j          ... (BP3)
-```
+Since $z^l_j = \sum_k(w^l_{jk} * a^{(l-1)}_k) + b^l_j$, we have $\frac{\partial z^l_j}{\partial b^l_j} = 1$ (the bias contributes directly and additively, with coefficient 1). So: $$\frac{\partial C_x}{\partial b^l_j} = \delta^l_j \tag{BP3}$$
 
 **In plain words: the derivative of the cost with respect to any bias is simply that neuron's error.** No extra computation needed once you have `delta`.
 
