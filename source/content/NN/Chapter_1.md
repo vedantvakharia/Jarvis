@@ -1135,18 +1135,8 @@ Since $a^L_j = \sigma(z^L_j)$, we know $\frac{\partial a^L_j}{\partial z^L_j} = 
 **Vector form -** Collecting $\frac{\partial C_x}{\partial a^L_j}$ for every output neuron $j$ into a single vector called the gradient of $C$ with respect to $a^L$, written $\nabla_{a^L} C_x$, and combining it with the vector $\sigma'(z^L)$ using the Hadamard product:
 $$\delta^L = \nabla_{a^L} C_x \odot \sigma'(z^L) \quad \dots \text{(BP1, vector form)}$$
 
-\textbf{Specializing to the quadratic cost:} Recall $C_x = \frac{1}{2} \sum_j (y_j - a^L_j)^2$. Differentiating with respect to $a^L_j$:
+**Specializing to the quadratic cost -** Recall $C_x = \frac{1}{2} \sum_j (y_j - a^L_j)^2$. Differentiating with respect to $a^L_j$:$$\frac{\partial C_x}{\partial a^L_j} = a^L_j - y_j$$Substituting into BP1:$$\delta^L = (a^L - y) \odot \sigma'(z^L)$$
 
-\[
-\frac{\partial C_x}{\partial a^L_j} = a^L_j - y_j
-\]
-
-Substituting into BP1:
-
-\[
-\delta^L = (a^L - y) \odot \sigma'(z^L)
-\]
-$$
 **This is a hugely important practical result:** for the quadratic cost, the output-layer error is simply "(what the network predicted) minus (what it should have predicted)," scaled element-wise by the sigmoid derivative. We can compute this directly from the network's own output and the known correct answer - no extra layers of chain rule needed at this step.
 
 ### 11.7 BP2: Propagating the Error Backward Through Hidden Layers
