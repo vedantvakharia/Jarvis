@@ -2971,41 +2971,109 @@ flowchart TD
 | **Learning rate scheduling** | Gradually reducing eta during training, e.g. holding it steady until validation accuracy plateaus, then dividing it by a fixed factor |
 | **Meta-optimization** | The (largely infeasible) idea of using gradient descent to tune hyper-parameters like eta and lambda themselves |
 
-### Formula Cheat Sheet
+## Formula Cheat Sheet
 
-```
-Perceptron rule:      y = 1 if (w.x + b) > 0, else 0
-Sigmoid activation:   a = sigma(z) = 1 / (1 + e^(-z)),  where z = w.x + b
-Quadratic cost (one example):   Cx = (1/2) * ||y(x) - a(x)||^2
-Quadratic cost (all examples):  C = (1/n) * sum_x(Cx)
-Gradient descent update:        v_new = v_old - eta * grad(C)
-Weight update:                  w = w - eta * (dC/dw)
-Bias update:                    b = b - eta * (dC/db)
-Sigmoid derivative:              da/dz = a*(1-a)
-Gradient for one example (single neuron): grad(Cx) = (a-y) * a*(1-a) * x
-Mini-batch gradient (approx):    grad(C) ~ (1/m) * sum_{i=1}^{m}(grad(C_i))
+### Basic Units & Activation Functions
 
-Weighted input:                 z^l = w^l * a^(l-1) + b^l
-Layer activation:               a^l = sigma(z^l)
-Error definition:               delta^l_j = dCx/dz^l_j
-BP1 (output error):             delta^L = grad_(a^L)(Cx) ⊙ sigma'(z^L)
-BP1 (quadratic cost):           delta^L = (a^L - y) ⊙ sigma'(z^L)
-BP2 (backprop error):           delta^l = ((w^(l+1))^T * delta^(l+1)) ⊙ sigma'(z^l)
-BP3 (bias gradient):            dCx/db^l_j = delta^l_j
-BP4 (weight gradient):          dCx/dw^l_jk = a^(l-1)_k * delta^l_j
+* **Perceptron Rule:**
+  $$y = \begin{cases} 1 & \text{if } \mathbf{w} \cdot \mathbf{x} + b > 0 \\ 0 & \text{otherwise} \end{cases}$$
 
-Cross-entropy cost (single neuron):   Cx = -[y ln a + (1-y) ln(1-a)]
-Cross-entropy cost (all outputs):     Cx = -sum_j[yj ln aj^L + (1-yj) ln(1-aj^L)]
-Cross-entropy output error:           delta^L = a^L - y   (no sigma'(z) term)
+* **Sigmoid Activation:**
+  $$a = \sigma(z) = \frac{1}{1 + e^{-z}}, \quad \text{where } z = \mathbf{w} \cdot \mathbf{x} + b$$
 
-Softmax activation:              aj^L = e^(zj^L) / sum_k(e^(zk^L))
-Log-likelihood cost:             Cx = -ln(ay^L)   (y = index of correct class)
-Softmax output error:            delta^L = a^L - y   (same clean form as cross-entropy)
+* **Sigmoid Derivative:**
+  $$\frac{da}{dz} = a(1 - a)$$
 
-L2 regularized cost:             C = C0 + (lambda/2n) * sum_w(w^2)
-L2 weight update:                w -> (1 - eta*lambda/n)*w - eta*(dC0/dw)
-L1 regularized cost:             C = C0 + (lambda/n) * sum_w(|w|)
-L1 weight update:                w -> w - (eta*lambda/n)*sgn(w) - eta*(dC0/dw)
+---
 
-Normalized weight initialization: w ~ N(0, 1/sqrt(n_in))
-```
+### Cost Functions & Gradient Descent
+
+* **Quadratic Cost (single example):**
+  $$C_x = \frac{1}{2} \|y(x) - a(x)\|^2$$
+
+* **Quadratic Cost (all examples):**
+  $$C = \frac{1}{n} \sum_x C_x$$
+
+* **Gradient Descent Update:**
+  $$v_{\text{new}} = v_{\text{old}} - \eta \nabla C$$
+
+* **Weight Update:**
+  $$w \to w - \eta \frac{\partial C}{\partial w}$$
+
+* **Bias Update:**
+  $$b \to b - \eta \frac{\partial C}{\partial b}$$
+
+* **Gradient for Single Neuron Example:**
+  $$\nabla C_x = (a - y) a(1 - a) \mathbf{x}$$
+
+* **Mini-batch Gradient Approximation:**
+  $$\nabla C \approx \frac{1}{m} \sum_{i=1}^{m} \nabla C_i$$
+
+---
+
+### Backpropagation Equations
+
+* **Weighted Input:**
+  $$z^l = w^l a^{l-1} + b^l$$
+
+* **Layer Activation:**
+  $$a^l = \sigma(z^l)$$
+
+* **Error Definition:**
+  $$\delta^l_j = \frac{\partial C_x}{\partial z^l_j}$$
+
+* **BP1 (Output Error):**
+  $$\delta^L = \nabla_{a^L} C_x \odot \sigma'(z^L)$$
+
+* **BP1 (Quadratic Cost):**
+  $$\delta^L = (a^L - y) \odot \sigma'(z^L)$$
+
+* **BP2 (Backpropagated Error):**
+  $$\delta^l = \left( (w^{l+1})^T \delta^{l+1} \right) \odot \sigma'(z^l)$$
+
+* **BP3 (Bias Gradient):**
+  $$\frac{\partial C_x}{\partial b^l_j} = \delta^l_j$$
+
+* **BP4 (Weight Gradient):**
+  $$\frac{\partial C_x}{\partial w^l_{jk}} = a^{l-1}_k \delta^l_j$$
+
+---
+
+### Cross-Entropy & Softmax
+
+* **Cross-Entropy Cost (single neuron):**
+  $$C_x = -\left[ y \ln a + (1 - y) \ln(1 - a) \right]$$
+
+* **Cross-Entropy Cost (all output neurons):**
+  $$C_x = -\sum_j \left[ y_j \ln a_j^L + (1 - y_j) \ln(1 - a_j^L) \right]$$
+
+* **Cross-Entropy Output Error:**
+  $$\delta^L = a^L - y$$
+
+* **Softmax Activation:**
+  $$a_j^L = \frac{e^{z_j^L}}{\sum_k e^{z_k^L}}$$
+
+* **Log-Likelihood Cost:**
+  $$C_x = -\ln a_y^L \quad (y = \text{index of correct class})$$
+
+* **Softmax Output Error:**
+  $$\delta^L = a^L - y$$
+
+---
+
+### Regularization & Initialization
+
+* **$L_2$ Regularized Cost:**
+  $$C = C_0 + \frac{\lambda}{2n} \sum_w w^2$$
+
+* **$L_2$ Weight Update:**
+  $$w \to \left(1 - \frac{\eta \lambda}{n}\right) w - \eta \frac{\partial C_0}{\partial w}$$
+
+* **$L_1$ Regularized Cost:**
+  $$C = C_0 + \frac{\lambda}{n} \sum_w |w|$$
+
+* **$L_1$ Weight Update:**
+  $$w \to w - \frac{\eta \lambda}{n} \operatorname{sgn}(w) - \eta \frac{\partial C_0}{\partial w}$$
+
+* **Normalized Weight Initialization:**
+  $$w \sim \mathcal{N}\left(0, \frac{1}{\sqrt{n_{\text{in}}}}\right)$$
