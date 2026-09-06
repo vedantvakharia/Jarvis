@@ -22,9 +22,7 @@ flowchart LR
 
 The perceptron first computes a **weighted sum** of all inputs:
 
-```
-weighted sum = sum over j of (wj * xj)
-```
+$$\text{weighted sum} = \sum_{j=0} (w_j * x_j)$$
 
 Then it compares this sum to a **threshold** value:
 
@@ -510,19 +508,32 @@ Gradient descent is exactly this idea, formalized with calculus: we compute the 
 ### 7.2 The Gradient - A Multi-Dimensional Derivative
 
 Suppose our cost function depends on many parameters, `C = C(v1, v2, ..., vm)`. If we nudge all parameters slightly by amounts `delta_v = (delta_v1, ..., delta_vm)`, then the resulting small change in C can be approximated as:
+Here is the text formatted in proper LaTeX (compatible with Obsidian math blocks):
 
-```
-delta_C  ~  sum_j( (dC/dvj) * delta_vj )
-```
+$$\Delta C \approx \sum_j \frac{\partial C}{\partial v_j} \Delta v_j$$
 
-We define the **gradient vector**, written `grad(C)` or "nabla C":
-```
-grad(C) = [ dC/dv1,  dC/dv2,  ...,  dC/dvm ]^T
-```
+We define the **gradient vector**, written $\nabla C$:
+
+$$\nabla C = \left[ \frac{\partial C}{\partial v_1}, \frac{\partial C}{\partial v_2}, \dots, \frac{\partial C}{\partial v_m} \right]^T$$
+
+*(or in column matrix form)*:
+
+$$\nabla C = \begin{bmatrix} \frac{\partial C}{\partial v_1} \\ \frac{\partial C}{\partial v_2} \\ \vdots \\ \frac{\partial C}{\partial v_m} \end{bmatrix}$$
 
 This lets us rewrite the approximation neatly as a dot product:
-```
-delta_C  ~  grad(C) . delta_v
+
+$$\Delta C \approx \nabla C \cdot \Delta v$$
+
+---
+
+### Raw LaTeX Code
+
+```latex
+\Delta C \approx \sum_j \frac{\partial C}{\partial v_j} \Delta v_j
+
+\nabla C = \left[ \frac{\partial C}{\partial v_1}, \frac{\partial C}{\partial v_2}, \dots, \frac{\partial C}{\partial v_m} \right]^T
+
+\Delta C \approx \nabla C \cdot \Delta v
 ```
 
 **Geometric meaning:** The gradient vector, at any given point, points in the direction of the **steepest increase** of C from that point. (Its negative therefore points toward steepest decrease.)
