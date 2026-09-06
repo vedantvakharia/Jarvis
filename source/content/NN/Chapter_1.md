@@ -519,9 +519,9 @@ This lets us rewrite the approximation neatly as a dot product:
 $$\Delta C \approx \nabla C \cdot \Delta v$$
 
 
-**Geometric meaning:** The gradient vector, at any given point, points in the direction of the **steepest increase** of C from that point. (Its negative therefore points toward steepest decrease.)
+**Geometric meaning:** The gradient vector, at any given point, points in the direction of the steepest increase of C from that point. (Its negative therefore points toward steepest decrease.)
 
-Worked example - 
+**Worked example -** 
 $$C = \frac{1}{4}(v_1^2 + v_2^2)$$ At the point $(v_1, v_2) = (2, 1)$:
 $$
 \begin{aligned}
