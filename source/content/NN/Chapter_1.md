@@ -586,31 +586,23 @@ flowchart LR
 
 In a neural network, the "parameters" v are simply ALL the weights and biases in the entire network. So the general update rule specializes to:
 
-**For each weight wk:**
-```
-wk_new = wk_old - eta * (dC/dwk)
-```
+$$
+\textbf{For each weight } w_k: w_k^{\text{new}} = w_k^{\text{old}} - \eta \frac{\partial C}{\partial w_k}
 
-**For each bias bl:**
-```
-bl_new = bl_old - eta * (dC/dbl)
-```
-
+$$$$
+\textbf{For each bias } b_l:
+b_l^{\text{new}} = b_l^{\text{old}} - \eta \frac{\partial C}{\partial b_l}
+$$
 Each partial derivative tells us: "if I nudge this ONE specific parameter slightly, how much does the overall cost change?" We use this information for every weight and bias, simultaneously, to take one coordinated step downhill in this extremely high-dimensional landscape (a network can easily have thousands or millions of parameters!).
 
 ### 7.8 The Gradient of the Total Cost Is the Average of Individual Gradients
 
-Recall that the overall cost is an average over all n training examples:
-```
-C = (1/n) * sum_x(Cx)
-```
+Recall that the overall cost is an average over all n training examples: $C = \frac{1}{n} \sum_{x} C_x$
 
 Since differentiation is linear, the gradient of a sum/average is the sum/average of the gradients:
-```
-grad(C) = (1/n) * sum_x( grad(Cx) )
-```
+$\nabla C = \frac{1}{n} \sum_{x} \nabla C_x$
 
-**In words:** each individual training example "votes" on which direction each parameter should move, and we average all these votes together to decide the actual update direction.
+Each individual training example "votes" on which direction each parameter should move, and we average all these votes together to decide the actual update direction.
 
 ---
 
