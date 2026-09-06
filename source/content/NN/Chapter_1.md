@@ -556,7 +556,7 @@ $$
 \end{aligned}
 $$
 
-Since `eta > 0` and any squared quantity `||grad(C)||^2 >= 0`, we get:
+Since  $\eta$ > 0` and any squared quantity `||grad(C)||^2 >= 0`, we get:
 ```
 delta_C <= 0   (approximately)
 ```
@@ -582,26 +582,7 @@ flowchart LR
     A["Compute grad(C) at current v"] --> B["Take step: v = v - eta * grad(C)"] --> C["Recompute grad(C) at new v"] --> B
 ```
 
-### 7.6 The Learning Rate Trade-off: Too Small vs Too Large
-
-The math above relied on an approximation (`delta_C ~ grad(C).delta_v`) that is only accurate when `delta_v` is SMALL. This creates an important trade-off:
-
-| Learning Rate eta | What Happens | Consequence |
-|---|---|---|
-| **Too small** | Each update barely moves the parameters | Training becomes extremely slow, requiring many updates to converge |
-| **Too large** | delta_v is too big, and the linear approximation breaks down | The cost may actually increase, oscillate wildly, or diverge - learning becomes unstable |
-| **Just right** | Balances speed and stability | Efficient, steady convergence toward the minimum |
-
-```mermaid
-flowchart TD
-    A["Choose learning rate eta"] --> B{Too small?}
-    B -->|Yes| C["Very slow convergence, many iterations needed"]
-    B -->|No| D{Too large?}
-    D -->|Yes| E["Overshoots minimum; cost oscillates or diverges"]
-    D -->|No, well-tuned| F["Efficient, stable convergence"]
-```
-
-### 7.7 Applying Gradient Descent to an Actual Neural Network
+### 7.6 Applying Gradient Descent to an Actual Neural Network
 
 In a neural network, the "parameters" v are simply ALL the weights and biases in the entire network. So the general update rule specializes to:
 
