@@ -142,12 +142,12 @@ z = -2*x1 - 2*x2 + 3
 y = 1 if z > 0, else 0
 ```
 
-| x1 | x2 | z | y |
-|----|----|----|---|
-| 0 | 0 | 3 | 1 |
-| 0 | 1 | 1 | 1 |
-| 1 | 0 | 1 | 1 |
-| 1 | 1 | -1 | 0 |
+| $x_1$ | $x_2$ | z   | y   |
+| ----- | ----- | --- | --- |
+| 0     | 0     | 3   | 1   |
+| 0     | 1     | 1   | 1   |
+| 1     | 0     | 1   | 1   |
+| 1     | 1     | -1  | 0   |
 
 This exactly matches the truth table for logical **NAND** (NOT-AND): output is 0 only when both inputs are 1.
 
