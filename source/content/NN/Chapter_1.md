@@ -570,7 +570,8 @@ v_new = v_old - eta * grad(C)
 We repeat this over and over:
 ```
 v -> v - eta*grad(C) -> v - eta*grad(C) -> ...
-```//
+```
+
 Each repetition should move us a bit closer to a region of lower cost.
 
 ```mermaid
