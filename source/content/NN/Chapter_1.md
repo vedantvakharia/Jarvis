@@ -594,7 +594,7 @@ b_l^{\text{new}} = b_l^{\text{old}} - \eta \frac{\partial C}{\partial b_l}
 $$
 Each partial derivative tells us: "if I nudge this ONE specific parameter slightly, how much does the overall cost change?" We use this information for every weight and bias, simultaneously, to take one coordinated step downhill in this extremely high-dimensional landscape (a network can easily have thousands or millions of parameters!).
 
-### 7.8 The Gradient of the Total Cost Is the Average of Individual Gradients
+### 7.7 The Gradient of the Total Cost Is the Average of Individual Gradients
 
 Recall that the overall cost is an average over all n training examples: $C = \frac{1}{n} \sum_{x} C_x$
 
@@ -680,13 +680,8 @@ dCx/dw1 = (dCx/da) * (da/dz) * (dz/dw1)
 ```
 
 **Computing each piece:**
-
-1. `dCx/da = (a - y)`  
-   *(derivative of (1/2)(y-a)^2 with respect to a)*
-
+1. `dCx/da = (a - y)`  *(derivative of (1/2)(y-a)^2 with respect to a)*
 2. `da/dz = a*(1-a)`  
-   *(this is a special, elegant property of the sigmoid function - its derivative can be written in terms of itself!)*
-
 3. `dz/dwj = xj`  
    *(since z = w1*x1 + w2*x2 + b, the partial derivative with respect to wj is simply xj)*
 
@@ -792,10 +787,7 @@ flowchart LR
 
 For our tiny OR example, computing the full gradient required looking at all 4 training examples - trivially cheap.
 
-But recall the formula:
-```
-grad(C) = (1/n) * sum_over_x( grad(Cx) )
-```
+But recall the formula:$\nabla C = \frac{1}{n} \sum_{x} \nabla C_x$
 
 MNIST has **n = 60,000 training images**. If we use plain (full-batch) gradient descent, then EVERY SINGLE parameter update requires computing the gradient across all 60,000 images first. This is extremely computationally expensive, especially since we need to repeat this process potentially thousands of times to converge.
 
@@ -811,9 +803,9 @@ flowchart TD
 
 **Core idea:** Instead of using the entire training set to compute an exact gradient, randomly sample a small subset (called a **mini-batch**) of size `m` and use it to compute an **approximate** gradient.
 
-```
-grad(C)  ~  (1/m) * sum_{j=1 to m}( grad(C_Xj) )
-```
+$$
+\nabla C \approx \frac{1}{m} \sum_{j=1}^{m} \nabla C_{X_j}
+$$
 
 This is much cheaper to compute (only m examples instead of n), and while each individual estimate is noisier/less accurate, on average it points in roughly the right direction, and we can afford to take MANY more (cheaper) steps in the same amount of time.
 
@@ -836,24 +828,19 @@ flowchart TD
     I -->|No| J[Training finished]
 ```
 
-**Key vocabulary:**
-- **Mini-batch:** a small, randomly chosen subset of the training data (e.g., 10, 32, or 100 examples at a time)
-- **Epoch:** one complete pass through the ENTIRE training dataset (i.e., after processing every mini-batch once, we've completed one epoch)
-- Training typically runs for **many epochs** (repeating the shuffle-and-batch process over and over), since one pass usually isn't enough to fully learn the patterns.
-
 ### 9.4 The Mini-Batch Update Formula
 
 For a specific weight connecting neuron k to neuron j at layer l:
-```
-w_jk_new = w_jk_old - (eta/m) * sum_{i=1 to m}( dC_i/dw_jk )
-```
+
+$$
+w_{jk}^{\text{new}} = w_{jk}^{\text{old}} - \frac{\eta}{m} \sum_{i=1}^{m} \frac{\partial C_i}{\partial w_{jk}}
+$$
 
 For a bias:
-```
-b_j_new = b_j_old - (eta/m) * sum_{i=1 to m}( dC_i/db_j )
-```
 
-In words: for the current mini-batch of size m, compute the partial derivative of the cost with respect to each parameter for EACH of the m examples, average these m values, and use that average to perform one gradient descent update.
+$$
+b_j^{\text{new}} = b_j^{\text{old}} - \frac{\eta}{m} \sum_{i=1}^{m} \frac{\partial C_i}{\partial b_j}
+$$
 
 ### 9.5 Full-Batch GD vs Mini-Batch SGD - Comparison
 
@@ -899,11 +886,11 @@ flowchart LR
 ```
 
 - Network layer sizes: `[784, 30, 10]`
-- **Important detail:** the input layer does NOT contain actual sigmoid neurons - it simply holds the raw pixel intensities directly as `x_i`, which by convention is also written `a_i^(1)` (the "activation" of layer 1, even though no sigmoid computation actually happens there).
+- **Important detail:** the input layer does NOT contain actual sigmoid neurons - it simply holds the raw pixel intensities directly as $x_i$, which by convention is also written $a_i^1$ (the "activation" of layer 1, even though no sigmoid computation actually happens there).
 
 ### 10.2 Counting the Parameters
 
-For a fully-connected network with layer sizes [784, 30, 10]:
+For a fully-connected network with layer sizes $[784, 30, 10]$:
 
 **Weights connecting input layer to hidden layer:**
 Every one of the 30 hidden neurons connects to every one of the 784 input neurons:
@@ -934,14 +921,12 @@ Every one of the 10 output neurons connects to every one of the 30 hidden neuron
 
 (Here "785" = 784 weights + 1 bias per hidden neuron, and "31" = 30 weights + 1 bias per output neuron - this is a compact way of counting weights+biases together.)
 
-This means gradient descent must simultaneously tune **23,860 numbers** to make this network classify digits accurately - and this is considered a genuinely SMALL, simple network by modern standards!
-
 ### 10.3 The Feedforward Computation
 
 Once trained, using the network to make a prediction (this is called "feedforward" or "inference") just means repeatedly applying:
-```
-a' = sigma(w . a + b)
-```
+$$
+a' = \sigma(w . a + b)
+$$
 layer by layer, where `a` is the activation vector from the previous layer, `w` and `b` are that layer's weights and biases, and `a'` is the resulting activation vector for the current layer. We start with `a = x` (the input pixels) and keep applying this formula until we reach the output layer.
 
 ```mermaid
@@ -994,9 +979,7 @@ for i in L3:
 # 23
 ```
 
-### 10.5 Implementation Checklist (What a Full Implementation Needs)
-
-Based on the course material's outline, implementing this network from scratch requires:
+### 10.5 Implementation Checklist
 
 ```mermaid
 flowchart TD
@@ -1013,37 +996,27 @@ flowchart TD
 
 ## 11. Backpropagation - How a Network Actually Computes Its Gradients
 
-Sections 6-9 established *why* we need gradient descent and showed the gradient formula for a single sigmoid neuron. But real networks have many layers, each with many weights and biases. **Backpropagation** is the algorithm that efficiently computes the gradient `dC/dw` and `dC/db` for every single weight and bias in a multi-layer network, no matter how deep. It is not a different learning rule from gradient descent - it is simply the fast, practical *method* for computing the gradient that gradient descent then uses to update parameters.
+**Backpropagation** is the algorithm that efficiently computes the gradient `dC/dw` and `dC/db` for every single weight and bias in a multi-layer network, no matter how deep. It is not a different learning rule from gradient descent - it is simply the fast, practical *method* for computing the gradient that gradient descent then uses to update parameters.
 
 ### 11.1 Why Do We Need a Special Algorithm for This?
 
-Think back to the mini-batch gradient formula from Section 9.4:
+Think back to the mini-batch gradient formula 
 
-```
-grad(C) ~ (1/m) * sum_{i=1}^{m}(grad(C_i))
-```
+$$
+\nabla C \approx \frac{1}{m} \sum_{j=1}^{m} \nabla C_{X_j}
+$$
 
-To use this, we need `grad(C_i)` - the gradient of the cost with respect to **every weight and bias**, for **each training example**. A modest network (784-30-10, as in Section 10.2) already has 23,860 parameters. Computing each partial derivative one at a time, from scratch, using the naive approximation
-
-```
-dC/dwj ~ (C(w + eps*ej) - C(w)) / eps
-```
-
+To use this, we need $\nabla C_i$ - the gradient of the cost with respect to **every weight and bias**, for **each training example**. A modest network already has 23,860 parameters. Computing each partial derivative one at a time, from scratch, using the naive approximation
+$$
+\frac{\partial C}{\partial w_j} \approx \frac{C(w + \epsilon e_j) - C(w)}{\epsilon}
+$$
 would require re-running the entire network once per parameter (23,860 full forward passes, PER training example!). This is hopelessly slow.
 
-**Backpropagation solves this by being clever about re-using computation.** In one forward pass plus one backward pass, it computes the gradient with respect to ALL parameters simultaneously. This is what makes training large networks computationally feasible - it's the single most important algorithm in this course.
-
-```mermaid
-flowchart LR
-    A["Naive approach: recompute cost from scratch for every single weight"] -->|"very slow - one pass per parameter"| B["Impractical for 1000s of parameters"]
-    C["Backpropagation: one forward pass + one backward pass"] -->|"reuses intermediate results"| D["Computes ALL gradients at once - fast"]
-```
+**Backpropagation solves this by being clever about re-using computation.** In one forward pass plus one backward pass, it computes the gradient with respect to ALL parameters simultaneously. This is what makes training large networks computationally feasible.
 
 ### 11.2 Notation: Naming Every Weight, Bias, and Activation Precisely
 
-Before we can write down the backpropagation equations, we need unambiguous notation to refer to any specific weight, bias, or activation anywhere in the network.
-
-**Weight notation: `w^l_jk`**
+**Weight notation: $w^l_{jk}$**
 
 This denotes the weight connecting the **k-th neuron in layer (l-1)** to the **j-th neuron in layer l**.
 
@@ -1060,26 +1033,18 @@ flowchart LR
 
 Notice the index order looks "backwards" at first glance - the *second* index (k) refers to the layer *before* (l-1), and the *first* index (j) refers to the *current* layer l. This seemingly odd ordering is deliberate: it is chosen specifically so that later formulas (matrix multiplication of weights by the previous layer's activations) come out clean and don't need extra transposing.
 
-**Bias and activation notation: `b^l_j` and `a^l_j`**
+**Bias and activation notation: $b^l_j$ and $a^l_j$**
 
-- `b^l_j` is the bias of the j-th neuron in layer l.
-- `a^l_j` is the activation (output) of the j-th neuron in layer l.
+- $b^l_j$ is the bias of the j-th neuron in layer l.
+- $a^l_j$ is the activation (output) of the j-th neuron in layer l.
 
-```mermaid
-flowchart LR
-    subgraph "Layer l"
-    N["neuron j has bias b^l_j
-    and produces activation a^l_j"]
-    end
-```
-
-**Putting it together: the weighted input `z^l_j`**
+**Putting it together: the weighted input $z^l_j$**
 
 The weighted input to neuron j in layer l (i.e., the value fed into the activation function, before sigma is applied) is:
 
-```
-z^l_j = sum_k( w^l_jk * a^(l-1)_k ) + b^l_j
-```
+$$
+z^l_j = \sum_k( w^l_{jk} * a^{(l-1)_k} + b^l_j
+$$
 
 In words: take every neuron k in the *previous* layer, multiply its activation by the weight connecting it to neuron j, sum all of those up, and add neuron j's own bias.
 
