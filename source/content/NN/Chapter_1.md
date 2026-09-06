@@ -547,11 +547,14 @@ where `eta > 0` (Greek letter "eta") is called the **learning rate** - a small p
 ### 7.4 Proving This Choice Actually Decreases the Cost
 
 Substituting our chosen `delta_v` back into the approximation:
-```
-delta_C ~ grad(C) . (-eta * grad(C))
-        = -eta * ||grad(C)||^2
-        = -eta * sum_j( (dC/dvj)^2 )
-```
+
+$$
+\begin{aligned}
+\Delta C &\approx \nabla C \cdot (-\eta \nabla C) \\
+&= -\eta \|\nabla C\|^2 \\
+&= -\eta \sum_j \left( \frac{\partial C}{\partial v_j} \right)^2
+\end{aligned}
+$$
 
 Since `eta > 0` and any squared quantity `||grad(C)||^2 >= 0`, we get:
 ```

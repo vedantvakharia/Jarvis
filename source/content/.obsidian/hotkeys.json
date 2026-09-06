@@ -73,5 +73,13 @@
       ],
       "key": "A"
     }
+  ],
+  "gemini-scribe:create-custom-prompt": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
   ]
 }

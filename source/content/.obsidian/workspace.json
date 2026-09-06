@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -192,8 +191,9 @@
   },
   "active": "57c77888005349b4",
   "lastOpenFiles": [
-    "TOC/Chapter 1.md",
+    "gemini-scribe/Prompts/latex.md",
     "NN/Chapter_1.md",
+    "TOC/Chapter 1.md",
     "TOC",
     "New folder",
     "NN/Chapter 1.md",
@@ -227,7 +227,6 @@
     "Misc/C++/Algorithms.md",
     "Misc/C/Pointers.md",
     "Misc/C/Recursion.md",
-    "Misc/C/Libraries.md",
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "Attachements/conventions.jpeg",
     "Attachements/mermaid-diagram-2026-06-19-152256.png",
