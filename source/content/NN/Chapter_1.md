@@ -1043,17 +1043,18 @@ Notice the index order looks "backwards" at first glance - the *second* index (k
 The weighted input to neuron j in layer l (i.e., the value fed into the activation function, before sigma is applied) is:
 
 $$
-z^l_j = \sum_k( w^l_{jk} * a^{(l-1)_k} + b^l_j
+z^l_j = \sum_k( w^l_{jk} * a^{(l-1)_k}) + b^l_j
 $$
 
 In words: take every neuron k in the *previous* layer, multiply its activation by the weight connecting it to neuron j, sum all of those up, and add neuron j's own bias.
 
 **Vector form (all neurons in a layer at once):**
 
-```
-z^l = w^l * a^(l-1) + b^l
+$$\begin{aligned}
+z^l = w^l * a^(l-1) + b^l\\
 a^l = sigma(z^l)
-```
+\end{aligned}
+$$
 
 Here `w^l` is the entire weight *matrix* for layer l (rows = neurons in layer l, columns = neurons in layer l-1), `a^(l-1)` is the *vector* of all activations from the previous layer, and `b^l` is the *vector* of biases for layer l. This vectorized form is exactly what lets us compute an entire layer's activations in a single matrix multiplication, instead of looping over each neuron individually - this is why the "backwards-looking" weight index convention from before matters (it makes this matrix multiplication line up correctly).
 
@@ -1061,15 +1062,15 @@ Here `w^l` is the entire weight *matrix* for layer l (rows = neurons in layer l,
 
 **Output layer and cost:** If the network has L layers total, the output layer is layer L, and its activation vector is `a^L`. The cost for a single training example x is a function of this final output:
 
-```
-Cx = C(a^L)
-```
+$$
+C_x = C(a^L)
+$$
 
 For the quadratic cost specifically:
 
-```
-Cx = (1/2) * ||y - a^L||^2 = (1/2) * sum_j( (y_j - a^L_j)^2 )
-```
+$$
+C_x = \frac12 * ||y - a^L||^2 = \frac12 * \sum_j (y_j - a^L_j)^2
+$$
 
 This is exactly the same cost function from Section 6.3, just written using the `a^L` layer notation.
 
@@ -1082,9 +1083,9 @@ This is exactly the same cost function from Section 6.3, just written using the 
 
 This is different from a dot product (which would give a single number) - the Hadamard product gives back a vector of the same size, where each entry is the product of the corresponding entries in the two inputs. We need this because in the backprop formulas, we want to combine two same-shaped vectors "position by position" (e.g., each neuron's own error combined with each neuron's own derivative), not sum them into a single number.
 
-### 11.4 Defining the "Error" of a Neuron: `delta^l_j`
+### 11.4 Defining the "Error" of a Neuron: $\delta^l_j$
 
-This is the central new idea that makes backpropagation work. Instead of directly computing `dC/dw` and `dC/db` for every parameter (which is awkward), we first introduce an intermediate quantity called the **error** of neuron j in layer l:
+This is the central new idea that makes backpropagation work. Instead of directly computing $\frac{\partial C}{\partial w}$ and $\frac{\partial C}{\partial b}$ for every parameter (which is awkward), we first introduce an intermediate quantity called the **error** of neuron j in layer l:
 
 ```
 delta^l_j = dCx / dz^l_j
