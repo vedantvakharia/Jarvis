@@ -503,12 +503,10 @@ flowchart TD
     D -->|Yes| E["Stop - we have (approximately) minimized the cost"]
 ```
 
-Gradient descent is exactly this idea, formalized with calculus: we compute the **gradient** (which tells us the direction of steepest INCREASE) and then step in the OPPOSITE direction (steepest decrease).
-
 ### 7.2 The Gradient - A Multi-Dimensional Derivative
 
 Suppose our cost function depends on many parameters, `C = C(v1, v2, ..., vm)`. If we nudge all parameters slightly by amounts `delta_v = (delta_v1, ..., delta_vm)`, then the resulting small change in C can be approximated as:
-Here is the text formatted in proper LaTeX (compatible with Obsidian math blocks):
+
 
 $$\Delta C \approx \sum_j \frac{\partial C}{\partial v_j} \Delta v_j$$
 
@@ -516,34 +514,22 @@ We define the **gradient vector**, written $\nabla C$:
 
 $$\nabla C = \left[ \frac{\partial C}{\partial v_1}, \frac{\partial C}{\partial v_2}, \dots, \frac{\partial C}{\partial v_m} \right]^T$$
 
-*(or in column matrix form)*:
-
-$$\nabla C = \begin{bmatrix} \frac{\partial C}{\partial v_1} \\ \frac{\partial C}{\partial v_2} \\ \vdots \\ \frac{\partial C}{\partial v_m} \end{bmatrix}$$
-
 This lets us rewrite the approximation neatly as a dot product:
 
 $$\Delta C \approx \nabla C \cdot \Delta v$$
 
----
-
-### Raw LaTeX Code
-
-```latex
-\Delta C \approx \sum_j \frac{\partial C}{\partial v_j} \Delta v_j
-
-\nabla C = \left[ \frac{\partial C}{\partial v_1}, \frac{\partial C}{\partial v_2}, \dots, \frac{\partial C}{\partial v_m} \right]^T
-
-\Delta C \approx \nabla C \cdot \Delta v
-```
 
 **Geometric meaning:** The gradient vector, at any given point, points in the direction of the **steepest increase** of C from that point. (Its negative therefore points toward steepest decrease.)
 
-**Worked example:** Suppose `C = (1/4)(v1^2 + v2^2)`. At the point `(v1, v2) = (2, 1)`:
-```
-dC/dv1 = v1/2 = 1
-dC/dv2 = v2/2 = 0.5
-grad(C) = [1, 0.5]
-```
+Worked example - 
+$$C = \frac{1}{4}(v_1^2 + v_2^2)$$ At the point $(v_1, v_2) = (2, 1)$:
+$$
+\begin{aligned}
+\frac{\partial C}{\partial v_1} &= \frac{v_1}{2} = 1 \\
+\frac{\partial C}{\partial v_2} &= \frac{v_2}{2} = 0.5 \\
+\nabla C &= \begin{bmatrix} 1 \\ 0.5 \end{bmatrix}
+\end{aligned}
+$$
 This vector points "outward and slightly up" from the point (2,1) on the bowl-shaped surface - exactly the direction of fastest increase in height.
 
 ### 7.3 Choosing the Right Direction to Move
