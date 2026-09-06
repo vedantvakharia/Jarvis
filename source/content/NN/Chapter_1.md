@@ -586,10 +586,9 @@ flowchart LR
 
 In a neural network, the "parameters" v are simply ALL the weights and biases in the entire network. So the general update rule specializes to:
 
-$$
-\textbf{For each weight } w_k: w_k^{\text{new}} = w_k^{\text{old}} - \eta \frac{\partial C}{\partial w_k}
+$$ \textbf{For each weight } w_k: w_k^{\text{new}} = w_k^{\text{old}} - \eta \frac{\partial C}{\partial w_k}$$
 
-$$$$
+$$
 \textbf{For each bias } b_l:
 b_l^{\text{new}} = b_l^{\text{old}} - \eta \frac{\partial C}{\partial b_l}
 $$
