@@ -1087,20 +1087,13 @@ This is different from a dot product (which would give a single number) - the Ha
 
 This is the central new idea that makes backpropagation work. Instead of directly computing $\frac{\partial C}{\partial w}$ and $\frac{\partial C}{\partial b}$ for every parameter (which is awkward), we first introduce an intermediate quantity called the **error** of neuron j in layer l:
 
-```
-delta^l_j = dCx / dz^l_j
-```
+$$
+\delta^l_j = \frac{\partial C_x}{\partial w_j^l}
+$$
 
 In words: **the error of a neuron measures how sensitive the overall cost is to that neuron's weighted input `z`.** It answers the question: "if I could nudge this neuron's internal weighted-sum value by a tiny amount, how much would the final cost change?"
 
-```mermaid
-flowchart LR
-    A["Imagine a tiny gremlin sitting inside neuron j, layer l"] --> B["The gremlin secretly adds a small nudge, delta_z, to z^l_j"]
-    B --> C["This nudge changes the cost by approximately: delta_C ~ (dCx/dz^l_j) * delta_z"]
-    C --> D["We call the sensitivity dCx/dz^l_j the 'error' delta^l_j"]
-```
-
-**Why is this useful?** Once we know `delta^l_j` for a neuron, it turns out (as shown below) that the derivatives with respect to its incoming weight and bias become almost trivial one-line formulas. So the whole problem of finding `dC/dw` and `dC/db` for every parameter reduces to: "first find all the `delta^l_j` values, then everything else follows easily."
+**Why is this useful?** Once we know $\delta^l_j$ for a neuron, it turns out that the derivatives with respect to its incoming weight and bias become almost trivial one-line formulas. So the whole problem of finding `dC/dw` and `dC/db` for every parameter reduces to: "first find all the `delta^l_j` values, then everything else follows easily."
 
 For an entire layer, collect the individual neuron errors into a vector `delta^l` (one error value per neuron in that layer).
 
@@ -1131,44 +1124,29 @@ Let's derive and understand each one individually.
 
 ### 11.6 BP1: The Error at the Output Layer
 
-**Goal:** compute `delta^L_j` for the very last layer, since this is where we can start (the cost is a direct function of the output activations).
+**Goal -** compute $\delta^L_j$ for the very last layer, since this is where we can start (the cost is a direct function of the output activations).
 
-**Derivation using the chain rule:** The cost depends on `z^L_j` only through `a^L_j` (since `a^L_j = sigma(z^L_j)`), so the dependency chain is:
+**Derivation using the chain rule -** The cost depends on $z^L_j$ only through $a^L_j$ (since $a^L_j = \sigma(z^L_j)$), so the dependency chain is:$$z^L_j \longrightarrow a^L_j \longrightarrow C_x$$
 
-```
-z^L_j  --->  a^L_j  --->  Cx
-```
+By the chain rule: $$\delta^L_j = \frac{\partial C_x}{\partial z^L_j} = \left(\frac{\partial C_x}{\partial a^L_j}\right) \left(\frac{\partial a^L_j}{\partial z^L_j}\right)$$
 
-By the chain rule:
+Since $a^L_j = \sigma(z^L_j)$, we know $\frac{\partial a^L_j}{\partial z^L_j} = \sigma'(z^L_j)$. Substituting: $$\delta^L_j = \frac{\partial C_x}{\partial a^L_j} \sigma'(z^L_j) \quad \dots \text{(BP1, single neuron)}$$
 
-```
-delta^L_j = dCx/dz^L_j = (dCx/da^L_j) * (da^L_j/dz^L_j)
-```
+**Vector form -** Collecting $\frac{\partial C_x}{\partial a^L_j}$ for every output neuron $j$ into a single vector called the gradient of $C$ with respect to $a^L$, written $\nabla_{a^L} C_x$, and combining it with the vector $\sigma'(z^L)$ using the Hadamard product:
+$$\delta^L = \nabla_{a^L} C_x \odot \sigma'(z^L) \quad \dots \text{(BP1, vector form)}$$
 
-Since `a^L_j = sigma(z^L_j)`, we know `da^L_j/dz^L_j = sigma'(z^L_j)`. Substituting:
+\textbf{Specializing to the quadratic cost:} Recall $C_x = \frac{1}{2} \sum_j (y_j - a^L_j)^2$. Differentiating with respect to $a^L_j$:
 
-```
-delta^L_j = (dCx/da^L_j) * sigma'(z^L_j)          ... (BP1, single neuron)
-```
-
-**Vector form:** Collecting `dCx/da^L_j` for every output neuron j into a single vector called the gradient of C with respect to `a^L`, written `grad_(a^L)(Cx)`, and combining it with the vector `sigma'(z^L)` using the Hadamard product:
-
-```
-delta^L = grad_(a^L)(Cx) ⊙ sigma'(z^L)          ... (BP1, vector form)
-```
-
-**Specializing to the quadratic cost:** Recall `Cx = (1/2) * sum_j(y_j - a^L_j)^2`. Differentiating with respect to `a^L_j`:
-
-```
-dCx/da^L_j = a^L_j - y_j
-```
+\[
+\frac{\partial C_x}{\partial a^L_j} = a^L_j - y_j
+\]
 
 Substituting into BP1:
 
-```
-delta^L = (a^L - y) ⊙ sigma'(z^L)
-```
-
+\[
+\delta^L = (a^L - y) \odot \sigma'(z^L)
+\]
+$$
 **This is a hugely important practical result:** for the quadratic cost, the output-layer error is simply "(what the network predicted) minus (what it should have predicted)," scaled element-wise by the sigmoid derivative. We can compute this directly from the network's own output and the known correct answer - no extra layers of chain rule needed at this step.
 
 ### 11.7 BP2: Propagating the Error Backward Through Hidden Layers
