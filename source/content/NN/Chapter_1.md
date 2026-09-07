@@ -1663,25 +1663,6 @@ flowchart TD
     STILL learn slowly"]
 ```
 
-### 12.9 A Common Point of Confusion: Which Variable Is Which?
-
-The slides highlight a subtle notational trap. Cross-entropy is written as:
-
-```
--[y*ln(a) + (1-y)*ln(1-a)]
-```
-
-It is easy to accidentally swap the roles and write:
-
-```
--[a*ln(y) + (1-a)*ln(1-y)]      <- WRONG, roles reversed
-```
-
-**Remember the roles:**
-- `y` is the **true label** (the fixed, known target - either 0 or 1 for binary classification)
-- `a` is the **network's activation/output** (the thing that changes as we train)
-
-Cross-entropy always takes the LOG of the network's prediction `a` (a quantity that changes continuously as the network learns) and weights that log by the FIXED label `y`. If we accidentally swapped them (put `y` inside the log and `a` outside), the entire derivation in Sections 13.2-13.4 would break down, and the nice cancellation of `sigma'(z)` would no longer happen, since we would be differentiating with respect to the wrong variable. Getting this backwards is a common mistake, so it is worth double-checking whenever cross-entropy cost appears in code or formulas.
 
 ### 12.10 Exercise: What Happens With Linear Output Neurons?
 
@@ -1729,28 +1710,11 @@ The idea: instead of using sigmoid neurons at the output, use a **softmax layer*
 
 Just like every other layer, a softmax layer first computes the ordinary weighted input for each output neuron `j`:
 
-```
-zj^L = sum over k of (wjk^L * ak^(L-1)) + bj^L
-```
+$$
+z_j^L = \sum_k(w_{jk}^L * ak^{(L-1)}) + b_j^L
+$$
 
-This part is identical to any normal layer (see Section 5 / 11.2). The difference is entirely in how the activation `aj^L` is computed from `zj^L`. Instead of applying the sigmoid function to each `zj^L` independently, the **softmax function** combines information across ALL the output neurons at once:
-
-```
-aj^L = e^(zj^L) / sum over k of e^(zk^L)
-```
-
-In words: take the exponential of neuron `j`'s weighted input, then divide by the sum of the exponentials of EVERY output neuron's weighted input. This normalization step is what makes softmax special - no single output neuron's activation can be computed without knowing the weighted inputs of all the other output neurons too.
-
-```mermaid
-flowchart TD
-    A["z1^L, z2^L, ..., zm^L
-    (weighted inputs, one per output neuron)"] --> B["Exponentiate each: e^(z1), e^(z2), ..., e^(zm)"]
-    B --> C["Sum them all: S = sum of e^(zk)"]
-    C --> D["Divide each by the sum:
-    aj = e^(zj) / S"]
-    D --> E["Result: a1, a2, ..., am
-    all positive, all sum to exactly 1"]
-```
+This part is identical to any normal layer (see Section 5 / 11.2). The difference is entirely in how the activation `aj^L` is computed from `zj^L`. Instead of applying the sigmoid function to each `zj^L` independently, the **softmax function** combines information across ALL the output neurons at once: $$a_j^L = \frac{e^{z_j^L}}{\sum_k e^{z_k^L}}$$
 
 ### 13.3 Two Key Properties of Softmax
 
