@@ -1734,18 +1734,6 @@ The numerator and denominator become identical sums (just using different dummy 
 
 **Putting these two properties together:** a softmax layer's output is a set of numbers that are all positive AND sum to exactly 1. This is *precisely* the mathematical definition of a **probability distribution**. This is why softmax output is described as representing the network's estimated probability that the input belongs to each possible class.
 
-```mermaid
-flowchart LR
-    A["Softmax output vector
-    a1, a2, ..., am"] --> B["All positive
-    (from e^x > 0 always)"]
-    A --> C["Sum to exactly 1
-    (numerator = denominator sum)"]
-    B --> D["Together: a valid
-    PROBABILITY DISTRIBUTION"]
-    C --> D
-```
-
 ### 13.4 Why This Matters for Classification (e.g., MNIST)
 
 For a task like MNIST digit classification, we would like the network's output layer to tell us something like "I am 85% confident this is a 7, 10% confident it's a 1, and small probabilities for everything else." A softmax layer naturally produces output in exactly this form - ten numbers, each between 0 and 1, that add up to 1 overall, so they can be directly read as class probabilities.
@@ -1756,9 +1744,9 @@ Compare this to independent sigmoid output neurons: each sigmoid neuron's output
 
 Just as cross-entropy pairs naturally with sigmoid output neurons, the softmax layer pairs naturally with a different cost function called the **log-likelihood cost function**.
 
-```
-C = -(1/n) * sum over x of ln(ay^L)
-```
+$$
+C = - \frac1n * \sum_xln(a_y^L)
+$$
 
 For a single training example, this is simply:
 
@@ -1772,35 +1760,16 @@ Cx = -ln(ay^L)
 
 ### 13.6 Computing delta^L for a Softmax + Log-Likelihood Layer
 
-We now want to compute `delta_j^L = dC/dzj^L` for this combination, just as we did for cross-entropy + sigmoid in Section 12.7. This requires the chain rule, since `C` depends on `zj^L` only through the activation `ay^L`:
+We now want to compute `delta_j^L = dC/dzj^L` for this combination, just as we did for cross-entropy + sigmoid in Section 12.7. This requires the chain rule, since `C` depends on `zj^L` only through the activation `ay^L`: $$\delta_j^L = \frac{\partial C}{\partial z_j^L} = \frac{\partial C}{\partial a_y^L} \frac{\partial a_y^L}{\partial z_j^L}$$
+Since $C = -ln(a_y^L)$, we have $\frac{\partial C}{\partial a_y^L} = -\frac{1}{a_y^L}$. So: $$\delta_j^L = -\frac{1}{a_y^L} \frac{\partial a_y^L}{\partial z_j^L}$$Now we need `day^L/dzj^L` - how does the true-class neuron's activation change as we vary the weighted input of output neuron `j`? Because softmax couples every output neuron together (Section 13.2), this derivative behaves differently depending on whether `j` is the same neuron as `y` or a different one. There are two cases:
 
-```
-delta_j^L = dC/dzj^L = (dC/day^L) * (day^L/dzj^L)
-```
-
-Since `C = -ln(ay^L)`, we have `dC/day^L = -1/ay^L`. So:
-
-```
-delta_j^L = -(1/ay^L) * (day^L/dzj^L)
-```
-
-Now we need `day^L/dzj^L` - how does the true-class neuron's activation change as we vary the weighted input of output neuron `j`? Because softmax couples every output neuron together (Section 13.2), this derivative behaves differently depending on whether `j` is the same neuron as `y` or a different one. There are two cases:
-
-**Case 1: `j = y`** (we are asking how the true-class neuron's own output changes as we vary its OWN weighted input)
-
-```
-day^L/dzj^L = ay^L * (1 - ay^L)
-```
+**Case 1: `j = y`** (we are asking how the true-class neuron's own output changes as we vary its OWN weighted input) $$\frac{\partial a_y^L}{\partial z_j^L} = a_y^L (1 - a_y^L) \quad \text{for } j = y$$
 
 This looks just like the ordinary sigmoid derivative pattern from Section 4.3 (`a*(1-a)`) - not a coincidence, since softmax reduces to something sigmoid-like when you look at a single output neuron's sensitivity to its own input.
 
-**Case 2: `j != y`** (we are asking how the true-class neuron's output changes as we vary a DIFFERENT neuron's weighted input)
+**Case 2: `j != y`** (we are asking how the true-class neuron's output changes as we vary a DIFFERENT neuron's weighted input) $$\frac{\partial a_y^L}{\partial z_j^L} = -a_y^L a_j^L \quad \text{for } j \neq y$$
 
-```
-day^L/dzj^L = -ay^L * aj^L
-```
-
-This is the genuinely new behavior that softmax introduces: because all the softmax outputs share the same normalizing denominator (Section 13.2), increasing one neuron's weighted input `zj^L` (for `j != y`) actually *decreases* every other neuron's activation, including `ay^L`. This is why the derivative in this case is negative.
+This is the genuinely new behavior that softmax introduces: because all the softmax outputs share the same normalizing denominator (Section 13.2), increasing one neuron's weighted input `zj^L` (for `j!=y`) actually *decreases* every other neuron's activation, including `ay^L`. This is why the derivative in this case is negative.
 
 ```mermaid
 flowchart TD
@@ -1817,11 +1786,7 @@ flowchart TD
 
 Now we substitute both cases back into `delta_j^L = -(1/ay^L) * (day^L/dzj^L)` from Section 13.6.
 
-**When `j = y`:**
-```
-delta_y^L = -(1/ay^L) * ay^L * (1-ay^L) = -(1 - ay^L) = ay^L - 1
-```
-
+**When `j = y`:**$$\delta_y^L = -\frac{1}{a_y^L} a_y^L (1 - a_y^L) = -(1 - a_y^L) = a_y^L - 1$$
 Since the target vector `y` has a 1 in position `y` (the correct class) and 0 everywhere else (this is the standard "one-hot" encoding used for classification targets), `ay^L - 1` is exactly `aj^L - yj` for `j = y` (because `yj = 1` here).
 
 **When `j != y`:**

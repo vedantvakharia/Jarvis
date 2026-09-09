@@ -4,22 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "98835ab7e7443190",
+        "id": "d1785635ac3ef58b",
         "type": "tabs",
         "children": [
           {
-            "id": "57c77888005349b4",
+            "id": "e4d09ff1d30cdbd8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NN/Chapter_1.md",
+                "file": "TOC/Chapter 1.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Chapter_1"
+              "title": "Chapter 1"
+            }
+          },
+          {
+            "id": "a859b9b36e5c4ee8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TOC/Theory-of-Computation-Notes.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Theory-of-Computation-Notes"
             }
           }
         ]
@@ -81,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -186,15 +200,15 @@
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
       "obsidian-git:Open Git source control": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "gemini-scribe:Gemini Scribe: Agent mode": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "57c77888005349b4",
+  "active": "e4d09ff1d30cdbd8",
   "lastOpenFiles": [
-    "gemini-scribe/Prompts/latex.md",
-    "NN/Chapter_1.md",
+    "TOC/Theory-of-Computation-Notes.md",
     "TOC/Chapter 1.md",
+    "NN/Chapter_1.md",
+    "gemini-scribe/Prompts/latex.md",
     "TOC",
     "New folder",
     "NN/Chapter 1.md",
@@ -227,7 +241,6 @@
     "Misc/C++/Binary Search.md",
     "Misc/C++/Algorithms.md",
     "Misc/C/Pointers.md",
-    "Misc/C/Recursion.md",
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "Attachements/conventions.jpeg",
     "Attachements/mermaid-diagram-2026-06-19-152256.png",

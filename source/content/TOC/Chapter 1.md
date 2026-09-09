@@ -19,7 +19,7 @@ Let A be a set, and let **Π** be a subset of 2^A (i.e., Π is a set of subsets 
 2. **Distinct members of Π are disjoint** — no two different pieces share any element.
 3. **⋃ Π = A** — the pieces, put back together, give you all of A (nothing is left out).
 
-**Plain-English translation:** a partition chops A into non-overlapping, non-empty pieces that together cover everything in A — like cutting a pizza into slices where every slice has at least one bite, no slice overlaps another, and all the pizza is used up.
+**Plain-English translation:** a partition chops A into non-overlapping, non-empty pieces that together cover everything in A.
 
 ```mermaid
 graph TD
@@ -83,30 +83,27 @@ These four properties describe *patterns* that a relation might or might not sat
 | **Transitive** | If (a, b) ∈ R and (b, c) ∈ R, then (a, c) ∈ R | If you can "chain" a→b→c, there's also a direct arrow a→c |
 | **Antisymmetric** | If (a, b) ∈ R and (b, a) ∈ R, then a = b | No two *distinct* elements point at each other both ways |
 
-### 4.4 Combining these properties gives named relations
+### 4.4 Combining Properties
 
-- **Reflexive + Symmetric + Transitive** = **Equivalence Relation**
-- **Reflexive + Transitive + Antisymmetric** = **Partial Order**
-- A partial order where **every pair of elements is comparable** = **Total Order**
+- $R$ satisfying **Reflexive $\land$ Symmetric $\land$ Transitive** $\Rightarrow$ **Equivalence Relation**
+- $R$ satisfying **Reflexive $\land$ Transitive $\land$ Antisymmetric** $\Rightarrow$ **Partial Order**
+- A partial order where **any two elements are comparable** $\Rightarrow$ **Total Order**
 
 ```mermaid
 graph TD
-    R[Any Binary Relation] --> Q{Reflexive?}
-    Q -->|No| X[Not equivalence, not partial order]
-    Q -->|Yes| S{Symmetric AND Transitive?}
-    S -->|Yes| EQ[Equivalence Relation]
-    S -->|No| T{Antisymmetric AND Transitive?}
-    T -->|Yes| PO[Partial Order]
-    T -->|No| X2[Neither special category]
-    PO --> C{Every pair comparable?}
-    C -->|Yes| TO[Total Order]
-    C -->|No| PO2[Just a Partial Order]
+    R["Binary Relation R"] --> RST["Reflexive + Symmetric + Transitive"]
+    RST --> EQ["Equivalence Relation"]
+    R --> RTA["Reflexive + Transitive + Antisymmetric"]
+    RTA --> PO["Partial Order"]
+    PO --> COMP{"Any two elements<br/>comparable?"}
+    COMP -->|Yes| TO["Total Order"]
+    COMP -->|No| PO2["Stays a Partial Order"]
 ```
 
-**Everyday intuition:**
-- "=" on numbers is an **equivalence relation** (reflexive: a=a; symmetric: a=b implies b=a; transitive: a=b, b=c implies a=c).
-- "⊆" on sets is a **partial order** (reflexive: A⊆A; antisymmetric: A⊆B and B⊆A implies A=B; transitive), but it's not total, since two arbitrary sets need not be comparable by ⊆.
-- "≤" on numbers is a **total order** — reflexive, antisymmetric, transitive, AND any two numbers are always comparable.
+> **Everyday analogy**: 
+> - "$=$" (equality) on numbers is an **equivalence relation** (reflexive, symmetric, transitive).
+> - "$\leq$" on numbers is a **total order** (reflexive, transitive, antisymmetric, and any two numbers are comparable).
+> - "divides" ($a | b$) on integers is a **partial order** but *not* total — e.g., 2 and 3 are not comparable (neither divides the other).
 
 ---
 
@@ -130,7 +127,7 @@ graph LR
     B -->|generates| A
 ```
 
-Every equivalence relation naturally chops its set into non-overlapping classes, and conversely, any partition of a set defines an equivalence relation (put two elements in the same class ⟺ they're related). This is a foundational idea reused constantly in automata theory (e.g., the **Myhill-Nerode theorem** for minimizing finite automata relies exactly on this correspondence, though that comes later in the course).
+Every equivalence relation naturally chops its set into non-overlapping classes, and conversely, any partition of a set defines an equivalence relation (put two elements in the same class ⟺ they're related). This is a foundational idea reused constantly in Automata Theory.
 
 ---
 
@@ -139,7 +136,6 @@ Every equivalence relation naturally chops its set into non-overlapping classes,
 ### 6.1 Definition of a path
 
 A **path** in a binary relation R from element a to element b is a sequence of elements (a₁, a₂, ..., aₙ) where:
-
 - a₁ = a (starts at a)
 - aₙ = b (ends at b)
 - for every consecutive pair, (aᵢ, aᵢ₊₁) ∈ R
@@ -149,7 +145,6 @@ The **length** of the path (a₁, ..., aₙ) is **n** (the number of elements in
 ### 6.2 Definition of a cycle
 
 The path (a₁, ..., aₙ) is a **cycle** if:
-
 - all the aᵢ are **distinct**, AND
 - (aₙ, a₁) ∈ R as well (the path loops back to where it started)
 
@@ -235,8 +230,6 @@ graph LR
 ```
 
 ### 8.2 Important Result 2: Countably infinite union of countably infinite sets is still countably infinite
-
-This is a stronger statement than 8.1 (not just finitely many sets, but **infinitely many** sets, each infinite) — and it's still true!
 
 **Key observation from the lecture:** The set **ℚ (rational numbers) is countably infinite.**
 
