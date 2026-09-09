@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TOC/Theory-of-Computation-Notes.md",
+                "file": "TOC/TOC_Lectures_5-8.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Theory-of-Computation-Notes"
+              "title": "TOC_Lectures_5-8"
             }
           }
         ]
@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -200,13 +201,15 @@
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
       "obsidian-git:Open Git source control": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "gemini-scribe:Gemini Scribe: Agent mode": false
     }
   },
   "active": "e4d09ff1d30cdbd8",
   "lastOpenFiles": [
-    "TOC/Theory-of-Computation-Notes.md",
+    "TOC/TOC_Lectures_5-8.md",
     "TOC/Chapter 1.md",
+    "TOC/Theory-of-Computation-Notes.md",
     "NN/Chapter_1.md",
     "gemini-scribe/Prompts/latex.md",
     "TOC",
@@ -240,7 +243,6 @@
     "Misc/C++/Containers.md",
     "Misc/C++/Binary Search.md",
     "Misc/C++/Algorithms.md",
-    "Misc/C/Pointers.md",
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "Attachements/conventions.jpeg",
     "Attachements/mermaid-diagram-2026-06-19-152256.png",

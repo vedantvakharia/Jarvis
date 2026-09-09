@@ -407,8 +407,6 @@ for i = 1, 2, ..., n do
 
 **Why:** in the worst case, there are up to n^n possible tuples to check across all lengths, and checking whether each tuple forms a valid path takes O(n) operations (checking n−1 consecutive pairs) — giving roughly n^n × n = n^(n+1).
 
-This is **extremely slow** (exponential in n) — clearly not a practical algorithm, but it directly mirrors Definition 2 (the "is there a path" definition), which is why it's presented first for conceptual clarity.
-
 ### 11.2 Algorithm 2 — the smarter, iterative approach
 
 ```
@@ -584,26 +582,29 @@ graph LR
 We define the **i-th power of a string w**, written **w^i**, using **mathematical induction on i**:
 
 - **Base case:** w⁰ = e (zero copies of w is just the empty string)
-- **Inductive step:** w^(i+1) = w^i ∘ w (one more copy of w tacked on the end)
+- **Inductive step:** $w^{i+1} = w^i \circ w$ (one more copy of w tacked on the end)
 
 **Example:** if w = "ab", then w⁰ = e, w¹ = "ab", w² = "abab", w³ = "ababab", etc.
 
 ### 13.3 Reversal of a string
 
-The **reversal** w^R of a string w is defined by **induction on the length |w| of w**:
+The **reversal** $w^R$ of $w$ is defined by induction on the length $|w|$:
 
-1. **Base case:** if |w| = 0, then w^R = w = e (the empty string reversed is itself).
-2. **Inductive step:** if |w| = n + 1 > 0, then w = u·a for some symbol a ∈ Σ and some shorter string u ∈ Σ\* (i.e., w is "everything but the last symbol" followed by "the last symbol a"). We define:
+1. **Base case**: If $|w| = 0$, then $w^R = w = e$.
+2. **Inductive case**: If $|w| = n+1 > 0$, then $w = ua$ for some symbol $a \in \Sigma$ and some $u \in \Sigma^*$ with $|u| = n$, and we define:
+$$w^R = a\,u^R$$
 
-   **w^R = a ∘ u^R**
+**Key identity**: For any $w, x \in \Sigma^*$:
+$$(wx)^R = x^R w^R$$
 
-   (Take the last symbol, put it first, then recursively reverse the rest.)
+> **Intuition**: Reversing a concatenation reverses *and swaps the order* of the pieces — just like reversing "cat" + "dog" = "catdog" gives "godtac", which is "god" (reverse of "dog") followed by "tac" (reverse of "cat").
 
-**Key theorem:** for any w, x ∈ Σ\*:
+```mermaid
+graph LR
+    A["w = c-a-t"] -->|reverse| B["w^R = t-a-c"]
+```
 
-**(wx)^R = x^R ∘ w^R**
 
-**Intuition:** reversing a concatenated string swaps *and* reverses both halves — think of reversing "HELLO" + "WORLD" = "HELLOWORLD"; reversed, it's "DLROWOLLEH", which is exactly ("WORLD" reversed) followed by ("HELLO" reversed) = "DLROW" + "OLLEH".
 
 ### 13.4 Concatenation of languages
 
@@ -695,4 +696,25 @@ A condensed cheat-sheet of everything covered, for quick review before exams/qui
 - **Concatenation of languages**: L₁∘L₂ = {xy : x∈L₁, y∈L₂}.
 - Concatenation is **NOT commutative** (L₁∘L₂ ≠ L₂∘L₁ in general — counterexample: "1000").
 - Concatenation **IS distributive** over union: (L₁∪...∪Lₙ)∘L = (L₁∘L)∪...∪(Lₙ∘L), and similarly on the left.
+
+### Key Formulas Cheat Sheet
+
+| Concept | Formula |
+|---|---|
+| Power set size | $\lvert 2^A \rvert = 2^{\lvert A \rvert}$ |
+| Equivalence class | $[a] = \{ b \in A : (a,b) \in R \}$ |
+| Path bound | If a path $a \to b$ exists, one of length $\leq \lvert A \rvert$ exists |
+| Diagonal set | $D = \{ n \in \mathbb{N} : n \notin R_n \}$ |
+| Reflexive-transitive closure (path def.) | $R^* = \{(a,b) \in A \times A : \exists \text{ path from } a \text{ to } b \text{ in } R\}$ |
+| String power | $w^0 = e, \quad w^{i+1} = w^i \circ w$ |
+| String reversal | $(wx)^R = x^R w^R$ |
+| Language concatenation | $L_1 \circ L_2 = \{ w : w = xy, x \in L_1, y \in L_2 \}$ |
+
+### Algorithm Complexity Cheat Sheet
+
+| Algorithm | Purpose | Complexity |
+|---|---|---|
+| Algorithm 1 (brute force) | Compute $R^*$ | $O(n^{n+1})$ |
+| Algorithm 2 (triple-fixing) | Compute $R^*$ | $O(n^5)$ |
+
 
