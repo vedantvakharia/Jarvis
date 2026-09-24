@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "9227eb9e615899d9",
+        "id": "6b997d4943c78687",
         "type": "tabs",
         "children": [
           {
-            "id": "57dabaf594c8b921",
+            "id": "2581049da766b60b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FDS/FDS-Week1-Foundations.md",
+                "file": "TOC/TOC_Lectures_9-14_Notes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "FDS-Week1-Foundations"
+              "title": "TOC_Lectures_9-14_Notes"
             }
           }
         ]
@@ -186,15 +186,16 @@
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
       "obsidian-git:Open Git source control": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "gemini-scribe:Gemini Scribe: Agent mode": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "57dabaf594c8b921",
+  "active": "2581049da766b60b",
   "lastOpenFiles": [
+    "TOC/TOC_Lectures_5-8.md",
+    "TOC/TOC_Lectures_9-14_Notes.md",
+    "FDS/FDS-Week1-Foundations.md",
     "TOC/Chapter 1.md",
     "Verilog/Codes.md",
-    "TOC/TOC_Lectures_5-8.md",
     "TOC/Theory-of-Computation-Notes.md",
     "NN/Chapter_1.md",
     "gemini-scribe/Prompts/latex.md",
@@ -226,8 +227,6 @@
     "Misc/C++/IMP Questions.md",
     "Misc/C++/Graph.md",
     "Misc/C++/Basics.md",
-    "Misc/C++/Containers.md",
-    "Misc/C++/Binary Search.md",
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "Attachements/conventions.jpeg",
     "Attachements/mermaid-diagram-2026-06-19-152256.png",
