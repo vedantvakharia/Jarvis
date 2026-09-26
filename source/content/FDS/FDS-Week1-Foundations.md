@@ -183,15 +183,6 @@ $$
 
 **Moral:** covariance only detects *linear* relationships. Here $Y = X^2$ is a perfectly real, perfectly strong relationship — it's just not a linear one, so covariance is blind to it.
 
-```mermaid
-flowchart TD
-    X["X ~ Uniform{-1, 0, 1}"] --> Y["Y = X^2 (deterministic!)"]
-    Y --> Cov["Cov(X,Y) = 0<br/>(covariance sees NO relationship)"]
-    Y --> Real["But X fully determines Y<br/>(a very real relationship)"]
-    Cov -.->|"conflict!"| Real
-    Real --> Moral["Moral: zero covariance =/= independence.<br/>Covariance only catches LINEAR patterns."]
-```
-
 ### 4.4 Concentration preview: why averages behave
 
 Let $X_1, \dots, X_n$ be i.i.d. (independent, identically distributed) with mean $\mu$, and let $\bar X = \frac1n \sum_i X_i$ be their average.
@@ -205,54 +196,3 @@ This says the average of many i.i.d. samples has the right expected value, and i
 **The open question this raises:** how quickly does $\bar X$ concentrate around $\mu$, and how do we bound the probability of seeing a large deviation from $\mu$?
 
 **Answer (coming in Week 3):** Markov, Chebyshev, and Chernoff bounds. These are described as **the single most-reused tool in the entire course** — worth flagging clearly, since so much of Units 1 and 2 (volume concentration, the Gaussian Annulus theorem, JL, phase transitions in random graphs) all ultimately reduce to a concentration-of-measure argument of this flavor.
-
-#### Seeing concentration: rolling a die
-
-If you track the running average $\bar X_n$ of many independent fair-die rolls across five separate simulated runs:
-
-- Early on (small $n$), the five running averages are scattered all over the range $[1,6]$.
-- By $n = 1000$, every single run has settled in tightly around $\mu = 3.5$.
-
-```mermaid
-flowchart LR
-    subgraph Small["Small n (e.g. n=5)"]
-        direction TB
-        S1["Run 1: 2.4"]
-        S2["Run 2: 5.1"]
-        S3["Run 3: 3.8"]
-    end
-    subgraph Large["Large n (e.g. n=1000)"]
-        direction TB
-        L1["Run 1: 3.52"]
-        L2["Run 2: 3.47"]
-        L3["Run 3: 3.51"]
-    end
-    Small -->|"more samples ⇒ variance shrinks like 1/n"| Large
-```
-
-*How fast* the spread shrinks, and with what probability guarantee, is exactly what Week 3's concentration bounds will make precise.
-
----
-
-## 5. Summary
-
-**Course overview:**
-1. Three units — high-dimensional geometry/SVD, graphs/clustering, massive-data algorithms — all repeating the same three ideas (concentration, dominant eigenstructure, low-rank/sparse structure) on different objects.
-2. Evaluation: $35\%$ take-home quizzes (MOOC-standard) + $25\%$ mid-sem + $40\%$ comprehensive (both open book, no devices).
-3. Every topic maps to a still-in-use paper/system: FAISS, LoRA, UMAP, node2vec, PageRank, vLLM, H2O, BERTopic, and more.
-4. Exams test reasoning on new variants of familiar results, not rote recall.
-
-**Linear algebra:**
-1. Norms, inner products, Cauchy–Schwarz.
-2. Eigenvalues/eigenvectors; the Spectral Theorem for symmetric matrices.
-3. Matrix norms (Frobenius, operator).
-
-**Probability:**
-1. Expectation (linear, unconditionally), variance, covariance.
-2. Independence — and the crucial fact that zero covariance does not imply independence.
-
----
-
-## 6. What's next?
-
-Chapter 2 of the textbook: **High-Dimensional Space** — volume concentration, the Gaussian annulus, and the Johnson–Lindenstrauss lemma. This is covered in full in the companion note **FDS-Week2-HighDimensionalSpace-JL.md**.

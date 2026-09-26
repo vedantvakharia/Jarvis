@@ -1,28 +1,3 @@
----
-tags: [foundations-of-data-science, week2, high-dimensional-geometry, concentration, gaussian-annulus, johnson-lindenstrauss]
----
-
-# Week 2: High-Dimensional Space — Volume Concentration & the Johnson–Lindenstrauss Lemma
-
-> Course: Foundations of Data Science
-> Instructor: Sravan Danda, CS&IS and APPCAIR, BITS Pilani, Goa
-> Textbook: Blum, Hopcroft, Kannan, *Foundations of Data Science*, Ch. 2
-
-This is the mathematical heart of Unit 1. Everything here builds toward one big payoff: the **Johnson–Lindenstrauss (JL) Lemma**, which says you can shrink the dimension of a dataset dramatically while barely disturbing any pairwise distance — and the amount of shrinking needed doesn't even depend on the original dimension. Every step, proof, and worked example from the lecture is expanded below.
-
----
-
-## 1. Recap of Week 1
-
-Before diving in, the lecture recaps what Week 1 built:
-
-1. **Linear algebra:** norms, inner products, Cauchy–Schwarz; eigenvalues/eigenvectors and the Spectral Theorem; matrix norms (Frobenius, operator).
-2. **Probability:** expectation (linear, unconditionally), variance, covariance; independence.
-
-**Today's goal:** use these tools to understand *why* low-dimensional geometric intuition breaks down as $d \to \infty$, and then exploit this breakdown to reduce dimension without distorting distances.
-
----
-
 ## 2. Why High Dimensions Are Different
 
 ### 2.1 The puzzle
@@ -106,16 +81,6 @@ $$
 $$
 
 a fixed constant, not zero. This is the crossover scale. **Conclusion:** the shell where volume transitions from "negligible" to "essentially all of it" has width $\epsilon = \Theta(1/d)$ — essentially all the volume of $B^d$ lives within a shell of width $O(1/d)$ just inside the surface. As $d$ grows, this shell gets *relatively* thinner and thinner, even though it still contains almost everything.
-
-```mermaid
-flowchart TD
-    Start["Ball B^d(r) in d dimensions"] --> Shrink["Shrink radius by fraction epsilon<br/>to get inner ball (1-epsilon)r"]
-    Shrink --> Ratio["Volume ratio = (1-epsilon)^d"]
-    Ratio --> Grow["As d grows (epsilon fixed)"]
-    Grow --> Zero["Ratio -> 0 exponentially fast<br/>(inner ball has negligible volume)"]
-    Zero --> Concl["Conclusion: nearly ALL volume<br/>lives in a thin shell at the surface"]
-    Concl --> Width["Shell width that matters: epsilon = Theta(1/d)<br/>(this is the crossover scale)"]
-```
 
 **Seeing it (as described by the lecture's figures):** plotting the fraction of volume within radius $r$ (which is just $r^d$) against $r$, the curve is gentle for $d=2$ but becomes a near-vertical wall for $d=200$ — essentially zero volume until $r$ is very close to $1$, then it shoots up to $1$. A second plot confirms that the crossover width $\epsilon^*(d)$ (the smallest $\epsilon$ with $(1-\epsilon)^d = 1/e$) is a nearly perfect straight line when plotted against $1/d$, confirming $\epsilon^* = \Theta(1/d)$ exactly as derived above.
 
@@ -610,32 +575,3 @@ This is explicitly the classroom-scale simulation the course runs *instead of* r
 - **Rule of thumb:** JL only pays off when $d \gg \epsilon^{-2}\log n$.
 - **Tight accuracy is expensive:** pushing $\epsilon$ down to $0.01$ (i.e., wanting distances preserved to within 1%) pushes $k$ into the tens of thousands, since $k$ scales as $1/\epsilon^2$.
 - **Scope of the guarantee:** JL covers only the pairwise distances *among the $n$ points you projected*. It says nothing directly about cluster shapes, margins between classes, or points that arrive later — a new point's distances to the existing points do survive with high probability individually, but guaranteeing "all pairs at once" for the *enlarged* set requires redoing the union bound with the new, larger $n$.
-
----
-
-## 6. Case Study: FAISS
-
-The lecture flags that the FAISS case study (billion-scale approximate nearest-neighbour search) is covered separately, applying — and in one specific way, departing from — this week's random-projection ideas. See the companion note **FDS-Week2-FAISS-CaseStudy.md**, which covers the full Lecture 3 material in detail, including exactly where and why FAISS chooses *not* to use JL.
-
----
-
-## 7. Summary
-
-**Volume concentration:**
-1. Ball volume concentrates near the surface: $(1-\epsilon)^d \to 0$.
-2. Thin slabs $\implies$ random vectors are nearly orthogonal in high dimension.
-
-**Gaussian Annulus Theorem:**
-1. Spherical Gaussians concentrate on a shell of radius $\sqrt d$, with width $O(1)$ — independent of $d$.
-
-**Random Projection & Johnson–Lindenstrauss:**
-1. Random projection preserves length in expectation, and concentrates tightly as $k$ grows.
-2. JL Lemma: $n$ points embed into just $k = O(\epsilon^{-2}\log n)$ dimensions, with all pairwise distances kept within a factor of $(1\pm\epsilon)$.
-3. Algorithm: multiply by a random $k\times d$ Gaussian (or $\pm1$) matrix.
-4. Where it breaks: no real savings unless $d \gg \epsilon^{-2}\log n$; sign matrices additionally fail on spiky/one-hot vectors.
-
----
-
-## 8. What's next?
-
-Chapter 2 continues with: separating hyperplanes, fitting a spherical Gaussian, and the concentration inequalities (Markov, Chebyshev, Chernoff) that were used informally throughout this lecture and will now be built up rigorously and generally in Week 3.

@@ -1,16 +1,3 @@
----
-tags: [foundations-of-data-science, week2, faiss, nearest-neighbour-search, product-quantization, gpu-systems]
----
-
-# Week 2 Case Study: Billion-Scale Similarity Search with GPUs (FAISS)
-
-> Course: Foundations of Data Science
-> Instructor: Sravan Danda, CS&IS and APPCAIR, BITS Pilani, Goa
-> Source paper: Johnson, Douze, Jégou, "Billion-scale similarity search with GPUs," IEEE Big Data 2019 (arXiv:1702.08734)
-
-This case study is the payoff of the random-projection/JL material: a real, still-in-production system (FAISS — Facebook AI Similarity Search) for finding nearest neighbours among billions of high-dimensional vectors. Every idea, formula, and worked example from the lecture is expanded below, in the order presented.
-
----
 
 ## 1. Motivation: approximate nearest-neighbour search at scale
 
@@ -31,8 +18,6 @@ flowchart LR
 ## 2. The naive baseline: exact search
 
 Given a database $y_0, \dots, y_{\ell-1} \in \mathbb{R}^d$ and a query $x$: return the $m$ smallest values of $\{\|x-y_i\|_2\}_{i=0}^{\ell-1}$.
-
-(Note on notation: the lecture uses $m$ for "how many neighbours to return," reserving $k$ for this week's projection dimension, since the FAISS paper itself calls the top-$m$ retrieval step "$k$-selection" — a naming clash the lecture deliberately avoids.)
 
 ### 2.1 The key algebraic trick
 
