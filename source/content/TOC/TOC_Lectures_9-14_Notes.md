@@ -270,7 +270,7 @@ stateDiagram-v2
     q3 --> [*]
 ```
 
-The NFA has 4 states. The DFA must remember **which subset of symbols has been seen so far**, giving roughly $2^{|\Sigma|}$ states. For $k$ symbols the DFA is exponentially larger than the NFA. The lecture leaves the full construction as an exercise.
+The NFA has 4 states. The DFA must remember **which subset of symbols has been seen so far**, giving roughly $2^{|\Sigma|}$ states. For $k$ symbols the DFA is exponentially larger than the NFA.
 
 ---
 
@@ -364,8 +364,6 @@ stateDiagram-v2
     q0 --> [*]
     M1body --> [*]
 ```
-
-(Exercise in lecture: complete the proof details.)
 
 ## 3.5 Complement and Intersection
 

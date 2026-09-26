@@ -1,6 +1,3 @@
----
-tags: [foundations-of-data-science, week1, linear-algebra, probability]
----
 ## 3. Linear Algebra Essentials
 
 ### 3.1 Vectors, norms, and inner products
@@ -156,18 +153,6 @@ $$
 $$
 
 **In plain terms:** variance measures how spread out $X$ is around its mean. Covariance measures whether two variables tend to move together (positive covariance), move oppositely (negative covariance), or show no linear tendency either way (zero covariance).
-
-#### Worked example: a fair die
-
-Let $X \sim \text{Uniform}\{1, \dots, 6\}$ (one roll of a fair die).
-
-$$
-E[X] = 3.5, \qquad E[X^2] = \frac{1}{6}(1+4+9+16+25+36) = \frac{91}{6}
-$$
-
-$$
-\implies \text{Var}(X) = \frac{91}{6} - 3.5^2 \approx 2.92
-$$
 
 ### 4.3 Independence
 
