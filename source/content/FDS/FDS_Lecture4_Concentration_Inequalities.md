@@ -19,25 +19,6 @@
 > Volume shell of the ball has width $\Theta(1/d)$. Gaussian annulus has width $O(1)$ around radius $\sqrt{d}$.
 
 
-
-## 2. The Question
-
-Let $X_1,\dots,X_n$ be i.i.d. with mean $\mu$ and let
-
-$$\bar X = \frac1n \sum_{i=1}^n X_i$$
-
-We know $\mathrm{Var}(\bar X)=\mathrm{Var}(X_1)/n \to 0$, so the average settles down.
-
-**Goal:** bound $\Pr[\lvert \bar X-\mu\rvert \ge a]$ using only what we know about the distribution.
-
-Three tools. Each assumes more and gives more:
-
-| Tool | You must know |
-|---|---|
-| Markov | $X\ge 0$ and its mean |
-| Chebyshev | mean and variance |
-| Chernoff | $X$ is a sum of independent variables |
-
 ---
 
 ## 3. Markov's Inequality
@@ -451,5 +432,3 @@ $$\textbf{Two Gaussians: }\lVert x-x'\rVert^2\approx2d,\quad\lVert x-y\rVert^2\a
 - Independence is what buys exponential decay.
 - Sample need grows linearly in $d$.
 - High dimension can help: collective signal $\Delta^2$ beats per-cloud noise $\sqrt d$.
-
-**Next:** Ch.3, Best-Fit Subspaces and SVD (power method, Eckart-Young, PCA).
