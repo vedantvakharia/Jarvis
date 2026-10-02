@@ -325,6 +325,11 @@ Poles
 Pole
 Projecting
 Points
+Preserving
+Pair
+Practice
+Peak
+Proven
 IHDR
 IDATx
 IU
@@ -587,6 +592,10 @@ IEEE
 IVFADC
 IVF
 Intersecting
+Inequalities
+Inequality
+Item
+Inner
 tEXtSoftware
 ta
 tE
@@ -1390,6 +1399,8 @@ MGF
 Minimizing
 MGFs
 Marginal
+Multiplying
+Mass
 version
 vyj
 vE
@@ -2313,6 +2324,8 @@ polarization
 pins
 percentile
 pinned
+polynomially
+prob
 xTU
 xK
 xzc
@@ -2605,6 +2618,13 @@ Exercise
 Eliminate
 Essentially
 Evaluating
+Equatorial
+Extreme
+Estimate
+EM
+Eckart
+Enforcing
+Exponentiate
 bY
 bEq
 bmO
@@ -3001,6 +3021,7 @@ bother
 bell
 buys
 blips
+bends
 ZBO
 ZD
 ZIw
@@ -3116,6 +3137,8 @@ Question
 Quizzes
 Quantize
 Queries
+Quality
+Quantity
 nD
 ny
 nP
@@ -3353,6 +3376,9 @@ narrows
 naively
 numerically
 normalized
+nasty
+numerics
+neighbors
 Do
 DW
 Dm
@@ -4058,6 +4084,11 @@ Rotational
 Remarks
 Rerun
 Relative
+Report
+Robust
+Radius
+Recipes
+Recipe
 yN
 yyyG
 yD
@@ -4373,6 +4404,8 @@ NN
 Near
 Numerator
 Nearly
+Negligible
+Numeric
 dK
 dm
 dF
@@ -5006,6 +5039,7 @@ doubling
 downstream
 disguise
 downwards
+distinguishable
 UU
 UzH
 Um
@@ -5716,6 +5750,8 @@ integral
 illuminating
 inward
 intel
+inter
+independents
 mJN
 mM
 mL
@@ -6186,6 +6222,11 @@ modest
 massively
 modestly
 monotonically
+martingale
+midpoint
+mixtures
+minimizer
+monotone
 KB
 KC
 Krauss
@@ -6614,6 +6655,7 @@ lockstep
 lossy
 laptop
 lowers
+loose
 ebh
 eL
 ev
@@ -7145,6 +7187,9 @@ enlarged
 equator
 equators
 excerpt
+estimator
+estimators
+essentials
 gee
 go
 gko
@@ -7397,6 +7442,7 @@ geometrically
 geometry
 gou
 generalizes
+generality
 Hv
 HV
 Hbb
@@ -7576,6 +7622,7 @@ HighDimensionalSpace
 Headline
 Hadamard
 Holds
+Hyperplane
 Fi
 Financial
 Fischer
@@ -7776,6 +7823,9 @@ FSA
 Forgetting
 Facebook
 Framing
+Fit
+Fitting
+Fixes
 hz
 hT
 hm
@@ -8194,6 +8244,7 @@ Orthogonality
 Outside
 OneDrive
 Optimizing
+Outliers
 LRZ
 Long
 LSTM
@@ -8406,6 +8457,7 @@ Lindenstrauss
 Linearity
 Lane
 Limit
+Law
 Vn
 VIUj
 VU
@@ -8764,6 +8816,8 @@ unconstrained
 unscaled
 useless
 ultra
+usable
+unbiasedness
 Wn
 Ws
 Wc
@@ -8896,6 +8950,8 @@ Week
 WarpSelect
 Worst
 Welch
+Weeks
+WLOG
 CE
 Cy
 CSKnn
@@ -9374,6 +9430,11 @@ Cram
 Cheaper
 CaseStudy
 Coordinate
+Correlated
+Crossover
+Cramer
+Covers
+Checklist
 ot
 oV
 oz
@@ -10221,6 +10282,13 @@ Slicing
 Shell
 Substituting
 Squaring
+Separating
+Separation
+Striking
+Subspaces
+Schmidt
+Slab
+Spiky
 Bw
 BO
 Building
@@ -10457,6 +10525,7 @@ Blum
 BERTopic
 BHK
 Ball
+Breaks
 Gy
 Gbb
 GitHub
@@ -11058,6 +11127,11 @@ funnel
 fluctuation
 fight
 fluctuations
+factorises
+factorise
+fitted
+fidelity
+flipped
 rt
 ru
 root
@@ -11688,6 +11762,9 @@ radial
 revision
 razor
 relate
+renormalizes
+reveal
+recover
 sRR
 sFL
 shows
@@ -12682,6 +12759,11 @@ subspaces
 selects
 subspace
 spherically
+strays
+settles
+steeper
+suffice
+separable
 TA
 Te
 TXp
@@ -12918,6 +13000,10 @@ Tight
 Tutorial
 Those
 Turn
+Tool
+Threshold
+Typo
+Traps
 XM
 Xiong
 XX
@@ -13608,6 +13694,9 @@ avoided
 ambient
 additionally
 agree
+approaching
+aliases
+additivity
 qiW
 qG
 quantitative
@@ -13692,6 +13781,7 @@ quadratic
 quantity
 quantizer
 quantize
+quadruples
 cd
 change
 cat
@@ -14644,6 +14734,12 @@ constrain
 cosine
 cosines
 crammed
+cleverly
+correlated
+clouds
+centres
+crisp
+cancels
 whatever
 write
 will
@@ -14882,6 +14978,7 @@ winner
 weakening
 wins
 wording
+weakest
 Adaptive
 Aware
 Architecture
@@ -15227,3 +15324,4 @@ Actual
 Assembling
 Averaging
 Achlioptas
+Assumes

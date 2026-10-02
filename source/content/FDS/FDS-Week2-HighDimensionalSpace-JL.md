@@ -98,7 +98,7 @@ flowchart LR
 ### 2.6 $n$ random points are all nearly orthogonal
 
 > **Theorem (BHK, Ch. 2).** Let $x_1, \dots, x_n$ be drawn independently and uniformly at random from $B^d$. With probability at least $1 - O(1/n)$:
-> $$\|x_i\|_2 \ge 1 - \frac{2\ln d}{n} \quad \text{for every } i,$$
+> $$\|x_i\|_2 \ge 1 - \frac{2\ln n}{d} \quad \text{for every } i,$$
 > $$|\langle x_i, x_j\rangle| \le \sqrt{\frac{6\ln n}{d-1}} \quad \text{for every } i \ne j.$$
 
 **Implication:** this is more intricate than simply saying the vectors are "orthonormal" — both bounds are governed by *both* $n$ and $d$, in different ways.
@@ -445,39 +445,104 @@ which is exactly the MGF of $N\left(\sum a_i\mu_i, \sum a_i^2\sigma_i^2\right)$.
 
 ### 4.3 The random projection map $f$
 
-Draw $u_1, \dots, u_k \sim N(0, I_d)$ i.i.d. (each coordinate of each $u_i$ is an independent $N(0,1)$), and define the projection of any vector $v$ by
+Suppose data points live in an extremely high ambient dimension $d$, but we want to project them down into a much smaller target dimension $k \ll d$.
+
+**1. Definition of the map:**
+
+Draw $u_1, \dots, u_k \sim N(0, I_d)$ i.i.d. (each coordinate of each $u_i$ is an independent standard normal $N(0,1)$). For any vector $v \in \mathbb{R}^d$, define its projection by computing its dot product against each random direction:
 
 $$
 f(v) = (u_1 \cdot v, \dots, u_k \cdot v) \in \mathbb{R}^k
 $$
 
-**The key implication:** if $|f(v)|$ wraps tightly around $\sqrt k\,|v|$ (which the Annulus theorem, applied with $d \to k$, will show), then it is $k$ — not the ambient $d$ — that controls how distorted the projection is. And because $f$ is **linear**, $f(x) - f(y) = f(x-y)$, so handling one vector's norm under $f$ automatically handles *every* pairwise distance at once.
+In matrix notation, letting $A \in \mathbb{R}^{k \times d}$ have rows $u_1^T, \dots, u_k^T$, this is simply $f(v) = Av$.
 
-```mermaid
-flowchart TB
-    Draw["Draw k random Gaussian vectors<br/>u_1, ..., u_k in R^d"] --> Def["f(v) = (u_1.v, u_2.v, ..., u_k.v) in R^k"]
-    Def --> Linear["f is LINEAR:<br/>f(x) - f(y) = f(x - y)"]
-    Linear --> OnePoint["So proving f preserves the LENGTH<br/>of any single vector v..."]
-    OnePoint --> AllPairs["...automatically preserves the<br/>DISTANCE between every pair of points!"]
-```
+**2. Distribution of each projected coordinate:**
+
+Each coordinate of $f(v)$ is a linear combination of independent Gaussians:
+$$
+(f(v))_i = u_i \cdot v = \sum_{j=1}^d u_{ij} v_j
+$$
+By Section 4.2, a linear combination of independent Gaussians is itself Gaussian:
+- **Mean:** $E[u_i \cdot v] = \sum_j v_j E[u_{ij}] = 0$
+- **Variance:** $\text{Var}(u_i \cdot v) = \sum_j v_j^2 \text{Var}(u_{ij}) = \sum_j v_j^2 \cdot 1 = \|v\|_2^2$
+
+Since the rows $u_i$ are drawn independently, the $k$ coordinates of $f(v)$ are i.i.d. $N(0, \|v\|_2^2)$.
+
+**3. Scaling by $\sqrt k$ via the Annulus Theorem:**
+
+Dividing $f(v)$ by $\|v\|_2$ produces a standard $k$-dimensional spherical Gaussian:
+$$
+\frac{f(v)}{\|v\|_2} \sim N(0, I_k)
+$$
+By the Gaussian Annulus Theorem (Section 3) applied to dimension $k$, the length of a $k$-dimensional Gaussian concentrates sharply on a spherical shell of radius $\sqrt k$:
+$$
+\|f(v)\|_2 \approx \sqrt k \, \|v\|_2
+$$
+Dividing by $\sqrt k$ renormalizes the projection so that $\frac{1}{\sqrt k} f(v)$ preserves the original length $\|v\|_2$.
+
+**4. Linearity preserves pairwise distances:**
+
+Because $f$ is a linear map, $f(x) - f(y) = f(x - y)$. Therefore:
+$$
+\|f(x) - f(y)\|_2 = \|f(x - y)\|_2
+$$
+Preserving the pairwise distance between any two points $x$ and $y$ is identical to preserving the length of their difference vector $v = x - y$. Thus, proving that $f$ preserves the norm of a single vector $v$ automatically guarantees that $f$ preserves all pairwise distances across the entire dataset.
+
 
 ### 4.4 The Random Projection Theorem
 
-> **Theorem (BHK, Thm 2.10).** Let $v$ be a fixed vector in $\mathbb{R}^d$ and $f$ as above. There is a constant $c > 0$ such that for $\epsilon \in (0,1)$,
+> **Theorem (BHK, Thm 2.10).** Let $v$ be a fixed vector in $\mathbb{R}^d$ and $f: \mathbb{R}^d \to \mathbb{R}^k$ be the random projection map defined by $f(v) = (u_1 \cdot v, \dots, u_k \cdot v)$ with $u_i \sim N(0, I_d)$. There is a universal constant $c > 0$ (specifically $c = \frac18$ from the Annulus Theorem) such that for $\epsilon \in (0,1)$,
 > $$\Pr\Big[\big||f(v)| - \sqrt k\,|v|\big| \ge \epsilon\sqrt k\,|v|\Big] \le 3e^{-ck\epsilon^2}$$
 
-**Reading it:** $f(v)$'s length concentrates around $\sqrt k\, |v|$ — not around $|v|$ itself — and it does so exponentially fast in $k$, the *projection* dimension, not the ambient dimension $d$. This is the single most important sentence in the lecture: the quality of the approximation depends on how many random directions you keep, completely independent of how large the original space was.
+**Reading the statement:**
+- **Target length:** The projected vector length $\|f(v)\|_2$ concentrates around $\sqrt k\,\|v\|_2$ rather than $\|v\|_2$. When normalized by $\frac{1}{\sqrt k}$, the scaled vector $\frac{1}{\sqrt k} f(v)$ concentrates tightly around the original length $\|v\|_2$.
+- **Relative error:** The allowed fluctuation is a fraction $\epsilon$ of the expected length:
+  $$
+  (1-\epsilon)\sqrt k\,|v| \le |f(v)| \le (1+\epsilon)\sqrt k\,|v|
+  $$
+- **Exponential concentration:** The failure probability decays exponentially as $3e^{-ck\epsilon^2}$.
+- **Independence from ambient dimension $d$:** The ambient dimension $d$ appears nowhere in the bound — the fidelity of the projection depends entirely on the target dimension $k$ and precision $\epsilon$, whether $d = 10^3$ or $d = 10^9$.
 
-### 4.5 Proof idea: near-orthogonality + Gaussian Annulus
+---
 
-Fix $|v|=1$ (the theorem scales to any length). Each $u_i \cdot v = \sum_j v_j u_{ij}$ is a linear combination of independent $N(0,1)$'s (Section 4.2) $\implies$ it is Gaussian, with mean $0$ and variance $\sum_j v_j^2\,\text{Var}(u_{ij}) = \sum_j v_j^2 = 1$ (since $|v|=1$).
+#### Proof via the Gaussian Annulus Theorem:
 
-- Since $u_1, \dots, u_k$ are independent, $u_1\cdot v, \dots, u_k\cdot v$ are independent $N(0,1)$'s $\implies$ $f(v)$ is exactly a $k$-dimensional spherical Gaussian.
-- Apply the Gaussian Annulus Theorem with $d \to k$: $|f(v)|$ concentrates around $\sqrt k$.
+1. **Reduction to unit length:** Since $f$ is linear, $\|f(v)\|_2 = \|v\|_2 \left\|f\left(\frac{v}{\|v\|_2}\right)\right\|_2$. Dividing both sides of the inequality by $\|v\|_2$, we can assume without loss of generality that $\|v\|_2 = 1$. The theorem then simplifies to:
+   $$
+   \Pr\Big[\big||f(v)| - \sqrt k\big| \ge \epsilon\sqrt k\Big] \le 3e^{-ck\epsilon^2}
+   $$
 
-**Why not just orthogonalize the $u_i$ instead of leaving them independent?** Independence is exactly what makes $f(v)$ Gaussian in the first place (via Section 4.2); forcing exact orthogonality onto the $u_i$ would destroy that Gaussian structure the proof needs. Interestingly, in high dimension $d$, independent random vectors end up nearly orthogonal *anyway* — this is precisely this week's earlier near-orthogonality result (Section 2.6), showing up here again "for free," as a consequence rather than a requirement.
+2. **Distribution of coordinates:** The $i$-th coordinate of $f(v)$ is $w_i = u_i \cdot v = \sum_j v_j u_{ij}$.
+   - Each $u_{ij} \sim N(0, 1)$ independently.
+   - By Section 4.2, a linear combination of independent Gaussians is Gaussian.
+   - Mean: $E[w_i] = 0$.
+   - Variance: $\text{Var}(w_i) = \sum_j v_j^2 \text{Var}(u_{ij}) = \sum_j v_j^2 = 1$ (since $\|v\|_2 = 1$).
+   - Thus, each coordinate is an independent standard normal: $w_i \sim N(0, 1)$.
 
-### 4.6 Toy example: why projection preserves length on average
+3. **Spherical Gaussian in $\mathbb{R}^k$:** Since the $k$ rows $u_1, \dots, u_k$ are drawn independently, the coordinates $w_1, \dots, w_k$ are independent. Therefore, the projected vector is an exact $k$-dimensional standard spherical Gaussian:
+   $$
+   f(v) = (w_1, \dots, w_k) \sim N(0, I_k)
+   $$
+
+4. **Direct application of the Gaussian Annulus Theorem:**
+   Recall the Gaussian Annulus Theorem (Section 3): for $x \sim N(0, I_d)$ and any $\beta \le \sqrt d$,
+   $$
+   \Pr\big[\big|\|x\|_2 - \sqrt d\big| \ge \beta\big] \le 3e^{-c\beta^2} \quad \left(c = \frac18\right)
+   $$
+   Applying this theorem directly to $f(v) \in \mathbb{R}^k$ with dimension $k$ and deviation parameter $\beta = \epsilon\sqrt k$ (noting $\beta \le \sqrt k$ since $\epsilon \in (0, 1)$):
+   $$
+   \Pr\Big[\big||f(v)| - \sqrt k\big| \ge \epsilon\sqrt k\Big] \le 3e^{-c(\epsilon\sqrt k)^2} = 3e^{-ck\epsilon^2}
+   $$
+   Multiplying back by $\|v\|_2$ completes the proof.
+
+---
+
+**Why not orthogonalize the $u_i$ directions?**
+- **Exact Gaussian distribution:** Independent sampling guarantees that the coordinates $w_i$ remain mutually independent, making $f(v)$ an exact spherical Gaussian. Enforcing exact orthogonality (e.g. via Gram-Schmidt) would introduce cross-row dependencies and destroy this Gaussian structure.
+- **Near-orthogonality for free:** In high dimension $d$, independent random vectors are already nearly orthogonal with overwhelming probability (Section 2.6: $|\cos\theta| \le O(1/\sqrt d)$). Hence, independent sampling provides all the geometric benefits of orthogonal projection without any computational overhead.
+
+### 4.5 Toy example: why projection preserves length on average
 
 **Smallest possible case:** $d=2$, $k=1$, projection $f(x) = r_1 x_1 + r_2 x_2$ with $r_1, r_2$ independent fair $\pm1$ coin flips (this is the "sign matrix" variant, previewed here before it's formally introduced later).
 
@@ -493,7 +558,7 @@ $$
 
 The *fluctuation* around $\|x\|_2^2$ comes entirely from that cross term. Averaging over $k$ such independent rows shrinks the fluctuation, and Chernoff-type bounds (Week 3 machinery) make "shrinks" precise. For general $k$: $k$ independent rows, each with expectation $\approx \|x\|_2^2$, give $E[|f(x)|^2] \approx k\|x\|_2^2$ — exactly Theorem 2.10's $\sqrt k\,|x|$, squared.
 
-### 4.7 From Random Projection to the JL Lemma
+### 4.6 From Random Projection to the JL Lemma
 
 Since $f$ is linear, $f(v_i) - f(v_j) = f(v_i - v_j)$. Apply the Random Projection Theorem directly to $v = v_i - v_j$: the projected distance falls outside the interval $\left[(1-\epsilon)\sqrt k\,|v_i-v_j|,\ (1+\epsilon)\sqrt k\,|v_i-v_j|\right]$ with probability at most $3e^{-ck\epsilon^2}$.
 
@@ -505,14 +570,14 @@ $$
 
 Then the total failure probability across all pairs is less than $\frac{n^2}{2}\cdot\frac{3}{n^3} = \frac{3}{2n}$ — which vanishes as $n$ grows. So such a projection is guaranteed to exist for all pairs simultaneously — this style of argument (show the *expected* number of failures is small, therefore *some* outcome must have zero failures) is called the **probabilistic method**.
 
-### 4.8 The Johnson–Lindenstrauss Lemma — statement
+### 4.7 The Johnson–Lindenstrauss Lemma — statement
 
 > **Theorem (BHK, Thm 2.11).** For any $\epsilon \in (0,1)$ and integer $n$, let $k \ge \dfrac{3}{c\epsilon^2}\ln n$ (with $c$ as in the Annulus Theorem). For any set of $n$ points in $\mathbb{R}^d$, the random projection $f: \mathbb{R}^d \to \mathbb{R}^k$ above satisfies, for **all** pairs $v_i, v_j$, with probability at least $1 - \dfrac{3}{2n}$:
 > $$(1-\epsilon)\sqrt k\,|v_i - v_j| \le |f(v_i) - f(v_j)| \le (1+\epsilon)\sqrt k\,|v_i-v_j|$$
 
 **Why this is remarkable, stated plainly:** $k$ depends only on $\log n$ and $\epsilon$ — **not at all** on the ambient dimension $d$, however large $d$ might be. (Dividing both sides by $\sqrt k$ turns this into an ordinary $(1\pm\epsilon)$-distance-preserving guarantee, in the more familiar form you'd expect.)
 
-### 4.9 Implications: when does $k = O(\epsilon^{-2}\log n)$ actually help?
+### 4.8 Implications: when does $k = O(\epsilon^{-2}\log n)$ actually help?
 
 | Regime | $k$ vs $d$ | Outcome |
 |---|---|---|
@@ -526,7 +591,7 @@ Key observations:
 - **So the real question to ask is never "is $n$ large?"** — it is whether $d$ is large *relative to* $\epsilon^{-2}\log n$.
 - **Corollary:** if the JL formula ever produces $k \ge d$, just use the identity map instead (projecting is pointless) — so in general, $k = \min(d,\ O(\epsilon^{-2}\log n))$ always suffices.
 
-### 4.10 JL Lemma: worked example
+### 4.9 JL Lemma: worked example
 
 $n = 1000$ points, $\epsilon = 0.1$.
 
@@ -536,7 +601,7 @@ $$
 
 Whether the original dimension is $d = 10^4$ or $d = 10^7$, only a few hundred dimensions are needed to preserve all pairwise distances within $10\%$. (Caveat from the lecture: the hidden constant inside the $O(\cdot)$ depends on which specific concentration bound was used — this shows the *scaling*, not a plug-and-play production formula for $k$. This example sits squarely in the $d \gg k$ regime from the implications table above.)
 
-### 4.11 Random Projection: the algorithm
+### 4.10 Random Projection: the algorithm
 
 1. Given $n$ points in $\mathbb{R}^d$ and a target distortion $\epsilon$, set $k = O(\epsilon^{-2}\log n)$.
 2. Form a random $k \times d$ matrix $R$ with i.i.d. entries $R_{ij} \sim N(0,1)$.
@@ -551,7 +616,7 @@ flowchart LR
     D --> E["Run nearest-neighbour / clustering<br/>on the projected points in R^k"]
 ```
 
-### 4.12 Practical variant: Achlioptas' sign matrix
+### 4.11 Practical variant: Achlioptas' sign matrix
 
 **Toy example**, $k=1$: project $x = (3,-1,2,4) \in \mathbb{R}^4$.
 
@@ -561,10 +626,10 @@ flowchart LR
 | Sign ($\pm1$) | $r = (+1,-1,+1,+1)$ | $r\cdot x = 3+1+2+4 = 10$ |
 
 - **Cheaper:** $u \cdot x$ costs $4$ floating-point multiplications; $r \cdot x$ costs **zero** multiplications — it's just sign-conditioned additions and subtractions.
-- **Same guarantee:** fair $\pm1$ coin flips have $E[r_{ij}]=0$, $\text{Var}(r_{ij})=1$ — which turns out to be all the proof actually needs; full Gaussianity was never a strict requirement. (The earlier toy example in Section 4.6, with $r_1, r_2$, was exactly this sign-matrix construction.)
+- **Same guarantee:** fair $\pm1$ coin flips have $E[r_{ij}]=0$, $\text{Var}(r_{ij})=1$ — which turns out to be all the proof actually needs; full Gaussianity was never a strict requirement. (The earlier toy example in Section 4.5, with $r_1, r_2$, was exactly this sign-matrix construction.)
 - **When to prefer it:** whenever generating or multiplying $R$ (which has $kd$ entries) is the computational bottleneck; a further sparsified $\{+1, 0, -1\}$ version helps even more when the input vectors $x$ themselves are sparse.
 
-### 4.13 Where it breaks: spiky vectors
+### 4.12 Where it breaks: spiky vectors
 
 The swap from Gaussian to $\pm1$ entries preserves the mean and variance but **loses the exact Gaussianity** of $r_i \cdot v$ — it only becomes approximately Gaussian, via the Central Limit Theorem, and that approximation specifically needs $v$'s "mass" to be spread out reasonably evenly across its coordinates.
 
@@ -583,7 +648,7 @@ flowchart TD
     Fail --> Fix["Fix: sparser {+sqrt(s),0,-sqrt(s)} variant,<br/>or Hadamard preconditioner (Fast-JL)"]
 ```
 
-### 4.14 Seeing JL: distance ratios after projection
+### 4.13 Seeing JL: distance ratios after projection
 
 Described experiment: $n=100$ points in $d=1000$; plot a histogram of $\dfrac{\|f(x)-f(y)\|_2}{\|x-y\|_2}$ over all $4950$ pairs, for Gaussian projections down to $k=20, 100, 500$.
 
@@ -592,10 +657,10 @@ Described experiment: $n=100$ points in $d=1000$; plot a histogram of $\dfrac{\|
 
 This is explicitly the classroom-scale simulation the course runs *instead of* reproducing FAISS's actual billion-scale setting — see the companion Week 2 case-study note.
 
-### 4.15 Where it breaks: when JL buys you nothing
+### 4.14 Where it breaks: when JL buys you nothing
 
 - The lemma requires $k = O(\epsilon^{-2}\log n)$ — it **never promises fewer dimensions than that**, no matter how clever the projection method is.
-- **Concrete numbers:** $n=1000$, $\epsilon=0.1$ needed $k \approx 690$ (from Section 4.10). If your data already lives in $d=784$ (e.g., MNIST pixel vectors), projecting $784 \to 690$ saves essentially nothing.
+- **Concrete numbers:** $n=1000$, $\epsilon=0.1$ needed $k \approx 690$ (from Section 4.9). If your data already lives in $d=784$ (e.g., MNIST pixel vectors), projecting $784 \to 690$ saves essentially nothing.
 - **Rule of thumb:** JL only pays off when $d \gg \epsilon^{-2}\log n$.
 - **Tight accuracy is expensive:** pushing $\epsilon$ down to $0.01$ (i.e., wanting distances preserved to within 1%) pushes $k$ into the tens of thousands, since $k$ scales as $1/\epsilon^2$.
 - **Scope of the guarantee:** JL covers only the pairwise distances *among the $n$ points you projected*. It says nothing directly about cluster shapes, margins between classes, or points that arrive later — a new point's distances to the existing points do survive with high probability individually, but guaranteeing "all pairs at once" for the *enlarged* set requires redoing the union bound with the new, larger $n$.

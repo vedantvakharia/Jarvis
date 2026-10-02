@@ -289,8 +289,6 @@ $$
 \boxed{E\big[\lVert G\rVert^2\big] = \frac d2}
 $$
 
-(Only linearity of expectation is used, as in Notes 3.1.)
-
 ### Generalization and link to the Annulus Theorem
 
 With variance $\sigma^2$ per coordinate, $E[\lVert G\rVert^2] = d\sigma^2$. For $\sigma^2 = 1$ this is the $d$ from Notes 3.1. For $\sigma^2=\frac12$, $G = x/\sqrt 2$ where $x\sim N(0,I_d)$, so by the Annulus Theorem (Notes 3.3)
@@ -300,15 +298,6 @@ $$
 $$
 
 So the typical distance is $\sqrt{d/2}$, and almost all of the mass sits on a shell of width $O(1)$ around that radius.
-
-```mermaid
-flowchart LR
-    G["G with Var = 1/2 per coordinate"] --> Sq["||G||^2 = g1^2 + ... + gd^2"]
-    Sq --> Lin["Linearity of expectation"]
-    Lin --> Each["Each E[gi^2] = Var = 1/2"]
-    Each --> Sum["Total = d/2"]
-    Sum --> Typ["Typical distance about sqrt(d/2)"]
-```
 
 ---
 
@@ -343,7 +332,7 @@ $$
 
 ### Step 2: rigorous proof with high probability
 
-**(i) Condition on $y$.** The dot product $\langle x,y\rangle = \sum_i y_i x_i$ is a linear combination of independent Gaussians with fixed coefficients $y_i$. By T4 (Notes 4.2),
+**(i) Condition on $y$ -** Consider y as constant. The dot product $\langle x,y\rangle = \sum_i y_i x_i$ is a linear combination of independent Gaussians with fixed coefficients $y_i$. By T4 (Notes 4.2),
 
 $$
 \langle x,y\rangle \mid y \;\sim\; N\big(0,\ \textstyle\sum_i y_i^2\big) = N\big(0,\lVert y\rVert^2\big)
@@ -373,22 +362,7 @@ $$
 \boxed{\Pr\left[|\cos\theta| \le 2\sqrt{\frac{2\ln d}{d}}\right] \ge 1 - \frac 2d - 3e^{-d/32}\;\longrightarrow\;1}
 $$
 
-So with probability tending to 1, $|\cos\theta| = O\big(\sqrt{\ln d/d}\big) \to 0$, meaning $x$ and $y$ are almost orthogonal. $\blacksquare$
-
-### Diagram
-
-```mermaid
-flowchart TD
-    Dot["Dot product <x,y> = sum of d terms xi*yi<br/>with random signs"] --> Fact["Fix y: <x,y> is N(0, ||y||^2)<br/>(Gaussian sums are Gaussian)"]
-    Fact --> Z["Z = <x,y>/||y|| is N(0,1)<br/>so |Z| is at most t w.h.p."]
-    Norm["Annulus: ||x|| at least sqrt(d)/2 w.h.p."] --> Div["cos(theta) = Z / ||x||"]
-    Z --> Div
-    Div --> End["|cos theta| at most 2t/sqrt(d) -> 0<br/>vectors almost orthogonal"]
-```
-
-### Sanity check
-
-This matches Notes 2.6 (toy check with $\pm1/\sqrt d$ vectors has typical inner product $\pm 1/\sqrt d$; for $d=10^4$ that is about $0.01$, an angle within $0.6^\circ$ of $90^\circ$).
+So with probability tending to 1, $|\cos\theta| = O\big(\sqrt{\ln d/d}\big) \to 0$, meaning $x$ and $y$ are almost orthogonal. 
 
 ---
 
@@ -449,7 +423,7 @@ $$
 = \frac{4\cdot\frac1{10}}{\left(\frac9{10}\right)^2} = \frac{0.4}{0.81}\approx 0.494
 $$
 
-Since $\cos 45^\circ = 0.707 > 0.494$, we get $\theta > \arccos(0.494)\approx 60.4^\circ \ge 45^\circ$. $\blacksquare$
+Since $\cos 45^\circ = 0.707 > 0.494$, we get $\theta > \arccos(0.494)\approx 60.4^\circ \ge 45^\circ$.
 
 $$
 \boxed{\Pr[\theta \ge 45^\circ]\ \ge\ 1-9e^{-d/800}}

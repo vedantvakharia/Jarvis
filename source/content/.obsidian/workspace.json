@@ -13,6 +13,21 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "FDS/FDS_Lecture4_Concentration_Inequalities.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "FDS_Lecture4_Concentration_Inequalities"
+            }
+          },
+          {
+            "id": "8a567752feb1e76e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "FDS/FDS-Week2-HighDimensionalSpace-JL.md",
                 "mode": "source",
                 "source": false,
@@ -23,33 +38,33 @@
             }
           },
           {
-            "id": "8a567752feb1e76e",
+            "id": "9eef2cc5c94877a4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FDS/FDS-Tut1-High-Dimensional-Geometry-Solutions.md",
+                "file": "FDS/FDS-Formula-Sheet.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "FDS-Formula-Sheet"
+            }
+          },
+          {
+            "id": "7eeb362fc5a5507c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "FDS/Tuts/FDS-Tut1-High-Dimensional-Geometry-Solutions.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
               "title": "FDS-Tut1-High-Dimensional-Geometry-Solutions"
-            }
-          },
-          {
-            "id": "120dbe7baa0aebf2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled"
             }
           }
         ]
@@ -221,11 +236,16 @@
   },
   "active": "d307a1c20fa64742",
   "lastOpenFiles": [
-    "FDS/FDS-Tut1-High-Dimensional-Geometry-Solutions.md",
-    "Untitled.md",
-    "FDS/GEMINI.md",
     "FDS/FDS-Week2-HighDimensionalSpace-JL.md",
+    "FDS/FDS_Lecture4_Concentration_Inequalities.md",
+    "FDS/FDS-Formula-Sheet.md",
+    "FDS/Tuts/FDS-Tut1-High-Dimensional-Geometry-Solutions.md",
+    "Untitled.md",
     "FDS/FDS-Week2-FAISS-CaseStudy.md",
+    "FDS/Tuts",
+    "FDS/New folder",
+    "FDS/FDS-Tut1-High-Dimensional-Geometry-Solutions.md",
+    "FDS/GEMINI.md",
     "FDS/FDS-Week1-Foundations.md",
     "TOC/TOC_Lectures_5-8.md",
     "TOC/TOC_Lectures_9-14_Notes.md",
@@ -244,8 +264,6 @@
     "gemini-scribe/Skills",
     "gemini-scribe/Prompts",
     "gemini-scribe/Background-Tasks",
-    "gemini-scribe/Agent-Sessions",
-    "gemini-scribe",
     "Literature Review - Grounding Dino  (Group 5).md",
     "Grounding DINO Literature Review Generation.md",
     "OS/Chapter 4 - Trap Handling and Context Switching.md",
@@ -254,9 +272,6 @@
     "OS/Chapter 2 - Booting.md",
     "OS/Untitled.md",
     "Python/Basics.md",
-    "Java/Packages.md",
-    "Misc/C++/Vectors.md",
-    "Misc/C++/Trees.md",
     "Attachements/1_4ZxTuwqViJ87txqMZsz0dA.webp",
     "Attachements/conventions.jpeg",
     "Attachements/mermaid-diagram-2026-06-19-152256.png",
