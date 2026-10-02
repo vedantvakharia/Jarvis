@@ -320,6 +320,11 @@ Pump
 Per
 Projected
 Projection
+Put
+Poles
+Pole
+Projecting
+Points
 IHDR
 IDATx
 IU
@@ -581,6 +586,7 @@ Intuitively
 IEEE
 IVFADC
 IVF
+Intersecting
 tEXtSoftware
 ta
 tE
@@ -1062,6 +1068,11 @@ touching
 tails
 tightens
 tighter
+toolbox
+thickness
+tending
+tightest
+thresholds
 Matplotlib
 Mj
 MR
@@ -1570,6 +1581,8 @@ variances
 variants
 vanishes
 visibly
+vacuous
+vertex
 pHYs
 pHa
 pi
@@ -2291,6 +2304,15 @@ pointless
 plug
 preconditioner
 pushing
+pulling
+peel
+permuting
+pole
+poles
+polarization
+pins
+percentile
+pinned
 xTU
 xK
 xzc
@@ -2582,6 +2604,7 @@ Exams
 Exercise
 Eliminate
 Essentially
+Evaluating
 bY
 bEq
 bmO
@@ -2977,6 +3000,7 @@ boundary
 bother
 bell
 buys
+blips
 ZBO
 ZD
 ZIw
@@ -3610,6 +3634,11 @@ DEEP
 Derivation
 Draw
 Dividing
+Derive
+Denominator
+Differences
+Documents
+Direction
 YmU
 Yz
 You
@@ -4025,6 +4054,10 @@ Restriction
 Retrieving
 Repeating
 Replicate
+Rotational
+Remarks
+Rerun
+Relative
 yN
 yyyG
 yD
@@ -4337,6 +4370,9 @@ NMF
 NLP
 Norms
 NN
+Near
+Numerator
+Nearly
 dK
 dm
 dF
@@ -4968,6 +5004,8 @@ density
 decays
 doubling
 downstream
+disguise
+downwards
 UU
 UzH
 Um
@@ -5095,6 +5133,7 @@ UMAP
 Untimed
 Unreachable
 Unbiased
+Users
 zQ
 zFs
 zc
@@ -5675,6 +5714,8 @@ invariance
 intricate
 integral
 illuminating
+inward
+intel
 mJN
 mM
 mL
@@ -6142,6 +6183,9 @@ measured
 machinery
 misleading
 modest
+massively
+modestly
+monotonically
 KB
 KC
 Krauss
@@ -6569,6 +6613,7 @@ lanes
 lockstep
 lossy
 laptop
+lowers
 ebh
 eL
 ev
@@ -7097,6 +7142,9 @@ explodes
 escaping
 elementary
 enlarged
+equator
+equators
+excerpt
 gee
 go
 gko
@@ -7527,6 +7575,7 @@ Hopcroft
 HighDimensionalSpace
 Headline
 Hadamard
+Holds
 Fi
 Financial
 Fischer
@@ -7984,6 +8033,10 @@ hungry
 hinges
 histograms
 histogram
+hemisphere
+headline
+habits
+hyperplane
 Oo
 Oc
 OBt
@@ -8137,6 +8190,10 @@ Orthogonal
 Omit
 OPQ
 Outcome
+Orthogonality
+Outside
+OneDrive
+Optimizing
 LRZ
 Long
 LSTM
@@ -8466,6 +8523,7 @@ Visual
 Von
 Voronoi
 Volume
+Volumes
 uZ
 uN
 uG
@@ -8704,6 +8762,8 @@ unreachable
 unprobed
 unconstrained
 unscaled
+useless
+ultra
 Wn
 Ws
 Wc
@@ -8835,6 +8895,7 @@ Watch
 Week
 WarpSelect
 Worst
+Welch
 CE
 Cy
 CSKnn
@@ -9312,6 +9373,7 @@ Ch
 Cram
 Cheaper
 CaseStudy
+Coordinate
 ot
 oV
 oz
@@ -9592,6 +9654,7 @@ orthogonality
 opposing
 optimum
 orthogonalize
+overestimates
 Js
 JS
 JN
@@ -9681,6 +9744,7 @@ JSONPath
 Jump
 Jezero
 Johnson
+Jarvis
 Sv
 Sp
 STV
@@ -10150,6 +10214,13 @@ Sketch
 Simulation
 Spherical
 Sign
+Stirling
+Surface
+Slice
+Slicing
+Shell
+Substituting
+Squaring
 Bw
 BO
 Building
@@ -10547,6 +10618,11 @@ GEMM
 Gram
 Gaussians
 Gaussianity
+Geometry
+Gamma
+Give
+Geometric
+Generate
 fvy
 fNW
 fgg
@@ -10980,6 +11056,8 @@ fixes
 floats
 funnel
 fluctuation
+fight
+fluctuations
 rt
 ru
 root
@@ -11602,6 +11680,14 @@ rescaling
 renormalization
 reproducing
 redoing
+restored
+rises
+route
+readings
+radial
+revision
+razor
+relate
 sRR
 sFL
 shows
@@ -12589,6 +12675,13 @@ subtractions
 sparsified
 spiky
 sparser
+scaled
+sided
+slice
+subspaces
+selects
+subspace
+spherically
 TA
 Te
 TXp
@@ -12822,6 +12915,9 @@ Taylor
 Tightness
 Thm
 Tight
+Tutorial
+Those
+Turn
 XM
 Xiong
 XX
@@ -13511,6 +13607,7 @@ artifact
 avoided
 ambient
 additionally
+agree
 qiW
 qG
 quantitative
@@ -14540,6 +14637,13 @@ confirmation
 chi
 capped
 clever
+collapses
+collapse
+contradict
+constrain
+cosine
+cosines
+crammed
 whatever
 write
 will
@@ -14776,6 +14880,8 @@ warps
 warp
 winner
 weakening
+wins
+wording
 Adaptive
 Aware
 Architecture

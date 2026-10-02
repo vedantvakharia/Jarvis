@@ -1,27 +1,6 @@
-## 2. Why High Dimensions Are Different
+## 2. Volume Concentration in High Dimensions
 
-### 2.1 The puzzle
-
-Real data commonly has $d$ in the thousands. Algorithms that operate directly on such data are slow and memory-hungry. The goal is to **compress to a few dimensions while keeping pairwise distances intact** — because search, clustering, and nearest-neighbour algorithms all fundamentally rely on distances staying meaningful.
-
-> **Question.** Given $n$ points in native dimension $d$, does there exist some $k \ll d$ such that projecting into $\mathbb{R}^k$ barely distorts any pairwise distance?
-
-The answer to this hinges on a deeper geometric question: **where does the volume of a high-dimensional ball actually live** — near the center, or near the surface? Our $d=2$ or $d=3$ intuition (which says "most of the volume is somewhere in the middle") turns out to be actively misleading. Note: the exact size of $k$ that works falls out of the proof later in the lecture — it is not the starting assumption.
-
-### 2.2 Two pictures of the answer, previewed
-
-The lecture previews two equivalent geometric facts that will each be proven in detail:
-
-1. **The volume of a high-dimensional ball concentrates as a thin shell right at the surface.**
-2. **The volume of a high-dimensional ball concentrates as a thin equatorial slab** (i.e., points overwhelmingly have a very small first coordinate).
-
-These turn out to be **the same underlying phenomenon**, viewed from two different angles. Details follow.
-
----
-
-## 3. Volume Concentration in High Dimensions
-
-### 3.1 Why volume scales as $r^d$
+### 2.1 Why volume scales as $r^d$
 
 **Definition.** $B^d(r) := \{x \in \mathbb{R}^d : \|x\|_2 < r\}$ is the open ball of radius $r$ centered at the origin. Write $B^d := B^d(1)$ for the open unit ball.
 
@@ -41,7 +20,7 @@ $$
 
 This is the single most important algebraic fact in the whole lecture — everything about "shells" and "slabs" flows from this one ratio.
 
-### 3.2 Exact volume formula (for the record)
+### 2.2 Exact volume formula (for the record)
 
 For radius $r=1$, the constant $c_d = V(1)$ has a closed form:
 
@@ -51,26 +30,12 @@ $$
 
 Combined with the scaling law above, this gives $V(r) = \dfrac{\pi^{d/2}}{\Gamma(d/2+1)} r^d$ for any $r$. **We won't actually need this exact constant** — only the fact that it is the *same* constant in the numerator and denominator whenever we take ratios, which is what let it cancel above.
 
-### 3.3 Volume concentrates near the surface
+### 2.3 Volume concentrates near the surface
 
 > **Theorem.** For fixed $\epsilon \in (0,1)$, as $d \to \infty$,
 > $$\frac{V((1-\epsilon)r)}{V(r)} = (1-\epsilon)^d \le e^{-\epsilon d} \to 0$$
 
 **Proof.** $V(r) = c_d r^d$ scales identically in numerator and denominator, leaving $(1-\epsilon)^d$; then use the standard inequality $1 - \epsilon \le e^{-\epsilon}$.
-
-**In plain terms:** shrink the radius by any fixed fraction $\epsilon$ (say, pull it in by just 5%), and as the dimension grows, the fraction of the ball's volume that remains inside that smaller ball rockets toward *zero*. Essentially all of the volume must therefore be squeezed into the thin remaining shell near the surface.
-
-#### Interpretation: how wide is the shell?
-
-Take $d = 100$, $\epsilon = 0.05$ (shrink the radius by just 5%):
-
-$$
-(0.95)^{100} \approx e^{-5} \approx 0.0067
-$$
-
-So under $1\%$ of the ball's volume lies more than $5\%$ of the radius away from the surface — over 99% of the volume is packed into that outer 5% shell.
-
-**Natural follow-up question:** as $d$ grows, how must $\epsilon$ shrink to keep this "crossover" from vanishing or exploding?
 
 **Hint:** look at the exponent $\epsilon d$ in $e^{-\epsilon d}$. For this exponent to stay a fixed constant (neither vanishing nor exploding) as $d \to \infty$, what must $\epsilon$ do?
 
@@ -82,9 +47,7 @@ $$
 
 a fixed constant, not zero. This is the crossover scale. **Conclusion:** the shell where volume transitions from "negligible" to "essentially all of it" has width $\epsilon = \Theta(1/d)$ — essentially all the volume of $B^d$ lives within a shell of width $O(1/d)$ just inside the surface. As $d$ grows, this shell gets *relatively* thinner and thinner, even though it still contains almost everything.
 
-**Seeing it (as described by the lecture's figures):** plotting the fraction of volume within radius $r$ (which is just $r^d$) against $r$, the curve is gentle for $d=2$ but becomes a near-vertical wall for $d=200$ — essentially zero volume until $r$ is very close to $1$, then it shoots up to $1$. A second plot confirms that the crossover width $\epsilon^*(d)$ (the smallest $\epsilon$ with $(1-\epsilon)^d = 1/e$) is a nearly perfect straight line when plotted against $1/d$, confirming $\epsilon^* = \Theta(1/d)$ exactly as derived above.
-
-### 3.4 A related fact: the first coordinate is small
+### 2.4 A related fact: the first coordinate is small
 
 **Statement:** for $x$ drawn uniformly from $B^d$, and any $c > 0$, at least
 
@@ -109,7 +72,7 @@ This is a fast, non-rigorous way to see *why* the result above should be true, u
 
 **Same budget, two consequences:** individual coordinates are typically $O(1/\sqrt d)$ in size, *and* inner products between two independent points — being sums of $d$ such tiny, independent terms — also stay $O(1/\sqrt d)$ in size. This "coordinate budget" intuition will resurface again and again through the lecture.
 
-### 3.5 Thin slab: proof sketch
+### 2.5 Thin slab: proof sketch
 
 **Step 1.** Bound the volume of the "cap" $\{x \in B^d : x_1 \ge t\}$ using cross-sections taken perpendicular to the $x_1$-axis.
 
@@ -132,13 +95,11 @@ flowchart LR
     Decay --> Slab["=> almost all volume has |x1| = O(1/sqrt(d-1))<br/>i.e. lives in a thin equatorial SLAB"]
 ```
 
-### 3.6 $n$ random points are all nearly orthogonal
+### 2.6 $n$ random points are all nearly orthogonal
 
 > **Theorem (BHK, Ch. 2).** Let $x_1, \dots, x_n$ be drawn independently and uniformly at random from $B^d$. With probability at least $1 - O(1/n)$:
 > $$\|x_i\|_2 \ge 1 - \frac{2\ln d}{n} \quad \text{for every } i,$$
 > $$|\langle x_i, x_j\rangle| \le \sqrt{\frac{6\ln n}{d-1}} \quad \text{for every } i \ne j.$$
-
-> **Note on a typo in the source slides:** the norm bound as literally printed reads $1 - \frac{2\ln d}{n}$, but based on the surrounding derivation (which sets $\epsilon = \frac{2\ln n}{d}$ and applies it per point), the intended bound is almost certainly $\|x_i\|_2 \ge 1 - \frac{2\ln n}{d}$ — i.e. $n$ and $d$ swapped from how they appear in the raw extracted text. The proof-idea slide (Section 3.7 below) uses $\epsilon = \frac{2\ln n}{d}$ consistently, which supports this reading. Keep this in mind if you cross-check against the raw PDF text.
 
 **Implication:** this is more intricate than simply saying the vectors are "orthonormal" — both bounds are governed by *both* $n$ and $d$, in different ways.
 
@@ -149,18 +110,9 @@ flowchart LR
 
 **Conclusion:** near-orthonormality survives adding more points, *provided* $d \gg \log n$. This is the exact same $n$-versus-$d$ tension that the JL Lemma will exploit later in the lecture.
 
-```mermaid
-flowchart TB
-    Fix1["Fix d, grow n"] --> Slow["Both bounds move,<br/>but only logarithmically slowly"]
-    Fix2["Fix n, grow d"] --> Fast["Norm floor -> 1 at rate O(1/d)<br/>Dot-product bound -> 0 at rate O(1/sqrt d)"]
-    Slow --> Tension["Near-orthonormality survives<br/>as long as d >> log(n)"]
-    Fast --> Tension
-    Tension --> JLPreview["Same tension the JL Lemma<br/>exploits later this lecture"]
-```
+### 2.7 Proof idea: the norm bound
 
-### 3.7 Proof idea: the norm bound
-
-Apply the surface-concentration result (Section 3.3) to a single point $x_i$, with $\epsilon = \frac{2\ln n}{d}$:
+Apply the surface-concentration result (Section 2.3) to a single point $x_i$, with $\epsilon = \frac{2\ln n}{d}$:
 
 $$
 \Pr\left[\|x_i\|_2 < 1-\epsilon\right] \le e^{-\epsilon d} = \frac{1}{n^2}
@@ -172,9 +124,9 @@ $$
 \Pr[\text{some } \|x_i\|_2 < 1-\epsilon] \le n \cdot \frac{1}{n^2} = \frac1n
 $$
 
-### 3.8 Proof idea: the inner-product bound
+### 2.8 Proof idea: the inner-product bound
 
-Fix a point $x_j$. Apply the thin-slab bound (Section 3.5) to $x_i$, treating the direction $u = x_j / \|x_j\|_2$ as the axis, with $c = \sqrt{6\ln n}$:
+Fix a point $x_j$. Apply the thin-slab bound (Section 2.5) to $x_i$, treating the direction $u = x_j / \|x_j\|_2$ as the axis, with $c = \sqrt{6\ln n}$:
 
 $$
 \Pr\left[|\langle x_i, x_j\rangle| > \sqrt{\frac{6\ln n}{d-1}}\right] \le \frac{2}{c} e^{-c^2/2} = O(n^{-3})
@@ -210,9 +162,9 @@ For $d = 1000$, if you form the matrix $XX^T$ (the "Gram matrix" of inner produc
 
 ---
 
-## 4. The Gaussian Annulus Theorem
+## 3. The Gaussian Annulus Theorem
 
-### 4.1 Spherical Gaussians in high dimensions
+### 3.1 Spherical Gaussians in high dimensions
 
 Let $x = (x_1, \dots, x_d)$ with each $x_i \sim N(0,1)$ independently (this is called a **spherical Gaussian**, since it has no preferred direction).
 
@@ -222,7 +174,7 @@ $$
 
 (using linearity of expectation — no independence needed for this step). So we'd naively expect $\|x\|_2 \approx \sqrt d$. The natural next question: **how tightly does $\|x\|_2$ actually concentrate around $\sqrt d$?**
 
-### 4.2 Why a shell, not the origin? Two competing forces
+### 3.2 Why a shell, not the origin? Two competing forces
 
 This is a genuinely beautiful piece of intuition. Two opposing effects are at play:
 
@@ -237,14 +189,7 @@ $$
 
 These two effects trade off against each other, and the mass ends up **peaking at $r \approx \sqrt{d-1}$**, not at $r=0$. This resolves the apparent paradox: even though any *individual point* near the origin is more "likely" in a density sense, there are so overwhelmingly many more points at radius $\approx \sqrt d$ that essentially all the mass ends up there.
 
-```mermaid
-flowchart LR
-    Density["Density e^(-r^2/2)<br/>HIGHEST at r=0, decays with r"] --> Tension["Two forces multiply together"]
-    Volume["Shell volume ~ r^(d-1)<br/>EXPLODES as r grows (large d)"] --> Tension
-    Tension --> Peak["Product peaks at r ~ sqrt(d-1)<br/>NOT at r=0!"]
-```
-
-### 4.3 The Gaussian Annulus Theorem — statement
+### 3.3 The Gaussian Annulus Theorem — statement
 
 > **Theorem.** For a $d$-dimensional spherical Gaussian $x$ with unit variance in each coordinate, for any $\beta \le \sqrt d$, all but at most $3e^{-c\beta^2}$ of the probability mass lies within the annulus (a thin spherical "shell")
 > $$\sqrt d - \beta \le \|x\|_2 \le \sqrt d + \beta$$
@@ -252,7 +197,7 @@ flowchart LR
 
 **In plain terms:** almost all the mass of a high-dimensional Gaussian sits within a narrow band of radii around $\sqrt d$, and the width of that band ($\beta$) doesn't need to grow with $d$ at all — it can be a small constant, and the "escaping" probability still shrinks exponentially.
 
-### 4.4 Proof: reducing to a sum of $\chi_1^2$ random variables
+### 3.4 Proof: reducing to a sum of $\chi_1^2$ random variables
 
 Let $y_i = x_i^2$. Since $x_i \sim N(0,1)$, each $y_i$ follows a **chi-squared distribution with 1 degree of freedom**, written $y_i \sim \chi_1^2$, with $E[y_i] = 1$.
 
@@ -266,7 +211,7 @@ $$
 
 **The plan:** Chernoff-bound $\Pr\left[\sum_i(y_i-1) \ge t\right]$ and $\Pr\left[\sum_i(y_i-1) \le -t\right]$ separately, then translate the threshold $t$ back into $\beta$ via $\|x\|_2 = \sqrt d \pm \beta$.
 
-### 4.5 The moment-generating function (MGF) of a $\chi_1^2$
+### 3.5 The moment-generating function (MGF) of a $\chi_1^2$
 
 $$
 E[e^{\lambda y_i}] = \frac{1}{\sqrt{1-2\lambda}}, \quad \lambda < \frac12
@@ -276,7 +221,7 @@ so $E[e^{\lambda(y_i - 1)}] = e^{-\lambda}(1-2\lambda)^{-1/2}$.
 
 **Derivation sketch:** $E[e^{\lambda x_i^2}] = \frac{1}{\sqrt{2\pi}}\int e^{\lambda x^2 - x^2/2}\, dx$; rescaling $x \to x/\sqrt{1-2\lambda}$ inside the Gaussian integral produces the formula above.
 
-### 4.6 A clean Taylor bound
+### 3.6 A clean Taylor bound
 
 **Claim:** $\ln E[e^{\lambda(y_i-1)}] \le 2\lambda^2$ for $\lambda \in [0, \frac14]$ — and symmetrically, $\ln E[e^{-\lambda(y_i-1)}] \le 2\lambda^2$ on the same range.
 
@@ -286,7 +231,7 @@ $$
 -\lambda - \tfrac12 \ln(1-2\lambda) = \lambda^2 + \tfrac43\lambda^3 + 2\lambda^4 + \cdots
 $$
 
-— the terms beyond $\lambda^2$ stay small enough that the whole sum stays under $2\lambda^2$ once $\lambda \le \frac14$. (Checked numerically at the boundary $\lambda = \frac14$: LHS $= -\frac14 - \frac12\ln\frac12 \approx 0.097 \le 2(\frac14)^2 = 0.125$, and verified to hold across the whole interval.)
+— the terms beyond $\lambda^2$ stay small enough that the whole sum stays under $2\lambda^2$ once $\lambda \le \frac14$.
 
 **Why we bother with this bound:** independence lets us turn a sum inside the exponent into a product of expectations, and this clean quadratic bound on each factor's log-MGF is what makes the whole thing tractable:
 
@@ -294,43 +239,129 @@ $$
 E\left[e^{\lambda\sum_i(y_i-1)}\right] = \prod_i E[e^{\lambda(y_i-1)}] \le e^{2d\lambda^2}
 $$
 
-### 4.7 Chernoff-optimizing
+### 3.7 Chernoff-optimizing
 
-Apply Markov's inequality to $e^{\lambda \sum_i(y_i-1)}$ for $\lambda \in [0,\frac14]$:
+**Step 1: Chernoff bound via Markov's inequality**
+
+For any $\lambda > 0$, the function $u \mapsto e^{\lambda u}$ is strictly monotonically increasing. Hence, the event $\sum_i(y_i - 1) \ge t$ is equivalent to $e^{\lambda \sum_i(y_i - 1)} \ge e^{\lambda t}$. Applying Markov's inequality:
 
 $$
-\Pr\left[\sum_i(y_i-1) \ge t\right] \le e^{-\lambda t} \cdot e^{2d\lambda^2}
+\Pr\left[\sum_i(y_i-1) \ge t\right] \le \frac{E\left[e^{\lambda \sum_i(y_i-1)}\right]}{e^{\lambda t}} = e^{-\lambda t} \cdot E\left[e^{\lambda \sum_i(y_i-1)}\right]
 $$
 
-Minimizing the right-hand side over $\lambda$ gives the unconstrained optimum $\lambda^* = t/(4d)$, which lies inside the valid range $[0,\frac14]$ whenever $t \le d$.
+Using the Taylor bound from Section 3.6 ($E\left[e^{\lambda\sum_i(y_i-1)}\right] \le e^{2d\lambda^2}$ for $\lambda \in [0,\frac14]$):
+
+$$
+\Pr\left[\sum_i(y_i-1) \ge t\right] \le e^{-\lambda t + 2d\lambda^2}
+$$
+
+**Step 2: Optimizing the free parameter $\lambda$**
+
+To obtain the tightest upper bound, minimize the exponent $g(\lambda) = -\lambda t + 2d\lambda^2$ over $\lambda \in [0,\frac14]$:
+
+$$
+g'(\lambda) = -t + 4d\lambda = 0 \implies \lambda^* = \frac{t}{4d}
+$$
+
+Since $g''(\lambda) = 4d > 0$, $\lambda^*$ is the global minimum.
+
+**Step 3: Checking the validity range**
+
+The Taylor bound requires $\lambda \in [0,\frac14]$. The unconstrained optimum $\lambda^* = t/(4d)$ satisfies:
+
+$$
+\lambda^* \le \frac14 \iff \frac{t}{4d} \le \frac14 \iff t \le d
+$$
+
+Thus, whenever $0 \le t \le d$, $\lambda^*$ lies safely inside the valid range $[0,\frac14]$.
+
+**Step 4: Evaluating at the optimum**
+
+Substituting $\lambda^* = t/(4d)$ back into the exponent:
+
+$$
+-\lambda^* t + 2d(\lambda^*)^2 = -\left(\frac{t}{4d}\right)t + 2d\left(\frac{t}{4d}\right)^2 = -\frac{t^2}{4d} + \frac{t^2}{8d} = -\frac{t^2}{8d}
+$$
 
 $$
 \implies \Pr\left[\sum_i(y_i - 1) \ge t\right] \le e^{-t^2/(8d)} \quad \text{for } 0 \le t \le d
 $$
 
-The same bound holds for $\Pr\left[\sum_i(y_i-1) \le -t\right]$, by the symmetric version of the Taylor bound.
+**Step 5: The lower tail**
 
-### 4.8 From $t$ back to $\beta$
-
-Using $(\sqrt d \pm \beta)^2 - d = \pm 2\beta\sqrt d + \beta^2$:
-
-**Upper tail:**
+For $\Pr\left[\sum_i(y_i-1) \le -t\right]$, we consider $e^{-\lambda \sum_i(y_i-1)} \ge e^{\lambda t}$ for $\lambda \in [0,\frac14]$. By the symmetric version of the Taylor bound ($\ln E[e^{-\lambda(y_i-1)}] \le 2\lambda^2$), the exact same minimization yields:
 
 $$
-\Pr\left[\|x\|_2 \ge \sqrt d + \beta\right] = \Pr\left[\sum_i(y_i-1) \ge 2\beta\sqrt d + \beta^2\right] \le e^{-\beta^2/2}, \quad \beta \le \sqrt{d}/2
+\Pr\left[\sum_i(y_i-1) \le -t\right] \le e^{-t^2/(8d)} \quad \text{for } 0 \le t \le d
 $$
 
-(dropping the $+\beta^2$ slack is valid — using a smaller threshold only makes the bound weaker, hence still true).
+### 3.8 From $t$ back to $\beta$
 
-**Lower tail:**
-
+Section 3.7 established concentration bounds on the **squared norm** deviation:
 $$
-\Pr\left[\|x\|_2 \le \sqrt d - \beta\right] = \Pr\left[\sum_i(y_i-1) \le -(2\beta\sqrt d - \beta^2)\right] \le e^{-(2\beta\sqrt d - \beta^2)^2/(8d)}, \quad \forall\, \beta \in (0,\sqrt d]
+\sum_i (y_i - 1) = \|x\|_2^2 - d
 $$
+To convert these into tail bounds on the **Euclidean distance** from the sphere radius, $|\|x\|_2 - \sqrt d| \ge \beta$, we relate the two thresholds algebraically.
 
-(the threshold $t = 2\beta\sqrt d - \beta^2$ stays $\le d$ throughout this range, touching $d$ only exactly at $\beta = \sqrt d$, so the earlier Chernoff bound's validity condition $t\le d$ never actually needs to fall back to the capped-$\lambda$ case here).
+Using the expansion:
+$$
+(\sqrt d \pm \beta)^2 - d = \pm 2\beta\sqrt d + \beta^2
+$$
+any event on $\|x\|_2$ translates directly into an event on $\sum_i (y_i - 1)$.
 
-### 4.9 Assembling the constant $c$
+---
+
+**1. Upper tail: $\Pr\left[\|x\|_2 \ge \sqrt d + \beta\right]$**
+
+- **Squaring both sides:** Since both sides are non-negative:
+  $$
+  \|x\|_2 \ge \sqrt d + \beta \iff \|x\|_2^2 \ge d + 2\beta\sqrt d + \beta^2 \iff \sum_i(y_i - 1) \ge 2\beta\sqrt d + \beta^2
+  $$
+
+- **Dropping the $+\beta^2$ slack:** Since $2\beta\sqrt d + \beta^2 > 2\beta\sqrt d$:
+  $$
+  \left\{\sum_i(y_i - 1) \ge 2\beta\sqrt d + \beta^2\right\} \subseteq \left\{\sum_i(y_i - 1) \ge 2\beta\sqrt d\right\}
+  $$
+  Dropping $+\beta^2$ lowers the threshold, yielding a slightly weaker but valid upper bound:
+  $$
+  \Pr\left[\|x\|_2 \ge \sqrt d + \beta\right] \le \Pr\left[\sum_i(y_i-1) \ge 2\beta\sqrt d\right]
+  $$
+
+- **Applying Section 3.7:** Setting $t = 2\beta\sqrt d$, the condition $t \le d$ requires:
+  $$
+  2\beta\sqrt d \le d \iff \beta \le \frac{\sqrt d}{2}
+  $$
+  Substituting $t = 2\beta\sqrt d$ into $e^{-t^2/(8d)}$:
+  $$
+  \Pr\left[\|x\|_2 \ge \sqrt d + \beta\right] \le e^{-(2\beta\sqrt d)^2/(8d)} = e^{-(4\beta^2 d)/(8d)} = e^{-\beta^2/2}, \quad \beta \le \frac{\sqrt d}{2}
+  $$
+
+---
+
+**2. Lower tail: $\Pr\left[\|x\|_2 \le \sqrt d - \beta\right]$**
+
+For $\beta \in (0, \sqrt d]$ (ensuring $\sqrt d - \beta \ge 0$):
+
+- **Squaring both sides:**
+  $$
+  \|x\|_2 \le \sqrt d - \beta \iff \|x\|_2^2 \le d - 2\beta\sqrt d + \beta^2 \iff \sum_i(y_i - 1) \le -(2\beta\sqrt d - \beta^2)
+  $$
+  Here, the deviation threshold is $t = 2\beta\sqrt d - \beta^2$.
+
+- **Checking the validity condition $0 < t \le d$:**
+  1. **$t > 0$:** Factoring $t = \beta(2\sqrt d - \beta)$. Since $\beta \in (0, \sqrt d]$, we have $2\sqrt d - \beta \ge \sqrt d > 0$, so $t > 0$.
+  2. **$t \le d$:** The quadratic function $t(\beta) = 2\beta\sqrt d - \beta^2$ opens downwards with vertex at $\beta = \sqrt d$, where it achieves its maximum:
+     $$
+     t(\sqrt d) = 2(\sqrt d)(\sqrt d) - (\sqrt d)^2 = 2d - d = d
+     $$
+     Thus, $t \le d$ holds everywhere on $\beta \in (0, \sqrt d]$, touching $d$ only at the boundary $\beta = \sqrt d$.
+
+- **Applying Section 3.7:** Since $0 < t \le d$ holds unconditionally for all $\beta \in (0, \sqrt d]$, the lower-tail bound applies directly:
+  $$
+  \Pr\left[\|x\|_2 \le \sqrt d - \beta\right] \le e^{-(2\beta\sqrt d - \beta^2)^2/(8d)}, \quad \forall\, \beta \in (0, \sqrt d]
+  $$
+
+### 3.9 Assembling the constant $c$
 
 The lower-tail exponent, as a function of $\beta$:
 
@@ -350,7 +381,7 @@ $$
 
 for every $\beta \in (0, \sqrt d]$ and every $d$. This completes the proof.
 
-### 4.10 Worked example
+### 3.10 Worked example
 
 Take $d = 10{,}000$.
 
@@ -361,16 +392,9 @@ Take $d = 10{,}000$.
 
 **Seeing it:** histograms of $\|x\|_2$ across increasing $d$ all peak sharply at $\sqrt d$, and — this is the striking part — the *width* of each histogram stays roughly $O(1)$ as $d$ grows, even as the peak location shoots off toward infinity. The mass genuinely lives on a thin shell, not near the origin.
 
-```mermaid
-flowchart TB
-    Myth["Common (WRONG) 1D intuition:<br/>Gaussian mass clusters near the mean (origin)"]
-    Truth["High-dimensional reality:<br/>mass concentrates on a thin SHELL<br/>at radius ~ sqrt(d), width O(1)"]
-    Myth -.->|"breaks down as d grows"| Truth
-```
-
 **Tightness check:** the elementary Chernoff proof above gives $c = \frac18$, but a sharper (Cramér-type) large-deviations computation gives the true worst-case rate at $\beta=\sqrt d$ as $2 - \ln\frac{2}{3}\approx 0.81$ rather than $\frac18$. So the bound proven here, while completely valid, is conservative by roughly 6–7× near the edge — this gap is an artifact of the specific Taylor-bound proof technique used, not a property of the underlying phenomenon.
 
-### 4.11 Aside: the same $\sqrt d$ scaling shows up in Transformer attention
+### 3.11 Aside: the same $\sqrt d$ scaling shows up in Transformer attention
 
 This is flagged as an optional but genuinely illuminating connection to modern deep learning.
 
@@ -394,17 +418,17 @@ This is the exact same renormalization idea that this lecture's *unit-ball* vect
 
 ---
 
-## 5. Random Projection & the Johnson–Lindenstrauss Lemma
+## 4. Random Projection & the Johnson–Lindenstrauss Lemma
 
 This is the payoff of the entire lecture.
 
-### 5.1 Setup
+### 4.1 Setup
 
 **Question:** given $n$ points in native dimension $d$ (large), can Gaussian projections preserve all pairwise distances — exploiting the fact that Gaussian vectors tightly wrap their norm around $\sqrt{\text{dimension}}$, as just proven in the Annulus theorem?
 
 **Idea:** pick $k$ random directions in $\mathbb{R}^d$ and record only a vector's coordinates *along those directions*. If $k$ Gaussian coordinates already concentrate a vector's length tightly (per the Annulus theorem), then maybe just $k \ll d$ of them are enough to pin down all pairwise distances at once.
 
-### 5.2 Fact: a linear combination of independent Gaussians is Gaussian
+### 4.2 Fact: a linear combination of independent Gaussians is Gaussian
 
 > **Theorem.** If $Z_1, \dots, Z_n$ are independent, $Z_i \sim N(\mu_i, \sigma_i^2)$, and $a_1, \dots, a_n$ are constants, then
 > $$\sum_i a_i Z_i \sim N\left(\sum_i a_i \mu_i,\ \sum_i a_i^2 \sigma_i^2\right)$$
@@ -419,7 +443,7 @@ which is exactly the MGF of $N\left(\sum a_i\mu_i, \sum a_i^2\sigma_i^2\right)$.
 
 **Why we need this fact at all:** it's precisely what makes $u \cdot v = \sum_j v_j u_j$ Gaussian in the first place (see the next section) — without it, the whole "project and get a Gaussian" argument wouldn't even get off the ground.
 
-### 5.3 The random projection map $f$
+### 4.3 The random projection map $f$
 
 Draw $u_1, \dots, u_k \sim N(0, I_d)$ i.i.d. (each coordinate of each $u_i$ is an independent $N(0,1)$), and define the projection of any vector $v$ by
 
@@ -437,23 +461,23 @@ flowchart TB
     OnePoint --> AllPairs["...automatically preserves the<br/>DISTANCE between every pair of points!"]
 ```
 
-### 5.4 The Random Projection Theorem
+### 4.4 The Random Projection Theorem
 
 > **Theorem (BHK, Thm 2.10).** Let $v$ be a fixed vector in $\mathbb{R}^d$ and $f$ as above. There is a constant $c > 0$ such that for $\epsilon \in (0,1)$,
 > $$\Pr\Big[\big||f(v)| - \sqrt k\,|v|\big| \ge \epsilon\sqrt k\,|v|\Big] \le 3e^{-ck\epsilon^2}$$
 
 **Reading it:** $f(v)$'s length concentrates around $\sqrt k\, |v|$ — not around $|v|$ itself — and it does so exponentially fast in $k$, the *projection* dimension, not the ambient dimension $d$. This is the single most important sentence in the lecture: the quality of the approximation depends on how many random directions you keep, completely independent of how large the original space was.
 
-### 5.5 Proof idea: near-orthogonality + Gaussian Annulus
+### 4.5 Proof idea: near-orthogonality + Gaussian Annulus
 
-Fix $|v|=1$ (the theorem scales to any length). Each $u_i \cdot v = \sum_j v_j u_{ij}$ is a linear combination of independent $N(0,1)$'s (Section 5.2) $\implies$ it is Gaussian, with mean $0$ and variance $\sum_j v_j^2\,\text{Var}(u_{ij}) = \sum_j v_j^2 = 1$ (since $|v|=1$).
+Fix $|v|=1$ (the theorem scales to any length). Each $u_i \cdot v = \sum_j v_j u_{ij}$ is a linear combination of independent $N(0,1)$'s (Section 4.2) $\implies$ it is Gaussian, with mean $0$ and variance $\sum_j v_j^2\,\text{Var}(u_{ij}) = \sum_j v_j^2 = 1$ (since $|v|=1$).
 
 - Since $u_1, \dots, u_k$ are independent, $u_1\cdot v, \dots, u_k\cdot v$ are independent $N(0,1)$'s $\implies$ $f(v)$ is exactly a $k$-dimensional spherical Gaussian.
 - Apply the Gaussian Annulus Theorem with $d \to k$: $|f(v)|$ concentrates around $\sqrt k$.
 
-**Why not just orthogonalize the $u_i$ instead of leaving them independent?** Independence is exactly what makes $f(v)$ Gaussian in the first place (via Section 5.2); forcing exact orthogonality onto the $u_i$ would destroy that Gaussian structure the proof needs. Interestingly, in high dimension $d$, independent random vectors end up nearly orthogonal *anyway* — this is precisely this week's earlier near-orthogonality result (Section 3.6), showing up here again "for free," as a consequence rather than a requirement.
+**Why not just orthogonalize the $u_i$ instead of leaving them independent?** Independence is exactly what makes $f(v)$ Gaussian in the first place (via Section 4.2); forcing exact orthogonality onto the $u_i$ would destroy that Gaussian structure the proof needs. Interestingly, in high dimension $d$, independent random vectors end up nearly orthogonal *anyway* — this is precisely this week's earlier near-orthogonality result (Section 2.6), showing up here again "for free," as a consequence rather than a requirement.
 
-### 5.6 Toy example: why projection preserves length on average
+### 4.6 Toy example: why projection preserves length on average
 
 **Smallest possible case:** $d=2$, $k=1$, projection $f(x) = r_1 x_1 + r_2 x_2$ with $r_1, r_2$ independent fair $\pm1$ coin flips (this is the "sign matrix" variant, previewed here before it's formally introduced later).
 
@@ -469,7 +493,7 @@ $$
 
 The *fluctuation* around $\|x\|_2^2$ comes entirely from that cross term. Averaging over $k$ such independent rows shrinks the fluctuation, and Chernoff-type bounds (Week 3 machinery) make "shrinks" precise. For general $k$: $k$ independent rows, each with expectation $\approx \|x\|_2^2$, give $E[|f(x)|^2] \approx k\|x\|_2^2$ — exactly Theorem 2.10's $\sqrt k\,|x|$, squared.
 
-### 5.7 From Random Projection to the JL Lemma
+### 4.7 From Random Projection to the JL Lemma
 
 Since $f$ is linear, $f(v_i) - f(v_j) = f(v_i - v_j)$. Apply the Random Projection Theorem directly to $v = v_i - v_j$: the projected distance falls outside the interval $\left[(1-\epsilon)\sqrt k\,|v_i-v_j|,\ (1+\epsilon)\sqrt k\,|v_i-v_j|\right]$ with probability at most $3e^{-ck\epsilon^2}$.
 
@@ -481,14 +505,14 @@ $$
 
 Then the total failure probability across all pairs is less than $\frac{n^2}{2}\cdot\frac{3}{n^3} = \frac{3}{2n}$ — which vanishes as $n$ grows. So such a projection is guaranteed to exist for all pairs simultaneously — this style of argument (show the *expected* number of failures is small, therefore *some* outcome must have zero failures) is called the **probabilistic method**.
 
-### 5.8 The Johnson–Lindenstrauss Lemma — statement
+### 4.8 The Johnson–Lindenstrauss Lemma — statement
 
 > **Theorem (BHK, Thm 2.11).** For any $\epsilon \in (0,1)$ and integer $n$, let $k \ge \dfrac{3}{c\epsilon^2}\ln n$ (with $c$ as in the Annulus Theorem). For any set of $n$ points in $\mathbb{R}^d$, the random projection $f: \mathbb{R}^d \to \mathbb{R}^k$ above satisfies, for **all** pairs $v_i, v_j$, with probability at least $1 - \dfrac{3}{2n}$:
 > $$(1-\epsilon)\sqrt k\,|v_i - v_j| \le |f(v_i) - f(v_j)| \le (1+\epsilon)\sqrt k\,|v_i-v_j|$$
 
 **Why this is remarkable, stated plainly:** $k$ depends only on $\log n$ and $\epsilon$ — **not at all** on the ambient dimension $d$, however large $d$ might be. (Dividing both sides by $\sqrt k$ turns this into an ordinary $(1\pm\epsilon)$-distance-preserving guarantee, in the more familiar form you'd expect.)
 
-### 5.9 Implications: when does $k = O(\epsilon^{-2}\log n)$ actually help?
+### 4.9 Implications: when does $k = O(\epsilon^{-2}\log n)$ actually help?
 
 | Regime | $k$ vs $d$ | Outcome |
 |---|---|---|
@@ -502,7 +526,7 @@ Key observations:
 - **So the real question to ask is never "is $n$ large?"** — it is whether $d$ is large *relative to* $\epsilon^{-2}\log n$.
 - **Corollary:** if the JL formula ever produces $k \ge d$, just use the identity map instead (projecting is pointless) — so in general, $k = \min(d,\ O(\epsilon^{-2}\log n))$ always suffices.
 
-### 5.10 JL Lemma: worked example
+### 4.10 JL Lemma: worked example
 
 $n = 1000$ points, $\epsilon = 0.1$.
 
@@ -512,7 +536,7 @@ $$
 
 Whether the original dimension is $d = 10^4$ or $d = 10^7$, only a few hundred dimensions are needed to preserve all pairwise distances within $10\%$. (Caveat from the lecture: the hidden constant inside the $O(\cdot)$ depends on which specific concentration bound was used — this shows the *scaling*, not a plug-and-play production formula for $k$. This example sits squarely in the $d \gg k$ regime from the implications table above.)
 
-### 5.11 Random Projection: the algorithm
+### 4.11 Random Projection: the algorithm
 
 1. Given $n$ points in $\mathbb{R}^d$ and a target distortion $\epsilon$, set $k = O(\epsilon^{-2}\log n)$.
 2. Form a random $k \times d$ matrix $R$ with i.i.d. entries $R_{ij} \sim N(0,1)$.
@@ -527,7 +551,7 @@ flowchart LR
     D --> E["Run nearest-neighbour / clustering<br/>on the projected points in R^k"]
 ```
 
-### 5.12 Practical variant: Achlioptas' sign matrix
+### 4.12 Practical variant: Achlioptas' sign matrix
 
 **Toy example**, $k=1$: project $x = (3,-1,2,4) \in \mathbb{R}^4$.
 
@@ -537,10 +561,10 @@ flowchart LR
 | Sign ($\pm1$) | $r = (+1,-1,+1,+1)$ | $r\cdot x = 3+1+2+4 = 10$ |
 
 - **Cheaper:** $u \cdot x$ costs $4$ floating-point multiplications; $r \cdot x$ costs **zero** multiplications — it's just sign-conditioned additions and subtractions.
-- **Same guarantee:** fair $\pm1$ coin flips have $E[r_{ij}]=0$, $\text{Var}(r_{ij})=1$ — which turns out to be all the proof actually needs; full Gaussianity was never a strict requirement. (The earlier toy example in Section 5.6, with $r_1, r_2$, was exactly this sign-matrix construction.)
+- **Same guarantee:** fair $\pm1$ coin flips have $E[r_{ij}]=0$, $\text{Var}(r_{ij})=1$ — which turns out to be all the proof actually needs; full Gaussianity was never a strict requirement. (The earlier toy example in Section 4.6, with $r_1, r_2$, was exactly this sign-matrix construction.)
 - **When to prefer it:** whenever generating or multiplying $R$ (which has $kd$ entries) is the computational bottleneck; a further sparsified $\{+1, 0, -1\}$ version helps even more when the input vectors $x$ themselves are sparse.
 
-### 5.13 Where it breaks: spiky vectors
+### 4.13 Where it breaks: spiky vectors
 
 The swap from Gaussian to $\pm1$ entries preserves the mean and variance but **loses the exact Gaussianity** of $r_i \cdot v$ — it only becomes approximately Gaussian, via the Central Limit Theorem, and that approximation specifically needs $v$'s "mass" to be spread out reasonably evenly across its coordinates.
 
@@ -559,7 +583,7 @@ flowchart TD
     Fail --> Fix["Fix: sparser {+sqrt(s),0,-sqrt(s)} variant,<br/>or Hadamard preconditioner (Fast-JL)"]
 ```
 
-### 5.14 Seeing JL: distance ratios after projection
+### 4.14 Seeing JL: distance ratios after projection
 
 Described experiment: $n=100$ points in $d=1000$; plot a histogram of $\dfrac{\|f(x)-f(y)\|_2}{\|x-y\|_2}$ over all $4950$ pairs, for Gaussian projections down to $k=20, 100, 500$.
 
@@ -568,10 +592,10 @@ Described experiment: $n=100$ points in $d=1000$; plot a histogram of $\dfrac{\|
 
 This is explicitly the classroom-scale simulation the course runs *instead of* reproducing FAISS's actual billion-scale setting — see the companion Week 2 case-study note.
 
-### 5.15 Where it breaks: when JL buys you nothing
+### 4.15 Where it breaks: when JL buys you nothing
 
 - The lemma requires $k = O(\epsilon^{-2}\log n)$ — it **never promises fewer dimensions than that**, no matter how clever the projection method is.
-- **Concrete numbers:** $n=1000$, $\epsilon=0.1$ needed $k \approx 690$ (from Section 5.10). If your data already lives in $d=784$ (e.g., MNIST pixel vectors), projecting $784 \to 690$ saves essentially nothing.
+- **Concrete numbers:** $n=1000$, $\epsilon=0.1$ needed $k \approx 690$ (from Section 4.10). If your data already lives in $d=784$ (e.g., MNIST pixel vectors), projecting $784 \to 690$ saves essentially nothing.
 - **Rule of thumb:** JL only pays off when $d \gg \epsilon^{-2}\log n$.
 - **Tight accuracy is expensive:** pushing $\epsilon$ down to $0.01$ (i.e., wanting distances preserved to within 1%) pushes $k$ into the tens of thousands, since $k$ scales as $1/\epsilon^2$.
 - **Scope of the guarantee:** JL covers only the pairwise distances *among the $n$ points you projected*. It says nothing directly about cluster shapes, margins between classes, or points that arrive later — a new point's distances to the existing points do survive with high probability individually, but guaranteeing "all pairs at once" for the *enlarged* set requires redoing the union bound with the new, larger $n$.
