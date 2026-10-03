@@ -19,26 +19,65 @@
 
 ---
 
-## 1. Recap and Plan
-
-From Week 4:
-- $A=\sum_i\sigma_iu_iv_i^T$; best-fit subspace is spanned by the top singular vectors.
-- Eckart–Young: truncation $A_k$ is the optimal rank-$k$ approximation.
-- PCA = SVD of centred data.
-
-Today:
-1. Use SVD: LSI (retrieval) and recommenders.
-2. A non-spectral view of structure: density estimation (KDE) and nearest neighbours.
-3. Why both fight the **curse of dimensionality**, and how projection fights back.
-
----
-
 ## 2. SVD as Latent Structure
 
 $A_k=\sum_{i=1}^k\sigma_iu_iv_i^T$ replaces the raw features by $k$ **latent factors**.
 
 > [!tip] Key idea
 > Two rows are "similar" if they load similarly on the top factors, even if they share few raw features.
+
+**What a latent factor is.** A hidden pattern (e.g. "likes sci-fi") that is not one of the raw columns but a combination of columns that tend to move together. Row $i$'s **loadings** are its coordinates along $v_1,\dots,v_k$, i.e. row $i$ of $U_k\Sigma_k$ (the projection of the row onto the top-$k$ subspace).
+
+### Example: users and movies
+
+Rows = 6 users, columns = 4 movies (SF1, SF2, Rom1, Rom2); entries are ratings, 0 = not rated.
+
+| User | SF1 | SF2 | Rom1 | Rom2 |
+|---|---|---|---|---|
+| Alice | 5 | 0 | 0 | 0 |
+| Bob | 0 | 5 | 0 | 0 |
+| Cara | 4 | 4 | 0 | 0 |
+| Dan | 0 | 0 | 4 | 0 |
+| Eve | 0 | 0 | 0 | 5 |
+| Frank | 0 | 0 | 3 | 3 |
+
+**Problem with raw features.** Alice rated only SF1 and Bob only SF2. They share **no** movie, so their raw cosine similarity is $0$, yet both like sci-fi.
+
+**SVD.** Singular values $7.55,\,6.29,\,5.00,\,4.41$. Keep $k=2$; the top right singular vectors are
+
+- $v_1=(0.71,\,0.71,\,0,\,0)$: the "sci-fi" factor
+- $v_2=(0,\,0,\,0.53,\,0.85)$: the "romance" factor
+
+The sci-fi factor exists because Cara rated both SF movies, linking them (co-occurrence).
+
+**Loadings** (rows of $U_2\Sigma_2$):
+
+| User | Sci-fi | Romance |
+|---|---|---|
+| Alice | 3.54 | 0 |
+| Bob | 3.54 | 0 |
+| Cara | 5.66 | 0 |
+| Dan | 0 | 2.10 |
+| Eve | 0 | 4.25 |
+| Frank | 0 | 4.13 |
+
+Check Alice: $(5,0,0,0)\cdot v_1=5\times0.71=3.54$ ✓.
+
+| Pair | Raw cosine | Latent cosine |
+|---|---|---|
+| Alice vs Bob | 0 | **1.0** |
+| Dan vs Eve (both romance, no shared movie) | 0 | **1.0** |
+| Alice vs Dan | 0 | 0 |
+
+**What was dropped.** The discarded factors ($\sigma_3=5,\ \sigma_4=4.41$) are the quirks separating Alice from Bob (e.g. "Alice only rated SF1"). Truncation removes these and keeps the shared taste.
+
+**Bonus (leads to Section 4).** The rank-2 reconstruction of Alice's row is $3.54\,v_1=(2.5,\,2.5,\,0,\,0)$: the model predicts she would rate SF2 about $2.5$ though she never rated it.
+
+> [!tip] Exam recap
+> 1. $A_k$ replaces raw features by $k$ latent factors; loadings $=U_k\Sigma_k$ (projections onto $v_1\dots v_k$).
+> 2. Rows are similar if their loadings are similar, even with no raw feature in common.
+> 3. Factors come from co-occurrence patterns.
+> 4. This fixes synonymy, which is the idea behind LSI (Section 3).
 
 ---
 
@@ -124,6 +163,28 @@ D2 (which only says "automobile") was missed by raw matching but now scores the 
 
 > [!warning] Caveat
 > At $k=1$ the codes are scalars, so every cosine is $\pm1$. Cosine scoring needs $k\ge2$; here we compare the codes directly.
+
+### Fuller example: the $4\times4$ table, $k=2$
+
+Use the term-document table above. Singular values: $6.83,\ 5.35,\ 3.10,\ 0.39$. Query "car loan": $q=(1,0,1,0)^T$.
+
+Keep $k=2$ and score each document by $\cos(q_2,d_j)$ with $q_2=U_2^Tq=(-0.42,\,1.21)$:
+
+| Document | Raw cosine | Concept cosine ($k=2$) |
+|---|---|---|
+| D1 | 0.92 | 1.00 |
+| D2 (only says "automobile") | **0.00** | **0.25** |
+| D3 | 0.12 | 0.09 |
+| D4 | 0.19 | 0.40 |
+
+Ranking by raw match: D1, D4, D3, D2. By concept: D1, D4, **D2**, D3. D2 moves from exactly $0$ to above D3 because "automobile" shares a concept with "car". The effect is modest because the table is tiny. (Numbers computed numerically; the sign of each column of $U$ is arbitrary but cosines do not depend on it.)
+
+> [!tip] Exam recap
+> 1. $A$ is terms $\times$ documents; encode the query as one more column.
+> 2. Codes: $q_k=U_k^Tq$, $d_j=U_k^T A_{\cdot j}$; score by cosine, sort descending.
+> 3. Orthonormal $U_k$ means code-space lengths and angles equal the projected ones.
+> 4. Synonyms get nearly parallel rows, so SVD puts them in one concept; $A_k$ can fill in zeros (inference).
+> 5. At $k=1$ cosines are $\pm1$, so use $k\ge2$ for cosine scoring.
 
 ---
 

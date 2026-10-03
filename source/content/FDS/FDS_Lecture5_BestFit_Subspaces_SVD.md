@@ -398,6 +398,13 @@ One weak pair slows everyone down. This is why $m$ is chosen noticeably larger t
 - Floating-point rounding breaks the exact orthogonality of the $q_j$ after enough steps, producing "ghost" (duplicate) eigenvalues.
 - **Selective reorthogonalisation:** monitor drift each step and re-project $w$ only against the few $q_i$ that have started losing orthogonality, not the whole history (that would defeat the purpose).
 
+
+  $$\frac{\lVert A-A_2\rVert_F}{\lVert A\rVert_F}=\sqrt{\frac{\text{discarded energy}}{\text{total
+  energy}}}=\sqrt{\frac{5}{130}}\approx0.196$$
+
+
+
+
 ### 9.3 Randomized SVD
 
 1. **Input:** $A$, rank $k$, oversampling $p$, power iterations $q$
@@ -460,6 +467,48 @@ $$\lVert A\rVert_F^2=\sum_i\sigma_i^2,\qquad\lVert A\rVert_2=\sigma_1,\qquad\tex
 
 **Toy check.** For the $3\times2$ example, best rank-1 approximation is $A_1=\sigma_1u_1v_1^T$ with error $\lVert A-A_1\rVert_F=\sigma_2=1$.
 
+**Why truncation is best (intuition).** Each layer contributes $\sigma_i^2$ of "energy", and the layers are orthogonal and independent. Removing a layer removes exactly its energy and no more, so the cheapest layers to remove are the smallest. Eckart–Young proves no cleverer rank-$k$ matrix beats this.
+
+### Example 1: the $3\times2$ matrix
+
+$A=\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}$, $\sigma_1=\sqrt3,\ \sigma_2=1$. From Section 5 the two layers are
+
+$$\sigma_1u_1v_1^T=\tfrac12\begin{pmatrix}1&1\\1&1\\2&2\end{pmatrix},\qquad \sigma_2u_2v_2^T=\tfrac12\begin{pmatrix}1&-1\\-1&1\\0&0\end{pmatrix}$$
+
+- **Best rank-1:** $A_1=\tfrac12\begin{pmatrix}1&1\\1&1\\2&2\end{pmatrix}$ (every row is a multiple of $(1,1)$).
+- **Error:** $A-A_1$ is exactly layer 2. Frobenius: $\sqrt{\tfrac14+\tfrac14+\tfrac14+\tfrac14}=1=\sigma_2$ ✓. Spectral: $\sigma_2=1$ ✓.
+- **Relative error:** $\lVert A\rVert_F^2=1+0+0+1+1+1=4=\sigma_1^2+\sigma_2^2=3+1$ ✓, so $\dfrac{\lVert A-A_1\rVert_F}{\lVert A\rVert_F}=\sqrt{\tfrac14}=0.5$. Rank 1 keeps $3/4=75\%$ of the energy.
+
+### Example 2: errors from the singular values alone
+
+Say $\sigma=(10,5,2,1)$. Energy is $\sigma^2$: $100,\,25,\,4,\,1$. Total $\lVert A\rVert_F^2=130$.
+
+$A-A_k$ is exactly the **discarded layers**, so:
+
+| Keep | Frobenius error $\sqrt{\sum_{i>k}\sigma_i^2}$ | Spectral error $\sigma_{k+1}$ | Relative error |
+|---|---|---|---|
+| $k=1$ | $\sqrt{25+4+1}=\sqrt{30}\approx5.48$ | $\sigma_2=5$ | $\sqrt{30/130}\approx0.48$ |
+| $k=2$ | $\sqrt{4+1}=\sqrt5\approx2.24$ | $\sigma_3=2$ | $\sqrt{5/130}\approx0.196$ |
+
+For $k=2$, kept energy is $125/130\approx96\%$. No matrix needed, only the discarded $\sigma$'s. Frobenius error is a root of a *sum*; spectral error is a *single* value (the first one dropped).
+
+### Example 3: image compression (storage count)
+
+A grayscale image is an $n\times d$ matrix. Take $n=100,\ d=200$.
+
+- **Original:** $nd=20{,}000$ numbers.
+- **Rank $k$:** each layer $\sigma_iu_iv_i^T$ is stored as $u_i$ ($n=100$ numbers) + $v_i$ ($d=200$ numbers) + $\sigma_i$ (1 number) $=301$ numbers. For $k=10$: $10\times301=3{,}010$ numbers, about **15%** of the original.
+- **Rebuild:** compute each $\sigma_iu_iv_i^T$ and add them.
+- **Break-even:** $k(n+d+1)<nd\iff k<20000/301\approx66$. Beyond that you store more than the original.
+
+It works on real images because their singular values drop fast: a few big layers hold the shape and lighting, the many small ones are fine detail or noise.
+
+> [!tip] Exam recap
+> 1. $A_k=\sum_{i\le k}\sigma_iu_iv_i^T$ is the best rank-$k$ approximation in both norms.
+> 2. Frobenius error $=\sqrt{\sum_{i>k}\sigma_i^2}$; spectral error $=\sigma_{k+1}$.
+> 3. Relative error $=\sqrt{\sum_{i>k}\sigma_i^2\big/\sum_i\sigma_i^2}$.
+> 4. Storage is $k(n+d+1)$ vs $nd$.
+
 ---
 
 ## 12. PCA
@@ -492,6 +541,49 @@ So PCA finds the directions of **maximum variance**, which is exactly the best-f
 
 > [!tip]
 > Same algorithm, same stopping rule. The only choice is whether you centre before you multiply. Implicit centring costs only $O(d)$ extra per matvec, negligible next to $O(\mathrm{nnz}(A))$. Explicitly subtracting the mean would destroy sparsity.
+
+### Worked example: PCA by hand
+
+Four points in 2D: $a=(1,1),\ b=(2,3),\ c=(4,3),\ d=(5,5)$.
+
+**1. Means:** $\bar x=12/4=3,\ \bar y=12/4=3$.
+
+**2. Centre** (subtract $(3,3)$):
+
+$$\tilde A=\begin{pmatrix}-2&-2\\-1&0\\1&0\\2&2\end{pmatrix}$$
+
+**3. Compute $\tilde A^T\tilde A$:** $\sum x^2=4+1+1+4=10$, $\sum y^2=4+0+0+4=8$, $\sum xy=4+0+0+4=8$.
+
+$$\tilde A^T\tilde A=\begin{pmatrix}10&8\\8&8\end{pmatrix},\qquad C=\tfrac14\tilde A^T\tilde A=\begin{pmatrix}2.5&2\\2&2\end{pmatrix}$$
+
+**4. Eigenvalues of $\tilde A^T\tilde A$:** trace $=18$, determinant $=80-64=16$, so $\lambda=\dfrac{18\pm\sqrt{324-64}}{2}=\dfrac{18\pm16.12}{2}$, giving $\lambda_1=17.06,\ \lambda_2=0.94$. Hence $\sigma_1=4.13,\ \sigma_2=0.97$.
+
+**5. Principal components:** for $\lambda_1$, $(10-17.06)x+8y=0\Rightarrow y=0.883x$. Normalised:
+- $v_1=(0.750,\,0.662)$ (the long diagonal direction)
+- $v_2=(-0.662,\,0.750)$ (perpendicular)
+
+**6. Variance captured** ($\lambda/n$, $n=4$): along $v_1$: $17.06/4=4.27$; along $v_2$: $0.94/4=0.23$. Total $4.5=\mathrm{trace}(C)=2.5+2$ ✓. So $v_1$ explains $4.27/4.5\approx95\%$.
+
+**7. Project the centred points onto $v_1$:**
+
+| Centred point | Score on $v_1$ |
+|---|---|
+| $(-2,-2)$ | $-2.82$ |
+| $(-1,0)$ | $-0.75$ |
+| $(1,0)$ | $0.75$ |
+| $(2,2)$ | $2.82$ |
+
+Check: squares sum to $7.97+0.56+0.56+7.97=17.06=\sigma_1^2$ ✓. Each 2D point is now one number with little loss (dimensionality reduction).
+
+**Without centring.** The raw SVD of $A$ gives $v_1\approx(0.715,\,0.699)$, which just points toward the mean $(3,3)$, and $\sigma_1^2\approx89$ mostly measures distance from the origin rather than spread.
+
+**Implicit centring check.** For $x=(1,0)$: $Ax=(1,2,4,5)$, $\bar a^Tx=3$, so $\tilde Ax=Ax-\mathbf 1\cdot3=(-2,-1,1,2)$, exactly the first column of $\tilde A$ ✓.
+
+> [!tip] Exam recap
+> 1. PCA = SVD of mean-centred data; principal components are the $v_i$ of $\tilde A$.
+> 2. Variance along $v_i$ is $\sigma_i^2/n$; fraction explained is $\sigma_i^2/\sum_j\sigma_j^2$.
+> 3. Raw SVD when zero is meaningful or sparsity matters; PCA for max-variance directions.
+> 4. For sparse data, centre implicitly inside the matvec; never form $\tilde A$.
 
 ---
 
