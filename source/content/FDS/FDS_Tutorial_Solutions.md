@@ -1,22 +1,3 @@
-# FDS Tutorial Solutions (Tut 1 – Tut 4)
-
-> [!info] How to use this file
-> - Every problem: **Question** → **Solution** (Step 1, Step 2, …) → **Answer**.
-> - Methods are taken from your notes: **W1** = [[FDS-Week1-Foundations]], **W2** = [[FDS-Week2-HighDimensionalSpace-JL]], **L4** = [[FDS_Lecture4_Concentration_Inequalities]], **L5** = [[FDS_Lecture5_BestFit_Subspaces_SVD]], **L6** = [[FDS_Lecture6_SVD_Applications_KDE_Curse]].
-> - ⚠ = this step uses a standard method that is **not in your notes**. I solved it from first principles and marked it, so you know it is not a slide method.
-> - Simulation problems: no code. I give the method and what theory predicts.
-> - Decimals were lost in the PDFs (e.g. "0001"). I restored them (0.001) from context.
-> - Formula sheet first (Section 0), then Tut 1 → Tut 4.
-
-## Contents
-- [[#0. Formula sheet]]
-- [[#TUT 1: High-Dimensional Geometry]]
-- [[#TUT 2: Concentration Inequalities]]
-- [[#TUT 3: Best-Fit Subspaces & SVD]]
-- [[#TUT 4: Applications of SVD, Curse of Dimensionality]]
-
----
-
 # 0. Formula sheet
 
 ## 0.1 Basics (W1)
@@ -379,7 +360,7 @@ $$\text{Markov: }\frac{E[x]}a=\frac1a,\qquad x^2:\ \frac{E[x^2]}{a^2}=\frac a{a^
 > **Question.** Show that for any $c\ge1$ there are distributions for which Chebyshev is tight: $\Pr(\lvert x-E(x)\rvert\ge c)=\frac{\mathrm{Var}(x)}{c^2}$.
 
 **Solution.**
-- **Step 1. Idea.** Chebyshev is Markov on $(x-\mu)^2$, so make $(x-\mu)^2\in\{0,c^2\}$.
+- **Step 1. Idea.** Chebyshev is Markov on $(x-\mu)^2$.  Markov is tight when the variable takes only the values 0 and the threshold. So make $(x-\mu)^2\in\{0,c^2\}$.
 - **Step 2. Distribution.**
 $$x=\begin{cases}+c&\text{w.p. }\frac1{2c^2}\\-c&\text{w.p. }\frac1{2c^2}\\0&\text{w.p. }1-\frac1{c^2}\end{cases}$$
 Valid because $c\ge1$.
