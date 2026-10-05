@@ -237,7 +237,6 @@ Every device controller conceptually has three key registers:
 ### 5.3 How Does the CPU Talk to These Registers?
 
 Two approaches:
-
 1. **Explicit I/O instructions**: special `in`/`out` CPU instructions specifically meant to access device registers.
 2. **Memory-mapped I/O**: device registers are given memory addresses (as if they were just bytes of RAM), so the CPU can use ordinary `load`/`store` instructions to read/write them.
 
