@@ -19,8 +19,6 @@ flowchart TB
     I --> J[Login Screen / OS Ready]
 ```
 
-Every box above is explained in detail below.
-
 ---
 
 ## 2. Firmware: The First Program That Ever Runs

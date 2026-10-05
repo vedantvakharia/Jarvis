@@ -283,18 +283,6 @@ Even after data is "ready" in the device's register, it still needs to get into 
   - The CPU is completely free while this transfer happens.
   - Once the transfer completes, the device raises an interrupt to tell the CPU "the data is now in memory."
 
-```mermaid
-flowchart LR
-    subgraph Without DMA
-        D1[Disk] -->|1. data| C1[CPU registers]
-        C1 -->|2. copy| M1[RAM]
-    end
-    subgraph With DMA
-        D2[Disk Controller] -->|"Direct write (no CPU involved)"| M2[RAM]
-        D2 -.->|interrupt when done| C2[CPU]
-    end
-```
-
 ---
 
 ## 7. Device Drivers
