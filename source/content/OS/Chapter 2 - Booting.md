@@ -24,7 +24,6 @@ flowchart TB
 ## 2. Firmware: The First Program That Ever Runs
 
 Firmware is a tiny program permanently baked into a chip on your motherboard. It is the very first code the CPU executes, before any operating system exists.
-
 - When power is applied, the CPU is hardwired to jump to a specific, well-known memory address.
 - Whatever code sits at that address starts running. That code is the firmware.
 - Firmware lives in **read-only memory (ROM)** or **flash memory** (a rewritable type of non-volatile chip), *not* on your hard drive. This matters because the hard drive isn't even "known" to exist yet — something has to run first to go find it.
@@ -36,15 +35,6 @@ Firmware is a tiny program permanently baked into a chip on your motherboard. It
 |---|---|---|
 | **BIOS** (Basic Input/Output System) | Older PCs | Originally proprietary to IBM PC |
 | **(U)EFI** | Modern PCs | Replaced BIOS; more capable |
-
-```mermaid
-flowchart TD
-    P[Power Button Pressed] --> Q[CPU jumps to fixed hardwired address]
-    Q --> R[Code at that address = Firmware]
-    R --> S{Firmware chip type}
-    S -->|Older systems| T[BIOS in ROM chip]
-    S -->|Modern systems| U[UEFI in Flash memory]
-```
 
 ---
 
@@ -97,7 +87,6 @@ UEFI is the modern replacement for BIOS.
 - Full name: **Unified Extensible Firmware Interface**.
 - **Backward compatible** with BIOS through a mode called **CSM (Compatibility Support Module)**, letting UEFI systems still boot old BIOS-style operating systems if needed.
 - The first **open-source UEFI implementation**, called **Tiano**, was released by **Intel in 2004**.
-- UEFI specification continues to be updated — the slide notes the **latest version as of December 2024**.
 
 ### UEFI vs BIOS quick comparison
 
@@ -164,7 +153,7 @@ The bootloader is the "middle-manager" of the boot process. Firmware (BIOS/UEFI)
 ### Key points
 - It is a **program compiled and stored on disk** (not embedded in a chip like firmware).
 - It examines what the machine looks like: BIOS/UEFI hands it some basic information, but the bootloader knows much more — specifically, **how the file system is arranged on the disk**.
-- On Linux, the bootloader is typically **GRUB** — **GNU GRand Unified Bootloader**. (You've likely seen its menu screen if you've ever dual-booted: a list like "Fedora Linux", "Fedora Linux (rescue mode)", "UEFI Firmware Settings".)
+- On Linux, the bootloader is typically **GRUB** — **GNU GRand Unified Bootloader**.
 - **If dual-booting**, the bootloader is where you choose which OS to load (e.g., Windows vs Linux).
 
 ### What the bootloader actually does
