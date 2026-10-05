@@ -14,22 +14,52 @@ $$E[aX+bY]=aE[X]+bE[Y]\ (\text{always}),\qquad \mathrm{Var}(X)=E[X^2]-E[X]^2,\qq
 - $1+x\le e^x$ for all $x$.
 - Linear combination of independent Gaussians is Gaussian: $\sum a_iZ_i\sim N\big(\sum a_i\mu_i,\ \sum a_i^2\sigma_i^2\big)$.
 - Spectral theorem: symmetric $A=\sum\lambda_iv_iv_i^T$.
+- Cauchy–Schwarz: $|\langle x,y\rangle|\le\|x\|\|y\|$. Orthogonal matrix: $Q^TQ=I\Rightarrow\|Qx\|=\|x\|$ (rotation/reflection).
+- Eigen: $Av=\lambda v$, $\det(A-\lambda I)=0$; $2\times2$: $\lambda=\frac{\mathrm{tr}\pm\sqrt{\mathrm{tr}^2-4\det}}2$. Symmetric $A$: $\|A\|_2=\max_i|\lambda_i|$; always $\|A\|_2\le\|A\|_F$.
+- ⚠ $\mathrm{Cov}(X,Y)=0\not\Rightarrow$ independent (e.g. $X$ uniform on $\{-1,0,1\}$, $Y=X^2$).
 
 ## 0.2 High-dimensional geometry (W2)
 
 $$V(r)=c_dr^d,\qquad \frac{V((1-\epsilon)r)}{V(r)}=(1-\epsilon)^d\le e^{-\epsilon d},\qquad V(1)=\frac{\pi^{d/2}}{\Gamma(\frac d2+1)}$$
 
 - Shell width where volume transitions: $\epsilon=\Theta(1/d)$ (set $\epsilon=c/d\Rightarrow e^{-c}$).
+- Constant volume needs $r\approx\sqrt{d/(2\pi e)}$ (Stirling: $V(r)\approx(2\pi er^2/d)^{d/2}$); any fixed $r$ gives $V\to0$.
 - Thin slab: for $x$ uniform in $B^d$, at least $1-\frac2ce^{-c^2/2}$ of the volume has $|x_1|\le\frac{c}{\sqrt{d-1}}$. Density of one coordinate: $f(s)\approx\sqrt{\frac{d-1}{2\pi}}e^{-(d-1)s^2/2}$.
 - Coordinate budget (unit vectors): $E[x_k^2]=\frac1d$, $\ \mathrm{Var}\langle x_i,x_j\rangle=\frac1d$.
 - $n$ random points in $B^d$ (prob. $\ge1-O(1/n)$): $\|x_i\|\ge1-\frac{2\ln n}{d}$, $\ |\langle x_i,x_j\rangle|\le\sqrt{\frac{6\ln n}{d-1}}$.
 - Spherical Gaussian $x\sim N(0,I_d)$: $E\|x\|^2=d$. **Annulus theorem:** $\Pr\big[\,|\|x\|-\sqrt d|\ge\beta\,\big]\le3e^{-\beta^2/8}$ for $\beta\le\sqrt d$.
+- Gaussian mass in a shell at radius $r\propto e^{-r^2/2}\,r^{d-1}$ (density shrinks, surface area explodes), peaking at $r\approx\sqrt{d-1}$. Shell width is $O(1)$; do not confuse with the ball's volume shell $\Theta(1/d)$.
+- Annulus proof chain: $y_i=x_i^2\sim\chi^2_1$, $E[e^{\lambda y_i}]=(1-2\lambda)^{-1/2}$ ($\lambda<\frac12$); $\ln E[e^{\pm\lambda(y_i-1)}]\le2\lambda^2$ for $\lambda\in[0,\frac14]$; Chernoff with $\lambda^*=\frac t{4d}$: $\Pr[\sum(y_i-1)\ge t]\le e^{-t^2/8d}$ for $0\le t\le d$ (same for $\le-t$). Convert: $\|x\|\ge\sqrt d+\beta\iff\sum(y_i-1)\ge2\beta\sqrt d+\beta^2$; $\|x\|\le\sqrt d-\beta\iff\sum(y_i-1)\le-(2\beta\sqrt d-\beta^2)$. Worst constant $c=\frac18$ (lower tail at $\beta=\sqrt d$).
 - Two Gaussians: $x-x'=\sqrt2\,z$ ($z\sim N(0,I)$), $\|x-x'\|^2\approx2d$, $\|x-y\|^2\approx2d+\Delta^2$, separable if $\Delta=\Omega(d^{1/4})$.
 - Random projection $f(v)=Av$, $A$ is $k\times d$ with i.i.d. $N(0,1)$ entries: $\|f(v)\|\approx\sqrt k\|v\|$ and
 $$\Pr\big[\,|\|f(v)\|-\sqrt k\|v\||\ge\epsilon\sqrt k\|v\|\,\big]\le3e^{-ck\epsilon^2},\quad c=\tfrac18$$
 - **JL:** $k\ge\frac{3\ln n}{c\epsilon^2}$ keeps all pairwise distances within $(1\pm\epsilon)\sqrt k$ with probability $\ge1-\frac3{2n}$. $\ f(x)=\frac1{\sqrt k}Rx$.
+- Projection facts: $(f(v))_i=u_i\cdot v\sim N(0,\|v\|^2)$ i.i.d., so $f(v)/\|v\|\sim N(0,I_k)$ and $\|f(v)\|\approx\sqrt k\|v\|$ ($d$ never appears). $f$ linear $\Rightarrow\|f(x)-f(y)\|=\|f(x-y)\|$. Do not orthogonalise the rows (keeps coordinates independent; random rows are nearly orthogonal anyway).
+- JL derivation: need $3e^{-ck\epsilon^2}\le\frac3{n^3}$ per pair; fewer than $\frac{n^2}2$ pairs; union bound gives failure $\le\frac3{2n}$.
+- JL helps only if $d\gg\epsilon^{-2}\log n$; $k=\min(d,O(\epsilon^{-2}\log n))$. Example $n=1000,\epsilon=0.1$: $k\approx\frac{\ln1000}{0.01}\approx690$; $\epsilon=0.01$ makes $k$ $100\times$ larger.
+- Sign matrix (Achlioptas): $r_{ij}=\pm1$ fair, $E=0$, $\mathrm{Var}=1$; $E[f(x)^2]=\|x\|^2$ since $E[r_1r_2]=0$. Fails for spiky $v$ (large $\|v\|_\infty/\|v\|_2$, e.g. one-hot); Gaussian projection is rotation-invariant.
+- Attention: $\mathrm{softmax}\big(QK^T/\sqrt{d_k}\big)V$ ($q\cdot k$ has variance $d_k$, so scale by $1/\sqrt{d_k}$).
 
 ## 0.3 Concentration (L4)
+
+**Mean and variance of standard distributions** (needed to plug into Markov/Chebyshev/Chernoff):
+
+| distribution | mean | variance | note |
+|---|---|---|---|
+| Bernoulli$(p)$ ($\{0,1\}$) | $p$ | $p(1-p)$ | $E[X^2]=p$ |
+| Binomial$(n,p)$ | $np$ | $np(1-p)$ | sum of $n$ indep. Bernoulli; fair coins: $\frac n2,\frac n4$ |
+| Discrete uniform $\{1,\dots,n\}$ | $\frac{n+1}2$ | $\frac{n^2-1}{12}$ | fair die: $3.5,\ \frac{35}{12}\approx2.92$ |
+| Uniform$[a,b]$ | $\frac{a+b}2$ | $\frac{(b-a)^2}{12}$ | $E[x^r]$ on $[0,a]$: $\frac{a^r}{r+1}$; $[0,1]$: $\frac12,\frac1{12}$; $[0,2]$: $1,\frac13$ |
+| Gaussian $N(\mu,\sigma^2)$ | $\mu$ | $\sigma^2$ | MGF $E[e^{\lambda X}]=e^{\mu\lambda+\sigma^2\lambda^2/2}$ |
+| Poisson$(\lambda)$ | $\lambda$ | $\lambda$ | |
+| Geometric$(p)$ (trials to first success) | $\frac1p$ | $\frac{1-p}{p^2}$ | |
+| Exponential$(\lambda)$ | $\frac1\lambda$ | $\frac1{\lambda^2}$ | |
+| Chi-squared $\chi^2_k$ (sum of $k$ squared $N(0,1)$) | $k$ | $2k$ | $\chi^2_1$: $x^2$ with $x\sim N(0,1)$, mean $1$, var $2$ |
+| Two-point $\{0,a\}$, $\Pr[a]=\frac1a$ | $1$ | $a-1$ | the Markov-tight example |
+
+- Transformations: $E[aX+b]=aE[X]+b$, $\ \mathrm{Var}(aX+b)=a^2\mathrm{Var}(X)$. Indep. sum: $E[\sum X_i]=\sum E[X_i]$, $\mathrm{Var}(\sum X_i)=\sum\mathrm{Var}(X_i)$.
+- Sample mean of $n$ i.i.d.: mean $\mu$, variance $\frac{\sigma^2}n$, sd $\frac\sigma{\sqrt n}$. $\ \mathrm{Var}(X)=E[X^2]-E[X]^2$.
+- Gaussian: sum of indep. Gaussians is Gaussian (means add, variances add); $X\sim N(\mu,\sigma^2)\Rightarrow\frac{X-\mu}\sigma\sim N(0,1)$.
 
 $$\textbf{Markov } (X\ge0):\ \Pr[X\ge a]\le\frac{E[X]}a\qquad\textbf{Chebyshev:}\ \Pr[|X-\mu|\ge a]\le\frac{\sigma^2}{a^2}$$
 
@@ -38,11 +68,16 @@ $$\textbf{Weak law:}\ \Pr[|\bar X-\mu|\ge\epsilon]\le\frac{\sigma^2}{n\epsilon^2
 $$\textbf{Chernoff } (X=\textstyle\sum\text{ independent }\{0,1\},\ \mu=E[X],\ 0<\delta\le1):$$
 $$\Pr[X\ge(1+\delta)\mu]\le e^{-\mu\delta^2/3},\qquad \Pr[X\le(1-\delta)\mu]\le e^{-\mu\delta^2/2},\qquad \Pr[|X-\mu|\ge\delta\mu]\le2e^{-\mu\delta^2/3}$$
 $$\text{general: }\Pr[X\ge(1+\delta)\mu]\le\left(\frac{e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu$$
+- Chernoff proof chain: $\Pr[X\ge(1+\delta)\mu]\le e^{-t(1+\delta)\mu}E[e^{tX}]$; $E[e^{tX}]=\prod(1+p_i(e^t-1))\le e^{\mu(e^t-1)}$ (using $1+y\le e^y$, $\sum p_i=\mu$); pick $t=\ln(1+\delta)$.
+- Binomial: $\mu=np$, $\sigma^2=np(1-p)$. $\mathrm{Bin}(n,\frac12)$, $\Pr[X\ge0.6n]$: Chebyshev $\frac{25}n$, Chernoff $e^{-n/150}$. For small $n$ Chebyshev can beat the one-sided Chernoff (e.g. $n=300$, $\Pr[X\ge180]$: $0.083$ vs $0.135$).
 
 - Recipes: Chebyshev = Markov on $(X-\mu)^2$. Chernoff = Markov on $e^{tX}$, factorise (independence), use $1+y\le e^y$.
 - Union bound: $\Pr[\cup A_i]\le\sum\Pr[A_i]$.
+- Tail decay in $a$: Markov $\frac1a$, Chebyshev $\frac1{a^2}$, Chernoff $e^{-\Theta(a^2)}$ (each extra assumption: mean $\to$ variance $\to$ independence).
+- Independence: Markov/Chebyshev hold under any dependence. $\mathrm{Var}(\bar X)=\sigma^2/n$ needs only uncorrelated; Chernoff needs full independence. Perfect correlation $X_i=X_1$: $\mathrm{Var}(\bar X)=\sigma^2$, no concentration.
 - Fitting a Gaussian: $\hat\mu=\frac1n\sum x^{(i)}$, $\hat\mu_j\sim N(\mu_j,\sigma^2/n)$, samples $n\ge\frac{d\sigma^2}{\epsilon^2\eta}$ (Chebyshev + union bound). $\hat\sigma^2=\frac1{nd}\sum\|x^{(i)}-\hat\mu\|^2$ (biased by $\frac{n-1}n$).
 - ⚠ Gaussian tail via MGF ($E e^{\lambda Z}=e^{\lambda^2/2}$, Chernoff recipe with $\lambda=t$): $\Pr[|Z|\ge t]\le2e^{-t^2/2}$ for $Z\sim N(0,1)$.
+- Separating two $N(\mu_i,I)$ (L4 §10), $\delta=\mu_1-\mu_2$, $\|\delta\|=\Delta$, $z\sim N(0,I_d)$: same cluster $\|x-x'\|^2=2\|z\|^2=2d\pm O(\sqrt d)$; different clusters $\|x-y\|^2=\Delta^2+2\sqrt2\,\delta\cdot z+2\|z\|^2$ with $\delta\cdot z\sim N(0,\Delta^2)$, so $=2d+\Delta^2\pm O(\sqrt d)$. Distinguishable iff $\Delta^2\gg\sqrt d\iff\Delta\gg d^{1/4}$ (e.g. $d=10^8$: $\Delta\sim100$ vs radius $10^4$). If $\mu_1-\mu_2$ is known, project onto it: two 1-D Gaussians $\Delta$ apart.
 
 ## 0.4 SVD (L5)
 
@@ -50,26 +85,43 @@ $$A=U\Sigma V^T=\sum_{i=1}^r\sigma_iu_iv_i^T,\qquad u_i=\frac{Av_i}{\sigma_i},\q
 
 - Recipe for SVD by hand: (1) $A^TA$; (2) eigenvalues $\lambda_i$, unit eigenvectors $v_i$; (3) $\sigma_i=\sqrt{\lambda_i}$; (4) $u_i=Av_i/\sigma_i$.
 - Best-fit line through origin: $v_1=\arg\max_{\|v\|=1}\|Av\|$. Pythagoras: $\|a_i\|^2=\langle a_i,v\rangle^2+\mathrm{dist}^2$. Minimise distance $\iff$ maximise $\|Av\|^2=v^TA^TAv=\sum\lambda_ic_i^2\le\lambda_1$.
+- Greedy: $v_k=\arg\max_{\|v\|=1,\ v\perp v_1,\dots,v_{k-1}}\|Av\|$, $\sigma_k=\|Av_k\|=\sqrt{\lambda_k(A^TA)}$, $\sigma_1\ge\sigma_2\ge\dots$ (each direction captures less than the last).
 - Greedy $v_1,\dots,v_k$ span the best-fit $k$-subspace. **Best-fit line NOT through origin: centre first** (passes through the centroid).
 - Power method: $x\leftarrow\frac{Bx}{\|Bx\|}$, $B=A^TA$. $\ B^tx=\sum\sigma_i^{2t}\langle x,v_i\rangle v_i$. Error shrinks by $(\sigma_2/\sigma_1)^2$ per step; $\tan\angle(x_t,v_1)=\frac{(\sum_{i\ge2}c_i^2\sigma_i^{4t})^{1/2}}{|c_1|\sigma_1^{2t}}$. $\ \sigma_1=\|Av_1\|$.
-- Stopping: $1-|x^Tx_{old}|\approx\theta^2/2<\varepsilon$ for $k$ consecutive steps. Random start: $\Pr[|x^Tv_1|\le\frac1{20\sqrt d}]\approx0.04$.
+- Stopping: $1-|x^Tx_{old}|\approx\theta^2/2<\varepsilon$ for $k$ consecutive steps. Random start: $\Pr[|x^Tv_1|\le\frac1{20\sqrt d}]\approx0.04$.  General: $\Pr[|x^Tv_1|\le\delta]\approx2\delta\sqrt{\frac{d-1}{2\pi}}$ (density is flat near $0$); independent of $d$ at $\delta\propto1/\sqrt d$.
 - Deflation: $A-\sigma_1u_1v_1^T=A(I-v_1v_1^T)$. Cost $O(ndkt)$.
+- Deflation step: $x\leftarrow x-\sum_{v\in V}(v^Tx)v$, then $x\leftarrow A^T(Ax)/\|A^T(Ax)\|$ (two matvecs, never form $A^TA$). Matvec $O(nd)$; full SVD $O(nd\min(n,d))$; deflation wins when $k\ll\min(n,d)$. Errors in early vectors leak into later ones.
 - Block iteration: $X\leftarrow A^T(AX)$, $X=QR$. Lanczos: $T$ tridiagonal ($\alpha_j$ diagonal, $\beta_j$ off-diagonal), $\sigma_i\approx\sqrt{\theta_i}$, needs $O(1/\sqrt{\text{gap}})$, $\text{gap}=\min_{i\le k}\frac{\sigma_i-\sigma_{i+1}}{\sigma_1}$ (power method $O(1/\text{gap})$). Randomized SVD: $Y=A\Omega$, $q$ times $Y\leftarrow A(A^TY)$, $Y=QR$, $B=Q^TA$, SVD of $B$.
+- Costs: block iteration $O(ndkt)+O(dk^2t)$ (QR every step stops error leakage); Lanczos $O(ndm)+O(dm^2)$; randomized SVD $O(ndkq)$, only $O(q)$ passes over $A$.
+- Lanczos recurrence: $w=A^T(Aq_j)-\beta_{j-1}q_{j-1}$, $\alpha_j=q_j^Tw$, $w\leftarrow w-\alpha_jq_j$, $\beta_j=\|w\|$, $q_{j+1}=w/\beta_j$; $T=Q^TBQ$; eigenpairs $(\theta_i,y_i)$ of $T$ give $\sigma_i=\sqrt{\theta_i}$, $v_i=Qy_i$. Rounding breaks orthogonality (ghost eigenvalues); fix: selective reorthogonalisation.
+- Randomized SVD dims: $\Omega\in\mathbb R^{d\times(k+p)}$ ($p$ = oversampling), $Q\in\mathbb R^{n\times(k+p)}$, $B=Q^TA$ is $(k+p)\times d$, SVD $B=\hat U\Sigma V^T$, $U=Q\hat U$.
 - **Eckart–Young:** $\|A-A_k\|_F=\sqrt{\sum_{i>k}\sigma_i^2}$, $\ \|A-A_k\|_2=\sigma_{k+1}$. $\ \|A\|_F^2=\sum\sigma_i^2$. Storage of $A_k$: $k(m+n+1)$.
+- Relative error $=\sqrt{\sum_{i>k}\sigma_i^2/\sum_i\sigma_i^2}$ (e.g. $\sigma=(10,5,2,1)$, $k=2$: $\sqrt{5/130}\approx0.196$). Frobenius error is a root of a sum; spectral error is the single $\sigma_{k+1}$. Compression pays only if $k(m+n+1)<mn$.
 - PCA: centre $\tilde A=A-\mathbf1\bar a^T$, $C=\frac1n\tilde A^T\tilde A$, variance along $v_i=\sigma_i^2/n$. Explained variance $=\frac{\sum_{i\le k}\sigma_i^2}{\sum_i\sigma_i^2}$.
-- Gavish–Donoho (as given in the problem): $\tau^\star\approx2.858\,\sigma\sqrt n$. (Notes' known-$\sigma$ form: $\frac4{\sqrt3}\sqrt n\sigma$.)
+- Implicit centring (keeps sparsity): $\tilde Ax=Ax-\mathbf1(\bar a^Tx)$, $O(d)$ extra per matvec. $\mathrm{tr}(C)=\sum_i\sigma_i^2/n$. Uncentred SVD $v_1$ just points toward the mean; use raw SVD when zero is meaningful or sparsity matters, PCA for max-variance directions.
+- Gavish–Donoho (as given in the problem): $\tau^\star\approx2.858\,\sigma\sqrt n$. (Notes' known-$\sigma$ form: $\frac4{\sqrt3}\sqrt n\sigma$.) Lecture form for unknown $\sigma$: $\tau\approx2.858\,\sigma_{\text{med}}$ ($\sigma_{\text{med}}$ = median singular value). ⚠ The lecture pairs $2.858$ with the median, not with $\sigma\sqrt n$; use whichever form the question states.
 - LoRA: $W=W_0+\frac\alpha rBA$, params $d^2\to2dr$, $B=0$ at start, $A$ random. ⚠ Rank: $\mathrm{rank}(X+Y)\le\mathrm{rank}X+\mathrm{rank}Y$.
+- LoRA details: forward $y=W_0x+\frac\alpha r(BA)x$; merge $W\leftarrow W_0+\frac\alpha rBA$ (no inference cost); ratio $\frac{d^2}{2dr}=\frac d{2r}$ ($d=4096,r=8$: $256\times$). Only $A,B$ get gradients. Dropped energy at rank $r$ is $\sum_{i>r}\sigma_i^2$ (Eckart–Young); fails if $\Delta W$'s singular tail is not small.
 
 ## 0.5 Applications of SVD & curse of dimensionality (L6)
 
 - LSI: terms = rows, $q_k=U_k^Tq$, $d_j=U_k^TA_{\cdot j}$, score $\cos(q_k,d_j)$. $(U_k^Tx)^T(U_k^Ty)=(P_kx)^T(P_ky)$, $P_k=U_kU_k^T$. (Need $k\ge2$ for cosine.)
+- Latent loadings of the rows $=U_k\Sigma_k$ (projection onto $v_1,\dots,v_k$); similar loadings $\Rightarrow$ similar rows even with no raw feature shared. $\|U_k^Tx\|^2=\|P_kx\|^2$. Permutation lemma: $A'=PA\Rightarrow A'=(PU)\Sigma V^T$. $A$ is terms $\times$ docs, query = an extra column; $A_k$ can turn a $0$ entry nonzero (inference, not just compression). Docs as rows swaps $U\leftrightarrow V$.
 - Recommender: $\hat A_{ij}=\sum_{\ell\le k}\sigma_\ell u_{i\ell}v_{j\ell}$. Masked objective $\min\sum_{(i,j)\ obs}(A_{ij}-(UV^T)_{ij})^2$. ALS = ridge: $p_u=\arg\min\sum_{i\ rated}(A_{ui}-p\cdot q_i)^2+\lambda\|p\|^2$. Zero init stays at zero.
+- Plain SVD needs a filled matrix, so the prediction depends on the fill (toy $\begin{pmatrix}5&4&3\\10&8&6\\15&12&?\end{pmatrix}$: fill $0\to3.28$, fill $20\to18.19$, truth $9$). Rank-$k$ model of $m\times n$ has $k(m+n-k)$ parameters (ambient $d$ never enters). ALS: each step is a closed-form ridge regression; convex in $U$ or $V$ alone, only a stationary point jointly.
 - KDE: $\hat p(x)=\frac1{nh^d}\sum K\big(\frac{x-x^{(i)}}h\big)$; $\text{bias}^2\propto h^4$, $\text{var}\propto\frac1{nh^d}$; $h^*\propto n^{-1/(d+4)}$; $\text{MSE}\propto n^{-4/(d+4)}$; $n\propto\varepsilon^{-(d+4)/4}$.
-- Neighbourhood side: $e_d(r)=r^{1/d}$. Points per bump $n(h^*)^d\to1$.
+- KDE derivation: $\mathrm{MSE}(h)\propto h^4+\frac1{nh^d}$; $\frac d{dh}=0\Rightarrow h^{d+4}\propto\frac1n$. $\varepsilon=\mathrm{MSE}/p(0)^2$, so $n\propto\varepsilon^{-1}c^d$, $c=\varepsilon^{-1/4}>1$ (each extra dimension multiplies $n$ by $c$). Silverman ($\varepsilon\le0.1$): $d=1\to4$, $d=10\to842{,}000$ samples. Small $h$: low bias, high variance (spiky); large $h$: high bias, low variance (merges modes). Not the cost of fitting a Gaussian (that is $O(d)$ numbers); it is the cost of assuming no form.
+- Neighbourhood side: $e_d(r)=r^{1/d}$ ($d=10,r=0.01\Rightarrow0.63$). A kernel of width $h$ covers fraction $r=h^d$, so $h=e_d(r)$. Points per bump $n(h^*)^d\propto n^{4/(d+4)}\to1$.
 - Distance concentration: $\frac{\text{dist}_{\max}-\text{dist}_{\min}}{\text{dist}_{\min}}\to0$.
+  Proof: $\|x-x^{(i)}\|^2$ is a sum of $d$ i.i.d. terms $=\Theta(d)\pm O(\sqrt d)$, so relative spread $O(1/\sqrt d)$. JL keeps distances so does not cure it (speed only); PCA cures it by dropping directions, but only while signal outweighs junk.
 - ⚠ First-order: $\sqrt X\approx\sqrt{EX}+\frac{X-EX}{2\sqrt{EX}}$. Maximum of $N$ Gaussians $\approx$ the stated median value (given in problem).
 - UMAP: $\rho_i=d_1$; $\sum_{j}e^{-(d_j-\rho_i)/\sigma_i}=\log_2k$; $w_{j|i}=e^{-(d_j-\rho_i)/\sigma_i}$; fuzzy union $w_{ij}=a+b-ab$. Laplacian $L=D-W$, $y^TLy=\frac12\sum_{i,j}w_{ij}(y_i-y_j)^2$; $L\mathbf1=0$ (discard).
+- UMAP details: calibration LHS lies in $[1,k]$ (nearest neighbour gives $e^0=1$) and increases in $\sigma_i$, so solve by bisection. Low-dim similarity $q_{ij}=(1+a\|y_i-y_j\|^{2b})^{-1}$ ($a=b=1$: t-SNE Cauchy kernel). Attract an edge $(i,j)\sim w_{ij}$ with gradient of $-\log q_{ij}$; repel a random pair with gradient of $-\log(1-q_{ij})$. Spectral init: eigenvectors of $L$ for the $m$ smallest nonzero eigenvalues. Pipeline: PCA ($\sim50$) $\to$ k-NN graph $\to$ layout.
 - RAG: $s_i=\langle z_q,z_i\rangle$, $w_i=\frac{e^{s_i/\tau}}{\sum e^{s_j/\tau}}$, $p=\sum w_ig_i$, $\varepsilon_k=\sum_{i\notin Z_k}w_i$, $0\le p-\hat p\le\varepsilon_k$. $\ r_i=\frac{w_ig_i}p$, $\ \frac{\partial\log p}{\partial s_i}=\frac{r_i-w_i}\tau$. RAG-Sequence $p=\sum_zp(z)\prod_tp(y_t\mid z)$; RAG-Token $p=\prod_t\sum_zp(z)p(y_t\mid z)$.
+- Generator: $p_\theta(y\mid x)=\prod_tp_\theta(y_t\mid x,y_{<t})$, each factor a softmax over $V$; $x=[q;c_i]$. Beam search width $B$ keeps the $B$ best prefixes ($B|V|$ candidates per step); greedy can miss the best sequence.
+- Cost grows with $k$, not $N$ (all passages: $N=2.1\times10^7$ generator passes). $w_i(s+c\mathbf1)=w_i(s)$: weights see only score differences, so they sum to $1$ even if every passage is irrelevant.
+- Training: $\mathcal L=-\log\sum_{i\in Z_k}w_ig_i$, $g_i=p_\theta(y\mid q,c_i)$; $p_\eta(z_i\mid q)\propto e^{s_i/\tau}$ on $Z_k$; $\nabla_\theta\log p=\sum_ir_i\nabla_\theta\log g_i$; $\frac{\partial\log p}{\partial z_q}=\sum_i\frac{\partial\log p}{\partial s_i}z_i$. $w_i$ = prior, $r_i$ = posterior; a score rises iff $r_i>w_i$. $E_p$ and the index are frozen, so learning only re-ranks the top-$k$. (In the $\varepsilon_k$ bound $w_i$ is normalised over all $N$; in the algorithm, over $Z_k$.)
+- DPR: $\mathcal L=-\log\frac{e^{s_+}}{e^{s_+}+\sum_je^{s_j^-}}$, $-\frac{\partial\mathcal L}{\partial s_i}=\mathbf1[i=+]-w_i$ (hard label) vs RAG's soft $r_i-w_i$.
 
 ---
 

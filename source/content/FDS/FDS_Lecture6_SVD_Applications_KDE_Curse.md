@@ -238,6 +238,47 @@ Rows of $U$ are user factors $p_u\in\mathbb{R}^k$; rows of $V$ are item factors 
 - The problem is non-convex jointly, but **convex in $U$ alone or $V$ alone**.
 - Guaranteed only to reach a stationary point. Hence random, not zero, initialisation (zero init would stay at zero).
 
+### Worked example: ALS on the toy matrix ($k=1$, $\lambda=0$)
+
+$$A=\begin{pmatrix}5&4&3\\10&8&6\\15&12&?\end{pmatrix},\qquad\text{observed: every entry except }(3,3)$$
+
+With $k=1$ each $p_u$ and $q_i$ is a single number. Start with $q=(1,1,1)$.
+
+**Update users.** $p_u=\dfrac{\sum A_{ui}\,q_i}{\sum q_i^2}$, summed over that user's observed items:
+- user 1: $(5+4+3)/3=\mathbf4$
+- user 2: $(10+8+6)/3=\mathbf8$
+- user 3 (items 1, 2 only): $(15+12)/2=\mathbf{13.5}$
+
+**Update items.** $q_i=\dfrac{\sum A_{ui}\,p_u}{\sum p_u^2}$, summed over users who rated item $i$. For items 1 and 2, $\sum p^2=16+64+182.25=262.25$:
+- item 1: $(5\cdot4+10\cdot8+15\cdot13.5)/262.25=302.5/262.25=\mathbf{1.153}$
+- item 2: $(4\cdot4+8\cdot8+12\cdot13.5)/262.25=242/262.25=\mathbf{0.923}$
+- item 3 (users 1, 2 only): $(3\cdot4+6\cdot8)/(16+64)=60/80=\mathbf{0.75}$
+
+**Prediction after one round:** $p_3\,q_3=13.5\times0.75=10.1$.
+
+Further rounds (computed numerically):
+
+| Round | Prediction for "?" |
+|---|---|
+| 1 | 10.13 |
+| 2 | 9.14 |
+| 3 | 9.02 |
+| 4 | 9.002 |
+
+It converges to the true answer $\mathbf{9}$, which plain SVD with a fill value could not reach (0 gave 3.28, 20 gave 18.19).
+
+| | SVD with a filled-in value | Masked objective with ALS |
+|---|---|---|
+| Needs a guess for blanks? | yes | no |
+| Result on the toy (true = 9) | 3.28 or 18.19 | $\to9$ |
+| Closed form? | yes | no, iterative |
+
+> [!tip] Exam recap
+> 1. $\hat A_{ij}=\sum_\ell\sigma_\ell u_{i\ell}v_{j\ell}$ is a rank-$k$ model of the ratings.
+> 2. SVD with a fill value depends on the fill; the correct objective sums squared error over observed entries only.
+> 3. ALS alternates ridge regressions: fix the $q$'s and solve the $p$'s, then fix the $p$'s and solve the $q$'s.
+> 4. Convex in each block, not jointly; reaches a stationary point only. Initialise randomly, not at zero.
+
 ---
 
 ## 5. From Subspaces to Shape

@@ -51,7 +51,6 @@ flowchart LR
 ## 2. Hardware Organization
 
 Here's a simplified picture of how the pieces of a computer are wired together:
-
 ```mermaid
 flowchart TB
     subgraph CPU["CPU"]
@@ -222,7 +221,6 @@ main() {
 ### 5.1 The Big Picture
 
 A computer system = **CPU + Main Memory + I/O devices**, all connected by a **system bus** (some I/O devices also sit on specialized buses like USB).
-
 - A **bus** is simply a set of wires that carry data between components. Since multiple components might want to use the bus at once, there are **bus arbitration protocols** to coordinate access (like traffic rules at an intersection).
 - Each I/O device is managed by a **device controller** - essentially a small microcontroller with its own registers that "speaks" to the CPU/memory over the bus.
 
