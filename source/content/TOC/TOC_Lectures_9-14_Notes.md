@@ -240,8 +240,7 @@ Hence $(E(q), va) \vdash_{M'}^* (P, \varepsilon)$ with $p \in P$. The converse i
 
 **Conclusion of theorem:**
 
-$$\begin{aligned}
-w \in L(M) &\iff (s, w) \vdash_M^* (f, \varepsilon),\ f \in F \\
+$$\begin{aligned} w \in L(M) &\iff (s, w) \vdash_M^* (f, \varepsilon),\ f \in F \\
 &\iff (E(s), w) \vdash_{M'}^* (Q, \varepsilon),\ f \in Q \quad \text{(by Claim)} \\
 &\iff (s', w) \vdash_{M'}^* (Q, \varepsilon),\ Q \in F' \\
 &\iff w \in L(M')
