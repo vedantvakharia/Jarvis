@@ -900,12 +900,3 @@ Use it by contradiction. Choose $w$ wisely, force $y$ into one block, pump with 
 ## Main equivalences
 
 $$\text{Regular language} \iff \text{DFA} \iff \text{NFA} \iff \text{Regular expression}$$
-
-## Common exam mistakes
-
-- Forgetting to include $\varepsilon$-closure when computing $\delta(Q,a)$.
-- Marking a DFA subset final only when **all** members are final (it is **any**).
-- Complementing an NFA directly (must convert to DFA first).
-- Star construction: making the old start final instead of adding a **new** final start.
-- Pumping lemma: choosing the split yourself (must handle **all** splits).
-- Using the pumping lemma to "prove" a language is regular (impossible).
