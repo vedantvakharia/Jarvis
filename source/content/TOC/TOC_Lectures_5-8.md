@@ -1,79 +1,18 @@
-
-# Theory of Computation: Lectures 5-8
-## Regular Expressions, Regular Languages, and Finite Automata
-
----
-
 ## Table of Contents
-1. [[#1. Recap - Languages and Concatenation]]
-2. [[#2. Kleene Star]]
-3. [[#3. Finite Representation of Languages]]
-4. [[#4. Regular Expressions - Formal Definition]]
-5. [[#5. Regular Languages]]
-6. [[#6. Big Questions About Regular Languages]]
-7. [[#7. Finite State Automaton - Motivation]]
-8. [[#8. The Toll Gate Example]]
-9. [[#9. Deterministic Finite Automaton (DFA)]]
-10. [[#10. Computation and Acceptance by DFA]]
-11. [[#11. Closure Properties of DFA Languages]]
-12. [[#12. Nondeterministic Finite Automaton (NFA)]]
-13. [[#13. Summary Cheat Sheet]]
+1. [[#1. Kleene Star]]
+2. [[#2. Finite Representation of Languages]]
+3. [[#4. Regular Expressions - Formal Definition]]
+4. [[#5. Regular Languages]]
+5. [[#6. Big Questions About Regular Languages]]
+6. [[#7. Finite State Automaton - Motivation]]
+7. [[#8. The Toll Gate Example]]
+8. [[#9. Deterministic Finite Automaton (DFA)]]
+9. [[#10. Computation and Acceptance by DFA]]
+10. [[#11. Closure Properties of DFA Languages]]
+11. [[#13. Summary Cheat Sheet]]
 
 ---
-
-## 1. Recap - Languages and Concatenation
-
-### What is a language?
-Given an alphabet $\Sigma$ (a finite set of symbols, like $\{0, 1\}$), any set $L$ such that
-
-$$L \subseteq \Sigma^*$$
-
-is called a **language over $\Sigma$**. In plain words: a language is just a collection of strings built from your alphabet. $\Sigma^*$ means "all possible strings you can make from $\Sigma$, including the empty string."
-
-### Concatenation of words
-Given words $x, y \in \Sigma^*$, the **concatenation** is the word $w$ formed by writing $x$ followed by $y$. We write this as:
-
-$$w = x \circ y$$
-
-Think of it like gluing two strings end to end. If $x = ab$ and $y = 01$, then $x \circ y = ab01$.
-
-### Power of a word
-We define $w^i$ (a word repeated $i$ times) by **mathematical induction**:
-
-$$w^0 = e \quad \text{(the empty string)}$$
-$$w^{i+1} = w^i \circ w$$
-
-So $w^1 = w$, $w^2 = w \circ w$, and so on. This is just like exponents for numbers, but for strings, repetition means concatenation instead of multiplication.
-
-### Two important facts about languages
-- **Fact 1**: For any alphabet $\Sigma$, any language over $\Sigma$ is **countable** (since $\Sigma^*$ itself is countable, and any subset of a countable set is countable).
-- **Fact 2**: For any nonempty alphabet $\Sigma$, there are **uncountably many** languages over $\Sigma$ (since the power set of a countably infinite set is uncountable).
-
-> [!tip] Intuition
-> There are infinitely many possible strings, but there are even *more* possible languages (sets of strings) than there are strings themselves. This mismatch becomes important later when we ask "can every language be described by a finite formula?"
-
-### Concatenation of Languages
-Given $L_1, L_2 \subseteq \Sigma^*$, the concatenation of the languages is:
-
-$$L_1 \circ L_2 = \{w \in \Sigma^* : w = xy \text{ for some } x \in L_1, y \in L_2\}$$
-
-This means: take every string from $L_1$, glue on every string from $L_2$, and collect all the results.
-
-**Worked Example:**
-- $L_1 = \{w \in \{0,1\}^* : w \text{ has an even number of } 0\text{'s}\}$
-- $L_2 = \{w \in \{0,1\}^* : w \text{ starts with } 0 \text{ and the rest (if any) are } 1\text{'s}\}$
-
-Then:
-$$L_1 \circ L_2 = \{w \in \Sigma^* : w \text{ has an odd number of } 0\text{'s}\}$$
-
-**Why?** Any string in $L_1$ has an even number of $0$s. Concatenating a string from $L_2$ adds exactly one more $0$ (the leading $0$), flipping even to odd.
-
-> [!note] Concatenation across different domains
-> Concatenation can combine languages defined by completely different rules — the definition doesn't care *how* $L_1$ and $L_2$ describe their strings, only that we're gluing members of one to members of the other.
-
----
-
-## 2. Kleene Star
+## 1. Kleene Star
 
 ### Definition
 The **Kleene Star** $L^*$ of a language $L$ is the set of all strings obtained by concatenating **zero or more** strings from $L$:
@@ -128,7 +67,7 @@ graph LR
 
 ---
 
-## 3. Finite Representation of Languages
+## 2. Finite Representation of Languages
 
 ### The core problem
 Languages are often **infinite** sets of strings. A natural question: can we represent an infinite language using a **finite** description?
@@ -214,7 +153,7 @@ Place $b^*$ around the skeleton components:
 Combine them:
 $$b^* a b^* (a b^* a b^*)^*$$
 
-(Note: The trailing $b^_$ inside the loop already covers any ending $b$'s when $k \ge 1$, and $b^*ab^*$ covers it when $k = 0$, so an extra $b^*$ at the very end is technically redundant, though writing it as $b^*ab^*(ab^*ab^*)^*b^*$ is also correct and safe.)*
+(Note: The trailing $b^*$ inside the loop already covers any ending $b$'s when $k \ge 1$, and $b^*ab^*$ covers it when $k = 0$, so an extra $b^*$ at the very end is technically redundant, though writing it as $b^*ab^*(ab^*ab^*)^*b^*$ is also correct and safe.)*
 
   
 
@@ -607,9 +546,6 @@ graph LR
     q111 -->|1| q111
 ```
 
-> [!tip] Design pattern: "remembering a sliding window"
-> This is a very common and powerful DFA-design trick: whenever a problem asks about "the last $k$ symbols" or "a fixed distance from the end," encode that fixed-size window into the state itself. Since $k$ is fixed, the number of states stays finite (here, $2^3 = 8$).
-
 ---
 
 ## 10. Computation and Acceptance by DFA
@@ -739,13 +675,6 @@ If $M$'s current state is the pair $(r_1, r_2)$, this means:
 
 Since $K_1$ and $K_2$ are both finite, $K_1 \times K_2$ is finite too — so $M$ is a valid, legitimate DFA. The rest of the proof (that $M$ genuinely accepts $L \cup L'$) follows intuitively from the construction.
 
-```mermaid
-graph TD
-    A["M1: states K1<br/>accepts L"] --> C["M = M1 × M2<br/>states = K1 × K2"]
-    B["M2: states K2<br/>accepts L'"] --> C
-    C --> D["Accept if EITHER<br/>component is accepting"]
-    D --> E["M accepts L ∪ L'"]
-```
 
 > [!tip] This product construction is reusable
 > The exact same Cartesian product idea (with a different definition of $F$) can be used to prove closure under **intersection** — you'd just require *both* $r_1 \in F_1$ **and** $r_2 \in F_2$ instead of "or."
@@ -789,135 +718,6 @@ graph LR
 > - Languages accepted by DFA are **closed under complement**.
 
 (Intersection follows from De Morgan's laws combined with union and complement closure, or directly via the product construction adjusted for "and" instead of "or.")
-
----
-
-## 12. Nondeterministic Finite Automaton (NFA)
-
-### Motivation: why relax the DFA rules?
-
-Consider trying to build a DFA for:
-$$L = (ab \cup aba)^*$$
-
-Some languages are much **easier to describe** if we relax three strict rules that DFAs must follow. An NFA:
-
-1. **May not define** a transition for every state-symbol pair (some combinations can simply have no defined move).
-2. **Allows several possible "next states"** for a given combination of current state and input symbol (branching choices).
-3. **Allows "empty transitions"** (also called $\epsilon$-transitions) — the machine can move from one state to another **without reading any input symbol at all**.
-
-```mermaid
-graph TD
-    A["DFA constraints"] --> B["Exactly one transition<br/>per state+symbol"]
-    A --> C["No empty transitions"]
-    A --> D["Total function δ"]
-    E["NFA relaxations"] --> F["Zero, one, or many<br/>transitions per state+symbol"]
-    E --> G["Empty (ε) transitions allowed"]
-    E --> H["Transition relation, not function"]
-```
-
-### Formal Definition
-
-A nondeterministic finite automaton is a 5-tuple:
-
-$$M = (K, \Sigma, \triangle, s, F)$$
-
-where:
-
-| Symbol | Meaning |
-|---|---|
-| $K$ | Finite set of states |
-| $\Sigma$ | Finite alphabet |
-| $s \in K$ | Initial state |
-| $F \subseteq K$ | Set of final/accept states |
-| $\triangle$ | The **transition relation**, a subset of $K \times (\Sigma \cup \{e\}) \times K$ |
-
-> [!important] Function vs. relation — the crucial difference
-> A DFA's $\delta$ is a **function**: for every (state, symbol) pair, there's *exactly one* output. An NFA's $\triangle$ is a **relation**: for a given (state, symbol) pair, there can be **zero, one, or many** matching next states. This is precisely what "nondeterministic" means.
-
-### Transitions
-A triple $(q, a, p) \in \triangle$, where $a \in \Sigma \cup \{e\}$, is called a **transition** of $M$. It means: the machine, in state $q$, reading symbol $a$ on the tape (or taking an empty/$e$ move that reads nothing), can move to state $p$.
-
-### Configuration and the yields relation for NFAs
-
-Just like a DFA, a **configuration** of an NFA $(K, \Sigma, \triangle, s, F)$ is an element of $K \times \Sigma^*$.
-
-If $(q, w)$ and $(q', w')$ are configurations, then:
-
-$$(q, w) \vdash_M (q', w') \iff w = aw' \text{ for some } a \in \Sigma \cup \{e\} \text{ and } (q, a, q') \in \triangle$$
-
-> [!note] $\vdash_M$ is not necessarily a function here
-> Unlike the DFA case, since $\triangle$ is a relation, $\vdash_M$ for an NFA may **not** be a function — a single configuration could yield *multiple different* configurations in one step. This is exactly the branching/nondeterminism baked in.
-
-As before, $\vdash_M^*$ denotes the reflexive, transitive closure of $\vdash_M$.
-
-### Acceptance by NFA
-
-A string $w \in \Sigma^*$ is accepted by NFA $M$ if and only if **there exists** a state $q \in F$ such that:
-
-$$(s, w) \vdash_M^* (q, e)$$
-
-> [!important] "There exists" is the key phrase
-> A string is accepted if **at least one** sequence of moves leads from the start configuration to *some* accepting configuration — even if many *other* possible sequences of moves would lead to rejection! The NFA only needs to find **one lucky path** through its choices.
-
-Correspondingly, $w$ is **rejected** by $M$ only if **no** sequence of moves at all leads to acceptance — every possible path must fail.
-
-The language accepted by NFA $M$, $L(M)$, is the set of all strings accepted by $M$.
-
-### The "guessing" intuition
-
-As the NFA reads input, at each step it may have multiple legal next states available. The **choice of which one to take is not determined by anything in the model** — this is why it's called nondeterministic. We often describe this informally as the NFA "guessing" the right path that will lead to acceptance, then verifying that guess pans out.
-
-> [!warning] NFAs are not realistic computers!
-> Real physical computers are deterministic — they can't magically guess correctly and branch into parallel universes. NFAs are a **theoretical/mathematical modeling tool**, useful because they let us describe complicated languages far more simply. Every NFA can always be converted into an equivalent DFA (a very important theorem, stated here but proved elsewhere), so nothing is lost in computing power — just convenience of description.
-
-### Worked example: 1 in the third position from the right (the NFA way!)
-
-Compare this to the painful 8-state DFA construction from Section 9. With an NFA, this becomes dramatically simpler:
-
-$$L = \{w \in \{0,1\}^* : w \text{ has a 1 in the third position from the right}\}$$
-
-**Idea:** Strings of the form $x100$, $x101$, $x110$, $x111$ (where $x \in \{0,1\}^*$) belong to $L$. So: **stay in a loop state reading anything**, and whenever you see a $1$, **guess** "maybe this is the third-from-last symbol," branch off to check, and see if exactly two more symbols follow before the string ends.
-
-```mermaid
-graph LR
-    start((start)) --> q1
-    q1 -->|"0,1"| q1
-    q1 -->|1| q2
-    q2 -->|"0,1"| q3
-    q3 -->|"0,1"| q4((("q4")))
-```
-
-**How it works:** In state $q_1$, the machine can loop forever on any input (this represents "not yet at the interesting part"). At any point it reads a $1$, it can *choose* (nondeterministically) to guess this is the third-from-last symbol and move to $q_2$. From there, it must read exactly two more symbols (any value) to land in the accepting state $q_4$.
-
-**Why nondeterminism helps here:** The machine doesn't need to track anything about *past* symbols in its state — it just needs the freedom to "try" treating any $1$ as the critical one, and only the guesses that happen to be correct (i.e., exactly two symbols remain after) lead to acceptance.
-
-### Worked example: divisibility guess ($k \equiv 0 \mod 2$ or $k \equiv 0 \mod 3$)
-
-Consider an NFA $M$ that accepts:
-$$L = \{0^k : k \equiv 0 \bmod 2 \text{ or } k \equiv 0 \bmod 3\}$$
-
-```mermaid
-graph LR
-    start((start)) --> s0
-    s0 -->|ε| A0((("A0")))
-    s0 -->|ε| B0((("B0")))
-    A0 -->|0| A1
-    A1 -->|0| A0
-    B0 -->|0| B1
-    B1 -->|0| B2
-    B2 -->|0| B0
-```
-
-**How it works:** Right at the start, the machine uses **two $\epsilon$-transitions** (empty moves, no input consumed) to nondeterministically split into two "branches":
-- **Top branch** ($A_0, A_1$): a 2-state cycle checking "is the number of 0's divisible by 2?"
-- **Bottom branch** ($B_0, B_1, B_2$): a 3-state cycle checking "is the number of 0's divisible by 3?"
-
-The machine "guesses" which branch will lead to acceptance and decides accordingly. Since acceptance only requires *one* successful path, if the input has a 0-count divisible by *either* 2 or 3, some path accepts.
-
-**Important detail:** Any string not in $L$ is **rejected** by $M$ — for example, $0^5$ (five 0's — not divisible by 2 or 3) is always rejected, because *neither* branch can land back on an accepting state after exactly 5 steps.
-
-> [!tip] NFAs make "OR" logic trivial
-> Notice the pattern: whenever a language is naturally described as "condition A OR condition B," an NFA can often just build two separate simple machines for A and B, then glue their start states together with $\epsilon$-transitions. This is a much cleaner construction than the DFA union technique (Cartesian product) from Section 11!
 
 ---
 
@@ -965,11 +765,3 @@ graph TD
     C <-->|"NFA → DFA conversion<br/>(stated, proved elsewhere)"| D["NFA-recognizable languages"]
     E["All possible languages<br/>(uncountable)"] -.->|"regular ones are<br/>a countable subset"| B
 ```
-
----
-
-## Open Threads / Things to Watch For in Future Lectures
-- The formal proof that **every NFA has an equivalent DFA** (subset construction) was mentioned but not proved here.
-- The formal proof that **DFA-acceptable languages = regular languages** (Kleene's theorem) ties everything in this note together — watch for it.
-- Closure under **intersection** for DFA languages was implied via the product construction but not explicitly completed in these slides.
-- Question 4 from Section 6 ("which specific language is not regular, and how do you *prove* it?") was answered only by a **cardinality argument** here — a concrete example and a constructive proof technique (like the Pumping Lemma) likely comes in a later lecture.

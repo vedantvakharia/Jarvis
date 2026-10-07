@@ -78,6 +78,88 @@ An NFA is a 5-tuple $M = (K, \Sigma, \Delta, s, F)$:
 > [!note] Difference from DFA
 > $\Delta$ is a *relation* (can give many or zero results), not a function.
 
+### Configuration and the yields relation for NFAs
+
+Just like a DFA, a **configuration** of an NFA $(K, \Sigma, \triangle, s, F)$ is an element of $K \times \Sigma^*$.
+
+If $(q, w)$ and $(q', w')$ are configurations, then:
+
+$$(q, w) \vdash_M (q', w') \iff w = aw' \text{ for some } a \in \Sigma \cup \{e\} \text{ and } (q, a, q') \in \triangle$$
+
+> [!note] $\vdash_M$ is not necessarily a function here
+> Unlike the DFA case, since $\triangle$ is a relation, $\vdash_M$ for an NFA may **not** be a function — a single configuration could yield *multiple different* configurations in one step. This is exactly the branching/nondeterminism baked in.
+
+As before, $\vdash_M^*$ denotes the reflexive, transitive closure of $\vdash_M$.
+
+### Acceptance by NFA
+
+A string $w \in \Sigma^*$ is accepted by NFA $M$ if and only if **there exists** a state $q \in F$ such that:
+
+$$(s, w) \vdash_M^* (q, e)$$
+
+> [!important] "There exists" is the key phrase
+> A string is accepted if **at least one** sequence of moves leads from the start configuration to *some* accepting configuration — even if many *other* possible sequences of moves would lead to rejection! The NFA only needs to find **one lucky path** through its choices.
+
+Correspondingly, $w$ is **rejected** by $M$ only if **no** sequence of moves at all leads to acceptance — every possible path must fail.
+
+The language accepted by NFA $M$, $L(M)$, is the set of all strings accepted by $M$.
+
+### The "guessing" intuition
+
+As the NFA reads input, at each step it may have multiple legal next states available. The **choice of which one to take is not determined by anything in the model** — this is why it's called nondeterministic. We often describe this informally as the NFA "guessing" the right path that will lead to acceptance, then verifying that guess pans out.
+
+> [!warning] NFAs are not realistic computers!
+> Real physical computers are deterministic — they can't magically guess correctly and branch into parallel universes. NFAs are a **theoretical/mathematical modeling tool**, useful because they let us describe complicated languages far more simply. Every NFA can always be converted into an equivalent DFA (a very important theorem, stated here but proved elsewhere), so nothing is lost in computing power — just convenience of description.
+
+### Worked example: 1 in the third position from the right (the NFA way!)
+
+Compare this to the painful 8-state DFA construction from Section 9. With an NFA, this becomes dramatically simpler:
+
+$$L = \{w \in \{0,1\}^* : w \text{ has a 1 in the third position from the right}\}$$
+
+**Idea:** Strings of the form $x100$, $x101$, $x110$, $x111$ (where $x \in \{0,1\}^*$) belong to $L$. So: **stay in a loop state reading anything**, and whenever you see a $1$, **guess** "maybe this is the third-from-last symbol," branch off to check, and see if exactly two more symbols follow before the string ends.
+
+```mermaid
+graph LR
+    start((start)) --> q1
+    q1 -->|"0,1"| q1
+    q1 -->|1| q2
+    q2 -->|"0,1"| q3
+    q3 -->|"0,1"| q4((("q4")))
+```
+
+**How it works:** In state $q_1$, the machine can loop forever on any input (this represents "not yet at the interesting part"). At any point it reads a $1$, it can *choose* (nondeterministically) to guess this is the third-from-last symbol and move to $q_2$. From there, it must read exactly two more symbols (any value) to land in the accepting state $q_4$.
+
+**Why nondeterminism helps here:** The machine doesn't need to track anything about *past* symbols in its state — it just needs the freedom to "try" treating any $1$ as the critical one, and only the guesses that happen to be correct (i.e., exactly two symbols remain after) lead to acceptance.
+
+### Worked example: divisibility guess ($k \equiv 0 \mod 2$ or $k \equiv 0 \mod 3$)
+
+Consider an NFA $M$ that accepts:
+$$L = \{0^k : k \equiv 0 \bmod 2 \text{ or } k \equiv 0 \bmod 3\}$$
+
+```mermaid
+graph LR
+    start((start)) --> s0
+    s0 -->|ε| A0((("A0")))
+    s0 -->|ε| B0((("B0")))
+    A0 -->|0| A1
+    A1 -->|0| A0
+    B0 -->|0| B1
+    B1 -->|0| B2
+    B2 -->|0| B0
+```
+
+**How it works:** Right at the start, the machine uses **two $\epsilon$-transitions** (empty moves, no input consumed) to nondeterministically split into two "branches":
+- **Top branch** ($A_0, A_1$): a 2-state cycle checking "is the number of 0's divisible by 2?"
+- **Bottom branch** ($B_0, B_1, B_2$): a 3-state cycle checking "is the number of 0's divisible by 3?"
+
+The machine "guesses" which branch will lead to acceptance and decides accordingly. Since acceptance only requires *one* successful path, if the input has a 0-count divisible by *either* 2 or 3, some path accepts.
+
+**Important detail:** Any string not in $L$ is **rejected** by $M$ — for example, $0^5$ (five 0's — not divisible by 2 or 3) is always rejected, because *neither* branch can land back on an accepting state after exactly 5 steps.
+
+> [!tip] NFAs make "OR" logic trivial
+> Notice the pattern: whenever a language is naturally described as "condition A OR condition B," an NFA can often just build two separate simple machines for A and B, then glue their start states together with $\epsilon$-transitions. This is a much cleaner construction than the DFA union technique (Cartesian product) from Section 11!
+
 ---
 
 # 2. NFA to DFA (Subset Construction)

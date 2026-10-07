@@ -175,7 +175,6 @@ graph LR
     style aj fill:#ffcc80
 ```
 
-**Why this matters for the whole course:** this "no repeated states needed" idea is the exact reasoning later used to argue that if a finite automaton accepts *any* string, it accepts one of bounded length — the seed of the **Pumping Lemma**, which you'll meet later in the course.
 
 ---
 
