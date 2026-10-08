@@ -730,6 +730,7 @@ IQ
 Identifier
 Info
 Immediate
+Isomorphic
 tEXtSoftware
 ta
 tE
@@ -1270,6 +1271,7 @@ trickiest
 timesharing
 trusted
 tcsh
+tip
 Matplotlib
 Mj
 MR
@@ -1650,6 +1652,7 @@ MILq
 Mrl
 Meanwhile
 Mechanics
+Monoids
 version
 vyj
 vE
@@ -1865,6 +1868,9 @@ vYqq
 vn
 vk
 vmZ
+vacuously
+violate
+visited
 pHYs
 pHa
 pi
@@ -2674,6 +2680,8 @@ portability
 pops
 preemptive
 purposes
+preceded
+pigeonhole
 xTU
 xK
 xzc
@@ -3040,6 +3048,8 @@ EMBRYO
 Enter
 ESP
 Ending
+Ends
+Exhibit
 bY
 bEq
 bmO
@@ -3490,6 +3500,7 @@ bookkeeping
 baggage
 bogus
 buildup
+brackets
 ZBO
 ZD
 ZIw
@@ -3903,6 +3914,7 @@ nlll
 nudge
 notification
 nuclear
+nobody
 Do
 DW
 Dm
@@ -4238,6 +4250,8 @@ Dx
 Dp
 DpB
 DUL
+Describe
+Dead
 YmU
 Yz
 You
@@ -4764,6 +4778,9 @@ Restore
 Reaps
 Resume
 Reap
+Regroup
+Regexes
+Rejecting
 yN
 yyyG
 yD
@@ -5830,6 +5847,7 @@ dup
 drinks
 diverts
 dispatches
+differing
 UU
 UzH
 Um
@@ -5989,6 +6007,7 @@ USUE
 UTl
 UTdSU
 UNUSED
+Unambiguous
 zQ
 zFs
 zc
@@ -6650,6 +6669,7 @@ interrupted
 implicitly
 ins
 ing
+isomorphic
 mJN
 mM
 mL
@@ -7200,6 +7220,8 @@ manipulating
 misbehaving
 modifiable
 matched
+monoid
+mutual
 KB
 KC
 Krauss
@@ -7692,6 +7714,9 @@ lUS
 lHQ
 lW
 libc
+lone
+lands
+liner
 ebh
 eL
 ev
@@ -8275,6 +8300,7 @@ execs
 elevate
 entering
 executables
+evens
 gee
 go
 gko
@@ -9026,6 +9052,7 @@ Fun
 Foreground
 Forcefully
 Forking
+Finitely
 hz
 hT
 hm
@@ -9744,6 +9771,7 @@ Ly
 LcY
 LB
 Ln
+Leftover
 Vn
 VIUj
 VU
@@ -10144,6 +10172,7 @@ unaffected
 untouched
 unsaved
 umbrella
+upward
 Wn
 Ws
 Wc
@@ -10851,6 +10880,7 @@ Catching
 Calling
 Concern
 Cleaning
+Concretely
 ot
 oV
 oz
@@ -11161,6 +11191,7 @@ oJ
 oZw
 ofile
 outgoing
+odds
 Js
 JS
 JN
@@ -11839,6 +11870,7 @@ Syscalls
 Syscall
 Situation
 Serially
+Send
 Bw
 BO
 Building
@@ -12112,6 +12144,7 @@ BZ
 Blocked
 BSD
 Behaviour
+Bijection
 Gy
 Gbb
 GitHub
@@ -12307,6 +12340,7 @@ Gi
 Gxt
 Gj
 Gives
+Guess
 fvy
 fNW
 fgg
@@ -13505,6 +13539,10 @@ redirected
 resumable
 resumes
 recompile
+recoverable
+regexes
+regrouping
+renaming
 sRR
 sFL
 shows
@@ -14602,6 +14640,8 @@ segfault
 syscalls
 spawns
 sleeps
+scrambled
+screenshot
 TA
 Te
 TXp
@@ -14876,6 +14916,7 @@ TQ
 Tw
 Technically
 Trigger
+Track
 XM
 Xiong
 XX
@@ -15643,6 +15684,10 @@ ampersand
 aborts
 atomically
 ancestor
+appeared
+absorbing
+acquaintances
+acquaintance
 qiW
 qG
 quantitative
@@ -15747,6 +15792,7 @@ qd
 qhhh
 qz
 quietly
+quintuple
 cd
 change
 cat
@@ -16779,6 +16825,8 @@ combo
 consults
 cooperative
 callee
+concatenations
+commas
 whatever
 write
 will
@@ -17446,3 +17494,4 @@ AHk
 ABI
 Arnab
 Asks
+Ambiguous

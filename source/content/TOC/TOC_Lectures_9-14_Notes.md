@@ -558,7 +558,6 @@ stateDiagram-v2
     q10 --> q11: a
     q7 --> q12: eps
     q11 --> q12: eps
-    q13 --> [*]
     q7 --> [*]
     q11 --> [*]
 ```
@@ -738,16 +737,7 @@ $$\text{regular expression} \iff \text{FSA} \iff \text{regular language}$$
 
 # 6. Non-Regular Languages and Pumping Lemma
 
-## 6.1 Why some languages are not regular
-
-- **FSA view:** memory is finite and independent of input length. A machine cannot count unboundedly.
-- **Regex view:** an infinite regular language must have infinite subsets with a **repetitive structure**.
-
-**Candidates for non-regular:**
-1. $L = \{0^n 1^n : n \ge 0\}$: an FSA would have to remember how many 0s it saw.
-2. $L = \{1^p : p \text{ prime}\}$: primes have no repetitive structure.
-
-## 6.2 Pumping Lemma (statement)
+## 6.1 Pumping Lemma (statement)
 
 > **Let $L$ be regular. Then there is an integer $n \ge 1$ (pumping length) such that every $w \in L$ with $|w| \ge n$ can be written $w = xyz$ with:**
 > 1. $y \ne \varepsilon$
@@ -764,7 +754,7 @@ flowchart LR
 > [!important] Only used to prove a language is **NOT** regular
 > The lemma is a necessary condition. It can **never** prove a language is regular.
 
-## 6.3 How to write a pumping lemma proof (template)
+## 6.2 How to write a pumping lemma proof (template)
 
 1. Assume $L$ is regular. Let $n$ be its pumping length.
 2. **Choose** a specific string $w \in L$ with $|w| \ge n$ (this choice is the key step).
@@ -774,7 +764,7 @@ flowchart LR
 
 > [!warning] You do not pick the split. The lemma says a split exists; you must show that **every** valid split fails.
 
-## 6.4 Example 1: $L = \{0^n1^n : n \ge 0\}$
+## 6.3 Example 1: $L = \{0^n1^n : n \ge 0\}$
 
 Assume regular, pumping length $n$. Choose $w = 0^n1^n$. Then $w \in L$, $|w| = 2n \ge n$.
 
@@ -788,7 +778,7 @@ Contradiction. **$L$ is not regular.**
 > [!tip] Choosing the right string
 > $w = 0^{n/2}1^{n/2}$ does **not** work: $y$ could sit in a place that allows pumping. Choose $w$ so that $|xy| \le n$ forces $y$ into one uniform block.
 
-## 6.5 Example 2: $L = \{0^p : p \text{ prime}\}$
+## 6.4 Example 2: $L = \{0^p : p \text{ prime}\}$
 
 Assume regular, pumping length $n$. Choose $w = 0^p$ with $p \ge n$ prime. (Text uses $w = 0^n$ with $n$ prime.)
 
@@ -802,7 +792,7 @@ $$q + ir + s = (r+1)(q + 2r + s)$$
 
 Check: $(r+1)(q+2r+s) = qr + 2r^2 + rs + q + 2r + s$, and $q + ir + s = q + qr + 2r^2 + rs + 2r + s$. They match. Both factors are $\ge 2$ (since $r \ge 1$), so the number is **composite**. Contradiction. **Not regular.**
 
-## 6.6 Example 3: equal number of 0s and 1s
+## 6.5 Example 3: equal number of 0s and 1s
 
 $$L = \{ w \in \{0,1\}^* : \#_0(w) = \#_1(w) \}$$
 
@@ -817,7 +807,7 @@ would be regular, because regular languages are closed under intersection. But $
 > [!tip] Exam shortcut
 > If a language, intersected with a simple regular language like $0^*1^*$, gives a known non-regular language, you are done in two lines.
 
-## 6.7 Example 4: $L = \{ww : w \in \{0,1\}^*\}$
+## 6.6 Example 4: $L = \{ww : w \in \{0,1\}^*\}$
 
 Assume regular, pumping length $n$. Choose $w = 0^n10^n1$. Then $w \in L$ (it is $uu$ with $u = 0^n1$), $|w| = 2n+2 \ge n$.
 
@@ -827,7 +817,7 @@ Pump up ($i = 2$): $xy^2z = 0^{n+r}10^n1$. This has **more 0s before the first 1
 
 Contradiction. **Not regular.**
 
-## 6.8 Summary table of proofs
+## 6.7 Summary table of proofs
 
 | Language | Chosen $w$ | Where $y$ falls | Pump $i$ | Why it breaks |
 |---|---|---|---|---|
@@ -900,3 +890,20 @@ Use it by contradiction. Choose $w$ wisely, force $y$ into one block, pump with 
 ## Main equivalences
 
 $$\text{Regular language} \iff \text{DFA} \iff \text{NFA} \iff \text{Regular expression}$$
+
+
+```mermaid
+graph LR
+    start((start)) --> q0
+    q0 -->|a| q1
+    q0 -->|b| q2
+    q1 -->|a| q1
+    q1 -->|b| q3
+    q2 -->|b| q2
+    q2 -->|a| q4
+    q3 -->|b| q3
+    q3 -->|a| q5(((q5)))
+    q4 -->|a| q4
+    q4 -->|b| q5
+    q5 -->|a, b| q5
+```

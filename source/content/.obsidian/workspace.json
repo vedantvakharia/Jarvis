@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TOC/TOC_Lectures_9-14_Notes.md",
+                "file": "TOC/Tut-3-Solutions.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "TOC_Lectures_9-14_Notes"
+              "title": "Tut-3-Solutions"
             }
           }
         ]
@@ -81,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -189,8 +190,11 @@
   },
   "active": "5a2f8852a491a44a",
   "lastOpenFiles": [
-    "TOC/TOC_Lectures_5-8.md",
+    "TOC/toc_tutorial_1_2_solutions.md",
+    "TOC/Tut-4-Solutions.md",
+    "TOC/Tut-3-Solutions.md",
     "TOC/TOC_Lectures_9-14_Notes.md",
+    "TOC/TOC_Lectures_5-8.md",
     "TOC/Chapter 1.md",
     "OS/Chapter 2 - Booting.md",
     "OS/Chapter 3 - Processes and SystemCalls.md",
@@ -230,11 +234,8 @@
     "FDS/Tuts/Tut1-High-Dimensional-Geometry.md",
     "FDS/Tuts/CS_F320_Concentration_Inequalities_Solutions.md",
     "FDS/Tuts/FDS-Tut1-High-Dimensional-Geometry-Solutions.md",
-    "Untitled.md",
-    "FDS/FDS-Week2-FAISS-CaseStudy.md",
     "FDS/Tuts",
     "FDS/New folder",
-    "FDS/FDS-Tut1-High-Dimensional-Geometry-Solutions.md",
     "Pytorch/Untitled.canvas"
   ]
 }
