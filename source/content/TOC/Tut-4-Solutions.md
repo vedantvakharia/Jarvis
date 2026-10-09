@@ -1,7 +1,5 @@
 # CS F301 - Tutorial 4 Solutions: Finite Automata and Regular Expressions
 
-> **Notation.** $e$ = empty string (as in the sheet). In diagrams: `start` arrow = initial state, **double circle = final state**. In diagram labels, `U` means union ($\cup$) because diagrams cannot render LaTeX.
-
 ## Quick Recap (read this first)
 
 **Closure constructions (all on NFAs, disjoint state sets):**
