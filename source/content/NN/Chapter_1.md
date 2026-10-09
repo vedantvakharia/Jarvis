@@ -566,9 +566,9 @@ delta_C <= 0   (approximately)
 ### 7.5 The Gradient Descent Update Rule
 
 Putting it together, at each step:
-```
-v_new = v_old - eta * grad(C)
-```
+$$
+v_{new} = v_{old} - \eta * \triangledown(C)
+$$
 
 We repeat this over and over:
 ```

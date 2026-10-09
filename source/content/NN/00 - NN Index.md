@@ -1,0 +1,120 @@
+# Neural Networks & Applications (BITS F445) — Index
+
+Textbook: Michael Nielsen, *Neural Networks and Deep Learning*.
+
+## Chapters
+1. [[01 - Ch1 Perceptrons, Sigmoid Neurons and Gradient Descent]]
+2. [[02 - Ch2 Backpropagation]]
+3. [[03 - Ch3 Improving Learning]] (Part A + Part B)
+4. [[04 - Ch4 Universality]]
+
+## Practice Problems map (`Practice_Problems_1.pdf`)
+
+| Problem | Topic | Chapter |
+|---|---|---|
+| Problem 2 | Sign of gradient, direction of GD update | [[01 - Ch1 Perceptrons, Sigmoid Neurons and Gradient Descent\|Ch1]] |
+| Problem 3 | Full gradient vs mini-batch SGD | [[01 - Ch1 Perceptrons, Sigmoid Neurons and Gradient Descent\|Ch1]] |
+| Question 4 | What gradient backprop computes | [[02 - Ch2 Backpropagation\|Ch2]] |
+| Question 5 | Backpropagate the error (BP2, BP3, BP4) | [[02 - Ch2 Backpropagation\|Ch2]] |
+| Question 7 | Cross-entropy vs quadratic, saturation | [[03 - Ch3 Improving Learning\|Ch3]] |
+| Question 8 | Softmax + log-likelihood | [[03 - Ch3 Improving Learning\|Ch3]] |
+| Question 9 | L1 vs L2 regularization | [[03 - Ch3 Improving Learning\|Ch3]] |
+| Question 10 | Weight initialization, symmetry | [[03 - Ch3 Improving Learning\|Ch3]] |
+
+(Problems 1 and 6 are not in the PDF.)
+
+---
+
+# ⚡ Formula Sheet
+
+## Neuron
+| | |
+|---|---|
+| Perceptron | $y = 1$ if $w\cdot x + b > 0$, else $0$ |
+| Weighted input | $z = w\cdot x + b$ |
+| Sigmoid | $\sigma(z) = \dfrac{1}{1+e^{-z}}$, $\ \sigma'(z) = \sigma(z)(1-\sigma(z))$, max $0.25$ |
+| tanh | $\tanh z = \dfrac{e^z - e^{-z}}{e^z + e^{-z}}$, $\ \tanh' = 1 - a^2$, $\ \sigma(z) = \dfrac{1+\tanh(z/2)}{2}$ |
+| ReLU | $\max(0,z)$, derivative $1$ if $z>0$ else $0$ |
+| Softmax | $a^L_j = \dfrac{e^{z^L_j}}{\sum_k e^{z^L_k}}$ |
+
+## Network
+$$
+z^l = w^la^{l-1} + b^l, \qquad a^l = \sigma(z^l)
+$$
+$w^l_{jk}$: from neuron $k$ (layer $l-1$) to neuron $j$ (layer $l$). Params of `[784,30,10]`: $30\cdot785 + 10\cdot31 = 23860$.
+
+## Costs
+| Cost | $C_x$ | $\delta^L$ (sigmoid/softmax out) |
+|---|---|---|
+| Quadratic | $\frac12\|y - a^L\|^2$ | $(a^L - y)\odot\sigma'(z^L)$ |
+| Binary cross-entropy | $-\sum_j[y_j\ln a_j + (1-y_j)\ln(1-a_j)]$ | $a^L - y$ |
+| Softmax + NLL | $-\ln a^L_y$ | $a^L - y$ |
+| Linear output + quadratic | $\frac12\|y - a^L\|^2$ | $a^L - y$ |
+
+Overall cost: $C = \frac1n\sum_x C_x$, $\ \nabla C = \frac1n\sum_x\nabla C_x$.
+
+## Gradient descent
+$$
+\Delta C \approx \nabla C\cdot\Delta v, \qquad \Delta v = -\eta\nabla C \Rightarrow \Delta C \approx -\eta\|\nabla C\|^2 \le 0
+$$
+$$
+v \to v - \eta\nabla C
+$$
+Mini-batch SGD:
+$$
+w \to w - \frac{\eta}{m}\sum_{x\in B}\frac{\partial C_x}{\partial w}, \qquad b \to b - \frac{\eta}{m}\sum_{x\in B}\frac{\partial C_x}{\partial b}
+$$
+Updates per epoch $= n/m$.
+
+Single sigmoid neuron, quadratic: $\nabla C_x = (a-y)\,a(1-a)\,(x_1,\dots,x_n,1)^T$
+
+## Backprop
+$$
+\begin{aligned}
+\delta^L &= \nabla_{a^L}C\odot\sigma'(z^L) &\text{(BP1)}\\
+\delta^l &= ((w^{l+1})^T\delta^{l+1})\odot\sigma'(z^l) &\text{(BP2)}\\
+\partial C/\partial b^l_j &= \delta^l_j &\text{(BP3)}\\
+\partial C/\partial w^l_{jk} &= a^{l-1}_k\,\delta^l_j &\text{(BP4)}
+\end{aligned}
+$$
+Vector: $\nabla_{b^l}C = \delta^l$, $\ \nabla_{w^l}C = \delta^l(a^{l-1})^T$
+
+## Regularization
+| | Cost | Update |
+|---|---|---|
+| L2 | $C_0 + \frac{\lambda}{2n}\sum_w w^2$ | $w \to (1 - \frac{\eta\lambda}{n})w - \frac{\eta}{m}\sum\frac{\partial C_x}{\partial w}$ |
+| L1 | $C_0 + \frac{\lambda}{n}\sum_w\lvert w\rvert$ | $w \to w - \frac{\eta\lambda}{n}\operatorname{sgn}(w) - \frac{\eta}{m}\sum\frac{\partial C_x}{\partial w}$ |
+
+Biases are **not** regularized. L2 epoch decay factor $\approx e^{-\eta\lambda/m}$.
+
+Dropout: drop half the hidden neurons per mini-batch; at test time halve outgoing hidden weights.
+
+## Initialization
+- Old: $w \sim N(0,1)$ → $\operatorname{Var}(z) = (\#\text{active inputs}) + 1$ → saturation.
+- New: $w \sim N(0, 1/n_{in})$, $b \sim N(0,1)$ → $\operatorname{Var}(z) = \frac{\#\text{active}}{n_{in}} + 1$.
+- Never all-zero (symmetry).
+
+## Momentum
+$$
+v \to \mu v - \eta\nabla C, \qquad w \to w + v, \qquad \mu \approx 0.9
+$$
+
+## Universality
+- Step position $s = -b/w$ (large $w$).
+- Bump = 2 steps with output weights $+h, -h$.
+- Hidden layer approximates $\sigma^{-1}(f(x))$.
+- ReLU step: $\max(0, wx+b) - \max(0, wx+b-h)$.
+
+---
+
+# Exam traps checklist
+- $w^l_{jk}$ order: **to $j$, from $k$**.
+- BP2 uses the **transpose** $(w^{l+1})^T$.
+- $\delta = \partial C/\partial z$ (not $\partial C/\partial a$).
+- Weight from an input with $a = 0$ (or $x_j = 0$) → gradient 0 for that example.
+- Cross-entropy fixes slowdown at the **output only**, not hidden layers.
+- Softmax outputs sum to 1; sigmoid outputs don't.
+- Tune hyper-parameters on **validation**, never test data.
+- L2 shrinks proportionally; L1 by a constant → L1 gives **sparse** weights.
+- Linear activations everywhere → network collapses to one affine map.
+- Backprop computes the gradient for **one example**; average for mini-batch/full gradient.
