@@ -79,6 +79,40 @@ $$
 $$
 Vector: $\nabla_{b^l}C = \delta^l$, $\ \nabla_{w^l}C = \delta^l(a^{l-1})^T$
 
+
+$$
+C_x = C(a^L)
+$$
+
+For the quadratic cost specifically:$$C_x = \frac12 * ||y - a^L||^2 = \frac12 * \sum_j (y_j - a^L_j)^2$$
+
+### Worked example recipe (2-2-2 sigmoid net, quadratic cost)
+Forward pass:
+$$
+z^2 = w^2a^1 + b^2,\quad a^2 = \sigma(z^2),\qquad z^3 = w^3a^2 + b^3,\quad a^3 = \sigma(z^3),\qquad C_x = \tfrac12\|y-a^3\|^2
+$$
+Sigmoid derivative in terms of activation (vector form):
+$$
+\sigma'(z^l) = a^l\odot(1-a^l)
+$$
+Output layer (BP1, quadratic + sigmoid):
+$$
+\delta^3 = (a^3 - y)\odot\sigma'(z^3) = (a^3-y)\odot a^3\odot(1-a^3)
+$$
+Output-layer gradients (BP3, BP4):
+$$
+\nabla_{b^3}C = \delta^3, \qquad \nabla_{w^3}C = \delta^3(a^2)^T, \qquad \frac{\partial C}{\partial w^3_{jk}} = a^2_k\,\delta^3_j
+$$
+Hidden layer (BP2):
+$$
+\delta^2 = \big((w^3)^T\delta^3\big)\odot\sigma'(z^2) = \big((w^3)^T\delta^3\big)\odot a^2\odot(1-a^2)
+$$
+Hidden-layer gradients (BP3, BP4):
+$$
+\nabla_{b^2}C = \delta^2, \qquad \nabla_{w^2}C = \delta^2(a^1)^T, \qquad a^1 = x
+$$
+Column $k$ of $\nabla_{w^l}C$ is $0$ whenever $a^{l-1}_k = 0$ (e.g. $x_k = 0$) → weights from an inactive input don't learn.
+
 ## Regularization
 | | Cost | Update |
 |---|---|---|
@@ -93,6 +127,38 @@ Dropout: drop half the hidden neurons per mini-batch; at test time halve outgoin
 - Old: $w \sim N(0,1)$ → $\operatorname{Var}(z) = (\#\text{active inputs}) + 1$ → saturation.
 - New: $w \sim N(0, 1/n_{in})$, $b \sim N(0,1)$ → $\operatorname{Var}(z) = \frac{\#\text{active}}{n_{in}} + 1$.
 - Never all-zero (symmetry).
+
+### Ch3 practice-problem formulas (Q7–Q10)
+**Q7 — saturation, sigmoid output** ($y=1$, $a=0.01$):
+$$
+\delta^L_{\text{quad}} = (a-y)\,a(1-a), \qquad \delta^L_{\text{CE}} = a - y
+$$
+Quadratic carries the factor $\sigma'(z)=a(1-a)$ → tiny when saturated; cross-entropy cancels it (gradient $\propto$ error).
+
+**Q8 — softmax + NLL:**
+$$
+C_x = -\ln a^L_{c}\ (c = \text{correct class}), \qquad \delta^L = a^L - y, \qquad \frac{\partial C}{\partial z^L} = \delta^L
+$$
+$$
+z \to z - \eta\,\delta^L \quad(\delta_j<0 \Rightarrow z_j\uparrow,\ \ \delta_j>0 \Rightarrow z_j\downarrow)
+$$
+Outputs share the denominator $\sum_k e^{z_k}$ and sum to $1$ → raising one logit lowers all other $a_k$.
+
+**Q9 — L1 vs L2 shrink (data-gradient ignored):**
+$$
+\text{L2: } w \to \left(1-\frac{\eta\lambda}{n}\right)w, \qquad \text{L1: } w \to w - \frac{\eta\lambda}{n}\operatorname{sgn}(w)
+$$
+L2 shrinks proportionally to $w$ (bigger absolute shrink on large weights); L1 shrinks by a constant (bigger relative shrink on small weights → sparsity).
+
+**Q10 — initialization variance** ($z=\sum_k w_kx_k + b$, $n_{in}$ inputs, $n_{act}$ of them $=1$, others $0$):
+$$
+E[z]=0, \qquad \operatorname{Var}(z) = n_{act}\operatorname{Var}(w) + \operatorname{Var}(b), \qquad \operatorname{SD}(z)=\sqrt{\operatorname{Var}(z)}
+$$
+$$
+w\sim N(0,1): \operatorname{Var}(z) = 500+1 = 501,\ \operatorname{SD}\approx 22.4 \qquad
+w\sim N(0,\tfrac{1}{n_{in}}): \operatorname{Var}(z) = \tfrac{500}{1000}+1 = 1.5,\ \operatorname{SD}\approx 1.22
+$$
+Large $|z|$ → $\sigma(z)\approx 0$ or $1$ → $\sigma'(z)\approx 0$ → slow learning. Variances of independent terms add; $\operatorname{Var}(cX)=c^2\operatorname{Var}(X)$.
 
 ## Momentum
 $$

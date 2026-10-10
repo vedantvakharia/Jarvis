@@ -1,7 +1,3 @@
----
-tags: [NN, BITS-F445, ch3]
-source: Nielsen_Ch3_part_a.pdf (57 slides), Nielsen_Ch3_part_b.pdf (13 slides)
----
 # Ch3 — Improving the Way Neural Networks Learn
 
 Back to [[00 - NN Index]] · Previous: [[02 - Ch2 Backpropagation]]

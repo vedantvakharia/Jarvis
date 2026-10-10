@@ -1,7 +1,3 @@
----
-tags: [NN, BITS-F445, ch4]
-source: Nielsen_Ch4.pdf (visual proof of universality)
----
 # Ch4 — A Visual Proof that Neural Nets Can Compute Any Function
 
 Back to [[00 - NN Index]] · Previous: [[03 - Ch3 Improving Learning]]

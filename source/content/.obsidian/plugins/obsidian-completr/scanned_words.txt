@@ -414,6 +414,7 @@ Perceptron
 Perceptrons
 Particular
 Predict
+Polynomial
 IHDR
 IDATx
 IU
@@ -740,6 +741,10 @@ Increasingly
 Into
 Individually
 Increase
+Integrating
+Incremental
+Iterate
+Ignore
 tEXtSoftware
 ta
 tE
@@ -1282,6 +1287,11 @@ trusted
 tcsh
 tip
 thresholded
+takeaways
+thinned
+tower
+towers
+topped
 Matplotlib
 Mj
 MR
@@ -1668,6 +1678,7 @@ Measuring
 Meta
 Memorize
 Modified
+Modifies
 version
 vyj
 vE
@@ -1886,6 +1897,7 @@ vmZ
 vacuously
 violate
 visited
+valley
 pHYs
 pHa
 pi
@@ -2702,6 +2714,10 @@ perceptrons
 plateaued
 penalized
 pdf
+partly
+plateau
+practically
+pit
 xTU
 xK
 xzc
@@ -3073,6 +3089,8 @@ Exhibit
 Epoch
 Epochs
 Equations
+Earlier
+Especially
 bY
 bEq
 bmO
@@ -3528,6 +3546,7 @@ brightness
 blindly
 brittle
 backprop
+bumps
 ZBO
 ZD
 ZIw
@@ -3949,6 +3968,8 @@ neatly
 nan
 num
 nabla
+narrower
+nets
 Do
 DW
 Dm
@@ -4290,6 +4311,8 @@ Decisions
 Digit
 Decreases
 Derivations
+Decrease
+Doesn
 YmU
 Yz
 You
@@ -4446,6 +4469,8 @@ jt
 jL
 jp
 jT
+judge
+jitter
 Rh
 RH
 Rs
@@ -4820,6 +4845,10 @@ Regroup
 Regexes
 Rejecting
 Rearranged
+Regularized
+Raising
+Ramp
+ReLUs
 yN
 yyyG
 yD
@@ -4995,6 +5024,7 @@ khP
 kmg
 kzz
 kstack
+kicks
 NR
 NU
 NS
@@ -5197,6 +5227,8 @@ Neurons
 NaN
 Nielsen
 NLL
+NNs
+Nets
 dK
 dm
 dF
@@ -5903,6 +5935,10 @@ discourage
 distortions
 downward
 disagree
+dots
+dominating
+divergence
+discontinuous
 UU
 UzH
 Um
@@ -7289,6 +7325,7 @@ motivates
 memorization
 memorizing
 mathbf
+minimized
 KB
 KC
 Krauss
@@ -7395,6 +7432,8 @@ Keyboard
 Kinds
 Kills
 Konkani
+Krizhevsky
+Keeps
 lq
 li
 ls
@@ -7785,6 +7824,7 @@ libc
 lone
 lands
 liner
+logit
 ebh
 eL
 ev
@@ -8371,6 +8411,7 @@ executables
 evens
 eta
 expressive
+exponentials
 gee
 go
 gko
@@ -8874,6 +8915,8 @@ HOW
 HL
 Hyper
 Handwriting
+Humans
+Hinton
 Fi
 Financial
 Fischer
@@ -9423,6 +9466,7 @@ hints
 hat
 hyper
 halve
+heuristic
 Oo
 Oc
 OBt
@@ -9613,6 +9657,7 @@ OVVVtt
 Orphan
 Orphans
 Ordinary
+Outputs
 LRZ
 Long
 LSTM
@@ -9859,6 +9904,7 @@ LOT
 Linearly
 Lies
 LR
+LeCun
 Vn
 VIUj
 VU
@@ -9990,6 +10036,7 @@ VnO
 VQ
 Version
 Var
+Variances
 uZ
 uN
 uG
@@ -10263,6 +10310,7 @@ unsaved
 umbrella
 upward
 unstable
+underfits
 Wn
 Ws
 Wc
@@ -10981,6 +11029,7 @@ Calculus
 CANNOT
 CrossEntropyCost
 Chapters
+Categorical
 ot
 oV
 oz
@@ -11299,6 +11348,10 @@ opposed
 odot
 operatorname
 opposes
+overfit
+overshoot
+overshoots
+orientation
 Js
 JS
 JN
@@ -11405,6 +11458,8 @@ JHH
 JT
 Jzo
 Jumpy
+JMLR
+Judge
 Sv
 Sp
 STV
@@ -11988,6 +12043,13 @@ Smoothness
 Sums
 Saturated
 Steepest
+Srivastava
+Sutskever
+Salakhutdinov
+Stepwise
+Sparsity
+Saturates
+Saturation
 Bw
 BO
 Building
@@ -12267,6 +12329,10 @@ Backprop
 Biases
 Bump
 Backwards
+Bigger
+Bad
+Broad
+Bumps
 Gy
 Gbb
 GitHub
@@ -12962,6 +13028,7 @@ flowchart
 fed
 favourite
 flatness
+friction
 rt
 ru
 root
@@ -13680,6 +13747,9 @@ restoring
 rotations
 regularized
 refines
+react
+rescaled
+rectified
 sRR
 sFL
 shows
@@ -14790,6 +14860,10 @@ sim
 sigmoids
 shuffling
 slowdown
+saturates
+stagnating
+shorthand
+staircase
 TA
 Te
 TXp
@@ -15068,6 +15142,7 @@ Track
 Topic
 Tune
 Transpose
+Towers
 XM
 Xiong
 XX
@@ -15847,6 +15922,11 @@ approximated
 aka
 ay
 approve
+analogue
+alert
+arms
+approximators
+approximating
 qiW
 qG
 quantitative
@@ -17001,6 +17081,11 @@ collapsed
 cheaply
 collateral
 collapsing
+compensates
+compass
+chart
+conical
+chapter
 whatever
 write
 will
@@ -17263,6 +17348,9 @@ wwiY
 waitpid
 weather
 weighs
+wiggles
+wobble
+worsens
 Adaptive
 Aware
 Architecture
@@ -17674,3 +17762,7 @@ Ambiguous
 Artificial
 Art
 Artificially
+Achieve
+Adjacent
+Approximated
+Arms

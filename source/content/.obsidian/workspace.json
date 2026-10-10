@@ -13,17 +13,47 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NN/02 - Ch2 Backpropagation.md",
+                "file": "NN/Chapter_1.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "02 - Ch2 Backpropagation"
+              "title": "Chapter_1"
             }
           },
           {
             "id": "6a3eeb22b1256c5c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NN/04 - Ch4 Universality.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "04 - Ch4 Universality"
+            }
+          },
+          {
+            "id": "ce8a6cb42eda73d5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NN/03 - Ch3 Improving Learning.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "03 - Ch3 Improving Learning"
+            }
+          },
+          {
+            "id": "b3a11ca4b95c9729",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -37,7 +67,8 @@
               "title": "00 - NN Index"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -202,14 +233,14 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "1b4710011fc1cd24",
+  "active": "b3a11ca4b95c9729",
   "lastOpenFiles": [
-    "NN/01 - Ch1 Perceptrons, Sigmoid Neurons and Gradient Descent.md",
-    "NN/00 - NN Index.md",
-    "NN/Chapter_1.md",
-    "NN/04 - Ch4 Universality.md",
     "NN/03 - Ch3 Improving Learning.md",
+    "NN/04 - Ch4 Universality.md",
+    "NN/00 - NN Index.md",
     "NN/02 - Ch2 Backpropagation.md",
+    "NN/Chapter_1.md",
+    "NN/01 - Ch1 Perceptrons, Sigmoid Neurons and Gradient Descent.md",
     "TOC/Tut-4-Solutions.md",
     "TOC/Tut-3-Solutions.md",
     "TOC/toc_tutorial_1_2_solutions.md",
