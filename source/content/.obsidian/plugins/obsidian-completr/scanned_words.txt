@@ -415,6 +415,15 @@ Perceptrons
 Particular
 Predict
 Polynomial
+Pushdown
+PDAs
+Palindromes
+Parse
+Precedes
+PDA
+Pop
+Passing
+Primes
 IHDR
 IDATx
 IU
@@ -745,6 +754,8 @@ Integrating
 Incremental
 Iterate
 Ignore
+Introduce
+Inherently
 tEXtSoftware
 ta
 tE
@@ -1292,6 +1303,10 @@ thinned
 tower
 towers
 topped
+tolerate
+touches
+touched
+tall
 Matplotlib
 Mj
 MR
@@ -1679,6 +1694,9 @@ Meta
 Memorize
 Modified
 Modifies
+Matched
+Marker
+Myhill
 version
 vyj
 vE
@@ -2718,6 +2736,13 @@ partly
 plateau
 practically
 pit
+palindromes
+palindrome
+precede
+parenthesised
+pending
+pumped
+parenthesized
 xTU
 xK
 xzc
@@ -3091,6 +3116,9 @@ Epochs
 Equations
 Earlier
 Especially
+Evaluated
+Effectively
+Equivalences
 bY
 bEq
 bmO
@@ -3547,6 +3575,17 @@ blindly
 brittle
 backprop
 bumps
+bind
+bbcbba
+bcbba
+bba
+bbbabaa
+bbabaa
+babaa
+bbc
+baa
+bSba
+bSbba
 ZBO
 ZD
 ZIw
@@ -3970,6 +4009,9 @@ num
 nabla
 narrower
 nets
+nest
+nonterminals
+nonterminal
 Do
 DW
 Dm
@@ -4313,6 +4355,9 @@ Decreases
 Derivations
 Decrease
 Doesn
+Dangling
+Divided
+Decide
 YmU
 Yz
 You
@@ -4381,6 +4426,7 @@ YVAk
 YH
 YIDS
 YZe
+Yield
 ja
 jG
 jV
@@ -4849,6 +4895,8 @@ Regularized
 Raising
 Ramp
 ReLUs
+Rightmost
+Refinement
 yN
 yyyG
 yD
@@ -5229,6 +5277,10 @@ Nielsen
 NLL
 NNs
 Nets
+Node
+Nodes
+Nondeterminism
+Nerode
 dK
 dm
 dF
@@ -5939,6 +5991,9 @@ dots
 dominating
 divergence
 discontinuous
+derivations
+defers
+distinguishes
 UU
 UzH
 Um
@@ -6101,6 +6156,8 @@ UNUSED
 Unambiguous
 Updates
 Universality
+Undecidable
+Unread
 zQ
 zFs
 zc
@@ -7326,6 +7383,8 @@ memorization
 memorizing
 mathbf
 minimized
+mimics
+mergeable
 KB
 KC
 Krauss
@@ -7434,6 +7493,7 @@ Kills
 Konkani
 Krizhevsky
 Keeps
+Know
 lq
 li
 ls
@@ -8412,6 +8472,10 @@ evens
 eta
 expressive
 exponentials
+excess
+empties
+enter
+exempt
 gee
 go
 gko
@@ -8698,6 +8762,8 @@ getpid
 gradual
 generalizing
 grad
+guessed
+generalize
 Hv
 HV
 Hbb
@@ -9174,6 +9240,10 @@ Forcefully
 Forking
 Finitely
 Feedforward
+Fortunately
+Finish
+Finishing
+Fixing
 hz
 hT
 hm
@@ -9467,6 +9537,7 @@ hat
 hyper
 halve
 heuristic
+hang
 Oo
 Oc
 OBt
@@ -9658,6 +9729,7 @@ Orphan
 Orphans
 Ordinary
 Outputs
+Observe
 LRZ
 Long
 LSTM
@@ -9905,6 +9977,7 @@ Linearly
 Lies
 LR
 LeCun
+Leftmost
 Vn
 VIUj
 VU
@@ -10037,6 +10110,7 @@ VQ
 Version
 Var
 Variances
+Via
 uZ
 uN
 uG
@@ -10311,6 +10385,8 @@ umbrella
 upward
 unstable
 underfits
+unambiguity
+unpaired
 Wn
 Ws
 Wc
@@ -11030,6 +11106,13 @@ CANNOT
 CrossEntropyCost
 Chapters
 Categorical
+CFG
+CFGs
+CFL
+CFLs
+Concatenate
+Comment
+Confirm
 ot
 oV
 oz
@@ -11352,6 +11435,9 @@ overfit
 overshoot
 overshoots
 orientation
+outermost
+obeying
+owes
 Js
 JS
 JN
@@ -12050,6 +12136,14 @@ Stepwise
 Sparsity
 Saturates
 Saturation
+Sa
+Sba
+Sbba
+Strictly
+Staying
+Say
+Signatures
+Satisfies
 Bw
 BO
 Building
@@ -12333,6 +12427,7 @@ Bigger
 Bad
 Broad
 Bumps
+Balanced
 Gy
 Gbb
 GitHub
@@ -12532,6 +12627,7 @@ Guess
 Go
 Gradually
 Got
+Grammars
 fvy
 fNW
 fgg
@@ -13029,6 +13125,7 @@ fed
 favourite
 flatness
 friction
+fewest
 rt
 ru
 root
@@ -13750,6 +13847,7 @@ refines
 react
 rescaled
 rectified
+reordering
 sRR
 sFL
 shows
@@ -14864,6 +14962,11 @@ saturates
 stagnating
 shorthand
 staircase
+surrounds
+simulates
+strip
+sentential
+sloppiness
 TA
 Te
 TXp
@@ -15143,6 +15246,10 @@ Topic
 Tune
 Transpose
 Towers
+Topmost
+Terminals
+Tape
+Termination
 XM
 Xiong
 XX
@@ -15927,6 +16034,13 @@ alert
 arms
 approximators
 approximating
+abbcbba
+abba
+abbbabaa
+abaa
+aSa
+adversary
+attaches
 qiW
 qG
 quantitative
@@ -17086,6 +17200,9 @@ compass
 chart
 conical
 chapter
+consulted
+cbba
+contradicting
 whatever
 write
 will
@@ -17766,3 +17883,5 @@ Achieve
 Adjacent
 Approximated
 Arms
+Another
+Approximations
