@@ -424,6 +424,10 @@ PDA
 Pop
 Passing
 Primes
+Pixels
+Pooling
+Placed
+Platt
 IHDR
 IDATx
 IU
@@ -756,6 +760,8 @@ Iterate
 Ignore
 Introduce
 Inherently
+ImageNet
+ILSVRC
 tEXtSoftware
 ta
 tE
@@ -1307,6 +1313,7 @@ tolerate
 touches
 touched
 tall
+teaches
 Matplotlib
 Mj
 MR
@@ -1697,6 +1704,8 @@ Modifies
 Matched
 Marker
 Myhill
+Message
+Measure
 version
 vyj
 vE
@@ -2743,6 +2752,11 @@ parenthesised
 pending
 pumped
 parenthesized
+pooling
+pool
+pooled
+plausible
+pathway
 xTU
 xK
 xzc
@@ -3119,6 +3133,8 @@ Especially
 Evaluated
 Effectively
 Equivalences
+Everywhere
+Ensembling
 bY
 bEq
 bmO
@@ -3586,6 +3602,7 @@ bbc
 baa
 bSba
 bSbba
+blobs
 ZBO
 ZD
 ZIw
@@ -3731,6 +3748,7 @@ Qo
 QD
 QiLqB
 QJCC
+Qualitative
 nD
 ny
 nP
@@ -4012,6 +4030,8 @@ nets
 nest
 nonterminals
 nonterminal
+nonlinearity
+neighbouring
 Do
 DW
 Dm
@@ -4358,6 +4378,8 @@ Doesn
 Dangling
 Divided
 Decide
+Differs
+Discussion
 YmU
 Yz
 You
@@ -4517,6 +4539,7 @@ jp
 jT
 judge
 jitter
+judging
 Rh
 RH
 Rs
@@ -4897,6 +4920,11 @@ Ramp
 ReLUs
 Rightmost
 Refinement
+RGB
+Richer
+Rescale
+Retrieved
+Region
 yN
 yyyG
 yD
@@ -5073,6 +5101,7 @@ kmg
 kzz
 kstack
 kicks
+kernels
 NR
 NU
 NS
@@ -5281,6 +5310,8 @@ Node
 Nodes
 Nondeterminism
 Nerode
+NIPS
+Net
 dK
 dm
 dF
@@ -5994,6 +6025,9 @@ discontinuous
 derivations
 defers
 distinguishes
+darker
+depthwise
+defences
 UU
 UzH
 Um
@@ -6825,6 +6859,9 @@ ing
 isomorphic
 importantly
 infeasible
+inhibition
+interchangeably
+infero
 mJN
 mM
 mL
@@ -7385,6 +7422,12 @@ mathbf
 minimized
 mimics
 mergeable
+misclassified
+motivation
+multinomial
+multiples
+mite
+mattered
 KB
 KC
 Krauss
@@ -7494,6 +7537,7 @@ Konkani
 Krizhevsky
 Keeps
 Know
+KSH
 lq
 li
 ls
@@ -7885,6 +7929,9 @@ lone
 lands
 liner
 logit
+lighting
+leopard
+landmark
 ebh
 eL
 ev
@@ -8476,6 +8523,8 @@ excess
 empties
 enter
 exempt
+elephants
+enlarges
 gee
 go
 gko
@@ -8764,6 +8813,7 @@ generalizing
 grad
 guessed
 generalize
+grille
 Hv
 HV
 Hbb
@@ -9244,6 +9294,10 @@ Fortunately
 Finish
 Finishing
 Fixing
+Figure
+FVs
+Fall
+Flatten
 hz
 hT
 hm
@@ -9978,6 +10032,11 @@ Lies
 LR
 LeCun
 Leftmost
+LeNet
+Lighter
+Le
+Labrador
+LRN
 Vn
 VIUj
 VU
@@ -10111,6 +10170,7 @@ Version
 Var
 Variances
 Via
+Versus
 uZ
 uN
 uG
@@ -10387,6 +10447,8 @@ unstable
 underfits
 unambiguity
 unpaired
+undo
+unsupervised
 Wn
 Ws
 Wc
@@ -11113,6 +11175,10 @@ CFLs
 Concatenate
 Comment
 Confirm
+Convolutional
+Condenses
+Conv
+CIFAR
 ot
 oV
 oz
@@ -11438,6 +11504,8 @@ orientation
 outermost
 obeying
 owes
+originals
+outperformed
 Js
 JS
 JN
@@ -11546,6 +11614,7 @@ Jzo
 Jumpy
 JMLR
 Judge
+Jarrett
 Sv
 Sp
 STV
@@ -12144,6 +12213,14 @@ Staying
 Say
 Signatures
 Satisfies
+Sliding
+Stride
+Simard
+Steinkraus
+Subtract
+Started
+Substantially
+Shrinks
 Bw
 BO
 Building
@@ -12628,6 +12705,8 @@ Go
 Gradually
 Got
 Grammars
+GTX
+Generated
 fvy
 fNW
 fgg
@@ -13126,6 +13205,8 @@ favourite
 flatness
 friction
 fewest
+flattens
+filters
 rt
 ru
 root
@@ -13848,6 +13929,10 @@ react
 rescaled
 rectified
 reordering
+receptive
+rough
+retuned
+regularizer
 sRR
 sFL
 shows
@@ -14967,6 +15052,11 @@ simulates
 strip
 sentential
 sloppiness
+skewing
+soccer
+stationarity
+spaced
+summarizing
 TA
 Te
 TXp
@@ -15250,6 +15340,10 @@ Topmost
 Terminals
 Tape
 Termination
+Tags
+Title
+Trained
+Turk
 XM
 Xiong
 XX
@@ -16041,6 +16135,9 @@ abaa
 aSa
 adversary
 attaches
+augmented
+agnostic
+argmax
 qiW
 qG
 quantitative
@@ -17203,6 +17300,17 @@ chapter
 consulted
 cbba
 contradicting
+convolutional
+conv
+convolutions
+colour
+crawls
+convolution
+crop
+contest
+coloured
+cherry
+crops
 whatever
 write
 will
@@ -17468,6 +17576,7 @@ weighs
 wiggles
 wobble
 worsens
+widened
 Adaptive
 Aware
 Architecture
@@ -17885,3 +17994,7 @@ Approximated
 Arms
 Another
 Approximations
+AlexNet
+Alex
+Amazon
+Augmentation

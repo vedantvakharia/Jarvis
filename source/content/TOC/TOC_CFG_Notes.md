@@ -1,4 +1,3 @@
-# Theory of Computation (CS F351): Context Free Grammars and Pushdown Automata (Lectures CFG-1 to CFG-8)
 
 > Notation used in these notes: `e` (or $\varepsilon$) is the empty string. `=>` means "derives in one step". `=>*` means "derives in zero or more steps". For PDAs, $\vdash$ means "yields in one move" and $\vdash^*$ means "yields in zero or more moves".
 
@@ -39,6 +38,8 @@ A grammar is a **set of rules that generate strings**. You start from one specia
 Take the regular expression $a(a^* \cup b^*)b$.
 
 Any string in it looks like: a leading `a`, then a **middle part** (either only a's or only b's), then a trailing `b`.
+
+(The CFG-1 slide prints the expression as $a(a^* \cup b^*)a$. That is a typo: the slide's own text says "followed by a trailing b", and the rule it builds is $S \to aMb$.)
 
 - Let `S` stand for "a string of the language". Then:
   $$S \to aMb$$
@@ -501,11 +502,11 @@ Why it works: between `if (E)` and its `else` only a **matched** statement `S1` 
 
 ## 10. Computational Problems on Ambiguity
 
-| Problem | Question | Answer |
-|---|---|---|
-| **1** | Given CFG $G$, build an unambiguous CFG $G'$ with $L(G) = L(G')$. | **No algorithm** exists. |
-| **2** | Given CFG $G$, decide whether $G$ is ambiguous. | **Undecidable.** |
-| **3** | Does every CFG have an equivalent unambiguous grammar (even if we cannot construct it by algorithm)? | **No.** Some CFLs are inherently ambiguous. |
+| Problem | Question                                                                                             | Answer                                      |
+| ------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **1**   | Given CFG $G$, build an unambiguous CFG $G'$ with $L(G) = L(G')$.                                    | **No algorithm** exists.                    |
+| **2**   | Given CFG $G$, decide whether $G$ is ambiguous.                                                      | **Undecidable.**                            |
+| **3**   | Does every CFG have an equivalent unambiguous grammar (even if we cannot construct it by algorithm)? | **No.** Some CFLs are inherently ambiguous. |
 
 ### Inherently ambiguous language
 A CFL $L$ is **inherently ambiguous** if **every** grammar for $L$ is ambiguous. (Ambiguity is a property of the language itself, not of one badly written grammar.)
@@ -568,7 +569,7 @@ Note: CFLs are **not** closed under complement in general (contrast with regular
 
 ## 12. Practice Problems with Solutions
 
-(Slide shows the symbols with some characters lost; read problem 4 as $m \neq 2n$ and problem 5 as $n \neq 2m$.)
+(The slide (CFG-4) states problem 4 as $m \le 2n$ and problem 5 as $n \le 2m$. Earlier versions of these notes read them as $m \neq 2n$ and $n \neq 2m$. Both readings are solved below: 4 and 5 are the slide versions, 4' and 5' are the $\neq$ variants.)
 
 ### Problem 1: $L = \{a^m b^n \mid m \ge n\}$
 Matched pairs `a...b` nested, plus extra a's.
@@ -591,7 +592,31 @@ S -> aaSb | A
 A -> aA | e
 ```
 
-### Problem 4: $L = \{a^m b^n \mid m \neq 2n\}$
+### Problem 4: $L = \{a^m b^n \mid m \le 2n\}$
+Every `b` may be matched with **0, 1 or 2** a's. Generate the string from the outside in. Each step adds one `b` on the right and 0, 1 or 2 a's on the left:
+```
+S -> aaSb | aSb | Sb | e
+```
+Check: the a's are always added to the left of `S` and the b's to the right, so the string has the form $a^mb^n$. Each `b` brings at most 2 a's, so $m \le 2n$. Conversely, for any $m \le 2n$, write $m = 2i + j$ with $j \in \{0,1\}$ and $i + j \le n$. Use `aaSb` $i$ times, `aSb` $j$ times and `Sb` $n - i - j$ times, then `S -> e`.
+
+Example, $a^3b^2$ ($3 \le 4$):
+```
+S => aaSb => aaaSbb => aaabb
+```
+
+### Problem 5: $L = \{a^m b^n \mid n \le 2m\}$
+Now every `a` may be matched with **0, 1 or 2** b's:
+```
+S -> aSbb | aSb | aS | e
+```
+Each `a` brings at most 2 b's, so $n \le 2m$. Every pair $m, n$ with $n \le 2m$ is reached the same way as in problem 4.
+
+Example, $a^2b^3$ ($3 \le 4$):
+```
+S => aSbb => aaSbbb => aabbb
+```
+
+### Problem 4' (variant): $L = \{a^m b^n \mid m \neq 2n\}$
 Split into $m > 2n$ **or** $m < 2n$.
 
 **Case $m > 2n$:** same as problem 3 but force at least one extra `a`.
@@ -610,7 +635,7 @@ S -> S1 | S2
 ```
 Check $S_2$: $a^{2k}(a \text{ or } e)\, b^s b^k$ with $s \ge 1$ gives $m \in \{2k, 2k+1\}$ and $n = k + s$, so $m < 2n$. Good.
 
-### Problem 5: $L = \{a^m b^n \mid n \neq 2m\}$
+### Problem 5' (variant): $L = \{a^m b^n \mid n \neq 2m\}$
 Now each `a` is paired with **two** b's. Split into $n > 2m$ **or** $n < 2m$.
 
 **Case $n > 2m$:** nest `a ... bb`, then at least one extra `b` in the middle.
@@ -1127,7 +1152,13 @@ $$((s', e, e), (s, Z)) \qquad\text{and}\qquad ((f, e, Z), (f', e)) \text{ for ea
 
 (Moves out of the start state $s'$ are exempt from the simplicity condition.)
 
-Then fix every transition that violates simplicity, in three stages.
+Then fix every transition that violates simplicity, in three stages. The **order matters**: each stage must not undo the earlier ones.
+
+| Stage | Removes | Must not introduce |
+|---|---|---|
+| 1 | transitions with $\lvert\beta\rvert \ge 2$ | (nothing yet) |
+| 2 | transitions with $\lvert\gamma\rvert > 2$ | any $\lvert\beta\rvert \ge 2$ |
+| 3 | transitions with $\beta = e$ (from states other than $s'$) | any $\lvert\beta\rvert \ge 2$ or $\lvert\gamma\rvert > 2$ |
 
 #### Stage 1: remove transitions with $\lvert\beta\rvert \ge 2$ (pop one at a time)
 Take $((q, a, \beta), (p, \gamma))$ with $\beta = B_1B_2\dots B_n$, $n > 1$. Replace it by moves that pop $B_1, B_2, \dots$ **sequentially**, using new states:
@@ -1234,6 +1265,8 @@ The configuration $(q, x, A)$ has stack **exactly $A$**: this is the "$A$ on top
 **Finishing the proof.** Take $q = s$, $A = Z$, $p = f'$:
 $$S \Rightarrow \langle s, Z, f'\rangle \Rightarrow^* x \iff (s, x, Z) \vdash^*_{M'} (f', e, e) \iff x \in L(M') = L(M)$$
 So $L(G) = L(M)$ and the language of any PDA is a CFL. $\blacksquare$
+
+(The CFG-8 slide says the theorem follows by "replacing $q$ by $s$, $p$ by $f$ and $A$ by $e$" in the claim. Read $s$ and $f$ there as the **new** start and final states $s'$ and $f'$ of $M'$: $\langle s', e, f'\rangle \Rightarrow^* x \iff (s', x, e) \vdash^*_{M'} (f', e, e) \iff x \in L(M')$. This is the same as the $\langle s, Z, f'\rangle$ version above, because the first move from $s'$ is forced to push $Z$ and go to $s$.)
 
 The lecture states the claim without a full proof. The idea of each direction:
 - **Grammar to PDA ($\Rightarrow$):** induction on the number of derivation steps. Each rule type corresponds to one kind of move (read and replace, read and replace by two, or nothing).
@@ -1482,6 +1515,8 @@ K = {s, f}, F = {f}
 | Non-palindromes | `S -> aSa \| bSb \| aAb \| bAa; A -> Aa \| Ab \| e` |
 | Expressions (unambiguous) | `E -> E+T \| T; T -> T*F \| F; F -> (E) \| id` |
 | Equal a's and b's | `S -> aSbS \| bSaS \| e` |
+| $a^mb^n$, $m \le 2n$ | `S -> aaSb \| aSb \| Sb \| e` |
+| $a^mb^n$, $n \le 2m$ | `S -> aSbb \| aSb \| aS \| e` |
 
 ### Facts to remember
 - Regular $\subseteq$ CFL. DFA to CFG: state $q$ becomes non-terminal, $q \to ap$ for $\delta(q,a)=p$, $q \to e$ for final $q$.
