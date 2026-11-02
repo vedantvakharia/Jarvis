@@ -251,23 +251,6 @@ flowchart LR
 Shape tracing: $1 \times 28 \times 28 \to 20 \times 24 \times 24 \to 20 \times 12 \times 12 \to 2880 \to 100 \to 10$ (since $20 \times 12 \times 12 = 2880$).
 
 Params [Computed]: conv $520$; FC1 $2880 \times 100 + 100 = 288{,}100$; output $100 \times 10 + 10 = 1010$; total $289{,}630$.
-
-PyTorch version (sigmoid activations):
-
-```python
-import torch.nn as nn
-model = nn.Sequential(
-    nn.Conv2d(1, 20, kernel_size=5, stride=1),
-    nn.Sigmoid(),
-    nn.MaxPool2d(kernel_size=2, stride=2),
-    nn.Flatten(),
-    nn.Linear(20*12*12, 100),
-    nn.Sigmoid(),
-    nn.Linear(100, 10)
-)
-loss_fn = nn.CrossEntropyLoss()
-```
-
 - The last layer outputs 10 **logits** (raw scores).
 - No Softmax layer is needed, because `CrossEntropyLoss` applies softmax internally.
 
@@ -407,59 +390,19 @@ flowchart LR
 
 ---
 
-# PART 3: From MNIST to ImageNet [Slides]
-
-MNIST is no longer a frontier problem: modern hardware makes training and experimenting on it fast.
-
-**ImageNet (2011 version):** about 16 million colour images, about 20,000 categories, many visually similar (fine-grained). Much harder than MNIST.
-
-**Le et al. (2012):** improved large-scale ImageNet classification from 9.3% to 15.8%. Message: large neural networks can learn useful high-level visual features from huge image datasets, so they might handle problems far harder than MNIST.
-
-Later in 2012, **Krizhevsky, Sutskever, Hinton (KSH)** entered a deep CNN in the ImageNet competition. This network is called **AlexNet** (after first author Alex Krizhevsky).
-
-## ILSVRC-2012 results (slide view)
-
-- About 1.2 million training images, 1000 categories.
-- Some images contain several plausible objects (e.g. a Labrador and a soccer ball), so judging only the single best guess is unfair. Hence **top-5 accuracy**: correct if the true class is among the 5 most likely classes.
-
-| Measure | KSH | Next best entry |
-|---|---|---|
-| Top-5 accuracy | 84.7% | 73.8% |
-| Top-1 accuracy | 63.3% | (not given) |
-
-KSH showed a **large advantage** for deep CNNs on a hard large-scale benchmark.
-
----
-
 # PART 4: The AlexNet paper [Paper]
 
 **Title:** ImageNet Classification with Deep Convolutional Neural Networks (NIPS 2012).
 
-## 4.1 Headline claims
-
-- Trained on the 1.2M-image ILSVRC-2010 set (1000 classes).
-- **ILSVRC-2010 test:** top-1 error **37.5%**, top-5 error **17.0%** (previous best: 45.7% / 25.7%).
-- **ILSVRC-2012 competition:** top-5 test error **15.3%** vs **26.2%** for the second best.
-- Network: **60 million parameters, 650,000 neurons**, 5 conv layers (some followed by max-pooling) + 3 FC layers + final 1000-way softmax.
-- Speed tricks: non-saturating neurons (ReLU), very efficient GPU convolution.
-- Overfitting fix: **dropout** (and data augmentation).
-
-**Error vs accuracy:** error = 100% - accuracy. So top-5 error 15.3% is top-5 accuracy 84.7%, matching the slide.
-
-## 4.2 Why this approach (paper's motivation)
+## 4.1 Why this approach (paper's motivation)
 
 - Realistic images vary a lot, so we need **much larger training sets** (ImageNet: 15M+ images, 22,000+ categories).
 - Even ImageNet is not enough to fully specify the task, so the model needs **prior knowledge** built in.
 - CNNs supply that prior: they assume **stationarity of statistics** (the same kind of pattern can appear anywhere) and **locality of pixel dependencies** (nearby pixels matter most).
 - Compared with a normal FC network of similar size, a CNN has far fewer connections and parameters, so it is easier to train, with only slightly worse theoretical best performance.
 - Depth matters: removing any conv layer hurt performance (each conv layer holds no more than 1% of the parameters, yet removing a middle one costs about 2% top-1).
-- Limits: GPU memory and training time. It trains in **5 to 6 days on two GTX 580 3GB GPUs**.
 
-## 4.3 The dataset
-
-- **ImageNet:** over 15 million labelled high-resolution images, about 22,000 categories, labelled by humans via Amazon Mechanical Turk.
-- **ILSVRC** uses a subset: about 1000 images in each of 1000 categories = about **1.2M training, 50,000 validation, 150,000 test** images.
-- ILSVRC-2010 is the only version with public test labels, so most experiments use it.
+## 4.2 The dataset
 
 **Top-1 vs top-5 error:**
 - Top-1 error: fraction of test images where the model's single best guess is wrong.
@@ -470,7 +413,7 @@ KSH showed a **large advantage** for deep CNNs on a hard large-scale benchmark.
 2. Subtract the **mean activity over the training set** from each pixel.
 3. Nothing else. The network trains on (centered) raw RGB values.
 
-## 4.4 Architecture overview
+## 4.3 Architecture overview
 
 8 learned layers: **5 conv + 3 FC**. Output of the last FC layer goes to a **1000-way softmax**.
 
@@ -524,11 +467,11 @@ ReLU is applied after **every** conv and FC layer. LRN = local response normaliz
 
 Input is $150{,}528$-dimensional ($224 \times 224 \times 3$). The paper's Figure 2 lists neurons per layer as 253,440 - 186,624 - 64,896 - 64,896 - 43,264 - 4096 - 4096 - 1000. (The first number does not equal $96 \times 55 \times 55$; do not rely on it for calculations.)
 
-Pooling size check [Computed]: $(55-3)/2 + 1 = 27$, $(27-3)/2 + 1 = 13$, $(13-3)/2 + 1 = 6$.
+Pooling size check : $(55-3)/2 + 1 = 27$, $(27-3)/2 + 1 = 13$, $(13-3)/2 + 1 = 6$.
 
 Padding note: with plain $224$ input and no padding, Conv1 gives $54.25$, not 55 (people usually say 227 input, or padding, is what really makes the numbers work). The paper text does not state padding, so do not worry about this in an exam.
 
-### Parameter count [Computed]
+### Parameter count
 
 | Layer | Calculation | Params |
 |---|---|---|
@@ -571,8 +514,8 @@ Note: the paper's concern is **faster fitting of the training set** (training sp
 - A GTX 580 has only **3 GB** memory, which limits network size. 1.2M examples are enough to train a net too big for one GPU, so the net is **split across two GPUs**.
 - GPUs can read and write each other's memory directly (no detour via the host computer), which makes this cheap.
 - Scheme: half of the kernels (neurons) on each GPU, **plus a trick: the GPUs communicate only in certain layers.**
-  - Conv3 takes input from **all** Conv2 maps (cross-GPU talk).
-  - Conv4 takes input only from Conv3 maps on **its own** GPU.
+	- Conv3 takes input from **all** Conv2 maps (cross-GPU talk).
+	- Conv4 takes input only from Conv3 maps on **its own** GPU.
 - The connectivity pattern was chosen by cross-validation, tuning communication until it is an acceptable fraction of the computation.
 - Result: reduces top-1 and top-5 error by **1.7% and 1.2%** vs a one-GPU net with half as many kernels per conv layer. The two-GPU net also trains slightly faster.
 
@@ -593,7 +536,6 @@ flowchart LR
     E1 --> F["FC layers (all connected)"]
     E2 --> F
 ```
-
 Cross arrows appear only at Conv3 (and the FC layers). Everywhere else each GPU works alone.
 
 Qualitative result (Figure 3): GPU 1's first-layer kernels are mostly **colour-agnostic** (edges, orientation, frequency), GPU 2's are mostly **colour-specific** (colour blobs). This specialization happens on every run regardless of random initialization.
@@ -617,22 +559,15 @@ Differs from Jarrett et al.'s local contrast normalization because it does not s
 
 Effect: reduces top-1 / top-5 error by **1.4% / 1.2%**. On CIFAR-10: 13% -> 11% test error.
 
-(Note: LRN is rarely used in modern networks; for this course it is still part of the paper.)
-
 ## 4.8 Innovation 4: overlapping pooling
 
-A pooling layer = grid of pooling units spaced $s$ pixels apart, each summarizing a $z \times z$ neighbourhood.
+A pooling layer = grid of pooling units spaced $s$ pixels apart, each summarizing a $z \times z$ neighborhood.
 
 - $s = z$: traditional (non-overlapping) pooling.
 - $s < z$: **overlapping pooling**.
 - AlexNet uses $s = 2,\; z = 3$.
 - Versus non-overlapping $s = 2,\; z = 2$ (same output size): reduces top-1 / top-5 error by **0.4% / 0.3%**.
 - Models with overlapping pooling find it slightly harder to overfit.
-
-```mermaid
-flowchart LR
-    A["Non-overlapping<br/>z=2, s=2<br/>windows touch, no sharing"] -.vs.- B["Overlapping<br/>z=3, s=2<br/>neighbouring windows share a pixel column"]
-```
 
 ---
 
