@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NN/CNN_and_AlexNet_Notes.md",
+                "file": "NN/Nielsen_Ch5_Why_Deep_Networks_Are_Hard_to_Train.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CNN_and_AlexNet_Notes"
+              "title": "Nielsen_Ch5_Why_Deep_Networks_Are_Hard_to_Train"
             }
           }
         ]
@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "ba1ec06a672fb227",
@@ -190,6 +189,8 @@
   },
   "active": "28a4af311d0a515b",
   "lastOpenFiles": [
+    "NN/CNN_and_AlexNet_Notes.md",
+    "NN/Nielsen_Ch5_Why_Deep_Networks_Are_Hard_to_Train.md",
     "TOC/TOC_CFG_Notes.md",
     "TOC/ToC_Minimization Notes.md",
     "NN/04 - Ch4 Universality.md",
@@ -231,8 +232,6 @@
     "FDS/FDS_Midsem_Predicted_Questions.md.tmp.21436.07c7645c19cf",
     "FDS/FDS_Midsem_Predicted_Questions.md",
     "FDS/FDS_Midsem_Predicted_Questions.md.tmp.21436.59cbd312a866",
-    "FDS/Tuts/Tut 2 - Concentration_Inequalities.md",
-    "FDS/FDS_Lecture5_BestFit_Subspaces_SVD.md",
     "FDS/FDS_Lecture5_BestFit_Subspaces_SVD.md.tmp.22136.aa17930858f6",
     "FDS/Tuts",
     "FDS/New folder",

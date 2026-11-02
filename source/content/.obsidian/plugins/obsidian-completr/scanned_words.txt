@@ -428,6 +428,9 @@ Pixels
 Pooling
 Placed
 Platt
+Paradox
+Parity
+Puzzle
 IHDR
 IDATx
 IU
@@ -3135,6 +3138,7 @@ Effectively
 Equivalences
 Everywhere
 Ensembling
+Exploding
 bY
 bEq
 bmO
@@ -3603,6 +3607,7 @@ baa
 bSba
 bSbba
 blobs
+backing
 ZBO
 ZD
 ZIw
@@ -6028,6 +6033,7 @@ distinguishes
 darker
 depthwise
 defences
+delicate
 UU
 UzH
 Um
@@ -6192,6 +6198,8 @@ Updates
 Universality
 Undecidable
 Unread
+Unstable
+Unroll
 zQ
 zFs
 zc
@@ -6862,6 +6870,7 @@ infeasible
 inhibition
 interchangeably
 infero
+initialiser
 mJN
 mM
 mL
@@ -7428,6 +7437,10 @@ multinomial
 multiples
 mite
 mattered
+memorising
+minterm
+multiplier
+multipliers
 KB
 KC
 Krauss
@@ -9298,6 +9311,7 @@ Figure
 FVs
 Fall
 Flatten
+Furst
 hz
 hT
 hm
@@ -11179,6 +11193,7 @@ Convolutional
 Condenses
 Conv
 CIFAR
+Catch
 ot
 oV
 oz
@@ -12221,6 +12236,8 @@ Subtract
 Started
 Substantially
 Shrinks
+Saxe
+Sipser
 Bw
 BO
 Building
@@ -12505,6 +12522,8 @@ Bad
 Broad
 Bumps
 Balanced
+Bar
+Become
 Gy
 Gbb
 GitHub
@@ -13933,6 +13952,8 @@ receptive
 rough
 retuned
 regularizer
+representational
+rarer
 sRR
 sFL
 shows
@@ -15404,6 +15425,7 @@ XBRHH
 XnA
 XU
 XN
+XORs
 az
 aog
 ate

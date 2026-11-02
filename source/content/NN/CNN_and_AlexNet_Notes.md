@@ -620,8 +620,6 @@ flowchart LR
     end
 ```
 
-PyTorch note: `nn.Dropout(p=0.5)` instead scales the kept neurons by 2 **during training**, so no change is needed at test time. Same net effect.
-
 ---
 
 ## 4.10 Details of learning
@@ -701,16 +699,6 @@ Half for training, half for testing. Net with an extra 6th conv layer: top-1 **6
 ---
 
 # PART 5: Slides vs paper, and why AlexNet mattered
-
-**Techniques in AlexNet that you already know from the course:**
-
-- Conv layers and local receptive fields
-- Max-pooling
-- ReLU
-- Data augmentation (random crops and reflections)
-- Dropout
-- L2 / weight decay
-- Momentum-based mini-batch SGD
 
 **Why was it a landmark then?**
 1. Showed a deep CNN can work at **ImageNet scale**.
