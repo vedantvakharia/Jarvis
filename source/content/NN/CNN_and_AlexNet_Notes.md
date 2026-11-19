@@ -133,7 +133,6 @@ The factor 576 is just $24 \times 24$: each filter is reused at 576 positions.
 ## 1.7 Pooling layers
 
 Placed right after conv layers.
-
 - Condenses each feature map.
 - Reduces spatial size, so later layers deal with a more compact summary of detected features.
 - Works on each feature map separately.
@@ -141,7 +140,6 @@ Placed right after conv layers.
 ### Max pooling
 
 Each pooling unit outputs the **maximum** activation in a $2 \times 2$ region.
-
 - $2 \times 2$ max-pooling with stride 2 turns $24 \times 24$ into $12 \times 12$.
 - **No trainable weights or biases** in pooling.
 

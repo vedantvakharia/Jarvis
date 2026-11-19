@@ -431,6 +431,7 @@ Platt
 Paradox
 Parity
 Puzzle
+Pictures
 IHDR
 IDATx
 IU
@@ -765,6 +766,7 @@ Introduce
 Inherently
 ImageNet
 ILSVRC
+Isolated
 tEXtSoftware
 ta
 tE
@@ -1928,6 +1930,7 @@ vacuously
 violate
 visited
 valley
+versa
 pHYs
 pHa
 pi
@@ -3139,6 +3142,9 @@ Equivalences
 Everywhere
 Ensembling
 Exploding
+Erdos
+Explore
+Exploring
 bY
 bEq
 bmO
@@ -3608,6 +3614,7 @@ bSba
 bSbba
 blobs
 backing
+breadth
 ZBO
 ZD
 ZIw
@@ -4930,6 +4937,7 @@ Richer
 Rescale
 Retrieved
 Region
+Renyi
 yN
 yyyG
 yD
@@ -6034,6 +6042,7 @@ darker
 depthwise
 defences
 delicate
+dodged
 UU
 UzH
 Um
@@ -6200,6 +6209,7 @@ Undecidable
 Unread
 Unstable
 Unroll
+Unseen
 zQ
 zFs
 zc
@@ -7441,6 +7451,7 @@ memorising
 minterm
 multiplier
 multipliers
+maths
 KB
 KC
 Krauss
@@ -7945,6 +7956,7 @@ logit
 lighting
 leopard
 landmark
+loneliest
 ebh
 eL
 ev
@@ -12238,6 +12250,11 @@ Substantially
 Shrinks
 Saxe
 Sipser
+Subcritical
+Supercritical
+Spencer
+Simulating
+Sweep
 Bw
 BO
 Building
@@ -12524,6 +12541,7 @@ Bumps
 Balanced
 Bar
 Become
+Below
 Gy
 Gbb
 GitHub
@@ -12726,6 +12744,7 @@ Got
 Grammars
 GTX
 Generated
+Giant
 fvy
 fNW
 fgg
@@ -13226,6 +13245,7 @@ friction
 fewest
 flattens
 filters
+flavour
 rt
 ru
 root
@@ -15078,6 +15098,12 @@ soccer
 stationarity
 spaced
 summarizing
+successes
+surprise
+suddenly
+sharpness
+subcritical
+straddle
 TA
 Te
 TXp
@@ -15365,6 +15391,9 @@ Tags
 Title
 Trained
 Turk
+Thresholds
+Triangles
+Turning
 XM
 Xiong
 XX
@@ -16267,6 +16296,7 @@ quietly
 quintuple
 quicker
 quad
+quantities
 cd
 change
 cat
@@ -17333,6 +17363,11 @@ contest
 coloured
 cherry
 crops
+citation
+crosses
+concentrating
+chances
+concave
 whatever
 write
 will
@@ -18020,3 +18055,4 @@ AlexNet
 Alex
 Amazon
 Augmentation
+Alon
